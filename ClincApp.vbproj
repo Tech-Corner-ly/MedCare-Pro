@@ -92,131 +92,131 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\ClsMain.vb" />
-    <Compile Include="frmAddAdministrative.Designer.vb">
+    <Compile Include="frm\frmAddAdministrative.Designer.vb">
       <DependentUpon>frmAddAdministrative.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAddAdministrative.vb">
+    <Compile Include="frm\frmAddAdministrative.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddCategory.Designer.vb">
+    <Compile Include="frm\frmAddCategory.Designer.vb">
       <DependentUpon>frmAddCategory.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAddCategory.vb">
+    <Compile Include="frm\frmAddCategory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddDoctorsAppointmentSchedule.Designer.vb">
+    <Compile Include="frm\frmAddDoctorsAppointmentSchedule.Designer.vb">
       <DependentUpon>frmAddDoctorsAppointmentSchedule.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAddDoctorsAppointmentSchedule.vb">
+    <Compile Include="frm\frmAddDoctorsAppointmentSchedule.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddEmploye.Designer.vb">
+    <Compile Include="frm\frmAddEmploye.Designer.vb">
       <DependentUpon>frmAddEmploye.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAddEmploye.vb">
+    <Compile Include="frm\frmAddEmploye.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddItemsServices.Designer.vb">
+    <Compile Include="frm\frmAddItemsServices.Designer.vb">
       <DependentUpon>frmAddItemsServices.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAddItemsServices.vb">
+    <Compile Include="frm\frmAddItemsServices.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdministrative.Designer.vb">
+    <Compile Include="frm\frmAdministrative.Designer.vb">
       <DependentUpon>frmAdministrative.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAdministrative.vb">
+    <Compile Include="frm\frmAdministrative.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdministrativeStructure.Designer.vb">
+    <Compile Include="frm\frmAdministrativeStructure.Designer.vb">
       <DependentUpon>frmAdministrativeStructure.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAdministrativeStructure.vb">
+    <Compile Include="frm\frmAdministrativeStructure.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBookingInquiries.Designer.vb">
+    <Compile Include="frm\frmBookingInquiries.Designer.vb">
       <DependentUpon>frmBookingInquiries.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmBookingInquiries.vb">
+    <Compile Include="frm\frmBookingInquiries.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCategory.Designer.vb">
+    <Compile Include="frm\frmCategory.Designer.vb">
       <DependentUpon>frmCategory.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmCategory.vb">
+    <Compile Include="frm\frmCategory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDoctorsAppointmentSchedule.Designer.vb">
+    <Compile Include="frm\frmDoctorsAppointmentSchedule.Designer.vb">
       <DependentUpon>frmDoctorsAppointmentSchedule.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmDoctorsAppointmentSchedule.vb">
+    <Compile Include="frm\frmDoctorsAppointmentSchedule.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEmployees.Designer.vb">
+    <Compile Include="frm\frmEmployees.Designer.vb">
       <DependentUpon>frmEmployees.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmEmployees.vb">
+    <Compile Include="frm\frmEmployees.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmItemsServices.Designer.vb">
+    <Compile Include="frm\frmItemsServices.Designer.vb">
       <DependentUpon>frmItemsServices.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmItemsServices.vb">
+    <Compile Include="frm\frmItemsServices.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOrder.Designer.vb">
+    <Compile Include="frm\frmOrder.Designer.vb">
       <DependentUpon>frmOrder.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmOrder.vb">
+    <Compile Include="frm\frmOrder.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="myVarPub.vb" />
-    <Compile Include="frm_addDocPriceServices.Designer.vb">
+    <Compile Include="Module\myVarPub.vb" />
+    <Compile Include="frm\frm_addDocPriceServices.Designer.vb">
       <DependentUpon>frm_addDocPriceServices.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_addDocPriceServices.vb">
+    <Compile Include="frm\frm_addDocPriceServices.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_BillingStatement.Designer.vb">
+    <Compile Include="frm\frm_BillingStatement.Designer.vb">
       <DependentUpon>frm_BillingStatement.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_BillingStatement.vb">
+    <Compile Include="frm\frm_BillingStatement.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_BillPatient.Designer.vb">
+    <Compile Include="frm\frm_BillPatient.Designer.vb">
       <DependentUpon>frm_BillPatient.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_BillPatient.vb">
+    <Compile Include="frm\frm_BillPatient.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Clinic.Designer.vb">
+    <Compile Include="frm\frm_Clinic.Designer.vb">
       <DependentUpon>frm_Clinic.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_Clinic.vb">
+    <Compile Include="frm\frm_Clinic.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_DocPriceServices.Designer.vb">
+    <Compile Include="frm\frm_DocPriceServices.Designer.vb">
       <DependentUpon>frm_DocPriceServices.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_DocPriceServices.vb">
+    <Compile Include="frm\frm_DocPriceServices.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_DocSpecialization.Designer.vb">
+    <Compile Include="frm\frm_DocSpecialization.Designer.vb">
       <DependentUpon>frm_DocSpecialization.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_DocSpecialization.vb">
+    <Compile Include="frm\frm_DocSpecialization.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Doctors.Designer.vb">
+    <Compile Include="frm\frm_Doctors.Designer.vb">
       <DependentUpon>frm_Doctors.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_Doctors.vb">
+    <Compile Include="frm\frm_Doctors.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_EntrySheet.Designer.vb">
+    <Compile Include="frm\frm_EntrySheet.Designer.vb">
       <DependentUpon>frm_EntrySheet.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_EntrySheet.vb">
+    <Compile Include="frm\frm_EntrySheet.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_main.vb">
@@ -226,31 +226,31 @@
       <DependentUpon>frm_main.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_DocServices.Designer.vb">
+    <Compile Include="frm\frm_DocServices.Designer.vb">
       <DependentUpon>frm_DocServices.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_DocServices.vb">
+    <Compile Include="frm\frm_DocServices.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Patient.Designer.vb">
+    <Compile Include="frm\frm_Patient.Designer.vb">
       <DependentUpon>frm_Patient.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_Patient.vb">
+    <Compile Include="frm\frm_Patient.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Receipt.Designer.vb">
+    <Compile Include="frm\frm_Receipt.Designer.vb">
       <DependentUpon>frm_Receipt.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_Receipt.vb">
+    <Compile Include="frm\frm_Receipt.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Receivables.Designer.vb">
+    <Compile Include="frm\frm_Receivables.Designer.vb">
       <DependentUpon>frm_Receivables.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm_Receivables.vb">
+    <Compile Include="frm\frm_Receivables.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="md_conn.vb" />
+    <Compile Include="Module\md_conn.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -269,82 +269,82 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmAddAdministrative.resx">
+    <EmbeddedResource Include="frm\frmAddAdministrative.resx">
       <DependentUpon>frmAddAdministrative.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddCategory.resx">
+    <EmbeddedResource Include="frm\frmAddCategory.resx">
       <DependentUpon>frmAddCategory.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddDoctorsAppointmentSchedule.resx">
+    <EmbeddedResource Include="frm\frmAddDoctorsAppointmentSchedule.resx">
       <DependentUpon>frmAddDoctorsAppointmentSchedule.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddEmploye.resx">
+    <EmbeddedResource Include="frm\frmAddEmploye.resx">
       <DependentUpon>frmAddEmploye.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAddItemsServices.resx">
+    <EmbeddedResource Include="frm\frmAddItemsServices.resx">
       <DependentUpon>frmAddItemsServices.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAdministrative.resx">
+    <EmbeddedResource Include="frm\frmAdministrative.resx">
       <DependentUpon>frmAdministrative.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAdministrativeStructure.resx">
+    <EmbeddedResource Include="frm\frmAdministrativeStructure.resx">
       <DependentUpon>frmAdministrativeStructure.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBookingInquiries.resx">
+    <EmbeddedResource Include="frm\frmBookingInquiries.resx">
       <DependentUpon>frmBookingInquiries.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCategory.resx">
+    <EmbeddedResource Include="frm\frmCategory.resx">
       <DependentUpon>frmCategory.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDoctorsAppointmentSchedule.resx">
+    <EmbeddedResource Include="frm\frmDoctorsAppointmentSchedule.resx">
       <DependentUpon>frmDoctorsAppointmentSchedule.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEmployees.resx">
+    <EmbeddedResource Include="frm\frmEmployees.resx">
       <DependentUpon>frmEmployees.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmItemsServices.resx">
+    <EmbeddedResource Include="frm\frmItemsServices.resx">
       <DependentUpon>frmItemsServices.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOrder.resx">
+    <EmbeddedResource Include="frm\frmOrder.resx">
       <DependentUpon>frmOrder.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_addDocPriceServices.resx">
+    <EmbeddedResource Include="frm\frm_addDocPriceServices.resx">
       <DependentUpon>frm_addDocPriceServices.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_BillingStatement.resx">
+    <EmbeddedResource Include="frm\frm_BillingStatement.resx">
       <DependentUpon>frm_BillingStatement.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_BillPatient.resx">
+    <EmbeddedResource Include="frm\frm_BillPatient.resx">
       <DependentUpon>frm_BillPatient.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Clinic.resx">
+    <EmbeddedResource Include="frm\frm_Clinic.resx">
       <DependentUpon>frm_Clinic.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_DocPriceServices.resx">
+    <EmbeddedResource Include="frm\frm_DocPriceServices.resx">
       <DependentUpon>frm_DocPriceServices.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_DocServices.resx">
+    <EmbeddedResource Include="frm\frm_DocServices.resx">
       <DependentUpon>frm_DocServices.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_DocSpecialization.resx">
+    <EmbeddedResource Include="frm\frm_DocSpecialization.resx">
       <DependentUpon>frm_DocSpecialization.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Doctors.resx">
+    <EmbeddedResource Include="frm\frm_Doctors.resx">
       <DependentUpon>frm_Doctors.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_EntrySheet.resx">
+    <EmbeddedResource Include="frm\frm_EntrySheet.resx">
       <DependentUpon>frm_EntrySheet.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_main.resx">
       <DependentUpon>frm_main.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Patient.resx">
+    <EmbeddedResource Include="frm\frm_Patient.resx">
       <DependentUpon>frm_Patient.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Receipt.resx">
+    <EmbeddedResource Include="frm\frm_Receipt.resx">
       <DependentUpon>frm_Receipt.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Receivables.resx">
+    <EmbeddedResource Include="frm\frm_Receivables.resx">
       <DependentUpon>frm_Receivables.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
