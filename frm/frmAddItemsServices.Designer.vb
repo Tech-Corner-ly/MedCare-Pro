@@ -43,6 +43,9 @@ Partial Class frmAddItemsServices
         Me.txtItemName = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnPrint = New System.Windows.Forms.Button()
+        Me.btnPrintBarcode = New System.Windows.Forms.Button()
+        Me.btnMovementOfItem = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
@@ -157,19 +160,16 @@ Partial Class frmAddItemsServices
         Me.dgvUnit = New System.Windows.Forms.DataGridView()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TabCompositeMaterial = New System.Windows.Forms.TabPage()
+        Me.btnAddToCompositeMaterial = New System.Windows.Forms.Button()
+        Me.txtSearchCompositeMaterial = New System.Windows.Forms.TextBox()
+        Me.dgvCompositeMaterial = New System.Windows.Forms.DataGridView()
         Me.btnLast = New System.Windows.Forms.Button()
         Me.btnPrevious = New System.Windows.Forms.Button()
         Me.btnNext = New System.Windows.Forms.Button()
         Me.btnFirst = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
-        Me.TabCompositeMaterial = New System.Windows.Forms.TabPage()
-        Me.dgvCompositeMaterial = New System.Windows.Forms.DataGridView()
-        Me.txtSearchCompositeMaterial = New System.Windows.Forms.TextBox()
-        Me.btnAddToCompositeMaterial = New System.Windows.Forms.Button()
-        Me.btnMovementOfItem = New System.Windows.Forms.Button()
-        Me.btnPrintBarcode = New System.Windows.Forms.Button()
-        Me.btnPrint = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -313,6 +313,33 @@ Partial Class frmAddItemsServices
         Me.GroupBox2.Size = New System.Drawing.Size(906, 70)
         Me.GroupBox2.TabIndex = 35
         Me.GroupBox2.TabStop = False
+        '
+        'btnPrint
+        '
+        Me.btnPrint.Location = New System.Drawing.Point(281, 19)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(85, 37)
+        Me.btnPrint.TabIndex = 7
+        Me.btnPrint.Text = "طباعة"
+        Me.btnPrint.UseVisualStyleBackColor = True
+        '
+        'btnPrintBarcode
+        '
+        Me.btnPrintBarcode.Location = New System.Drawing.Point(372, 19)
+        Me.btnPrintBarcode.Name = "btnPrintBarcode"
+        Me.btnPrintBarcode.Size = New System.Drawing.Size(85, 37)
+        Me.btnPrintBarcode.TabIndex = 6
+        Me.btnPrintBarcode.Text = "طباعة باركود"
+        Me.btnPrintBarcode.UseVisualStyleBackColor = True
+        '
+        'btnMovementOfItem
+        '
+        Me.btnMovementOfItem.Location = New System.Drawing.Point(463, 19)
+        Me.btnMovementOfItem.Name = "btnMovementOfItem"
+        Me.btnMovementOfItem.Size = New System.Drawing.Size(85, 37)
+        Me.btnMovementOfItem.TabIndex = 5
+        Me.btnMovementOfItem.Text = "حركة مادة"
+        Me.btnMovementOfItem.UseVisualStyleBackColor = True
         '
         'btnDelete
         '
@@ -1447,6 +1474,44 @@ Partial Class frmAddItemsServices
         Me.Column4.Name = "Column4"
         Me.Column4.ReadOnly = True
         '
+        'TabCompositeMaterial
+        '
+        Me.TabCompositeMaterial.BackColor = System.Drawing.SystemColors.Control
+        Me.TabCompositeMaterial.Controls.Add(Me.btnAddToCompositeMaterial)
+        Me.TabCompositeMaterial.Controls.Add(Me.txtSearchCompositeMaterial)
+        Me.TabCompositeMaterial.Controls.Add(Me.dgvCompositeMaterial)
+        Me.TabCompositeMaterial.Location = New System.Drawing.Point(4, 22)
+        Me.TabCompositeMaterial.Name = "TabCompositeMaterial"
+        Me.TabCompositeMaterial.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabCompositeMaterial.Size = New System.Drawing.Size(902, 469)
+        Me.TabCompositeMaterial.TabIndex = 2
+        Me.TabCompositeMaterial.Text = "المادة او الخدمة المركبة"
+        '
+        'btnAddToCompositeMaterial
+        '
+        Me.btnAddToCompositeMaterial.Location = New System.Drawing.Point(6, 6)
+        Me.btnAddToCompositeMaterial.Name = "btnAddToCompositeMaterial"
+        Me.btnAddToCompositeMaterial.Size = New System.Drawing.Size(123, 22)
+        Me.btnAddToCompositeMaterial.TabIndex = 136
+        Me.btnAddToCompositeMaterial.Text = "اضافة "
+        Me.btnAddToCompositeMaterial.UseVisualStyleBackColor = True
+        '
+        'txtSearchCompositeMaterial
+        '
+        Me.txtSearchCompositeMaterial.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtSearchCompositeMaterial.Location = New System.Drawing.Point(135, 6)
+        Me.txtSearchCompositeMaterial.Name = "txtSearchCompositeMaterial"
+        Me.txtSearchCompositeMaterial.Size = New System.Drawing.Size(761, 22)
+        Me.txtSearchCompositeMaterial.TabIndex = 135
+        '
+        'dgvCompositeMaterial
+        '
+        Me.dgvCompositeMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvCompositeMaterial.Location = New System.Drawing.Point(6, 34)
+        Me.dgvCompositeMaterial.Name = "dgvCompositeMaterial"
+        Me.dgvCompositeMaterial.Size = New System.Drawing.Size(890, 429)
+        Me.dgvCompositeMaterial.TabIndex = 0
+        '
         'btnLast
         '
         Me.btnLast.Location = New System.Drawing.Point(869, 92)
@@ -1499,71 +1564,6 @@ Partial Class frmAddItemsServices
         Me.btnSearch.TabIndex = 135
         Me.btnSearch.Text = "--"
         Me.btnSearch.UseVisualStyleBackColor = True
-        '
-        'TabCompositeMaterial
-        '
-        Me.TabCompositeMaterial.BackColor = System.Drawing.SystemColors.Control
-        Me.TabCompositeMaterial.Controls.Add(Me.btnAddToCompositeMaterial)
-        Me.TabCompositeMaterial.Controls.Add(Me.txtSearchCompositeMaterial)
-        Me.TabCompositeMaterial.Controls.Add(Me.dgvCompositeMaterial)
-        Me.TabCompositeMaterial.Location = New System.Drawing.Point(4, 22)
-        Me.TabCompositeMaterial.Name = "TabCompositeMaterial"
-        Me.TabCompositeMaterial.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabCompositeMaterial.Size = New System.Drawing.Size(902, 469)
-        Me.TabCompositeMaterial.TabIndex = 2
-        Me.TabCompositeMaterial.Text = "المادة او الخدمة المركبة"
-        '
-        'dgvCompositeMaterial
-        '
-        Me.dgvCompositeMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvCompositeMaterial.Location = New System.Drawing.Point(6, 34)
-        Me.dgvCompositeMaterial.Name = "dgvCompositeMaterial"
-        Me.dgvCompositeMaterial.Size = New System.Drawing.Size(890, 429)
-        Me.dgvCompositeMaterial.TabIndex = 0
-        '
-        'txtSearchCompositeMaterial
-        '
-        Me.txtSearchCompositeMaterial.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtSearchCompositeMaterial.Location = New System.Drawing.Point(135, 6)
-        Me.txtSearchCompositeMaterial.Name = "txtSearchCompositeMaterial"
-        Me.txtSearchCompositeMaterial.Size = New System.Drawing.Size(761, 22)
-        Me.txtSearchCompositeMaterial.TabIndex = 135
-        '
-        'btnAddToCompositeMaterial
-        '
-        Me.btnAddToCompositeMaterial.Location = New System.Drawing.Point(6, 6)
-        Me.btnAddToCompositeMaterial.Name = "btnAddToCompositeMaterial"
-        Me.btnAddToCompositeMaterial.Size = New System.Drawing.Size(123, 22)
-        Me.btnAddToCompositeMaterial.TabIndex = 136
-        Me.btnAddToCompositeMaterial.Text = "اضافة "
-        Me.btnAddToCompositeMaterial.UseVisualStyleBackColor = True
-        '
-        'btnMovementOfItem
-        '
-        Me.btnMovementOfItem.Location = New System.Drawing.Point(463, 19)
-        Me.btnMovementOfItem.Name = "btnMovementOfItem"
-        Me.btnMovementOfItem.Size = New System.Drawing.Size(85, 37)
-        Me.btnMovementOfItem.TabIndex = 5
-        Me.btnMovementOfItem.Text = "حركة مادة"
-        Me.btnMovementOfItem.UseVisualStyleBackColor = True
-        '
-        'btnPrintBarcode
-        '
-        Me.btnPrintBarcode.Location = New System.Drawing.Point(372, 19)
-        Me.btnPrintBarcode.Name = "btnPrintBarcode"
-        Me.btnPrintBarcode.Size = New System.Drawing.Size(85, 37)
-        Me.btnPrintBarcode.TabIndex = 6
-        Me.btnPrintBarcode.Text = "طباعة باركود"
-        Me.btnPrintBarcode.UseVisualStyleBackColor = True
-        '
-        'btnPrint
-        '
-        Me.btnPrint.Location = New System.Drawing.Point(281, 19)
-        Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(85, 37)
-        Me.btnPrint.TabIndex = 7
-        Me.btnPrint.Text = "طباعة"
-        Me.btnPrint.UseVisualStyleBackColor = True
         '
         'frmAddItemsServices
         '

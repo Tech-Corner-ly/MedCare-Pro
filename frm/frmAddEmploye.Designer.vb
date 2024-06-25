@@ -76,7 +76,7 @@ Partial Class frmAddEmploye
         Me.txtPassportID = New System.Windows.Forms.TextBox()
         Me.TabVacations = New System.Windows.Forms.TabPage()
         Me.TabFamily = New System.Windows.Forms.TabPage()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
+        Me.cmbMaritalStatus = New System.Windows.Forms.ComboBox()
         Me.Label42 = New System.Windows.Forms.Label()
         Me.Label36 = New System.Windows.Forms.Label()
         Me.txtFamilyNum = New System.Windows.Forms.TextBox()
@@ -99,7 +99,7 @@ Partial Class frmAddEmploye
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label39 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cmbClinic = New System.Windows.Forms.ComboBox()
         Me.Label38 = New System.Windows.Forms.Label()
         Me.TabOnline = New System.Windows.Forms.TabPage()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -704,7 +704,7 @@ Partial Class frmAddEmploye
         'TabFamily
         '
         Me.TabFamily.BackColor = System.Drawing.SystemColors.Control
-        Me.TabFamily.Controls.Add(Me.ComboBox5)
+        Me.TabFamily.Controls.Add(Me.cmbMaritalStatus)
         Me.TabFamily.Controls.Add(Me.Label42)
         Me.TabFamily.Controls.Add(Me.Label36)
         Me.TabFamily.Controls.Add(Me.txtFamilyNum)
@@ -719,13 +719,13 @@ Partial Class frmAddEmploye
         Me.TabFamily.TabIndex = 5
         Me.TabFamily.Text = "عائلي"
         '
-        'ComboBox5
+        'cmbMaritalStatus
         '
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(189, 76)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(132, 21)
-        Me.ComboBox5.TabIndex = 57
+        Me.cmbMaritalStatus.FormattingEnabled = True
+        Me.cmbMaritalStatus.Location = New System.Drawing.Point(189, 76)
+        Me.cmbMaritalStatus.Name = "cmbMaritalStatus"
+        Me.cmbMaritalStatus.Size = New System.Drawing.Size(132, 21)
+        Me.cmbMaritalStatus.TabIndex = 57
         '
         'Label42
         '
@@ -843,7 +843,7 @@ Partial Class frmAddEmploye
         Me.TabClinicsServices.Controls.Add(Me.TextBox1)
         Me.TabClinicsServices.Controls.Add(Me.ComboBox2)
         Me.TabClinicsServices.Controls.Add(Me.Label39)
-        Me.TabClinicsServices.Controls.Add(Me.ComboBox1)
+        Me.TabClinicsServices.Controls.Add(Me.cmbClinic)
         Me.TabClinicsServices.Controls.Add(Me.Label38)
         Me.TabClinicsServices.Location = New System.Drawing.Point(4, 22)
         Me.TabClinicsServices.Name = "TabClinicsServices"
@@ -938,13 +938,13 @@ Partial Class frmAddEmploye
         Me.Label39.TabIndex = 25
         Me.Label39.Text = "الكشف :"
         '
-        'ComboBox1
+        'cmbClinic
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(15, 19)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(235, 21)
-        Me.ComboBox1.TabIndex = 24
+        Me.cmbClinic.FormattingEnabled = True
+        Me.cmbClinic.Location = New System.Drawing.Point(15, 19)
+        Me.cmbClinic.Name = "cmbClinic"
+        Me.cmbClinic.Size = New System.Drawing.Size(235, 21)
+        Me.cmbClinic.TabIndex = 24
         '
         'Label38
         '
@@ -1543,9 +1543,9 @@ Partial Class frmAddEmploye
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label39 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cmbClinic As ComboBox
     Friend WithEvents Label38 As Label
     Friend WithEvents TabOnline As TabPage
-    Friend WithEvents ComboBox5 As ComboBox
+    Friend WithEvents cmbMaritalStatus As ComboBox
     Friend WithEvents Label42 As Label
 End Class
