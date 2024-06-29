@@ -15,7 +15,7 @@ Public Class ClsMain
         xLbl.Text = CStr(xDv.Count)
     End Sub
 
-    Public Sub MyCodes_CboFill(ByVal xCbo As ComboBox, ByVal xDt As DataTable, ByVal xDm As String, ByVal xVm As String)
+    Public Sub MyCodes_CmbFill(ByVal xCbo As ComboBox, ByVal xDt As DataTable, ByVal xDm As String, ByVal xVm As String)
         xCbo.DataSource = xDt
         xCbo.DisplayMember = xDm
         xCbo.ValueMember = xVm

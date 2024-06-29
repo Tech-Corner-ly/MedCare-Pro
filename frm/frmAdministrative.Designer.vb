@@ -25,6 +25,9 @@ Partial Class frmAdministrative
         Me.components = New System.ComponentModel.Container()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.DGV = New System.Windows.Forms.DataGridView()
+        Me.الكود = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.BGW_Load = New System.ComponentModel.BackgroundWorker()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
@@ -38,9 +41,6 @@ Partial Class frmAdministrative
         Me.خياراتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.مساعدةToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.خروجToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.الكود = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnAddAdministrative = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
@@ -68,6 +68,23 @@ Partial Class frmAdministrative
         Me.DGV.Name = "DGV"
         Me.DGV.Size = New System.Drawing.Size(546, 351)
         Me.DGV.TabIndex = 10
+        '
+        'الكود
+        '
+        Me.الكود.HeaderText = "الكود"
+        Me.الكود.Name = "الكود"
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "اسم الادارة "
+        Me.Column1.Name = "Column1"
+        Me.Column1.Width = 200
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "الادارة الاب"
+        Me.Column2.Name = "Column2"
+        Me.Column2.Width = 200
         '
         'BGW_Load
         '
@@ -147,23 +164,6 @@ Partial Class frmAdministrative
         Me.خروجToolStripMenuItem.Name = "خروجToolStripMenuItem"
         Me.خروجToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.خروجToolStripMenuItem.Text = "خروج"
-        '
-        'الكود
-        '
-        Me.الكود.HeaderText = "الكود"
-        Me.الكود.Name = "الكود"
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "اسم الادارة "
-        Me.Column1.Name = "Column1"
-        Me.Column1.Width = 200
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "الادارة الاب"
-        Me.Column2.Name = "Column2"
-        Me.Column2.Width = 200
         '
         'GroupBox1
         '

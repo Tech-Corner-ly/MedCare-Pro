@@ -24,6 +24,8 @@ Partial Class frmAddAdministrative
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtAdministrativeID = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.txtAdministrativeLatin = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtAdministrativeParent = New System.Windows.Forms.TextBox()
@@ -52,8 +54,8 @@ Partial Class frmAddAdministrative
         Me.BGW_Save = New System.ComponentModel.BackgroundWorker()
         Me.BGW_Load = New System.ComponentModel.BackgroundWorker()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.cmbAdministrativeFatherCode = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cmbAdministrativeType = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -62,7 +64,9 @@ Partial Class frmAddAdministrative
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.cmbAdministrativeFatherCode)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.cmbAdministrativeType)
+        Me.GroupBox1.Controls.Add(Me.txtAdministrativeID)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.txtAdministrativeLatin)
         Me.GroupBox1.Controls.Add(Me.Label3)
@@ -75,15 +79,34 @@ Partial Class frmAddAdministrative
         Me.GroupBox1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(445, 175)
+        Me.GroupBox1.Size = New System.Drawing.Size(445, 204)
         Me.GroupBox1.TabIndex = 8
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "الادارة "
         '
+        'txtAdministrativeID
+        '
+        Me.txtAdministrativeID.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtAdministrativeID.Location = New System.Drawing.Point(228, 47)
+        Me.txtAdministrativeID.Name = "txtAdministrativeID"
+        Me.txtAdministrativeID.ReadOnly = True
+        Me.txtAdministrativeID.Size = New System.Drawing.Size(121, 22)
+        Me.txtAdministrativeID.TabIndex = 17
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(355, 50)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(78, 15)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "كود الادارة الاب :"
+        '
         'txtAdministrativeLatin
         '
         Me.txtAdministrativeLatin.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtAdministrativeLatin.Location = New System.Drawing.Point(22, 134)
+        Me.txtAdministrativeLatin.Location = New System.Drawing.Point(22, 160)
         Me.txtAdministrativeLatin.Name = "txtAdministrativeLatin"
         Me.txtAdministrativeLatin.Size = New System.Drawing.Size(327, 22)
         Me.txtAdministrativeLatin.TabIndex = 15
@@ -92,7 +115,7 @@ Partial Class frmAddAdministrative
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(355, 137)
+        Me.Label3.Location = New System.Drawing.Point(355, 163)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(65, 15)
         Me.Label3.TabIndex = 14
@@ -101,7 +124,7 @@ Partial Class frmAddAdministrative
         'txtAdministrativeParent
         '
         Me.txtAdministrativeParent.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtAdministrativeParent.Location = New System.Drawing.Point(22, 106)
+        Me.txtAdministrativeParent.Location = New System.Drawing.Point(22, 132)
         Me.txtAdministrativeParent.Name = "txtAdministrativeParent"
         Me.txtAdministrativeParent.Size = New System.Drawing.Size(327, 22)
         Me.txtAdministrativeParent.TabIndex = 13
@@ -110,7 +133,7 @@ Partial Class frmAddAdministrative
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(355, 109)
+        Me.Label1.Location = New System.Drawing.Point(355, 135)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(59, 15)
         Me.Label1.TabIndex = 12
@@ -120,7 +143,7 @@ Partial Class frmAddAdministrative
         '
         Me.lblAdministrative.AutoSize = True
         Me.lblAdministrative.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAdministrative.Location = New System.Drawing.Point(355, 52)
+        Me.lblAdministrative.Location = New System.Drawing.Point(355, 78)
         Me.lblAdministrative.Name = "lblAdministrative"
         Me.lblAdministrative.Size = New System.Drawing.Size(60, 15)
         Me.lblAdministrative.TabIndex = 11
@@ -130,7 +153,7 @@ Partial Class frmAddAdministrative
         '
         Me.cmbAdministrativeFather.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmbAdministrativeFather.FormattingEnabled = True
-        Me.cmbAdministrativeFather.Location = New System.Drawing.Point(22, 49)
+        Me.cmbAdministrativeFather.Location = New System.Drawing.Point(22, 75)
         Me.cmbAdministrativeFather.Name = "cmbAdministrativeFather"
         Me.cmbAdministrativeFather.Size = New System.Drawing.Size(327, 23)
         Me.cmbAdministrativeFather.TabIndex = 10
@@ -138,7 +161,7 @@ Partial Class frmAddAdministrative
         'txtAdministrativeParentCode
         '
         Me.txtAdministrativeParentCode.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtAdministrativeParentCode.Location = New System.Drawing.Point(228, 78)
+        Me.txtAdministrativeParentCode.Location = New System.Drawing.Point(228, 104)
         Me.txtAdministrativeParentCode.Name = "txtAdministrativeParentCode"
         Me.txtAdministrativeParentCode.Size = New System.Drawing.Size(121, 22)
         Me.txtAdministrativeParentCode.TabIndex = 9
@@ -147,7 +170,7 @@ Partial Class frmAddAdministrative
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(355, 81)
+        Me.Label2.Location = New System.Drawing.Point(355, 107)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(58, 15)
         Me.Label2.TabIndex = 8
@@ -194,7 +217,7 @@ Partial Class frmAddAdministrative
         Me.GroupBox2.Controls.Add(Me.btnSave)
         Me.GroupBox2.Controls.Add(Me.btnNew)
         Me.GroupBox2.Controls.Add(Me.btnClose)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 208)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 258)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(445, 70)
         Me.GroupBox2.TabIndex = 12
@@ -248,7 +271,7 @@ Partial Class frmAddAdministrative
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblUsername, Me.PB})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 310)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 331)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(466, 22)
         Me.StatusStrip1.TabIndex = 26
@@ -294,30 +317,33 @@ Partial Class frmAddAdministrative
         Me.BGW_Load.WorkerReportsProgress = True
         Me.BGW_Load.WorkerSupportsCancellation = True
         '
-        'cmbAdministrativeFatherCode
+        'Timer1
         '
-        Me.cmbAdministrativeFatherCode.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.cmbAdministrativeFatherCode.Location = New System.Drawing.Point(228, 21)
-        Me.cmbAdministrativeFatherCode.Name = "cmbAdministrativeFatherCode"
-        Me.cmbAdministrativeFatherCode.ReadOnly = True
-        Me.cmbAdministrativeFatherCode.Size = New System.Drawing.Size(121, 22)
-        Me.cmbAdministrativeFatherCode.TabIndex = 17
         '
-        'Label4
+        'Label5
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(355, 24)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(78, 15)
-        Me.Label4.TabIndex = 16
-        Me.Label4.Text = "كود الادارة الاب :"
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(355, 21)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(60, 15)
+        Me.Label5.TabIndex = 19
+        Me.Label5.Text = "نوع الادارة :"
+        '
+        'cmbAdministrativeType
+        '
+        Me.cmbAdministrativeType.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbAdministrativeType.FormattingEnabled = True
+        Me.cmbAdministrativeType.Location = New System.Drawing.Point(228, 18)
+        Me.cmbAdministrativeType.Name = "cmbAdministrativeType"
+        Me.cmbAdministrativeType.Size = New System.Drawing.Size(121, 23)
+        Me.cmbAdministrativeType.TabIndex = 18
         '
         'frmAddAdministrative
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(466, 332)
+        Me.ClientSize = New System.Drawing.Size(466, 353)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.MenuStrip1)
@@ -367,6 +393,8 @@ Partial Class frmAddAdministrative
     Friend WithEvents Timer1 As Timer
     Friend WithEvents txtAdministrativeLatin As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents cmbAdministrativeFatherCode As TextBox
+    Friend WithEvents txtAdministrativeID As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents cmbAdministrativeType As ComboBox
 End Class

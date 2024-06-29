@@ -55,4 +55,8 @@ Public Class frm_main
         frmEmployees.Show()
 
     End Sub
+
+    Private Sub msAdministrative_Click(sender As Object, e As EventArgs) Handles msAdministrative.Click
+        frmAdministrative.Show()
+    End Sub
 End Class

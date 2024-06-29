@@ -65,6 +65,8 @@ Partial Class frm_main
         Me.الاطباءToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.جدولمواعدالاطبياءToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.الاطباءحسبالعياداتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.تعاريفToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msAdministrative = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -80,8 +82,6 @@ Partial Class frm_main
         Me.lblCompanyPhone2 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
-        Me.تعاريفToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.الهيكلالاداريToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -321,7 +321,7 @@ Partial Class frm_main
         '
         Me.تعاريفToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.التخصصاتالطبيةToolStripMenuItem, Me.التخصصاتالوظيفيةToolStripMenuItem})
         Me.تعاريفToolStripMenuItem.Name = "تعاريفToolStripMenuItem"
-        Me.تعاريفToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.تعاريفToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.تعاريفToolStripMenuItem.Text = "تعاريف"
         '
         'التخصصاتالطبيةToolStripMenuItem
@@ -339,14 +339,14 @@ Partial Class frm_main
         'msEmployees
         '
         Me.msEmployees.Name = "msEmployees"
-        Me.msEmployees.Size = New System.Drawing.Size(180, 22)
+        Me.msEmployees.Size = New System.Drawing.Size(141, 22)
         Me.msEmployees.Text = "بطاقة موظف"
         '
         'الاطباءToolStripMenuItem
         '
         Me.الاطباءToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.جدولمواعدالاطبياءToolStripMenuItem, Me.الاطباءحسبالعياداتToolStripMenuItem})
         Me.الاطباءToolStripMenuItem.Name = "الاطباءToolStripMenuItem"
-        Me.الاطباءToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.الاطباءToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.الاطباءToolStripMenuItem.Text = "الاطباء "
         '
         'جدولمواعدالاطبياءToolStripMenuItem
@@ -360,6 +360,19 @@ Partial Class frm_main
         Me.الاطباءحسبالعياداتToolStripMenuItem.Name = "الاطباءحسبالعياداتToolStripMenuItem"
         Me.الاطباءحسبالعياداتToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.الاطباءحسبالعياداتToolStripMenuItem.Text = "الاطباء حسب العيادات"
+        '
+        'تعاريفToolStripMenuItem1
+        '
+        Me.تعاريفToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msAdministrative})
+        Me.تعاريفToolStripMenuItem1.Name = "تعاريفToolStripMenuItem1"
+        Me.تعاريفToolStripMenuItem1.Size = New System.Drawing.Size(55, 20)
+        Me.تعاريفToolStripMenuItem1.Text = "تعاريف"
+        '
+        'msAdministrative
+        '
+        Me.msAdministrative.Name = "msAdministrative"
+        Me.msAdministrative.Size = New System.Drawing.Size(180, 22)
+        Me.msAdministrative.Text = "الهيكل الاداري"
         '
         'PictureBox1
         '
@@ -504,19 +517,6 @@ Partial Class frm_main
         Me.btnExit.Text = "خروج"
         Me.btnExit.UseVisualStyleBackColor = True
         '
-        'تعاريفToolStripMenuItem1
-        '
-        Me.تعاريفToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.الهيكلالاداريToolStripMenuItem})
-        Me.تعاريفToolStripMenuItem1.Name = "تعاريفToolStripMenuItem1"
-        Me.تعاريفToolStripMenuItem1.Size = New System.Drawing.Size(55, 20)
-        Me.تعاريفToolStripMenuItem1.Text = "تعاريف"
-        '
-        'الهيكلالاداريToolStripMenuItem
-        '
-        Me.الهيكلالاداريToolStripMenuItem.Name = "الهيكلالاداريToolStripMenuItem"
-        Me.الهيكلالاداريToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.الهيكلالاداريToolStripMenuItem.Text = "الهيكل الاداري"
-        '
         'frm_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -608,5 +608,5 @@ Partial Class frm_main
     Friend WithEvents جدولمواعدالاطبياءToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents الاطباءحسبالعياداتToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents تعاريفToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents الهيكلالاداريToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents msAdministrative As ToolStripMenuItem
 End Class
