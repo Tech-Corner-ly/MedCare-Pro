@@ -56,11 +56,7 @@ Public Class frmSpecialization
         Me.txtSpecializationName.Text = ""
         Me.cmbAdjective.Text = ""
     End Sub
-    Private Sub frm_DocSpecialization_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Call MYSP_Show()
-        BGW_Load.RunWorkerAsync()
-        btnDeleteUpdate()
-    End Sub
+
 
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
         VarDocSpecializationID = DataGridView1.CurrentRow.Cells.Item(0).Value.ToString
@@ -105,6 +101,7 @@ Public Class frmSpecialization
             Me.cmbAdjective.DataSource = VarAdjective
             Call XCLS.MyCodes_Fill_Dgv(Me.DataGridView1, lblCount, MyVarDT_Specialization, MyVarDV_Specialization)
             lblUsername.Text = VarUserName
+            btnDeleteUpdate()
         End If
         Call MYSP_Hide()
     End Sub
@@ -244,5 +241,9 @@ Public Class frmSpecialization
         BGW_Delete.RunWorkerAsync()
     End Sub
 
+    Private Sub frmSpecialization_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Call MYSP_Show()
+        BGW_Load.RunWorkerAsync()
 
+    End Sub
 End Class
