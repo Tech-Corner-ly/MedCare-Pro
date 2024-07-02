@@ -966,6 +966,9 @@ Partial Class frmAddEmploye
         Me.TabOnline.TabIndex = 8
         Me.TabOnline.Text = "اونلاين"
         '
+        'Timer1
+        '
+        '
         'BGW_Save
         '
         Me.BGW_Save.WorkerReportsProgress = True

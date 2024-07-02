@@ -26,8 +26,8 @@ Public Class frm_main
         frm_DocPriceServices.Show()
     End Sub
 
-    Private Sub msSpecialization_Click(sender As Object, e As EventArgs) Handles msSpecialization.Click
-        frm_DocSpecialization.Show()
+    Private Sub msSpecialization_Click(sender As Object, e As EventArgs)
+        frmSpecialization.Show()
     End Sub
 
     Private Sub msPatient_Click(sender As Object, e As EventArgs) Handles msPatient.Click
@@ -58,5 +58,10 @@ Public Class frm_main
 
     Private Sub msAdministrative_Click(sender As Object, e As EventArgs) Handles msAdministrative.Click
         frmAdministrative.Show()
+    End Sub
+
+    Private Sub msSpecialization_Click_1(sender As Object, e As EventArgs) Handles msSpecialization.Click
+        frmSpecialization.Show()
+
     End Sub
 End Class

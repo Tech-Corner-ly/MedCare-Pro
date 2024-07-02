@@ -8,7 +8,8 @@ Public Class ClsMain
         xDa.Dispose()
     End Sub
 
-    Public Sub MyCodes_Fill_Dgv(ByVal xDgv As DataGridView, ByVal xLbl As Label, ByVal xDt As DataTable, ByVal xDv As DataView)
+    Public Sub MyCodes_Fill_Dgv(ByVal xDgv As DataGridView, ByVal xLbl As ToolStripStatusLabel, ByVal xDt As DataTable, ByVal xDv As DataView)
+
         xDv = xDt.DefaultView
         xDv.RowFilter = MyPubVar_Filter
         xDgv.DataSource = xDv

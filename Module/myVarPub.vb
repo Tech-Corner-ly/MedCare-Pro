@@ -8,4 +8,12 @@
     Public VarDeleteTime As DateTime = DateTime.Now
     Public VarDateTimeNow As DateTime = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
     Public MyPubVar_Filter As String
+
+
+
+
+    Public VarAdjective As New List(Of String)({" ", "طبي", "مدني"})
+    Public VarGenderList As New List(Of String)({" ", "ذكر", "انثي"})
+
+    Public VarSQLCountries As String = "SELECT CountriesID,arName FROM tbCountries"
 End Module

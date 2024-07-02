@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frm_DocSpecialization
+Partial Class frmSpecialization
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -24,20 +24,26 @@ Partial Class frm_DocSpecialization
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.SpecializationID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SpecializationName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Adjective = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cmbAdjective = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtSpecializationName = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ملفToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblUsername = New System.Windows.Forms.ToolStripStatusLabel()
         Me.PB = New System.Windows.Forms.ToolStripProgressBar()
+        Me.lblCou = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblCount = New System.Windows.Forms.ToolStripStatusLabel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnDelete = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnNew = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
@@ -60,11 +66,36 @@ Partial Class frm_DocSpecialization
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SpecializationID, Me.SpecializationName, Me.Adjective})
         Me.DataGridView1.Location = New System.Drawing.Point(12, 158)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.Size = New System.Drawing.Size(379, 308)
         Me.DataGridView1.TabIndex = 6
+        '
+        'SpecializationID
+        '
+        Me.SpecializationID.DataPropertyName = "SpecializationID"
+        Me.SpecializationID.FillWeight = 27.92717!
+        Me.SpecializationID.HeaderText = "الكود"
+        Me.SpecializationID.Name = "SpecializationID"
+        Me.SpecializationID.ReadOnly = True
+        '
+        'SpecializationName
+        '
+        Me.SpecializationName.DataPropertyName = "SpecializationName"
+        Me.SpecializationName.FillWeight = 195.9307!
+        Me.SpecializationName.HeaderText = "التخصص"
+        Me.SpecializationName.Name = "SpecializationName"
+        Me.SpecializationName.ReadOnly = True
+        '
+        'Adjective
+        '
+        Me.Adjective.DataPropertyName = "Adjective"
+        Me.Adjective.FillWeight = 76.14214!
+        Me.Adjective.HeaderText = "الصفة"
+        Me.Adjective.Name = "Adjective"
+        Me.Adjective.ReadOnly = True
         '
         'txtSearch
         '
@@ -76,17 +107,36 @@ Partial Class frm_DocSpecialization
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.cmbAdjective)
+        Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.txtSpecializationName)
-        Me.Panel1.Location = New System.Drawing.Point(12, 70)
+        Me.Panel1.Location = New System.Drawing.Point(12, 27)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(379, 56)
+        Me.Panel1.Size = New System.Drawing.Size(379, 99)
         Me.Panel1.TabIndex = 15
+        '
+        'cmbAdjective
+        '
+        Me.cmbAdjective.FormattingEnabled = True
+        Me.cmbAdjective.Location = New System.Drawing.Point(12, 43)
+        Me.cmbAdjective.Name = "cmbAdjective"
+        Me.cmbAdjective.Size = New System.Drawing.Size(237, 21)
+        Me.cmbAdjective.TabIndex = 22
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(255, 46)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 15)
+        Me.Label1.TabIndex = 21
+        Me.Label1.Text = "الصفة :"
         '
         'Label2
         '
-        Me.Label2.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label2.BackColor = System.Drawing.SystemColors.Control
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(255, 14)
         Me.Label2.Name = "Label2"
@@ -102,18 +152,6 @@ Partial Class frm_DocSpecialization
         Me.txtSpecializationName.Name = "txtSpecializationName"
         Me.txtSpecializationName.Size = New System.Drawing.Size(237, 23)
         Me.txtSpecializationName.TabIndex = 11
-        '
-        'Label3
-        '
-        Me.Label3.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(12, 34)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(139, 37)
-        Me.Label3.TabIndex = 16
-        Me.Label3.Text = "التخصصات "
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'MenuStrip1
         '
@@ -132,7 +170,7 @@ Partial Class frm_DocSpecialization
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblUsername, Me.PB})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblUsername, Me.PB, Me.lblCou, Me.lblCount})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 557)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(403, 22)
@@ -147,7 +185,7 @@ Partial Class frm_DocSpecialization
         '
         'lblUsername
         '
-        Me.lblUsername.Margin = New System.Windows.Forms.Padding(0, 3, 70, 2)
+        Me.lblUsername.Margin = New System.Windows.Forms.Padding(0, 3, 30, 2)
         Me.lblUsername.Name = "lblUsername"
         Me.lblUsername.Size = New System.Drawing.Size(119, 17)
         Me.lblUsername.Text = "ToolStripStatusLabel2"
@@ -159,10 +197,22 @@ Partial Class frm_DocSpecialization
         Me.PB.Step = 1
         Me.PB.Style = System.Windows.Forms.ProgressBarStyle.Continuous
         '
+        'lblCou
+        '
+        Me.lblCou.Name = "lblCou"
+        Me.lblCou.Size = New System.Drawing.Size(39, 17)
+        Me.lblCou.Text = "العدد :"
+        '
+        'lblCount
+        '
+        Me.lblCount.Name = "lblCount"
+        Me.lblCount.Size = New System.Drawing.Size(25, 17)
+        Me.lblCount.Text = "000"
+        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.btnDelete)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.btnNew)
         Me.GroupBox1.Controls.Add(Me.btnClose)
         Me.GroupBox1.Controls.Add(Me.btnUpdate)
         Me.GroupBox1.Controls.Add(Me.btnSave)
@@ -182,15 +232,15 @@ Partial Class frm_DocSpecialization
         Me.btnDelete.Text = "حذف"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnNew
         '
-        Me.Button1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(311, 23)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(62, 40)
-        Me.Button1.TabIndex = 18
-        Me.Button1.Text = "جديد"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnNew.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNew.Location = New System.Drawing.Point(311, 23)
+        Me.btnNew.Name = "btnNew"
+        Me.btnNew.Size = New System.Drawing.Size(62, 40)
+        Me.btnNew.TabIndex = 18
+        Me.btnNew.Text = "جديد"
+        Me.btnNew.UseVisualStyleBackColor = True
         '
         'btnClose
         '
@@ -245,14 +295,13 @@ Partial Class frm_DocSpecialization
         'Timer1
         '
         '
-        'frm_DocSpecialization
+        'frmSpecialization
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(403, 579)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.DataGridView1)
@@ -261,13 +310,13 @@ Partial Class frm_DocSpecialization
         Me.MainMenuStrip = Me.MenuStrip1
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frm_DocSpecialization"
+        Me.Name = "frmSpecialization"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.RightToLeftLayout = True
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "التخصصات للدكاتيرة "
+        Me.Text = "التخصصات "
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -285,7 +334,6 @@ Partial Class frm_DocSpecialization
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents txtSpecializationName As TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents ملفToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StatusStrip1 As StatusStrip
@@ -294,7 +342,7 @@ Partial Class frm_DocSpecialization
     Friend WithEvents PB As ToolStripProgressBar
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnDelete As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnNew As Button
     Friend WithEvents btnClose As Button
     Friend WithEvents btnUpdate As Button
     Friend WithEvents btnSave As Button
@@ -303,4 +351,11 @@ Partial Class frm_DocSpecialization
     Friend WithEvents BGW_Save As System.ComponentModel.BackgroundWorker
     Friend WithEvents BGW_Load As System.ComponentModel.BackgroundWorker
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents cmbAdjective As ComboBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents lblCou As ToolStripStatusLabel
+    Friend WithEvents lblCount As ToolStripStatusLabel
+    Friend WithEvents SpecializationID As DataGridViewTextBoxColumn
+    Friend WithEvents SpecializationName As DataGridViewTextBoxColumn
+    Friend WithEvents Adjective As DataGridViewTextBoxColumn
 End Class

@@ -201,10 +201,10 @@
     <Compile Include="frm\frm_DocPriceServices.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm\frm_DocSpecialization.Designer.vb">
-      <DependentUpon>frm_DocSpecialization.vb</DependentUpon>
+    <Compile Include="frm\frmSpecialization.Designer.vb">
+      <DependentUpon>frmSpecialization.vb</DependentUpon>
     </Compile>
-    <Compile Include="frm\frm_DocSpecialization.vb">
+    <Compile Include="frm\frmSpecialization.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm\frm_Doctors.Designer.vb">
@@ -326,8 +326,8 @@
     <EmbeddedResource Include="frm\frm_DocServices.resx">
       <DependentUpon>frm_DocServices.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm\frm_DocSpecialization.resx">
-      <DependentUpon>frm_DocSpecialization.vb</DependentUpon>
+    <EmbeddedResource Include="frm\frmSpecialization.resx">
+      <DependentUpon>frmSpecialization.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm\frm_Doctors.resx">
       <DependentUpon>frm_Doctors.vb</DependentUpon>

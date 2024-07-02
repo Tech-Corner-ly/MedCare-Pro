@@ -29,7 +29,6 @@ Partial Class frm_main
         Me.msDoctors = New System.Windows.Forms.ToolStripMenuItem()
         Me.msServices = New System.Windows.Forms.ToolStripMenuItem()
         Me.msDocPriceServices = New System.Windows.Forms.ToolStripMenuItem()
-        Me.msSpecialization = New System.Windows.Forms.ToolStripMenuItem()
         Me.دليلالدكاتيرةToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msAddDocPriceServices = New System.Windows.Forms.ToolStripMenuItem()
         Me.المرضيToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -82,6 +81,7 @@ Partial Class frm_main
         Me.lblCompanyPhone2 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
+        Me.msSpecialization = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -111,7 +111,7 @@ Partial Class frm_main
         '
         'الدكاتيرةToolStripMenuItem
         '
-        Me.الدكاتيرةToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msDoctors, Me.msServices, Me.msDocPriceServices, Me.msSpecialization, Me.دليلالدكاتيرةToolStripMenuItem, Me.msAddDocPriceServices})
+        Me.الدكاتيرةToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msDoctors, Me.msServices, Me.msDocPriceServices, Me.دليلالدكاتيرةToolStripMenuItem, Me.msAddDocPriceServices})
         Me.الدكاتيرةToolStripMenuItem.Name = "الدكاتيرةToolStripMenuItem"
         Me.الدكاتيرةToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.الدكاتيرةToolStripMenuItem.Text = "الدكاتيرة "
@@ -133,12 +133,6 @@ Partial Class frm_main
         Me.msDocPriceServices.Name = "msDocPriceServices"
         Me.msDocPriceServices.Size = New System.Drawing.Size(185, 22)
         Me.msDocPriceServices.Text = "اسعار خدمات الدكاتيرة "
-        '
-        'msSpecialization
-        '
-        Me.msSpecialization.Name = "msSpecialization"
-        Me.msSpecialization.Size = New System.Drawing.Size(185, 22)
-        Me.msSpecialization.Text = "التخصصات "
         '
         'دليلالدكاتيرةToolStripMenuItem
         '
@@ -363,7 +357,7 @@ Partial Class frm_main
         '
         'تعاريفToolStripMenuItem1
         '
-        Me.تعاريفToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msAdministrative})
+        Me.تعاريفToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msAdministrative, Me.msSpecialization})
         Me.تعاريفToolStripMenuItem1.Name = "تعاريفToolStripMenuItem1"
         Me.تعاريفToolStripMenuItem1.Size = New System.Drawing.Size(55, 20)
         Me.تعاريفToolStripMenuItem1.Text = "تعاريف"
@@ -517,6 +511,12 @@ Partial Class frm_main
         Me.btnExit.Text = "خروج"
         Me.btnExit.UseVisualStyleBackColor = True
         '
+        'msSpecialization
+        '
+        Me.msSpecialization.Name = "msSpecialization"
+        Me.msSpecialization.Size = New System.Drawing.Size(180, 22)
+        Me.msSpecialization.Text = "التخصصات"
+        '
         'frm_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -555,7 +555,6 @@ Partial Class frm_main
     Friend WithEvents msDoctors As ToolStripMenuItem
     Friend WithEvents msServices As ToolStripMenuItem
     Friend WithEvents msDocPriceServices As ToolStripMenuItem
-    Friend WithEvents msSpecialization As ToolStripMenuItem
     Friend WithEvents دليلالدكاتيرةToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents المرضيToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents msPatient As ToolStripMenuItem
@@ -609,4 +608,5 @@ Partial Class frm_main
     Friend WithEvents الاطباءحسبالعياداتToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents تعاريفToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents msAdministrative As ToolStripMenuItem
+    Friend WithEvents msSpecialization As ToolStripMenuItem
 End Class

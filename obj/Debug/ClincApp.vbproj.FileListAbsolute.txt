@@ -75,6 +75,7 @@ E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\bin\Debug\MediCare.exe.conf
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\bin\Debug\MediCare.exe
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\bin\Debug\MediCare.pdb
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\bin\Debug\MediCare.xml
+E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\ClincApp.vbprojAssemblyReference.cache
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmAddAdministrative.resources
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmAddCategory.resources
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmAddDoctorsAppointmentSchedule.resources
@@ -94,7 +95,7 @@ E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frm_Bill
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frm_Clinic.resources
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frm_DocPriceServices.resources
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frm_DocServices.resources
-E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frm_DocSpecialization.resources
+E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmSpecialization.resources
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frm_Doctors.resources
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frm_EntrySheet.resources
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frm_main.resources
