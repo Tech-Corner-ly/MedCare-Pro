@@ -66,6 +66,7 @@ Partial Class frm_main
         Me.الاطباءحسبالعياداتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.تعاريفToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.msAdministrative = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msSpecialization = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -81,7 +82,7 @@ Partial Class frm_main
         Me.lblCompanyPhone2 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
-        Me.msSpecialization = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msJobTitle = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -357,7 +358,7 @@ Partial Class frm_main
         '
         'تعاريفToolStripMenuItem1
         '
-        Me.تعاريفToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msAdministrative, Me.msSpecialization})
+        Me.تعاريفToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msAdministrative, Me.msSpecialization, Me.msJobTitle})
         Me.تعاريفToolStripMenuItem1.Name = "تعاريفToolStripMenuItem1"
         Me.تعاريفToolStripMenuItem1.Size = New System.Drawing.Size(55, 20)
         Me.تعاريفToolStripMenuItem1.Text = "تعاريف"
@@ -367,6 +368,12 @@ Partial Class frm_main
         Me.msAdministrative.Name = "msAdministrative"
         Me.msAdministrative.Size = New System.Drawing.Size(180, 22)
         Me.msAdministrative.Text = "الهيكل الاداري"
+        '
+        'msSpecialization
+        '
+        Me.msSpecialization.Name = "msSpecialization"
+        Me.msSpecialization.Size = New System.Drawing.Size(180, 22)
+        Me.msSpecialization.Text = "التخصصات"
         '
         'PictureBox1
         '
@@ -511,11 +518,11 @@ Partial Class frm_main
         Me.btnExit.Text = "خروج"
         Me.btnExit.UseVisualStyleBackColor = True
         '
-        'msSpecialization
+        'msJobTitle
         '
-        Me.msSpecialization.Name = "msSpecialization"
-        Me.msSpecialization.Size = New System.Drawing.Size(180, 22)
-        Me.msSpecialization.Text = "التخصصات"
+        Me.msJobTitle.Name = "msJobTitle"
+        Me.msJobTitle.Size = New System.Drawing.Size(180, 22)
+        Me.msJobTitle.Text = "المسمي الوظيفي"
         '
         'frm_main
         '
@@ -609,4 +616,5 @@ Partial Class frm_main
     Friend WithEvents تعاريفToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents msAdministrative As ToolStripMenuItem
     Friend WithEvents msSpecialization As ToolStripMenuItem
+    Friend WithEvents msJobTitle As ToolStripMenuItem
 End Class

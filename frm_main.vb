@@ -64,4 +64,9 @@ Public Class frm_main
         frmSpecialization.Show()
 
     End Sub
+
+    Private Sub msJobTitle_Click(sender As Object, e As EventArgs) Handles msJobTitle.Click
+        frmJobTitle.Show()
+
+    End Sub
 End Class

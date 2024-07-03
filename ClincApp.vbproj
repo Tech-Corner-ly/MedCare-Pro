@@ -164,6 +164,12 @@
     <Compile Include="frm\frmItemsServices.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm\frmJobTitle.Designer.vb">
+      <DependentUpon>frmJobTitle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmJobTitle.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm\frmOrder.Designer.vb">
       <DependentUpon>frmOrder.vb</DependentUpon>
     </Compile>
@@ -304,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm\frmItemsServices.resx">
       <DependentUpon>frmItemsServices.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmJobTitle.resx">
+      <DependentUpon>frmJobTitle.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm\frmOrder.resx">
       <DependentUpon>frmOrder.vb</DependentUpon>

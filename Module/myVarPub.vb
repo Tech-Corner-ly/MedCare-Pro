@@ -14,6 +14,6 @@
 
     Public VarAdjective As New List(Of String)({" ", "طبي", "مدني"})
     Public VarGenderList As New List(Of String)({" ", "ذكر", "انثي"})
-
+    Public VarMaritalStatus As New List(Of String)({" ", "اعزب", "متزوج", "متزوجة", "مطلقة", "ارملة"})
     Public VarSQLCountries As String = "SELECT CountriesID,arName FROM tbCountries"
 End Module

@@ -24,6 +24,8 @@ Partial Class frmAddAdministrative
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cmbAdministrativeType = New System.Windows.Forms.ComboBox()
         Me.txtAdministrativeID = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtAdministrativeLatin = New System.Windows.Forms.TextBox()
@@ -54,8 +56,6 @@ Partial Class frmAddAdministrative
         Me.BGW_Save = New System.ComponentModel.BackgroundWorker()
         Me.BGW_Load = New System.ComponentModel.BackgroundWorker()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.cmbAdministrativeType = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -83,6 +83,25 @@ Partial Class frmAddAdministrative
         Me.GroupBox1.TabIndex = 8
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "الادارة "
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(355, 21)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(60, 15)
+        Me.Label5.TabIndex = 19
+        Me.Label5.Text = "نوع الادارة :"
+        '
+        'cmbAdministrativeType
+        '
+        Me.cmbAdministrativeType.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbAdministrativeType.FormattingEnabled = True
+        Me.cmbAdministrativeType.Location = New System.Drawing.Point(228, 18)
+        Me.cmbAdministrativeType.Name = "cmbAdministrativeType"
+        Me.cmbAdministrativeType.Size = New System.Drawing.Size(121, 23)
+        Me.cmbAdministrativeType.TabIndex = 18
         '
         'txtAdministrativeID
         '
@@ -319,25 +338,6 @@ Partial Class frmAddAdministrative
         '
         'Timer1
         '
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(355, 21)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(60, 15)
-        Me.Label5.TabIndex = 19
-        Me.Label5.Text = "نوع الادارة :"
-        '
-        'cmbAdministrativeType
-        '
-        Me.cmbAdministrativeType.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbAdministrativeType.FormattingEnabled = True
-        Me.cmbAdministrativeType.Location = New System.Drawing.Point(228, 18)
-        Me.cmbAdministrativeType.Name = "cmbAdministrativeType"
-        Me.cmbAdministrativeType.Size = New System.Drawing.Size(121, 23)
-        Me.cmbAdministrativeType.TabIndex = 18
         '
         'frmAddAdministrative
         '

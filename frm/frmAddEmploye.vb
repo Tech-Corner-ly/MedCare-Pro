@@ -5,6 +5,8 @@
     Private MyVar_Dt_AllAccounts As DataTable = New DataTable
     Private MyVarDT_Countries As DataTable = New DataTable
     Private MyVarDT_Specialization As DataTable = New DataTable
+    Private MyVarDT_Users As DataTable = New DataTable
+    Private MyVarDT_Cities As DataTable = New DataTable
     Private VarAdministrativeTypeDT As DataTable = New DataTable
 
     Private VarAdministrative As String
@@ -13,9 +15,27 @@
     Private VarAdministrativeParentLatin, VarAdministrativeParent, VarAdministrativeFather, VarAdministrativeType As String
 
     'SQL
+    Private sQLCities As String = "SELECT CityID,CityName FROM tbCities"
+    Private sQLUsers As String = "SELECT UserID,Username FROM tblUsers Where UserStatus=1 AND UserIsActive=1"
+    Private sQLAdministrative As String = "SELECT AdministrativeParentCode,AdministrativeParent FROM tbAdministrative Where AdministrativeStatus=1 AND AdministrativeType='فرعي'"
     Private sQLSpecialization As String = "SELECT SpecializationID,SpecializationName FROM tbSpecialization Where SpecializationStatus=1 AND Adjective='طبي'"
     Private sQLtbEmploye As String = "SELECT * FROM tbEmploye Where EmployeStatus=1 "
     Private Sql_Dt_AllAccounts As String = "SELECT * From tbAdministrative Where AdministrativeStatus=1"
+    Private sQLInsert As String = "Insert Into tbEmploye (EmployeCode,EmpFirstName,EmpFathName,EmpGranFathName,EmpSurName,
+                AdjectiveID,SpecializationID,JobTitleID,AdministrativeID,EmpGender,NationalityID,UserID,
+                CityID,EmpZone,EmpAddress,EmpPhone1,EmpPhone2,EmpEmail,EmpNote,EmpPlaceNumRegist,EmpPlaceBirth,
+                EmpDateBirth,EmpCardNum,EmpIDNum,EmpCardObtaiDate,EmpCardObtaiPlace,EmpPassportID,EmpPassportGetPlace,
+                EmpObtaiPassportDate,EmpExpiryPassportDate,EmpEntryPlace,EmpEntryDate,EmpResidencyNum,EmpResidencyPlace,
+                EmpResidencyExpiry,EmpFatherName,EmpMotherName,EmpMaritalStatus,EmpFamilyNum,ClinicID,ItemExaminID1,
+                ItemExaminID2,ItemExaminID3,EmpIsActive,EmployeStatus,InsertTime,UserID_Insert)
+                values
+                (@EmployeCode,@EmpFirstName,@EmpFathName,@EmpGranFathName,@EmpSurName,@AdjectiveID,@SpecializationID,
+                @JobTitleID,@AdministrativeID,@EmpGender,@NationalityID,@UserID,@CityID,@EmpZone,@EmpAddress,@EmpPhone1,
+                @EmpPhone2,@EmpEmail,@EmpNote,@EmpPlaceNumRegist,@EmpPlaceBirth,@EmpDateBirth,@EmpCardNum,@EmpIDNum,
+                @EmpCardObtaiDate,@EmpCardObtaiPlace,@EmpPassportID,@EmpPassportGetPlace,@EmpObtaiPassportDate,@EmpExpiryPassportDate,
+                @EmpEntryPlace,@EmpEntryDate,@EmpResidencyNum,@EmpResidencyPlace,@EmpResidencyExpiry,@EmpFatherName,@EmpMotherName,
+                @EmpMaritalStatus,@EmpFamilyNum,@ClinicID,@ItemExaminID1,@ItemExaminID2,@ItemExaminID3,
+                @EmpIsActive,@EmployeStatus,@InsertTime,@UserID_Insert)"
 
     Private Sub frmAddEmploye_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call MYSP_Show()
@@ -30,6 +50,9 @@
                 Call XCLS.MyCodes_Fill_DataTable(sQLtbEmploye, MyVar_Dt_AllAccounts)
                 Call XCLS.MyCodes_Fill_DataTable(VarSQLCountries, MyVarDT_Countries)
                 Call XCLS.MyCodes_Fill_DataTable(sQLSpecialization, MyVarDT_Specialization)
+                Call XCLS.MyCodes_Fill_DataTable(sQLAdministrative, VarAdministrativeTypeDT)
+                Call XCLS.MyCodes_Fill_DataTable(sQLUsers, MyVarDT_Users)
+                Call XCLS.MyCodes_Fill_DataTable(sQLCities, MyVarDT_Cities)
                 VarBGW_Status = True
             End If
         Catch ex As Exception
@@ -46,8 +69,16 @@
             Me.cmbAdjective.DataSource = VarAdjective
             Call XCLS.MyCodes_CmbFill(Me.cmbNationality, MyVarDT_Countries, "arName", "CountriesID")
             Call XCLS.MyCodes_CmbFill(Me.cmbSpecialization, MyVarDT_Specialization, "SpecializationName", "SpecializationID")
+            Call XCLS.MyCodes_CmbFill(Me.cmbAdministrative, VarAdministrativeTypeDT, "AdministrativeParent", "AdministrativeParentCode")
+            Call XCLS.MyCodes_CmbFill(Me.cmbUser, MyVarDT_Users, "Username", "UserID")
+            Call XCLS.MyCodes_CmbFill(Me.cmbCity, MyVarDT_Cities, "CityName", "CityID")
             lblUsername.Text = VarUserName
             lblDateTime.Text = VarDateTimeNow
+            Me.cmbNationality.Text = ""
+            Me.cmbSpecialization.Text = ""
+            Me.cmbAdministrative.Text = ""
+            Me.cmbUser.Text = ""
+            Me.cmbCity.Text = ""
         End If
         Call MYSP_Hide()
     End Sub
