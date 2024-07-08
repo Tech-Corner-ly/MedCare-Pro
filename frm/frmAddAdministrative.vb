@@ -11,12 +11,21 @@ Public Class frmAddAdministrative
     Private VarAdministrativeParentCode As Integer
     Private MaxAdministrativeCode As Integer
     Private MaxAdministrativeParentCode As Integer
-    Private VarAdministrativeParentLatin, VarAdministrativeParent, VarAdministrativeFather, VarAdministrativeType As String
+    Private VarAdministrativeParentLatin, VarAdministrativeParent, VarAdministrativeFather, VarAdministrativeFatherName, VarAdministrativeType As String
 
-    Private sQLFillCMBFather As String = "SELECT AdministrativeCode,AdministrativeName FROM tbAdministrative Where AdministrativeStatus=1"
+    Private sQLFillCMBFather As String = "SELECT AdministrativeCode,AdministrativeName FROM tbAdministrative Where AdministrativeStatus=1 AND AdministrativeType='رئيسي'"
     Private sQLFather As String = "Insert Into tbAdministrative (AdministrativeCode,AdministrativeName,AdministrativeType,AdministrativeStatus,InsertTime,UserID_Insert)values(@AdministrativeCode,@AdministrativeName,@AdministrativeType,@AdministrativeStatus,@InsertTime,@UserID_Insert)"
-    Private sQLParent As String = "Insert Into tbAdministrative (AdministrativeRefre,AdministrativeType,AdministrativeParentCode,AdministrativeParent,AdministrativeStatus,InsertTime,UserID_Insert)values(@AdministrativeRefre,@AdministrativeType,@AdministrativeParentCode,@AdministrativeParent,@AdministrativeStatus,@InsertTime,@UserID_Insert)"
+    Private sQLParent As String = "Insert Into tbAdministrative (AdministrativeRefre,AdministrativeRefreName,AdministrativeType,AdministrativeParentCode,AdministrativeParent,AdministrativeParentLatin,AdministrativeStatus,InsertTime,UserID_Insert)values(@AdministrativeRefre,@AdministrativeRefreName,@AdministrativeType,@AdministrativeParentCode,@AdministrativeParent,@AdministrativeParentLatin,@AdministrativeStatus,@InsertTime,@UserID_Insert)"
     Private Sql_Dt_AllAccounts As String = "SELECT * From tbAdministrative Where AdministrativeStatus=1"
+
+    Private Sub ClearCN()
+        Me.txtAdministrativeID.Text = ""
+        Me.cmbAdministrativeFather.SelectedIndex = -1
+        Me.cmbAdministrativeType.SelectedIndex = -1
+        Me.txtAdministrativeParentCode.Text = ""
+        Me.txtAdministrativeParent.Text = ""
+        Me.txtAdministrativeLatin.Text = ""
+    End Sub
 
     Public Function Max_AdministrativeCode()
         Try
@@ -133,16 +142,7 @@ Public Class frmAddAdministrative
 
         End If
     End Sub
-    Private Sub cmbAdministrativeFather_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAdministrativeFather.SelectedIndexChanged
-        Try
-            Max_AdministrativeParentCode()
-            Dim selectedFath As Integer
-            selectedFath = Convert.ToInt64(Me.cmbAdministrativeFather.SelectedValue)
-            txtAdministrativeParentCode.Text = selectedFath & "000" & MaxAdministrativeParentCode
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
+
 
     Private Sub cmbAdministrativeType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAdministrativeType.SelectedIndexChanged
         Select Case Me.cmbAdministrativeType.SelectedItem
@@ -162,16 +162,35 @@ Public Class frmAddAdministrative
         End Select
     End Sub
 
+    Private Sub cmbAdministrativeFather_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbAdministrativeFather.SelectionChangeCommitted
+        Try
+            Max_AdministrativeParentCode()
+            Dim selectedFath As Integer
+
+            selectedFath = Convert.ToInt64(Me.cmbAdministrativeFather.SelectedValue)
+
+            txtAdministrativeParentCode.Text = selectedFath & MaxAdministrativeParentCode
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
     Private Sub BGW_Load_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BGW_Load.RunWorkerCompleted
         Try
             If VarBGW_Status = True Then
-                Call XCLS.MyCodes_CmbFill(Me.cmbAdministrativeFather, VarAdministrativeTypeDT, "AdministrativeName", "AdministrativeCode")
-                Me.cmbAdministrativeType.DataSource = VarSelAdministrativeType
+                If VarAdministrativeTypeDT.Rows.Count <> 0 Then
+                    Call XCLS.MyCodes_CmbFill(Me.cmbAdministrativeFather, VarAdministrativeTypeDT, "AdministrativeName", "AdministrativeCode")
+                    Me.cmbAdministrativeType.DataSource = VarSelAdministrativeType
+                    Me.cmbAdministrativeType.Text = ""
+                    Me.cmbAdministrativeFather.Text = ""
+
+                End If
+
             Else
                 Exit Sub
             End If
             lblUsername.Text = VarUserName
-
+            ClearCN()
             Call MYSP_Hide()
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -207,11 +226,13 @@ Public Class frmAddAdministrative
                     With Cmd
                         .Parameters.Clear()
                         .Parameters.AddWithValue("@AdministrativeRefre", SqlDbType.Int).Value = VarAdministrativeFather
-                        .Parameters.AddWithValue("@AdministrativeType", SqlDbType.VarChar).Value = VarAdministrativeType
+                        .Parameters.AddWithValue("@AdministrativeRefreName", SqlDbType.NVarChar).Value = VarAdministrativeFatherName
+                        .Parameters.AddWithValue("@AdministrativeType", SqlDbType.NVarChar).Value = VarAdministrativeType
                         .Parameters.AddWithValue("@AdministrativeParentCode", SqlDbType.Int).Value = VarAdministrativeParentCode
-                        .Parameters.AddWithValue("@AdministrativeParent", SqlDbType.VarChar).Value = VarAdministrativeParent
+                        .Parameters.AddWithValue("@AdministrativeParent", SqlDbType.NVarChar).Value = VarAdministrativeParent
+                        .Parameters.AddWithValue("@AdministrativeParentLatin", SqlDbType.NVarChar).Value = VarAdministrativeParentLatin
                         .Parameters.AddWithValue("@AdministrativeStatus", SqlDbType.Int).Value = VarAdministrativeStatus
-                        .Parameters.AddWithValue("@InsertTime", SqlDbType.Date).Value = VarInsertTime
+                        .Parameters.AddWithValue("@InsertTime", SqlDbType.DateTime).Value = VarInsertTime
                         .Parameters.AddWithValue("@UserID_Insert", SqlDbType.Int).Value = VarUserID
                     End With
                     If sQlConnection.State = 1 Then sQlConnection.Close()
@@ -238,13 +259,13 @@ Public Class frmAddAdministrative
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Call MYSP_Show()
-        BGW_Save.RunWorkerAsync()
-        VarAdministrativeType = Me.cmbAdministrativeType.SelectedItem
-        VarAdministrativeFather = Me.cmbAdministrativeFather.SelectedValue
-        VarAdministrativeParentCode = Convert.ToInt64(Me.txtAdministrativeParentCode.Text)
-        VarAdministrativeParent = Me.txtAdministrativeParent.Text
-        VarAdministrativeParentLatin = Me.txtAdministrativeLatin.Text
+        VarAdministrativeType = Trim(Me.cmbAdministrativeType.Text)
+        VarAdministrativeFather = Convert.ToInt64(Me.cmbAdministrativeFather.SelectedValue)
+        VarAdministrativeParentCode = Trim(Me.txtAdministrativeParentCode.Text)
+        VarAdministrativeParent = Trim(Me.txtAdministrativeParent.Text)
+        VarAdministrativeParentLatin = Trim(Me.txtAdministrativeLatin.Text)
         VarAdministrativeStatus = 1
-
+        VarAdministrativeFatherName = Trim(Me.cmbAdministrativeFather.Text)
+        BGW_Save.RunWorkerAsync()
     End Sub
 End Class

@@ -24,10 +24,6 @@ Partial Class frmAdministrative
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.DGV = New System.Windows.Forms.DataGridView()
-        Me.الكود = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.BGW_Load = New System.ComponentModel.BackgroundWorker()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
@@ -35,6 +31,8 @@ Partial Class frmAdministrative
         Me.lblUsername = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblDateTime = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblCount = New System.Windows.Forms.ToolStripStatusLabel()
         Me.PB = New System.Windows.Forms.ToolStripProgressBar()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ملفToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,10 +42,15 @@ Partial Class frmAdministrative
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnAddAdministrative = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
-        CType(Me.DGV, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DGV = New System.Windows.Forms.DataGridView()
+        Me.AdministrativeID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AdministrativeParentCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AdministrativeParent = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AdministrativeName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtSearch
@@ -58,34 +61,6 @@ Partial Class frmAdministrative
         Me.txtSearch.Size = New System.Drawing.Size(546, 29)
         Me.txtSearch.TabIndex = 11
         '
-        'DGV
-        '
-        Me.DGV.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.الكود, Me.Column1, Me.Column2})
-        Me.DGV.Location = New System.Drawing.Point(12, 62)
-        Me.DGV.Name = "DGV"
-        Me.DGV.Size = New System.Drawing.Size(546, 351)
-        Me.DGV.TabIndex = 10
-        '
-        'الكود
-        '
-        Me.الكود.HeaderText = "الكود"
-        Me.الكود.Name = "الكود"
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "اسم الادارة "
-        Me.Column1.Name = "Column1"
-        Me.Column1.Width = 200
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "الادارة الاب"
-        Me.Column2.Name = "Column2"
-        Me.Column2.Width = 200
-        '
         'BGW_Load
         '
         Me.BGW_Load.WorkerReportsProgress = True
@@ -93,7 +68,7 @@ Partial Class frmAdministrative
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblUsername, Me.ToolStripStatusLabel2, Me.lblDateTime, Me.PB})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblUsername, Me.ToolStripStatusLabel2, Me.lblDateTime, Me.ToolStripStatusLabel3, Me.lblCount, Me.PB})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 497)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(568, 22)
@@ -114,7 +89,7 @@ Partial Class frmAdministrative
         '
         'ToolStripStatusLabel2
         '
-        Me.ToolStripStatusLabel2.Margin = New System.Windows.Forms.Padding(50, 3, 0, 2)
+        Me.ToolStripStatusLabel2.Margin = New System.Windows.Forms.Padding(20, 3, 0, 2)
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
         Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(44, 17)
         Me.ToolStripStatusLabel2.Text = "التاريخ :"
@@ -125,9 +100,22 @@ Partial Class frmAdministrative
         Me.lblDateTime.Size = New System.Drawing.Size(119, 17)
         Me.lblDateTime.Text = "ToolStripStatusLabel3"
         '
+        'ToolStripStatusLabel3
+        '
+        Me.ToolStripStatusLabel3.Margin = New System.Windows.Forms.Padding(20, 3, 0, 2)
+        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(39, 17)
+        Me.ToolStripStatusLabel3.Text = "العدد :"
+        '
+        'lblCount
+        '
+        Me.lblCount.Name = "lblCount"
+        Me.lblCount.Size = New System.Drawing.Size(25, 17)
+        Me.lblCount.Text = "000"
+        '
         'PB
         '
-        Me.PB.Margin = New System.Windows.Forms.Padding(50, 3, 1, 3)
+        Me.PB.Margin = New System.Windows.Forms.Padding(20, 3, 1, 3)
         Me.PB.Name = "PB"
         Me.PB.Size = New System.Drawing.Size(100, 16)
         '
@@ -193,6 +181,53 @@ Partial Class frmAdministrative
         Me.btnClose.Text = "خروج"
         Me.btnClose.UseVisualStyleBackColor = True
         '
+        'DGV
+        '
+        Me.DGV.AllowUserToAddRows = False
+        Me.DGV.AllowUserToDeleteRows = False
+        Me.DGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AdministrativeID, Me.AdministrativeParentCode, Me.AdministrativeParent, Me.AdministrativeName})
+        Me.DGV.Location = New System.Drawing.Point(12, 62)
+        Me.DGV.Name = "DGV"
+        Me.DGV.ReadOnly = True
+        Me.DGV.Size = New System.Drawing.Size(546, 351)
+        Me.DGV.TabIndex = 10
+        '
+        'AdministrativeID
+        '
+        Me.AdministrativeID.DataPropertyName = "AdministrativeID"
+        Me.AdministrativeID.HeaderText = "الكود"
+        Me.AdministrativeID.Name = "AdministrativeID"
+        Me.AdministrativeID.ReadOnly = True
+        Me.AdministrativeID.Width = 46
+        '
+        'AdministrativeParentCode
+        '
+        Me.AdministrativeParentCode.DataPropertyName = "AdministrativeParentCode"
+        Me.AdministrativeParentCode.HeaderText = "كود الادارة"
+        Me.AdministrativeParentCode.Name = "AdministrativeParentCode"
+        Me.AdministrativeParentCode.ReadOnly = True
+        Me.AdministrativeParentCode.Width = 50
+        '
+        'AdministrativeParent
+        '
+        Me.AdministrativeParent.DataPropertyName = "AdministrativeParent"
+        Me.AdministrativeParent.HeaderText = "اسم الادارة "
+        Me.AdministrativeParent.Name = "AdministrativeParent"
+        Me.AdministrativeParent.ReadOnly = True
+        Me.AdministrativeParent.Width = 200
+        '
+        'AdministrativeName
+        '
+        Me.AdministrativeName.DataPropertyName = "AdministrativeName"
+        Me.AdministrativeName.HeaderText = "الادارة الاب"
+        Me.AdministrativeName.Name = "AdministrativeName"
+        Me.AdministrativeName.ReadOnly = True
+        Me.AdministrativeName.Width = 200
+        '
         'frmAdministrative
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -208,22 +243,18 @@ Partial Class frmAdministrative
         Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.RightToLeftLayout = True
         Me.Text = "الادارات "
-        CType(Me.DGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.DGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents txtSearch As TextBox
-    Friend WithEvents DGV As DataGridView
-    Friend WithEvents الكود As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Timer1 As Timer
     Friend WithEvents BGW_Load As System.ComponentModel.BackgroundWorker
     Friend WithEvents StatusStrip1 As StatusStrip
@@ -240,4 +271,11 @@ Partial Class frmAdministrative
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnAddAdministrative As Button
     Friend WithEvents btnClose As Button
+    Friend WithEvents DGV As DataGridView
+    Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
+    Friend WithEvents lblCount As ToolStripStatusLabel
+    Friend WithEvents AdministrativeID As DataGridViewTextBoxColumn
+    Friend WithEvents AdministrativeParentCode As DataGridViewTextBoxColumn
+    Friend WithEvents AdministrativeParent As DataGridViewTextBoxColumn
+    Friend WithEvents AdministrativeName As DataGridViewTextBoxColumn
 End Class
