@@ -24,17 +24,16 @@ Partial Class frmAddAdministrative
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.cmbAdministrativeType = New System.Windows.Forms.ComboBox()
-        Me.txtAdministrativeID = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cmbLevel = New System.Windows.Forms.ComboBox()
         Me.txtAdministrativeLatin = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtAdministrativeParent = New System.Windows.Forms.TextBox()
+        Me.txtAdministrativeName = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblAdministrative = New System.Windows.Forms.Label()
-        Me.cmbAdministrativeFather = New System.Windows.Forms.ComboBox()
-        Me.txtAdministrativeParentCode = New System.Windows.Forms.TextBox()
+        Me.cmbAdministrativeParent = New System.Windows.Forms.ComboBox()
+        Me.txtAdministrativeID = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ملفToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -64,17 +63,16 @@ Partial Class frmAddAdministrative
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.cmbAdministrativeType)
-        Me.GroupBox1.Controls.Add(Me.txtAdministrativeID)
-        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.cmbLevel)
         Me.GroupBox1.Controls.Add(Me.txtAdministrativeLatin)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.txtAdministrativeParent)
+        Me.GroupBox1.Controls.Add(Me.txtAdministrativeName)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.lblAdministrative)
-        Me.GroupBox1.Controls.Add(Me.cmbAdministrativeFather)
-        Me.GroupBox1.Controls.Add(Me.txtAdministrativeParentCode)
+        Me.GroupBox1.Controls.Add(Me.cmbAdministrativeParent)
+        Me.GroupBox1.Controls.Add(Me.txtAdministrativeID)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
@@ -84,43 +82,32 @@ Partial Class frmAddAdministrative
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "الادارة "
         '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.TextBox1.Location = New System.Drawing.Point(80, 46)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(121, 22)
+        Me.TextBox1.TabIndex = 20
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(355, 21)
+        Me.Label5.Location = New System.Drawing.Point(355, 49)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(60, 15)
         Me.Label5.TabIndex = 19
         Me.Label5.Text = "نوع الادارة :"
         '
-        'cmbAdministrativeType
+        'cmbLevel
         '
-        Me.cmbAdministrativeType.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbAdministrativeType.FormattingEnabled = True
-        Me.cmbAdministrativeType.Location = New System.Drawing.Point(228, 18)
-        Me.cmbAdministrativeType.Name = "cmbAdministrativeType"
-        Me.cmbAdministrativeType.Size = New System.Drawing.Size(121, 23)
-        Me.cmbAdministrativeType.TabIndex = 18
-        '
-        'txtAdministrativeID
-        '
-        Me.txtAdministrativeID.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtAdministrativeID.Location = New System.Drawing.Point(228, 47)
-        Me.txtAdministrativeID.Name = "txtAdministrativeID"
-        Me.txtAdministrativeID.ReadOnly = True
-        Me.txtAdministrativeID.Size = New System.Drawing.Size(121, 22)
-        Me.txtAdministrativeID.TabIndex = 17
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(355, 50)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(78, 15)
-        Me.Label4.TabIndex = 16
-        Me.Label4.Text = "كود الادارة الاب :"
+        Me.cmbLevel.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbLevel.FormattingEnabled = True
+        Me.cmbLevel.Location = New System.Drawing.Point(228, 46)
+        Me.cmbLevel.Name = "cmbLevel"
+        Me.cmbLevel.Size = New System.Drawing.Size(121, 23)
+        Me.cmbLevel.TabIndex = 18
         '
         'txtAdministrativeLatin
         '
@@ -140,13 +127,13 @@ Partial Class frmAddAdministrative
         Me.Label3.TabIndex = 14
         Me.Label3.Text = "الاسم لاتيني :"
         '
-        'txtAdministrativeParent
+        'txtAdministrativeName
         '
-        Me.txtAdministrativeParent.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtAdministrativeParent.Location = New System.Drawing.Point(22, 132)
-        Me.txtAdministrativeParent.Name = "txtAdministrativeParent"
-        Me.txtAdministrativeParent.Size = New System.Drawing.Size(327, 22)
-        Me.txtAdministrativeParent.TabIndex = 13
+        Me.txtAdministrativeName.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtAdministrativeName.Location = New System.Drawing.Point(22, 132)
+        Me.txtAdministrativeName.Name = "txtAdministrativeName"
+        Me.txtAdministrativeName.Size = New System.Drawing.Size(327, 22)
+        Me.txtAdministrativeName.TabIndex = 13
         '
         'Label1
         '
@@ -168,22 +155,22 @@ Partial Class frmAddAdministrative
         Me.lblAdministrative.TabIndex = 11
         Me.lblAdministrative.Text = "الادارة الاب :"
         '
-        'cmbAdministrativeFather
+        'cmbAdministrativeParent
         '
-        Me.cmbAdministrativeFather.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbAdministrativeFather.FormattingEnabled = True
-        Me.cmbAdministrativeFather.Location = New System.Drawing.Point(22, 75)
-        Me.cmbAdministrativeFather.Name = "cmbAdministrativeFather"
-        Me.cmbAdministrativeFather.Size = New System.Drawing.Size(327, 23)
-        Me.cmbAdministrativeFather.TabIndex = 10
+        Me.cmbAdministrativeParent.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbAdministrativeParent.FormattingEnabled = True
+        Me.cmbAdministrativeParent.Location = New System.Drawing.Point(22, 75)
+        Me.cmbAdministrativeParent.Name = "cmbAdministrativeParent"
+        Me.cmbAdministrativeParent.Size = New System.Drawing.Size(327, 23)
+        Me.cmbAdministrativeParent.TabIndex = 10
         '
-        'txtAdministrativeParentCode
+        'txtAdministrativeID
         '
-        Me.txtAdministrativeParentCode.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtAdministrativeParentCode.Location = New System.Drawing.Point(228, 104)
-        Me.txtAdministrativeParentCode.Name = "txtAdministrativeParentCode"
-        Me.txtAdministrativeParentCode.Size = New System.Drawing.Size(121, 22)
-        Me.txtAdministrativeParentCode.TabIndex = 9
+        Me.txtAdministrativeID.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtAdministrativeID.Location = New System.Drawing.Point(228, 104)
+        Me.txtAdministrativeID.Name = "txtAdministrativeID"
+        Me.txtAdministrativeID.Size = New System.Drawing.Size(121, 22)
+        Me.txtAdministrativeID.TabIndex = 9
         '
         'Label2
         '
@@ -244,7 +231,7 @@ Partial Class frmAddAdministrative
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(169, 19)
+        Me.btnDelete.Location = New System.Drawing.Point(307, 19)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(63, 37)
         Me.btnDelete.TabIndex = 4
@@ -253,7 +240,7 @@ Partial Class frmAddAdministrative
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(238, 19)
+        Me.btnUpdate.Location = New System.Drawing.Point(376, 19)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(63, 37)
         Me.btnUpdate.TabIndex = 3
@@ -352,6 +339,7 @@ Partial Class frmAddAdministrative
         Me.Name = "frmAddAdministrative"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.RightToLeftLayout = True
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "الادارات "
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -365,17 +353,17 @@ Partial Class frmAddAdministrative
 
     End Sub
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents txtAdministrativeParentCode As TextBox
+    Friend WithEvents txtAdministrativeID As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents ملفToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents خياراتToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents مساعدةToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents خروجToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents txtAdministrativeParent As TextBox
+    Friend WithEvents txtAdministrativeName As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents lblAdministrative As Label
-    Friend WithEvents cmbAdministrativeFather As ComboBox
+    Friend WithEvents cmbAdministrativeParent As ComboBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents btnDelete As Button
     Friend WithEvents btnUpdate As Button
@@ -393,8 +381,7 @@ Partial Class frmAddAdministrative
     Friend WithEvents Timer1 As Timer
     Friend WithEvents txtAdministrativeLatin As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtAdministrativeID As TextBox
-    Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents cmbAdministrativeType As ComboBox
+    Friend WithEvents cmbLevel As ComboBox
+    Friend WithEvents TextBox1 As TextBox
 End Class

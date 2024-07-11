@@ -22,6 +22,7 @@ Partial Class frm_main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_main))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ملفToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msSetting = New System.Windows.Forms.ToolStripMenuItem()
@@ -67,6 +68,9 @@ Partial Class frm_main
         Me.تعاريفToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.msAdministrative = New System.Windows.Forms.ToolStripMenuItem()
         Me.msSpecialization = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msJobTitle = New System.Windows.Forms.ToolStripMenuItem()
+        Me.الاصنافوالخدماتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.التصنيفاتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -82,7 +86,7 @@ Partial Class frm_main
         Me.lblCompanyPhone2 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
-        Me.msJobTitle = New System.Windows.Forms.ToolStripMenuItem()
+        Me.الفئاتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -90,7 +94,7 @@ Partial Class frm_main
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ملفToolStripMenuItem, Me.الدكاتيرةToolStripMenuItem, Me.المرضيToolStripMenuItem, Me.العملياتToolStripMenuItem, Me.العياداتToolStripMenuItem, Me.التقاريرToolStripMenuItem, Me.ادواتToolStripMenuItem, Me.خروجToolStripMenuItem, Me.خروجToolStripMenuItem1, Me.المواردالبشريةToolStripMenuItem, Me.تعاريفToolStripMenuItem1})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ملفToolStripMenuItem, Me.الدكاتيرةToolStripMenuItem, Me.المرضيToolStripMenuItem, Me.العملياتToolStripMenuItem, Me.العياداتToolStripMenuItem, Me.التقاريرToolStripMenuItem, Me.ادواتToolStripMenuItem, Me.خروجToolStripMenuItem, Me.خروجToolStripMenuItem1, Me.المواردالبشريةToolStripMenuItem, Me.تعاريفToolStripMenuItem1, Me.الاصنافوالخدماتToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(947, 24)
@@ -366,14 +370,33 @@ Partial Class frm_main
         'msAdministrative
         '
         Me.msAdministrative.Name = "msAdministrative"
-        Me.msAdministrative.Size = New System.Drawing.Size(180, 22)
+        Me.msAdministrative.Size = New System.Drawing.Size(161, 22)
         Me.msAdministrative.Text = "الهيكل الاداري"
         '
         'msSpecialization
         '
         Me.msSpecialization.Name = "msSpecialization"
-        Me.msSpecialization.Size = New System.Drawing.Size(180, 22)
+        Me.msSpecialization.Size = New System.Drawing.Size(161, 22)
         Me.msSpecialization.Text = "التخصصات"
+        '
+        'msJobTitle
+        '
+        Me.msJobTitle.Name = "msJobTitle"
+        Me.msJobTitle.Size = New System.Drawing.Size(161, 22)
+        Me.msJobTitle.Text = "المسمي الوظيفي"
+        '
+        'الاصنافوالخدماتToolStripMenuItem
+        '
+        Me.الاصنافوالخدماتToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.التصنيفاتToolStripMenuItem, Me.الفئاتToolStripMenuItem})
+        Me.الاصنافوالخدماتToolStripMenuItem.Name = "الاصنافوالخدماتToolStripMenuItem"
+        Me.الاصنافوالخدماتToolStripMenuItem.Size = New System.Drawing.Size(113, 20)
+        Me.الاصنافوالخدماتToolStripMenuItem.Text = "الاصناف و الخدمات"
+        '
+        'التصنيفاتToolStripMenuItem
+        '
+        Me.التصنيفاتToolStripMenuItem.Name = "التصنيفاتToolStripMenuItem"
+        Me.التصنيفاتToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.التصنيفاتToolStripMenuItem.Text = "التصنيفات"
         '
         'PictureBox1
         '
@@ -518,11 +541,11 @@ Partial Class frm_main
         Me.btnExit.Text = "خروج"
         Me.btnExit.UseVisualStyleBackColor = True
         '
-        'msJobTitle
+        'الفئاتToolStripMenuItem
         '
-        Me.msJobTitle.Name = "msJobTitle"
-        Me.msJobTitle.Size = New System.Drawing.Size(180, 22)
-        Me.msJobTitle.Text = "المسمي الوظيفي"
+        Me.الفئاتToolStripMenuItem.Name = "الفئاتToolStripMenuItem"
+        Me.الفئاتToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.الفئاتToolStripMenuItem.Text = "الفئات"
         '
         'frm_main
         '
@@ -540,6 +563,7 @@ Partial Class frm_main
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frm_main"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -617,4 +641,7 @@ Partial Class frm_main
     Friend WithEvents msAdministrative As ToolStripMenuItem
     Friend WithEvents msSpecialization As ToolStripMenuItem
     Friend WithEvents msJobTitle As ToolStripMenuItem
+    Friend WithEvents الاصنافوالخدماتToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents التصنيفاتToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents الفئاتToolStripMenuItem As ToolStripMenuItem
 End Class

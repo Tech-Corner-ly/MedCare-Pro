@@ -23,9 +23,10 @@ Partial Class frmCategory
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node1")
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node2")
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node0", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2})
+        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node1")
+        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node2")
+        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Node0", New System.Windows.Forms.TreeNode() {TreeNode4, TreeNode5})
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCategory))
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.BGW_Load = New System.ComponentModel.BackgroundWorker()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
@@ -52,6 +53,9 @@ Partial Class frmCategory
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'Timer1
+        '
         '
         'BGW_Load
         '
@@ -134,15 +138,16 @@ Partial Class frmCategory
         '
         'TreeView1
         '
+        Me.TreeView1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TreeView1.Location = New System.Drawing.Point(12, 57)
         Me.TreeView1.Name = "TreeView1"
-        TreeNode1.Name = "Node1"
-        TreeNode1.Text = "Node1"
-        TreeNode2.Name = "Node2"
-        TreeNode2.Text = "Node2"
-        TreeNode3.Name = "Node0"
-        TreeNode3.Text = "Node0"
-        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode3})
+        TreeNode4.Name = "Node1"
+        TreeNode4.Text = "Node1"
+        TreeNode5.Name = "Node2"
+        TreeNode5.Text = "Node2"
+        TreeNode6.Name = "Node0"
+        TreeNode6.Text = "Node0"
+        Me.TreeView1.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode6})
         Me.TreeView1.RightToLeftLayout = True
         Me.TreeView1.Size = New System.Drawing.Size(815, 303)
         Me.TreeView1.TabIndex = 16
@@ -233,11 +238,13 @@ Partial Class frmCategory
         Me.Controls.Add(Me.TreeView1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "frmCategory"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.RightToLeftLayout = True
-        Me.Text = "التصنيفات "
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "الفئات"
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)

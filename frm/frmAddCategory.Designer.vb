@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAddCategory
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmAddCategory
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -46,19 +46,23 @@ Partial Class frmAddCategory
         Me.txtCategoryName = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblAdministrative = New System.Windows.Forms.Label()
-        Me.cmbCategoryFather = New System.Windows.Forms.ComboBox()
-        Me.txtCode = New System.Windows.Forms.TextBox()
+        Me.cmbCategory = New System.Windows.Forms.ComboBox()
+        Me.txtParentCategoryID = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cmbLevel = New System.Windows.Forms.ComboBox()
+        Me.cmbCategoryID = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.txtCategoryLatin = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.cmbCategoryFatherCode = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'Timer1
+        '
         '
         'BGW_Save
         '
@@ -124,7 +128,7 @@ Partial Class frmAddCategory
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(169, 19)
+        Me.btnDelete.Location = New System.Drawing.Point(307, 19)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(63, 37)
         Me.btnDelete.TabIndex = 4
@@ -133,7 +137,7 @@ Partial Class frmAddCategory
         '
         'btnUpdate
         '
-        Me.btnUpdate.Location = New System.Drawing.Point(238, 19)
+        Me.btnUpdate.Location = New System.Drawing.Point(376, 19)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(63, 37)
         Me.btnUpdate.TabIndex = 3
@@ -229,22 +233,23 @@ Partial Class frmAddCategory
         Me.lblAdministrative.TabIndex = 11
         Me.lblAdministrative.Text = "التصنيف الاب :"
         '
-        'cmbCategoryFather
+        'cmbCategory
         '
-        Me.cmbCategoryFather.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbCategoryFather.FormattingEnabled = True
-        Me.cmbCategoryFather.Location = New System.Drawing.Point(16, 54)
-        Me.cmbCategoryFather.Name = "cmbCategoryFather"
-        Me.cmbCategoryFather.Size = New System.Drawing.Size(338, 23)
-        Me.cmbCategoryFather.TabIndex = 10
+        Me.cmbCategory.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbCategory.FormattingEnabled = True
+        Me.cmbCategory.Location = New System.Drawing.Point(16, 54)
+        Me.cmbCategory.Name = "cmbCategory"
+        Me.cmbCategory.Size = New System.Drawing.Size(338, 23)
+        Me.cmbCategory.TabIndex = 10
         '
-        'txtCode
+        'txtParentCategoryID
         '
-        Me.txtCode.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtCode.Location = New System.Drawing.Point(238, 83)
-        Me.txtCode.Name = "txtCode"
-        Me.txtCode.Size = New System.Drawing.Size(116, 22)
-        Me.txtCode.TabIndex = 9
+        Me.txtParentCategoryID.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtParentCategoryID.Location = New System.Drawing.Point(238, 83)
+        Me.txtParentCategoryID.Name = "txtParentCategoryID"
+        Me.txtParentCategoryID.ReadOnly = True
+        Me.txtParentCategoryID.Size = New System.Drawing.Size(116, 22)
+        Me.txtParentCategoryID.TabIndex = 9
         '
         'Label2
         '
@@ -258,15 +263,16 @@ Partial Class frmAddCategory
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.cmbCategoryFatherCode)
+        Me.GroupBox1.Controls.Add(Me.cmbLevel)
+        Me.GroupBox1.Controls.Add(Me.cmbCategoryID)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.txtCategoryLatin)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtCategoryName)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.lblAdministrative)
-        Me.GroupBox1.Controls.Add(Me.cmbCategoryFather)
-        Me.GroupBox1.Controls.Add(Me.txtCode)
+        Me.GroupBox1.Controls.Add(Me.cmbCategory)
+        Me.GroupBox1.Controls.Add(Me.txtParentCategoryID)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
@@ -275,6 +281,35 @@ Partial Class frmAddCategory
         Me.GroupBox1.TabIndex = 27
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "الادارة "
+        '
+        'cmbLevel
+        '
+        Me.cmbLevel.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbLevel.FormattingEnabled = True
+        Me.cmbLevel.Location = New System.Drawing.Point(233, 25)
+        Me.cmbLevel.Name = "cmbLevel"
+        Me.cmbLevel.Size = New System.Drawing.Size(121, 23)
+        Me.cmbLevel.TabIndex = 19
+        '
+        'cmbCategoryID
+        '
+        Me.cmbCategoryID.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.cmbCategoryID.Location = New System.Drawing.Point(16, 21)
+        Me.cmbCategoryID.Name = "cmbCategoryID"
+        Me.cmbCategoryID.ReadOnly = True
+        Me.cmbCategoryID.Size = New System.Drawing.Size(116, 22)
+        Me.cmbCategoryID.TabIndex = 17
+        Me.cmbCategoryID.Visible = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(360, 29)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(53, 15)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "نوع الفئة :"
         '
         'txtCategoryLatin
         '
@@ -294,25 +329,6 @@ Partial Class frmAddCategory
         Me.Label3.TabIndex = 14
         Me.Label3.Text = "الاسم لاتيني :"
         '
-        'cmbCategoryFatherCode
-        '
-        Me.cmbCategoryFatherCode.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.cmbCategoryFatherCode.Location = New System.Drawing.Point(238, 26)
-        Me.cmbCategoryFatherCode.Name = "cmbCategoryFatherCode"
-        Me.cmbCategoryFatherCode.ReadOnly = True
-        Me.cmbCategoryFatherCode.Size = New System.Drawing.Size(116, 22)
-        Me.cmbCategoryFatherCode.TabIndex = 17
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(360, 29)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(49, 15)
-        Me.Label4.TabIndex = 16
-        Me.Label4.Text = "كود الاب :"
-        '
         'frmAddCategory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -326,7 +342,7 @@ Partial Class frmAddCategory
         Me.Name = "frmAddCategory"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.RightToLeftLayout = True
-        Me.Text = "اضافة تصنيف "
+        Me.Text = "اضافة فئة"
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -362,12 +378,13 @@ Partial Class frmAddCategory
     Friend WithEvents txtCategoryName As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents lblAdministrative As Label
-    Friend WithEvents cmbCategoryFather As ComboBox
-    Friend WithEvents txtCode As TextBox
+    Friend WithEvents cmbCategory As ComboBox
+    Friend WithEvents txtParentCategoryID As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents txtCategoryLatin As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents cmbCategoryFatherCode As TextBox
+    Friend WithEvents cmbCategoryID As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents cmbLevel As ComboBox
 End Class

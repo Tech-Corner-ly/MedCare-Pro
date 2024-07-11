@@ -4,7 +4,7 @@ Public Class frm_main
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblUsername.Text = VarUserName
         lblDateTime.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-
+        Me.Text = "MedCare Pro" & "" & VarCompanyName
     End Sub
     Private Sub Button4_Click(sender As Object, e As EventArgs)
         frm_EntrySheet.Show()
@@ -68,5 +68,13 @@ Public Class frm_main
     Private Sub msJobTitle_Click(sender As Object, e As EventArgs) Handles msJobTitle.Click
         frmJobTitle.Show()
 
+    End Sub
+
+    Private Sub التصنيفاتToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles التصنيفاتToolStripMenuItem.Click
+        frmAddCategory.Show()
+    End Sub
+
+    Private Sub الفئاتToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles الفئاتToolStripMenuItem.Click
+        frmCategory.Show()
     End Sub
 End Class

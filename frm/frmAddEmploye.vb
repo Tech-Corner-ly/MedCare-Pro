@@ -8,6 +8,7 @@
     Private MyVarDT_Users As DataTable = New DataTable
     Private MyVarDT_Cities As DataTable = New DataTable
     Private VarAdministrativeTypeDT As DataTable = New DataTable
+    Private VarJobTitleDT As DataTable = New DataTable
 
     Private VarAdministrative As String
     Private VarAdministrativeStatus As Integer = 1
@@ -17,7 +18,10 @@
     'SQL
     Private sQLCities As String = "SELECT CityID,CityName FROM tbCities"
     Private sQLUsers As String = "SELECT UserID,Username FROM tblUsers Where UserStatus=1 AND UserIsActive=1"
-    Private sQLAdministrative As String = "SELECT AdministrativeParentCode,AdministrativeParent FROM tbAdministrative Where AdministrativeStatus=1 AND AdministrativeType='فرعي'"
+    Private sQLAdministrative As String = "SELECT [AdministrativeID]
+                                                  ,[AdministrativeName]
+                                              FROM [tbAdministrative]
+                                              Where [AdministrativeStatus]=1"
     Private sQLSpecialization As String = "SELECT SpecializationID,SpecializationName FROM tbSpecialization Where SpecializationStatus=1 AND Adjective='طبي'"
     Private sQLtbEmploye As String = "SELECT * FROM tbEmploye Where EmployeStatus=1 "
     Private Sql_Dt_AllAccounts As String = "SELECT * From tbAdministrative Where AdministrativeStatus=1"
@@ -36,6 +40,10 @@
                 @EmpEntryPlace,@EmpEntryDate,@EmpResidencyNum,@EmpResidencyPlace,@EmpResidencyExpiry,@EmpFatherName,@EmpMotherName,
                 @EmpMaritalStatus,@EmpFamilyNum,@ClinicID,@ItemExaminID1,@ItemExaminID2,@ItemExaminID3,
                 @EmpIsActive,@EmployeStatus,@InsertTime,@UserID_Insert)"
+    Private sQLJobTitle As String = "SELECT [JobTitleID]
+                                              ,[JobTitle]
+                                          FROM [tbJobTitle]
+                                          Where [JobTitleStatus]=1 AND [Adjective]='مدني'"
 
     Private Sub frmAddEmploye_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call MYSP_Show()
@@ -53,6 +61,7 @@
                 Call XCLS.MyCodes_Fill_DataTable(sQLAdministrative, VarAdministrativeTypeDT)
                 Call XCLS.MyCodes_Fill_DataTable(sQLUsers, MyVarDT_Users)
                 Call XCLS.MyCodes_Fill_DataTable(sQLCities, MyVarDT_Cities)
+                Call XCLS.MyCodes_Fill_DataTable(sQLJobTitle, VarJobTitleDT)
                 VarBGW_Status = True
             End If
         Catch ex As Exception
@@ -69,16 +78,18 @@
             Me.cmbAdjective.DataSource = VarAdjective
             Call XCLS.MyCodes_CmbFill(Me.cmbNationality, MyVarDT_Countries, "arName", "CountriesID")
             Call XCLS.MyCodes_CmbFill(Me.cmbSpecialization, MyVarDT_Specialization, "SpecializationName", "SpecializationID")
-            Call XCLS.MyCodes_CmbFill(Me.cmbAdministrative, VarAdministrativeTypeDT, "AdministrativeParent", "AdministrativeParentCode")
+            Call XCLS.MyCodes_CmbFill(Me.cmbAdministrative, VarAdministrativeTypeDT, "AdministrativeName", "AdministrativeID")
             Call XCLS.MyCodes_CmbFill(Me.cmbUser, MyVarDT_Users, "Username", "UserID")
             Call XCLS.MyCodes_CmbFill(Me.cmbCity, MyVarDT_Cities, "CityName", "CityID")
+            Call XCLS.MyCodes_CmbFill(Me.cmbJobTitle, VarJobTitleDT, "JobTitle", "JobTitleID")
             lblUsername.Text = VarUserName
             lblDateTime.Text = VarDateTimeNow
-            Me.cmbNationality.Text = ""
-            Me.cmbSpecialization.Text = ""
-            Me.cmbAdministrative.Text = ""
-            Me.cmbUser.Text = ""
-            Me.cmbCity.Text = ""
+            Me.cmbNationality.SelectedIndex = -1
+            Me.cmbSpecialization.SelectedIndex = -1
+            Me.cmbAdministrative.SelectedIndex = -1
+            Me.cmbUser.SelectedIndex = -1
+            Me.cmbCity.SelectedIndex = -1
+            Me.cmbJobTitle.SelectedIndex = -1
         End If
         Call MYSP_Hide()
     End Sub

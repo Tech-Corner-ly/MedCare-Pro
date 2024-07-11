@@ -4,104 +4,47 @@ Public Class frmAddAdministrative
 
     Private XCLS As New ClsMain
     Private MyVar_Dt_AllAccounts As DataTable = New DataTable
-    Private VarAdministrativeTypeDT As DataTable = New DataTable
+    Private VarAdministrative_DT As DataTable = New DataTable
     Private VarSelAdministrativeType As New List(Of String)({" ", "رئيسي", "فرعي"})
-    Private VarAdministrative As String
+    Private VarAdministrative As Integer
     Private VarAdministrativeStatus As Integer = 1
-    Private VarAdministrativeParentCode As Integer
-    Private MaxAdministrativeCode As Integer
-    Private MaxAdministrativeParentCode As Integer
-    Private VarAdministrativeParentLatin, VarAdministrativeParent, VarAdministrativeFather, VarAdministrativeFatherName, VarAdministrativeType As String
 
-    Private sQLFillCMBFather As String = "SELECT AdministrativeCode,AdministrativeName FROM tbAdministrative Where AdministrativeStatus=1 AND AdministrativeType='رئيسي'"
-    Private sQLFather As String = "Insert Into tbAdministrative (AdministrativeCode,AdministrativeName,AdministrativeType,AdministrativeStatus,InsertTime,UserID_Insert)values(@AdministrativeCode,@AdministrativeName,@AdministrativeType,@AdministrativeStatus,@InsertTime,@UserID_Insert)"
-    Private sQLParent As String = "Insert Into tbAdministrative (AdministrativeRefre,AdministrativeRefreName,AdministrativeType,AdministrativeParentCode,AdministrativeParent,AdministrativeParentLatin,AdministrativeStatus,InsertTime,UserID_Insert)values(@AdministrativeRefre,@AdministrativeRefreName,@AdministrativeType,@AdministrativeParentCode,@AdministrativeParent,@AdministrativeParentLatin,@AdministrativeStatus,@InsertTime,@UserID_Insert)"
+    Private MaxAdministrativeID, MaxAdministrativeParentID As Integer
+    Private VarAdministrativeLatin, VarAdministrativeName As String
+    Private VarLevelID As Integer
+
+
+    Private sQLFillAdministrative As String = "SELECT [AdministrativeID]
+                                                  ,[AdministrativeName]
+                                              FROM [tbAdministrative]
+                                              Where [AdministrativeStatus]=1
+                                              AND [Level]=0"
+    Private sQLFather As String = "Insert Into tbAdministrative (AdministrativeName,AdministrativeLatin,Level,AdministrativeStatus,InsertTime)values(@AdministrativeName,@AdministrativeLatin,@Level,@AdministrativeStatus,@InsertTime)"
+    Private sQLParent As String = "Insert Into tbAdministrative (AdministrativeName,AdministrativeLatin,AdministrativeParentID,Level,AdministrativeStatus,InsertTime)values(@AdministrativeName,@AdministrativeLatin,@AdministrativeParentID,@Level,@AdministrativeStatus,@InsertTime)"
     Private Sql_Dt_AllAccounts As String = "SELECT * From tbAdministrative Where AdministrativeStatus=1"
+    Private sQL_GetMaxParent As String = "SELECT  Max([AdministrativeParentCode])
+                                      FROM [tbAdministrative]
+                                      Where [AdministrativeStatus]=1 AND [AdministrativeType]='فرعي' AND [AdministrativeRefre]=@AdministrativeRefre
+                                      Group By [AdministrativeRefre]"
+
+    Private SQLSelectParentAdministrative As String = "SELECT [Level]
+                                                      FROM [tbAdministrative]
+                                                      Where [AdministrativeStatus]=1
+                                                      AND [AdministrativeID]=@AdministrativeID"
 
     Private Sub ClearCN()
+        Me.cmbAdministrativeParent.SelectedIndex = -1
+        Me.cmbLevel.SelectedIndex = -1
         Me.txtAdministrativeID.Text = ""
-        Me.cmbAdministrativeFather.SelectedIndex = -1
-        Me.cmbAdministrativeType.SelectedIndex = -1
-        Me.txtAdministrativeParentCode.Text = ""
-        Me.txtAdministrativeParent.Text = ""
+        Me.txtAdministrativeName.Text = ""
         Me.txtAdministrativeLatin.Text = ""
     End Sub
-
-    Public Function Max_AdministrativeCode()
-        Try
-            Dim cmd As New SqlCommand("Select Max(AdministrativeCode) From tbAdministrative Where AdministrativeType='رئيسي'", sQlConnection)
-            If sQlConnection.State = 1 Then sQlConnection.Close()
-            sQlConnection.Open()
-            MaxAdministrativeCode = cmd.ExecuteScalar
-            sQlConnection.Close()
-        Catch ex As Exception
-            MaxAdministrativeCode = 0
-            sQlConnection.Close()
-        End Try
-        Return MaxAdministrativeCode
-    End Function
-    Public Function Max_AdministrativeParentCode()
-
-
-        Try
-            Dim cmd As New SqlCommand("Select Max(AdministrativeParentCode) From tbAdministrative Where AdministrativeType='فرعي'", sQlConnection)
-            If sQlConnection.State = 1 Then sQlConnection.Close()
-            sQlConnection.Open()
-            MaxAdministrativeParentCode = cmd.ExecuteScalar
-            sQlConnection.Close()
-            MaxAdministrativeParentCode = MaxAdministrativeParentCode + 1
-        Catch ex As Exception
-            MaxAdministrativeParentCode = 1
-            MsgBox(ex.Message)
-            sQlConnection.Close()
-        End Try
-        Return MaxAdministrativeParentCode
-    End Function
-    '    Private Sub GetAccCode()
-    '        'جلب كود الحساب
-    '        'إذا لم يتم اختيار نوع الحساب قم بتفريغ مربع نص كود الحساب
-    '        If Me.cmbAdministrativeFather.SelectedIndex = -1 Then
-    '            Me.txtAdministrativeID.Text = String.Empty
-    '            Exit Sub
-    '        End If
-    '        Dim xNewAdministrativeID As Int64
-    '        Dim xAccType As String = CStr(Me.cmbAdministrativeType.Text)
-    '        Dim xDv = New DataView(MyVar_Dt_AllAccounts)
-    '        Dim xAccParent As Integer
-    '        Select Case xAccType
-    '            Case "رئيسي"
-    '                If Me.cmbAdministrativeFather.SelectedIndex = -1 Or Me.cmbAdministrativeFather.Text = String.Empty Then
-    '                    xDv.RowFilter = "AccType = رئيسي AND AccParent = 0"
-    '                    xNewAdministrativeID = Convert.ToInt64(xDv.Count + 1)
-    '                    GoTo FinalLine
-    '                Else
-    '                    xAccParent = Convert.ToInt32(cmbAdministrativeFather.SelectedValue)
-    '                    Dim xFilter As String = "AccType = 'رئيسي' AND AdministrativeFather = " & xAccParent & " "
-    '                    Dim xMaxAdministrativeID As Object = xDv.ToTable.Compute("MAX(AdministrativeID)", xDv.RowFilter)
-    '                    If xMaxAdministrativeID Is DBNull.Value Then
-    '                        xDv.RowFilter = "AdministrativeID = " & xAccParent & " "
-    '                        Dim xAdministrativeParentCode As Int64 = Convert.ToInt64(xDv.Item(0)("AdministrativeParentCode"))
-    '                        xNewAdministrativeID = Convert.ToUInt64(CStr(xAdministrativeParentCode & 1))
-    '                    Else
-    '                        xNewAdministrativeID = Convert.ToUInt64(xMaxAdministrativeID + 1)
-    '                    End If
-    '                    GoTo FinalLine
-    '                End If
-
-    '            Case "فرعي"
-    '                Dim xFilter As String = "AccType = فرعي AND AccParent = & xAccParent & """
-    '                Dim xMaxAccCode As Object = xDv.ToTable.Compute("MAX(AccCode)", xDv.RowFilter)
-    '                If xMaxAccCode Is DBNull.Value Then
-    '                    xDv.RowFilter = "AccID = & xAccParent & """
-    '                    Dim xAccParent_Code As Int64 = Convert.ToInt64(xDv.Item(0)("AccCode"))
-    '                    xNewAdministrativeID = Convert.ToUInt64(CStr(xAccParent_Code & "0001"))
-    '                Else
-    '                    xNewAdministrativeID = Convert.ToUInt64(xMaxAccCode + 1)
-    '                End If
-    '        End Select
-    'FinalLine:
-    '        Me.TxtAccCode.Text = CStr(xNewAdministrativeID)
-    '    End Sub
+    Private Sub NewSaveStatus()
+        btnNew.Enabled = True
+        btnSave.Enabled = True
+        btnUpdate.Visible = False
+        btnDelete.Visible = False
+    End Sub
     Private Sub MYSP_Show()
         Me.Timer1.Start()
         Me.PB.Visible = True
@@ -122,8 +65,8 @@ Public Class frmAddAdministrative
             If CheckConn() = False Then
                 VarBGW_Status = False
             Else
-                VarAdministrativeTypeDT.Clear()
-                XCLS.MyCodes_Fill_DataTable(sQLFillCMBFather, VarAdministrativeTypeDT)
+                VarAdministrative_DT.Clear()
+                XCLS.MyCodes_Fill_DataTable(sQLFillAdministrative, VarAdministrative_DT)
                 VarBGW_Status = True
             End If
         Catch ex As Exception
@@ -144,32 +87,21 @@ Public Class frmAddAdministrative
     End Sub
 
 
-    Private Sub cmbAdministrativeType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbAdministrativeType.SelectedIndexChanged
-        Select Case Me.cmbAdministrativeType.SelectedItem
-            Case "رئيسي"
-                Me.cmbAdministrativeFather.Enabled = False
-                Me.txtAdministrativeID.Enabled = False
-                Me.cmbAdministrativeFather.Text = " "
-                Max_AdministrativeCode()
-                MaxAdministrativeCode += 1
-                txtAdministrativeParentCode.Text = MaxAdministrativeCode
-            Case "فرعي"
-                Me.cmbAdministrativeFather.Enabled = True
-                Me.txtAdministrativeID.Enabled = False
-                Me.cmbAdministrativeFather.Text = ""
-                Me.txtAdministrativeParentCode.Text = ""
-
-        End Select
-    End Sub
-
-    Private Sub cmbAdministrativeFather_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbAdministrativeFather.SelectionChangeCommitted
+    Private Sub cmbLevel_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbLevel.SelectionChangeCommitted
         Try
-            Max_AdministrativeParentCode()
-            Dim selectedFath As Integer
+            Select Case Me.cmbLevel.SelectedItem
+                Case "رئيسي"
+                    VarLevelID = 0
+                    Me.cmbAdministrativeParent.Enabled = False
+                Case "فرعي"
+                    VarLevelID = 1
+                    Me.cmbAdministrativeParent.Enabled = True
+                Case Else
+                    MsgBox("يرجي تحديد نوع الحساب", MsgBoxStyle.Information, "تحذير")
+                    Exit Sub
+            End Select
 
-            selectedFath = Convert.ToInt64(Me.cmbAdministrativeFather.SelectedValue)
 
-            txtAdministrativeParentCode.Text = selectedFath & MaxAdministrativeParentCode
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -178,12 +110,12 @@ Public Class frmAddAdministrative
     Private Sub BGW_Load_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BGW_Load.RunWorkerCompleted
         Try
             If VarBGW_Status = True Then
-                If VarAdministrativeTypeDT.Rows.Count <> 0 Then
-                    Call XCLS.MyCodes_CmbFill(Me.cmbAdministrativeFather, VarAdministrativeTypeDT, "AdministrativeName", "AdministrativeCode")
-                    Me.cmbAdministrativeType.DataSource = VarSelAdministrativeType
-                    Me.cmbAdministrativeType.Text = ""
-                    Me.cmbAdministrativeFather.Text = ""
-
+                If VarAdministrative_DT.Rows.Count <> 0 Then
+                    Call XCLS.MyCodes_CmbFill(Me.cmbAdministrativeParent, VarAdministrative_DT, "AdministrativeName", "AdministrativeID")
+                    Me.cmbLevel.DataSource = VarSelAdministrativeType
+                    Me.cmbLevel.Text = -1
+                    Me.cmbAdministrativeParent.Text = ""
+                    Me.TextBox1.Visible = False
                 End If
 
             Else
@@ -191,6 +123,7 @@ Public Class frmAddAdministrative
             End If
             lblUsername.Text = VarUserName
             ClearCN()
+            NewSaveStatus()
             Call MYSP_Hide()
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -200,53 +133,76 @@ Public Class frmAddAdministrative
     Private Sub BGW_Save_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGW_Save.DoWork
         Try
 
-            Select Case VarAdministrativeType
-                Case "رئيسي"
+            If VarLevelID = 0 Then
+                VarAdministrativeStatus = 1
+                Dim Cmd As New SqlCommand(sQLFather, sQlConnection)
+                With Cmd
+                    .Parameters.Clear()
+                    .Parameters.AddWithValue("@AdministrativeName", SqlDbType.NVarChar).Value = VarAdministrativeName
+                    .Parameters.AddWithValue("@AdministrativeLatin", SqlDbType.NVarChar).Value = VarAdministrativeLatin
+                    .Parameters.AddWithValue("@Level", SqlDbType.Int).Value = VarLevelID
+                    .Parameters.AddWithValue("@AdministrativeStatus", SqlDbType.Int).Value = VarAdministrativeStatus
+                    .Parameters.AddWithValue("@InsertTime", SqlDbType.DateTime).Value = VarInsertTime
+                    .Parameters.AddWithValue("@UserID_Insert", SqlDbType.Int).Value = VarUserID
+                End With
+                If sQlConnection.State = 1 Then sQlConnection.Close()
+                sQlConnection.Open()
+                Cmd.ExecuteNonQuery()
+                sQlConnection.Close()
+                MsgBox("تم إضافة السجل بنجاح", MsgBoxStyle.Information, "حفظ")
+                Cmd = Nothing
 
-                    Dim Cmd As New SqlCommand(sQLFather, sQlConnection)
-                    With Cmd
-                        .Parameters.Clear()
-                        .Parameters.AddWithValue("@AdministrativeCode", SqlDbType.Int).Value = VarAdministrativeParentCode
-                        .Parameters.AddWithValue("@AdministrativeName", SqlDbType.VarChar).Value = VarAdministrativeParent
-                        .Parameters.AddWithValue("@AdministrativeType", SqlDbType.VarChar).Value = VarAdministrativeType
-                        .Parameters.AddWithValue("@AdministrativeStatus", SqlDbType.Int).Value = VarAdministrativeStatus
-                        .Parameters.AddWithValue("@InsertTime", SqlDbType.DateTime).Value = VarInsertTime
-                        .Parameters.AddWithValue("@UserID_Insert", SqlDbType.Int).Value = VarUserID
-                    End With
-                    If sQlConnection.State = 1 Then sQlConnection.Close()
-                    sQlConnection.Open()
-                    Cmd.ExecuteNonQuery()
-                    sQlConnection.Close()
-                    MsgBox("تم إضافة السجل بنجاح", MsgBoxStyle.Information, "حفظ")
-                    Cmd = Nothing
 
+            ElseIf VarLevelID = 1 Then
+                VarAdministrativeStatus = 1
+                Dim Cmd As New SqlCommand(sQLParent, sQlConnection)
+                With Cmd
+                    .Parameters.Clear()
+                    .Parameters.AddWithValue("@AdministrativeName", SqlDbType.Int).Value = VarAdministrativeName
+                    .Parameters.AddWithValue("@AdministrativeLatin", SqlDbType.NVarChar).Value = VarAdministrativeLatin
+                    .Parameters.AddWithValue("@AdministrativeParentID", SqlDbType.NVarChar).Value = VarAdministrative
+                    .Parameters.AddWithValue("@Level", SqlDbType.Int).Value = VarLevelID
+                    .Parameters.AddWithValue("@AdministrativeStatus", SqlDbType.Int).Value = VarAdministrativeStatus
+                    .Parameters.AddWithValue("@InsertTime", SqlDbType.DateTime).Value = VarInsertTime
+                    .Parameters.AddWithValue("@UserID_Insert", SqlDbType.Int).Value = VarUserID
+                End With
+                If sQlConnection.State = 1 Then sQlConnection.Close()
+                sQlConnection.Open()
+                Cmd.ExecuteNonQuery()
+                sQlConnection.Close()
+                MsgBox("تم إضافة السجل بنجاح", MsgBoxStyle.Information, "حفظ")
+                Cmd = Nothing
+            Else
+                Exit Sub
 
-                Case "فرعي"
-                    Dim Cmd As New SqlCommand(sQLParent, sQlConnection)
-                    With Cmd
-                        .Parameters.Clear()
-                        .Parameters.AddWithValue("@AdministrativeRefre", SqlDbType.Int).Value = VarAdministrativeFather
-                        .Parameters.AddWithValue("@AdministrativeRefreName", SqlDbType.NVarChar).Value = VarAdministrativeFatherName
-                        .Parameters.AddWithValue("@AdministrativeType", SqlDbType.NVarChar).Value = VarAdministrativeType
-                        .Parameters.AddWithValue("@AdministrativeParentCode", SqlDbType.Int).Value = VarAdministrativeParentCode
-                        .Parameters.AddWithValue("@AdministrativeParent", SqlDbType.NVarChar).Value = VarAdministrativeParent
-                        .Parameters.AddWithValue("@AdministrativeParentLatin", SqlDbType.NVarChar).Value = VarAdministrativeParentLatin
-                        .Parameters.AddWithValue("@AdministrativeStatus", SqlDbType.Int).Value = VarAdministrativeStatus
-                        .Parameters.AddWithValue("@InsertTime", SqlDbType.DateTime).Value = VarInsertTime
-                        .Parameters.AddWithValue("@UserID_Insert", SqlDbType.Int).Value = VarUserID
-                    End With
-                    If sQlConnection.State = 1 Then sQlConnection.Close()
-                    sQlConnection.Open()
-                    Cmd.ExecuteNonQuery()
-                    sQlConnection.Close()
-                    MsgBox("تم إضافة السجل بنجاح", MsgBoxStyle.Information, "حفظ")
-                    Cmd = Nothing
-                Case Else
-                    MsgBox("يرجي تحديد نوع الادارة", MsgBoxStyle.Information, "تحذير")
-            End Select
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub cmbAdministrativeParent_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbAdministrativeParent.SelectionChangeCommitted
+        Try
+            Me.TextBox1.Text = CInt(Me.cmbAdministrativeParent.SelectedValue)
+            Dim XlevelID As Integer
+            Dim xreader As SqlDataReader
+            Dim Cmd As New SqlCommand(SQLSelectParentAdministrative, sQlConnection)
+            With Cmd
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@AdministrativeID", SqlDbType.Int).Value = CInt(Me.TextBox1.Text)
+            End With
+            If sQlConnection.State = 1 Then sQlConnection.Close()
+            sQlConnection.Open()
+            xreader = Cmd.ExecuteReader
+            xreader.Read()
+
+            XlevelID = xreader("Level")
+            MyPubVar_CateLevel = CInt(XlevelID)
+            sQlConnection.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub BGW_Save_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BGW_Save.RunWorkerCompleted
@@ -259,13 +215,11 @@ Public Class frmAddAdministrative
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Call MYSP_Show()
-        VarAdministrativeType = Trim(Me.cmbAdministrativeType.Text)
-        VarAdministrativeFather = Convert.ToInt64(Me.cmbAdministrativeFather.SelectedValue)
-        VarAdministrativeParentCode = Trim(Me.txtAdministrativeParentCode.Text)
-        VarAdministrativeParent = Trim(Me.txtAdministrativeParent.Text)
-        VarAdministrativeParentLatin = Trim(Me.txtAdministrativeLatin.Text)
+        VarAdministrative = Convert.ToInt64(Me.cmbAdministrativeParent.SelectedValue)
+        VarAdministrativeName = Trim(Me.txtAdministrativeName.Text)
+        VarAdministrativeLatin = Trim(Me.txtAdministrativeLatin.Text)
         VarAdministrativeStatus = 1
-        VarAdministrativeFatherName = Trim(Me.cmbAdministrativeFather.Text)
+        MyPubVar_CateLevel = MyPubVar_CateLevel + 1
         BGW_Save.RunWorkerAsync()
     End Sub
 End Class

@@ -23,6 +23,7 @@ Partial Class frmAdministrative
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAdministrative))
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.BGW_Load = New System.ComponentModel.BackgroundWorker()
@@ -40,17 +41,13 @@ Partial Class frmAdministrative
         Me.مساعدةToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.خروجToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnAddAdministrative = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
-        Me.DGV = New System.Windows.Forms.DataGridView()
-        Me.AdministrativeID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AdministrativeParentCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AdministrativeParent = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AdministrativeName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.DGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtSearch
@@ -155,6 +152,7 @@ Partial Class frmAdministrative
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnEdit)
         Me.GroupBox1.Controls.Add(Me.btnAddAdministrative)
         Me.GroupBox1.Controls.Add(Me.btnClose)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 419)
@@ -162,6 +160,15 @@ Partial Class frmAdministrative
         Me.GroupBox1.Size = New System.Drawing.Size(546, 70)
         Me.GroupBox1.TabIndex = 14
         Me.GroupBox1.TabStop = False
+        '
+        'btnEdit
+        '
+        Me.btnEdit.Location = New System.Drawing.Point(346, 19)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(94, 37)
+        Me.btnEdit.TabIndex = 3
+        Me.btnEdit.Text = "تعديل ادارة"
+        Me.btnEdit.UseVisualStyleBackColor = True
         '
         'btnAddAdministrative
         '
@@ -181,74 +188,38 @@ Partial Class frmAdministrative
         Me.btnClose.Text = "خروج"
         Me.btnClose.UseVisualStyleBackColor = True
         '
-        'DGV
+        'TreeView1
         '
-        Me.DGV.AllowUserToAddRows = False
-        Me.DGV.AllowUserToDeleteRows = False
-        Me.DGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AdministrativeID, Me.AdministrativeParentCode, Me.AdministrativeParent, Me.AdministrativeName})
-        Me.DGV.Location = New System.Drawing.Point(12, 62)
-        Me.DGV.Name = "DGV"
-        Me.DGV.ReadOnly = True
-        Me.DGV.Size = New System.Drawing.Size(546, 351)
-        Me.DGV.TabIndex = 10
-        '
-        'AdministrativeID
-        '
-        Me.AdministrativeID.DataPropertyName = "AdministrativeID"
-        Me.AdministrativeID.HeaderText = "الكود"
-        Me.AdministrativeID.Name = "AdministrativeID"
-        Me.AdministrativeID.ReadOnly = True
-        Me.AdministrativeID.Width = 46
-        '
-        'AdministrativeParentCode
-        '
-        Me.AdministrativeParentCode.DataPropertyName = "AdministrativeParentCode"
-        Me.AdministrativeParentCode.HeaderText = "كود الادارة"
-        Me.AdministrativeParentCode.Name = "AdministrativeParentCode"
-        Me.AdministrativeParentCode.ReadOnly = True
-        Me.AdministrativeParentCode.Width = 50
-        '
-        'AdministrativeParent
-        '
-        Me.AdministrativeParent.DataPropertyName = "AdministrativeParent"
-        Me.AdministrativeParent.HeaderText = "اسم الادارة "
-        Me.AdministrativeParent.Name = "AdministrativeParent"
-        Me.AdministrativeParent.ReadOnly = True
-        Me.AdministrativeParent.Width = 200
-        '
-        'AdministrativeName
-        '
-        Me.AdministrativeName.DataPropertyName = "AdministrativeName"
-        Me.AdministrativeName.HeaderText = "الادارة الاب"
-        Me.AdministrativeName.Name = "AdministrativeName"
-        Me.AdministrativeName.ReadOnly = True
-        Me.AdministrativeName.Width = 200
+        Me.TreeView1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TreeView1.Location = New System.Drawing.Point(12, 62)
+        Me.TreeView1.Name = "TreeView1"
+        Me.TreeView1.RightToLeftLayout = True
+        Me.TreeView1.Size = New System.Drawing.Size(546, 351)
+        Me.TreeView1.TabIndex = 15
         '
         'frmAdministrative
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(568, 519)
+        Me.Controls.Add(Me.TreeView1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.txtSearch)
-        Me.Controls.Add(Me.DGV)
         Me.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "frmAdministrative"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.RightToLeftLayout = True
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "الادارات "
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
-        CType(Me.DGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -271,11 +242,8 @@ Partial Class frmAdministrative
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnAddAdministrative As Button
     Friend WithEvents btnClose As Button
-    Friend WithEvents DGV As DataGridView
     Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
     Friend WithEvents lblCount As ToolStripStatusLabel
-    Friend WithEvents AdministrativeID As DataGridViewTextBoxColumn
-    Friend WithEvents AdministrativeParentCode As DataGridViewTextBoxColumn
-    Friend WithEvents AdministrativeParent As DataGridViewTextBoxColumn
-    Friend WithEvents AdministrativeName As DataGridViewTextBoxColumn
+    Friend WithEvents btnEdit As Button
+    Friend WithEvents TreeView1 As TreeView
 End Class
