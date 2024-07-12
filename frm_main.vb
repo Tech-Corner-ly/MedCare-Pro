@@ -4,7 +4,8 @@ Public Class frm_main
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblUsername.Text = VarUserName
         lblDateTime.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-        Me.Text = "MedCare Pro" & "" & VarCompanyName
+        Me.Text = "MedCare Pro"
+        lblCompany.Text = VarCompanyName
     End Sub
     Private Sub Button4_Click(sender As Object, e As EventArgs)
         frm_EntrySheet.Show()
@@ -14,15 +15,15 @@ Public Class frm_main
         frm_BillPatient.Show()
     End Sub
 
-    Private Sub msDoctors_Click(sender As Object, e As EventArgs) Handles msDoctors.Click
+    Private Sub msDoctors_Click(sender As Object, e As EventArgs)
         frm_Doctors.Show()
     End Sub
 
-    Private Sub msServices_Click(sender As Object, e As EventArgs) Handles msServices.Click
+    Private Sub msServices_Click(sender As Object, e As EventArgs)
         frm_DocServices.Show()
     End Sub
 
-    Private Sub msDocPriceServices_Click(sender As Object, e As EventArgs) Handles msDocPriceServices.Click
+    Private Sub msDocPriceServices_Click(sender As Object, e As EventArgs)
         frm_DocPriceServices.Show()
     End Sub
 
@@ -34,11 +35,11 @@ Public Class frm_main
         frm_Patient.Show()
     End Sub
 
-    Private Sub msClinics_Click(sender As Object, e As EventArgs) Handles msClinics.Click
+    Private Sub msClinics_Click(sender As Object, e As EventArgs)
         frm_Clinic.Show()
     End Sub
 
-    Private Sub msReceipt_Click(sender As Object, e As EventArgs) Handles msReceipt.Click
+    Private Sub msReceipt_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -71,7 +72,7 @@ Public Class frm_main
     End Sub
 
     Private Sub التصنيفاتToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles التصنيفاتToolStripMenuItem.Click
-        frmAddCategory.Show()
+        frmAddItemsServices.Show()
     End Sub
 
     Private Sub الفئاتToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles الفئاتToolStripMenuItem.Click

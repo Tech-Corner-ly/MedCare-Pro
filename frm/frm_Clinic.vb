@@ -4,7 +4,7 @@ Public Class frm_Clinic
     Private VarClinicID As Integer
     Private VarClinicStatus As Integer = 1
 
-    Private sQLSelClincic As String = "SELECT ClinicID,ClinicName FROM tblClinics Where ClinicStatus=1"
+    Private sQLSelClincic As String = "SELECT ClinicID,ClinicName FROM Clinics Where ClinicStatus=1"
     Private Sub MYSP_Show()
         Me.Timer1.Start()
         Me.PB.Visible = True
@@ -102,7 +102,7 @@ Public Class frm_Clinic
             With Cmd
                 .Connection = sQlConnection
                 .CommandType = CommandType.Text
-                .CommandText = "INSERT INTO tblClinics (ClinicName,ClinicStatus) VALUES (@ClinicName,@ClinicStatus)"
+                .CommandText = "INSERT INTO Clinics (ClinicName,ClinicStatus) VALUES (@ClinicName,@ClinicStatus)"
                 .Parameters.Clear()
                 .Parameters.AddWithValue("@ClinicName", SqlDbType.VarChar).Value = txtClinicName.Text
                 .Parameters.AddWithValue("@ClinicStatus", SqlDbType.Int).Value = VarClinicStatus
@@ -136,7 +136,7 @@ Public Class frm_Clinic
                 With Cmd
                     .Connection = sQlConnection
                     .CommandType = CommandType.Text
-                    .CommandText = "Update tblClinics Set ClinicName = @ClinicName Where ClinicID=@ClinicID"
+                    .CommandText = "Update Clinics Set ClinicName = @ClinicName Where ClinicID=@ClinicID"
                     .Parameters.AddWithValue("@ClinicName", SqlDbType.VarChar).Value = txtClinicName.Text
                     .Parameters.AddWithValue("@ClinicID", SqlDbType.Int).Value = VarClinicID
                 End With
@@ -173,7 +173,7 @@ Public Class frm_Clinic
                 With Cmd
                     .Connection = sQlConnection
                     .CommandType = CommandType.Text
-                    .CommandText = "Update tblClinics Set ClinicStatus = @ClinicStatus Where ClinicID=@ClinicID"
+                    .CommandText = "Update Clinics Set ClinicStatus = @ClinicStatus Where ClinicID=@ClinicID"
                     .Parameters.AddWithValue("@ClinicStatus", SqlDbType.Int).Value = 0
                     .Parameters.AddWithValue("@ClinicID", SqlDbType.Int).Value = VarClinicID
                 End With
