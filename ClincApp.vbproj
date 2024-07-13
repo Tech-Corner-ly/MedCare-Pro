@@ -98,6 +98,12 @@
     <Compile Include="frm\frmAddAdministrative.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm\frmAddBrandCompany.Designer.vb">
+      <DependentUpon>frmAddBrandCompany.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmAddBrandCompany.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm\frmAddCategory.Designer.vb">
       <DependentUpon>frmAddCategory.vb</DependentUpon>
     </Compile>
@@ -116,10 +122,22 @@
     <Compile Include="frm\frmAddEmploye.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm\frmAddGroupItems.Designer.vb">
+      <DependentUpon>frmAddGroupItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmAddGroupItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm\frmAddItemsServices.Designer.vb">
       <DependentUpon>frmAddItemsServices.vb</DependentUpon>
     </Compile>
     <Compile Include="frm\frmAddItemsServices.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmAddWarehouse.Designer.vb">
+      <DependentUpon>frmAddWarehouse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmAddWarehouse.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm\frmAdministrative.Designer.vb">
@@ -140,6 +158,12 @@
     <Compile Include="frm\frmBookingInquiries.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm\frmBrandCompany.Designer.vb">
+      <DependentUpon>frmBrandCompany.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmBrandCompany.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm\frmCategory.Designer.vb">
       <DependentUpon>frmCategory.vb</DependentUpon>
     </Compile>
@@ -158,6 +182,12 @@
     <Compile Include="frm\frmEmployees.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frm\frmGroupsItems.Designer.vb">
+      <DependentUpon>frmGroupsItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmGroupsItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frm\frmItemsServices.Designer.vb">
       <DependentUpon>frmItemsServices.vb</DependentUpon>
     </Compile>
@@ -174,6 +204,12 @@
       <DependentUpon>frmOrder.vb</DependentUpon>
     </Compile>
     <Compile Include="frm\frmOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm\frmWarehouses.Designer.vb">
+      <DependentUpon>frmWarehouses.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frm\frmWarehouses.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module\myVarPub.vb" />
@@ -278,6 +314,9 @@
     <EmbeddedResource Include="frm\frmAddAdministrative.resx">
       <DependentUpon>frmAddAdministrative.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmAddBrandCompany.resx">
+      <DependentUpon>frmAddBrandCompany.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm\frmAddCategory.resx">
       <DependentUpon>frmAddCategory.vb</DependentUpon>
     </EmbeddedResource>
@@ -287,8 +326,14 @@
     <EmbeddedResource Include="frm\frmAddEmploye.resx">
       <DependentUpon>frmAddEmploye.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmAddGroupItems.resx">
+      <DependentUpon>frmAddGroupItems.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm\frmAddItemsServices.resx">
       <DependentUpon>frmAddItemsServices.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmAddWarehouse.resx">
+      <DependentUpon>frmAddWarehouse.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm\frmAdministrative.resx">
       <DependentUpon>frmAdministrative.vb</DependentUpon>
@@ -299,6 +344,9 @@
     <EmbeddedResource Include="frm\frmBookingInquiries.resx">
       <DependentUpon>frmBookingInquiries.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmBrandCompany.resx">
+      <DependentUpon>frmBrandCompany.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm\frmCategory.resx">
       <DependentUpon>frmCategory.vb</DependentUpon>
     </EmbeddedResource>
@@ -308,6 +356,9 @@
     <EmbeddedResource Include="frm\frmEmployees.resx">
       <DependentUpon>frmEmployees.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmGroupsItems.resx">
+      <DependentUpon>frmGroupsItems.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm\frmItemsServices.resx">
       <DependentUpon>frmItemsServices.vb</DependentUpon>
     </EmbeddedResource>
@@ -316,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm\frmOrder.resx">
       <DependentUpon>frmOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm\frmWarehouses.resx">
+      <DependentUpon>frmWarehouses.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm\frm_addDocPriceServices.resx">
       <DependentUpon>frm_addDocPriceServices.vb</DependentUpon>

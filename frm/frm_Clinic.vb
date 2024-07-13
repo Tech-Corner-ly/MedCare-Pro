@@ -4,6 +4,9 @@ Public Class frm_Clinic
     Private VarClinicID As Integer
     Private VarClinicStatus As Integer = 1
 
+
+
+
     Private sQLSelClincic As String = "SELECT ClinicID,ClinicName FROM Clinics Where ClinicStatus=1"
     Private Sub MYSP_Show()
         Me.Timer1.Start()

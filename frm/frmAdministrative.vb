@@ -131,5 +131,13 @@ Public Class frmAdministrative
         'BGW_Load.RunWorkerAsync()
     End Sub
 
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        On Error Resume Next
+        If Me.PB.Value < 100 Then
+            Me.PB.Value += 1
+        Else
+            Me.PB.Value = 1
 
+        End If
+    End Sub
 End Class

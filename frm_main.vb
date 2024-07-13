@@ -78,4 +78,17 @@ Public Class frm_main
     Private Sub الفئاتToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles الفئاتToolStripMenuItem.Click
         frmCategory.Show()
     End Sub
+
+    Private Sub الشركاتToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles الشركاتToolStripMenuItem.Click
+        frmBrandCompany.Show()
+    End Sub
+
+    Private Sub مجموعاتالموادالخدماتToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles مجموعاتالموادالخدماتToolStripMenuItem.Click
+        frmGroupsItems.Show()
+
+    End Sub
+
+    Private Sub المستودعاتToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles المستودعاتToolStripMenuItem.Click
+        frmWarehouses.Show()
+    End Sub
 End Class

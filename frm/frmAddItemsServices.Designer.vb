@@ -87,12 +87,12 @@ Partial Class frmAddItemsServices
         Me.Label34 = New System.Windows.Forms.Label()
         Me.txtFirstProfitPerc = New System.Windows.Forms.TextBox()
         Me.Label35 = New System.Windows.Forms.Label()
-        Me.TextBox25 = New System.Windows.Forms.TextBox()
+        Me.txtLastCostPrice = New System.Windows.Forms.TextBox()
         Me.Label36 = New System.Windows.Forms.Label()
-        Me.TextBox26 = New System.Windows.Forms.TextBox()
-        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
+        Me.txtLastPurchPrice = New System.Windows.Forms.TextBox()
+        Me.cmbUnitType = New System.Windows.Forms.ComboBox()
         Me.Label30 = New System.Windows.Forms.Label()
-        Me.TextBox21 = New System.Windows.Forms.TextBox()
+        Me.txtUnitEqu = New System.Windows.Forms.TextBox()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.txtFourthPrice = New System.Windows.Forms.TextBox()
@@ -103,9 +103,9 @@ Partial Class frmAddItemsServices
         Me.Label26 = New System.Windows.Forms.Label()
         Me.txtFirstPrice = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
-        Me.TextBox18 = New System.Windows.Forms.TextBox()
+        Me.txtCostPrice = New System.Windows.Forms.TextBox()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.TextBox19 = New System.Windows.Forms.TextBox()
+        Me.txtPurchPrice = New System.Windows.Forms.TextBox()
         Me.btnVirtualUnit = New System.Windows.Forms.Button()
         Me.btnDeleteUnit = New System.Windows.Forms.Button()
         Me.btnAddUnit = New System.Windows.Forms.Button()
@@ -113,19 +113,19 @@ Partial Class frmAddItemsServices
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label22 = New System.Windows.Forms.Label()
-        Me.TextBox13 = New System.Windows.Forms.TextBox()
+        Me.txtHigh = New System.Windows.Forms.TextBox()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.txtWidth = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
+        Me.txtHeight = New System.Windows.Forms.TextBox()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.txtSizeUnit = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.txtWeight = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.txtColor = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
+        Me.cmbItemType = New System.Windows.Forms.ComboBox()
         Me.cbStopEditPrice = New System.Windows.Forms.CheckBox()
         Me.cbStopSelling = New System.Windows.Forms.CheckBox()
         Me.cbPreventingNegativeWithdrawals = New System.Windows.Forms.CheckBox()
@@ -145,8 +145,7 @@ Partial Class frmAddItemsServices
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cmbSupplier = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtMeasurement = New System.Windows.Forms.TextBox()
         Me.cmbCompanyMother = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtSource = New System.Windows.Forms.TextBox()
@@ -170,6 +169,7 @@ Partial Class frmAddItemsServices
         Me.btnFirst = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -188,8 +188,12 @@ Partial Class frmAddItemsServices
         Me.BGW_Save.WorkerReportsProgress = True
         Me.BGW_Save.WorkerSupportsCancellation = True
         '
+        'Timer1
+        '
+        '
         'MenuStrip1
         '
+        Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ملفToolStripMenuItem, Me.خياراتToolStripMenuItem, Me.مساعدةToolStripMenuItem, Me.خروجToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -229,6 +233,7 @@ Partial Class frmAddItemsServices
         '
         'StatusStrip1
         '
+        Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblUsername, Me.ToolStripStatusLabel3, Me.lblDateTime, Me.PB})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 708)
         Me.StatusStrip1.Name = "StatusStrip1"
@@ -465,6 +470,7 @@ Partial Class frmAddItemsServices
         'TabGeneral
         '
         Me.TabGeneral.BackColor = System.Drawing.SystemColors.Control
+        Me.TabGeneral.Controls.Add(Me.LinkLabel1)
         Me.TabGeneral.Controls.Add(Me.Label45)
         Me.TabGeneral.Controls.Add(Me.Label44)
         Me.TabGeneral.Controls.Add(Me.cmbCalcuMethod)
@@ -492,12 +498,12 @@ Partial Class frmAddItemsServices
         Me.TabGeneral.Controls.Add(Me.Label34)
         Me.TabGeneral.Controls.Add(Me.txtFirstProfitPerc)
         Me.TabGeneral.Controls.Add(Me.Label35)
-        Me.TabGeneral.Controls.Add(Me.TextBox25)
+        Me.TabGeneral.Controls.Add(Me.txtLastCostPrice)
         Me.TabGeneral.Controls.Add(Me.Label36)
-        Me.TabGeneral.Controls.Add(Me.TextBox26)
-        Me.TabGeneral.Controls.Add(Me.ComboBox8)
+        Me.TabGeneral.Controls.Add(Me.txtLastPurchPrice)
+        Me.TabGeneral.Controls.Add(Me.cmbUnitType)
         Me.TabGeneral.Controls.Add(Me.Label30)
-        Me.TabGeneral.Controls.Add(Me.TextBox21)
+        Me.TabGeneral.Controls.Add(Me.txtUnitEqu)
         Me.TabGeneral.Controls.Add(Me.Label29)
         Me.TabGeneral.Controls.Add(Me.Label23)
         Me.TabGeneral.Controls.Add(Me.txtFourthPrice)
@@ -508,27 +514,27 @@ Partial Class frmAddItemsServices
         Me.TabGeneral.Controls.Add(Me.Label26)
         Me.TabGeneral.Controls.Add(Me.txtFirstPrice)
         Me.TabGeneral.Controls.Add(Me.Label27)
-        Me.TabGeneral.Controls.Add(Me.TextBox18)
+        Me.TabGeneral.Controls.Add(Me.txtCostPrice)
         Me.TabGeneral.Controls.Add(Me.Label28)
-        Me.TabGeneral.Controls.Add(Me.TextBox19)
+        Me.TabGeneral.Controls.Add(Me.txtPurchPrice)
         Me.TabGeneral.Controls.Add(Me.btnVirtualUnit)
         Me.TabGeneral.Controls.Add(Me.btnDeleteUnit)
         Me.TabGeneral.Controls.Add(Me.btnAddUnit)
         Me.TabGeneral.Controls.Add(Me.dgvUnits)
         Me.TabGeneral.Controls.Add(Me.Label22)
-        Me.TabGeneral.Controls.Add(Me.TextBox13)
+        Me.TabGeneral.Controls.Add(Me.txtHigh)
         Me.TabGeneral.Controls.Add(Me.Label21)
-        Me.TabGeneral.Controls.Add(Me.TextBox12)
+        Me.TabGeneral.Controls.Add(Me.txtWidth)
         Me.TabGeneral.Controls.Add(Me.Label20)
-        Me.TabGeneral.Controls.Add(Me.TextBox11)
+        Me.TabGeneral.Controls.Add(Me.txtHeight)
         Me.TabGeneral.Controls.Add(Me.Label19)
-        Me.TabGeneral.Controls.Add(Me.TextBox10)
+        Me.TabGeneral.Controls.Add(Me.txtSizeUnit)
         Me.TabGeneral.Controls.Add(Me.Label18)
-        Me.TabGeneral.Controls.Add(Me.TextBox9)
+        Me.TabGeneral.Controls.Add(Me.txtWeight)
         Me.TabGeneral.Controls.Add(Me.Label17)
-        Me.TabGeneral.Controls.Add(Me.TextBox8)
+        Me.TabGeneral.Controls.Add(Me.txtColor)
         Me.TabGeneral.Controls.Add(Me.Label16)
-        Me.TabGeneral.Controls.Add(Me.ComboBox7)
+        Me.TabGeneral.Controls.Add(Me.cmbItemType)
         Me.TabGeneral.Controls.Add(Me.cbStopEditPrice)
         Me.TabGeneral.Controls.Add(Me.cbStopSelling)
         Me.TabGeneral.Controls.Add(Me.cbPreventingNegativeWithdrawals)
@@ -548,8 +554,7 @@ Partial Class frmAddItemsServices
         Me.TabGeneral.Controls.Add(Me.Label8)
         Me.TabGeneral.Controls.Add(Me.cmbSupplier)
         Me.TabGeneral.Controls.Add(Me.Label7)
-        Me.TabGeneral.Controls.Add(Me.TextBox5)
-        Me.TabGeneral.Controls.Add(Me.Label6)
+        Me.TabGeneral.Controls.Add(Me.txtMeasurement)
         Me.TabGeneral.Controls.Add(Me.cmbCompanyMother)
         Me.TabGeneral.Controls.Add(Me.Label5)
         Me.TabGeneral.Controls.Add(Me.txtSource)
@@ -807,13 +812,13 @@ Partial Class frmAddItemsServices
         Me.Label35.TabIndex = 110
         Me.Label35.Text = "اخر سعر تكلفة :"
         '
-        'TextBox25
+        'txtLastCostPrice
         '
-        Me.TextBox25.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TextBox25.Location = New System.Drawing.Point(25, 213)
-        Me.TextBox25.Name = "TextBox25"
-        Me.TextBox25.Size = New System.Drawing.Size(82, 22)
-        Me.TextBox25.TabIndex = 109
+        Me.txtLastCostPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtLastCostPrice.Location = New System.Drawing.Point(25, 213)
+        Me.txtLastCostPrice.Name = "txtLastCostPrice"
+        Me.txtLastCostPrice.Size = New System.Drawing.Size(82, 22)
+        Me.txtLastCostPrice.TabIndex = 109
         '
         'Label36
         '
@@ -825,21 +830,21 @@ Partial Class frmAddItemsServices
         Me.Label36.TabIndex = 108
         Me.Label36.Text = "اخر سعر شراء:"
         '
-        'TextBox26
+        'txtLastPurchPrice
         '
-        Me.TextBox26.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TextBox26.Location = New System.Drawing.Point(25, 185)
-        Me.TextBox26.Name = "TextBox26"
-        Me.TextBox26.Size = New System.Drawing.Size(82, 22)
-        Me.TextBox26.TabIndex = 107
+        Me.txtLastPurchPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtLastPurchPrice.Location = New System.Drawing.Point(25, 185)
+        Me.txtLastPurchPrice.Name = "txtLastPurchPrice"
+        Me.txtLastPurchPrice.Size = New System.Drawing.Size(82, 22)
+        Me.txtLastPurchPrice.TabIndex = 107
         '
-        'ComboBox8
+        'cmbUnitType
         '
-        Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Location = New System.Drawing.Point(197, 159)
-        Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(94, 21)
-        Me.ComboBox8.TabIndex = 106
+        Me.cmbUnitType.FormattingEnabled = True
+        Me.cmbUnitType.Location = New System.Drawing.Point(197, 159)
+        Me.cmbUnitType.Name = "cmbUnitType"
+        Me.cmbUnitType.Size = New System.Drawing.Size(94, 21)
+        Me.cmbUnitType.TabIndex = 106
         '
         'Label30
         '
@@ -851,13 +856,13 @@ Partial Class frmAddItemsServices
         Me.Label30.TabIndex = 105
         Me.Label30.Text = "تعادل:"
         '
-        'TextBox21
+        'txtUnitEqu
         '
-        Me.TextBox21.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TextBox21.Location = New System.Drawing.Point(25, 157)
-        Me.TextBox21.Name = "TextBox21"
-        Me.TextBox21.Size = New System.Drawing.Size(82, 22)
-        Me.TextBox21.TabIndex = 104
+        Me.txtUnitEqu.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtUnitEqu.Location = New System.Drawing.Point(25, 157)
+        Me.txtUnitEqu.Name = "txtUnitEqu"
+        Me.txtUnitEqu.Size = New System.Drawing.Size(82, 22)
+        Me.txtUnitEqu.TabIndex = 104
         '
         'Label29
         '
@@ -865,9 +870,9 @@ Partial Class frmAddItemsServices
         Me.Label29.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label29.Location = New System.Drawing.Point(297, 161)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(65, 15)
+        Me.Label29.Size = New System.Drawing.Size(41, 15)
         Me.Label29.TabIndex = 103
-        Me.Label29.Text = "الاسم لاتيني :"
+        Me.Label29.Text = "الوحدة :"
         '
         'Label23
         '
@@ -951,13 +956,13 @@ Partial Class frmAddItemsServices
         Me.Label27.TabIndex = 93
         Me.Label27.Text = "سعر التكلفة :"
         '
-        'TextBox18
+        'txtCostPrice
         '
-        Me.TextBox18.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TextBox18.Location = New System.Drawing.Point(197, 214)
-        Me.TextBox18.Name = "TextBox18"
-        Me.TextBox18.Size = New System.Drawing.Size(94, 22)
-        Me.TextBox18.TabIndex = 92
+        Me.txtCostPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtCostPrice.Location = New System.Drawing.Point(197, 214)
+        Me.txtCostPrice.Name = "txtCostPrice"
+        Me.txtCostPrice.Size = New System.Drawing.Size(94, 22)
+        Me.txtCostPrice.TabIndex = 92
         '
         'Label28
         '
@@ -969,13 +974,13 @@ Partial Class frmAddItemsServices
         Me.Label28.TabIndex = 91
         Me.Label28.Text = "سعر الشراء :"
         '
-        'TextBox19
+        'txtPurchPrice
         '
-        Me.TextBox19.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TextBox19.Location = New System.Drawing.Point(197, 186)
-        Me.TextBox19.Name = "TextBox19"
-        Me.TextBox19.Size = New System.Drawing.Size(94, 22)
-        Me.TextBox19.TabIndex = 90
+        Me.txtPurchPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtPurchPrice.Location = New System.Drawing.Point(197, 186)
+        Me.txtPurchPrice.Name = "txtPurchPrice"
+        Me.txtPurchPrice.Size = New System.Drawing.Size(94, 22)
+        Me.txtPurchPrice.TabIndex = 90
         '
         'btnVirtualUnit
         '
@@ -1042,13 +1047,13 @@ Partial Class frmAddItemsServices
         Me.Label22.TabIndex = 85
         Me.Label22.Text = "الارتفاع/الوحدة"
         '
-        'TextBox13
+        'txtHigh
         '
-        Me.TextBox13.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TextBox13.Location = New System.Drawing.Point(442, 213)
-        Me.TextBox13.Name = "TextBox13"
-        Me.TextBox13.Size = New System.Drawing.Size(124, 22)
-        Me.TextBox13.TabIndex = 84
+        Me.txtHigh.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtHigh.Location = New System.Drawing.Point(442, 213)
+        Me.txtHigh.Name = "txtHigh"
+        Me.txtHigh.Size = New System.Drawing.Size(124, 22)
+        Me.txtHigh.TabIndex = 84
         '
         'Label21
         '
@@ -1060,13 +1065,13 @@ Partial Class frmAddItemsServices
         Me.Label21.TabIndex = 83
         Me.Label21.Text = "العرض/الوحدة :"
         '
-        'TextBox12
+        'txtWidth
         '
-        Me.TextBox12.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TextBox12.Location = New System.Drawing.Point(442, 185)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(124, 22)
-        Me.TextBox12.TabIndex = 82
+        Me.txtWidth.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtWidth.Location = New System.Drawing.Point(442, 185)
+        Me.txtWidth.Name = "txtWidth"
+        Me.txtWidth.Size = New System.Drawing.Size(124, 22)
+        Me.txtWidth.TabIndex = 82
         '
         'Label20
         '
@@ -1078,13 +1083,13 @@ Partial Class frmAddItemsServices
         Me.Label20.TabIndex = 81
         Me.Label20.Text = "الطول/الوحدة :"
         '
-        'TextBox11
+        'txtHeight
         '
-        Me.TextBox11.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TextBox11.Location = New System.Drawing.Point(442, 157)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(124, 22)
-        Me.TextBox11.TabIndex = 80
+        Me.txtHeight.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtHeight.Location = New System.Drawing.Point(442, 157)
+        Me.txtHeight.Name = "txtHeight"
+        Me.txtHeight.Size = New System.Drawing.Size(124, 22)
+        Me.txtHeight.TabIndex = 80
         '
         'Label19
         '
@@ -1096,13 +1101,13 @@ Partial Class frmAddItemsServices
         Me.Label19.TabIndex = 79
         Me.Label19.Text = "الحجم/الوحدة :"
         '
-        'TextBox10
+        'txtSizeUnit
         '
-        Me.TextBox10.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TextBox10.Location = New System.Drawing.Point(442, 129)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(124, 22)
-        Me.TextBox10.TabIndex = 78
+        Me.txtSizeUnit.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtSizeUnit.Location = New System.Drawing.Point(442, 129)
+        Me.txtSizeUnit.Name = "txtSizeUnit"
+        Me.txtSizeUnit.Size = New System.Drawing.Size(124, 22)
+        Me.txtSizeUnit.TabIndex = 78
         '
         'Label18
         '
@@ -1114,13 +1119,13 @@ Partial Class frmAddItemsServices
         Me.Label18.TabIndex = 77
         Me.Label18.Text = "الوزن/الوحدة :"
         '
-        'TextBox9
+        'txtWeight
         '
-        Me.TextBox9.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TextBox9.Location = New System.Drawing.Point(442, 101)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(124, 22)
-        Me.TextBox9.TabIndex = 76
+        Me.txtWeight.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtWeight.Location = New System.Drawing.Point(442, 101)
+        Me.txtWeight.Name = "txtWeight"
+        Me.txtWeight.Size = New System.Drawing.Size(124, 22)
+        Me.txtWeight.TabIndex = 76
         '
         'Label17
         '
@@ -1132,13 +1137,13 @@ Partial Class frmAddItemsServices
         Me.Label17.TabIndex = 75
         Me.Label17.Text = "اللون :"
         '
-        'TextBox8
+        'txtColor
         '
-        Me.TextBox8.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TextBox8.Location = New System.Drawing.Point(442, 72)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(124, 22)
-        Me.TextBox8.TabIndex = 74
+        Me.txtColor.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtColor.Location = New System.Drawing.Point(442, 72)
+        Me.txtColor.Name = "txtColor"
+        Me.txtColor.Size = New System.Drawing.Size(124, 22)
+        Me.txtColor.TabIndex = 74
         '
         'Label16
         '
@@ -1150,13 +1155,13 @@ Partial Class frmAddItemsServices
         Me.Label16.TabIndex = 73
         Me.Label16.Text = "نوع المادة :"
         '
-        'ComboBox7
+        'cmbItemType
         '
-        Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Location = New System.Drawing.Point(442, 241)
-        Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(124, 21)
-        Me.ComboBox7.TabIndex = 72
+        Me.cmbItemType.FormattingEnabled = True
+        Me.cmbItemType.Location = New System.Drawing.Point(442, 241)
+        Me.cmbItemType.Name = "cmbItemType"
+        Me.cmbItemType.Size = New System.Drawing.Size(124, 21)
+        Me.cmbItemType.TabIndex = 72
         '
         'cbStopEditPrice
         '
@@ -1339,23 +1344,13 @@ Partial Class frmAddItemsServices
         Me.Label7.TabIndex = 53
         Me.Label7.Text = "القياس/الوحدة :"
         '
-        'TextBox5
+        'txtMeasurement
         '
-        Me.TextBox5.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TextBox5.Location = New System.Drawing.Point(442, 44)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(124, 22)
-        Me.TextBox5.TabIndex = 52
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(793, 74)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(61, 15)
-        Me.Label6.TabIndex = 51
-        Me.Label6.Text = "الشركة الام :"
+        Me.txtMeasurement.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtMeasurement.Location = New System.Drawing.Point(442, 44)
+        Me.txtMeasurement.Name = "txtMeasurement"
+        Me.txtMeasurement.Size = New System.Drawing.Size(124, 22)
+        Me.txtMeasurement.TabIndex = 52
         '
         'cmbCompanyMother
         '
@@ -1565,6 +1560,17 @@ Partial Class frmAddItemsServices
         Me.btnSearch.Text = "--"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LinkLabel1.Location = New System.Drawing.Point(793, 74)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(61, 15)
+        Me.LinkLabel1.TabIndex = 137
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "الشركة الام :"
+        '
         'frmAddItemsServices
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1662,8 +1668,7 @@ Partial Class frmAddItemsServices
     Friend WithEvents Label8 As Label
     Friend WithEvents cmbSupplier As ComboBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents Label6 As Label
+    Friend WithEvents txtMeasurement As TextBox
     Friend WithEvents cmbCompanyMother As ComboBox
     Friend WithEvents Label5 As Label
     Friend WithEvents txtSource As TextBox
@@ -1696,12 +1701,12 @@ Partial Class frmAddItemsServices
     Friend WithEvents Label34 As Label
     Friend WithEvents txtFirstProfitPerc As TextBox
     Friend WithEvents Label35 As Label
-    Friend WithEvents TextBox25 As TextBox
+    Friend WithEvents txtLastCostPrice As TextBox
     Friend WithEvents Label36 As Label
-    Friend WithEvents TextBox26 As TextBox
-    Friend WithEvents ComboBox8 As ComboBox
+    Friend WithEvents txtLastPurchPrice As TextBox
+    Friend WithEvents cmbUnitType As ComboBox
     Friend WithEvents Label30 As Label
-    Friend WithEvents TextBox21 As TextBox
+    Friend WithEvents txtUnitEqu As TextBox
     Friend WithEvents Label29 As Label
     Friend WithEvents Label23 As Label
     Friend WithEvents txtFourthPrice As TextBox
@@ -1712,27 +1717,27 @@ Partial Class frmAddItemsServices
     Friend WithEvents Label26 As Label
     Friend WithEvents txtFirstPrice As TextBox
     Friend WithEvents Label27 As Label
-    Friend WithEvents TextBox18 As TextBox
+    Friend WithEvents txtCostPrice As TextBox
     Friend WithEvents Label28 As Label
-    Friend WithEvents TextBox19 As TextBox
+    Friend WithEvents txtPurchPrice As TextBox
     Friend WithEvents btnVirtualUnit As Button
     Friend WithEvents btnDeleteUnit As Button
     Friend WithEvents btnAddUnit As Button
     Friend WithEvents dgvUnits As DataGridView
     Friend WithEvents Label22 As Label
-    Friend WithEvents TextBox13 As TextBox
+    Friend WithEvents txtHigh As TextBox
     Friend WithEvents Label21 As Label
-    Friend WithEvents TextBox12 As TextBox
+    Friend WithEvents txtWidth As TextBox
     Friend WithEvents Label20 As Label
-    Friend WithEvents TextBox11 As TextBox
+    Friend WithEvents txtHeight As TextBox
     Friend WithEvents Label19 As Label
-    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents txtSizeUnit As TextBox
     Friend WithEvents Label18 As Label
-    Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents txtWeight As TextBox
     Friend WithEvents Label17 As Label
-    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents txtColor As TextBox
     Friend WithEvents Label16 As Label
-    Friend WithEvents ComboBox7 As ComboBox
+    Friend WithEvents cmbItemType As ComboBox
     Friend WithEvents cbStopEditPrice As CheckBox
     Friend WithEvents cbStopSelling As CheckBox
     Friend WithEvents cbPreventingNegativeWithdrawals As CheckBox
@@ -1760,4 +1765,5 @@ Partial Class frmAddItemsServices
     Friend WithEvents btnPrint As Button
     Friend WithEvents btnPrintBarcode As Button
     Friend WithEvents btnMovementOfItem As Button
+    Friend WithEvents LinkLabel1 As LinkLabel
 End Class

@@ -107,6 +107,11 @@ E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\ClincApp.vbproj.C
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.exe
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.xml
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.pdb
-E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\ClincApp.vbprojAssemblyReference.cache
 C:\Users\Anwar\Documents\GitHub\MedCare-Pro\obj\Debug\MediCare.frmJobTitle.resources
 C:\Users\Anwar\Documents\GitHub\MedCare-Pro\obj\Debug\MediCare.frmSpecialization.resources
+E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmBrandCompany.resources
+E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmAddBrandCompany.resources
+E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmGroupsItems.resources
+E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmAddGroupItems.resources
+E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmWarehouses.resources
+E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmAddWarehouse.resources
