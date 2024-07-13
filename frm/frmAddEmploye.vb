@@ -9,6 +9,7 @@
     Private MyVarDT_Cities As DataTable = New DataTable
     Private VarAdministrativeTypeDT As DataTable = New DataTable
     Private VarJobTitleDT As DataTable = New DataTable
+    Private VarClinicDT As DataTable = New DataTable
 
     Private VarAdministrative As String
     Private VarAdministrativeStatus As Integer = 1
@@ -16,6 +17,7 @@
     Private VarAdministrativeParentLatin, VarAdministrativeParent, VarAdministrativeFather, VarAdministrativeType As String
 
     'SQL
+    Private sQLClincic As String = "SELECT ClinicID,ClinicName FROM Clinics Where ClinicStatus=1"
     Private sQLCities As String = "SELECT CityID,CityName FROM tbCities"
     Private sQLUsers As String = "SELECT UserID,Username FROM tblUsers Where UserStatus=1 AND UserIsActive=1"
     Private sQLAdministrative As String = "SELECT [AdministrativeID]
@@ -62,6 +64,7 @@
                 Call XCLS.MyCodes_Fill_DataTable(sQLUsers, MyVarDT_Users)
                 Call XCLS.MyCodes_Fill_DataTable(sQLCities, MyVarDT_Cities)
                 Call XCLS.MyCodes_Fill_DataTable(sQLJobTitle, VarJobTitleDT)
+                Call XCLS.MyCodes_Fill_DataTable(sQLClincic, VarClinicDT)
                 VarBGW_Status = True
             End If
         Catch ex As Exception
@@ -82,6 +85,7 @@
             Call XCLS.MyCodes_CmbFill(Me.cmbUser, MyVarDT_Users, "Username", "UserID")
             Call XCLS.MyCodes_CmbFill(Me.cmbCity, MyVarDT_Cities, "CityName", "CityID")
             Call XCLS.MyCodes_CmbFill(Me.cmbJobTitle, VarJobTitleDT, "JobTitle", "JobTitleID")
+            Call XCLS.MyCodes_CmbFill(Me.cmbClinic, VarClinicDT, "ClinicName", "ClinicID")
             lblUsername.Text = VarUserName
             lblDateTime.Text = VarDateTimeNow
             Me.cmbNationality.SelectedIndex = -1
@@ -90,6 +94,7 @@
             Me.cmbUser.SelectedIndex = -1
             Me.cmbCity.SelectedIndex = -1
             Me.cmbJobTitle.SelectedIndex = -1
+            Me.cmbClinic.SelectedIndex = -1
         End If
         Call MYSP_Hide()
     End Sub
