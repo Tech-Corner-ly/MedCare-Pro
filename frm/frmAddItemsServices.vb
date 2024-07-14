@@ -9,10 +9,13 @@
     Private VarCategory_DT As DataTable = New DataTable
     Private VarBrandCompany_DT As DataTable = New DataTable
     Private VarGroupItems_DT As DataTable = New DataTable
+    Private Var_Warehouse_DT As DataTable = New DataTable
 
 
-
-
+    Private sQLWarehouse As String = "SELECT [WarehouseID]
+                                      ,[WarehouseName]
+                                  FROM [Warehouses]
+                                  Where [WarehouseStatus]=1"
     Private sQLCategory As String = "SELECT [CategoryID]
                                           ,[CategoryName]
                                       FROM [Categories]
@@ -64,6 +67,8 @@
                 Call XCLS.MyCodes_Fill_DataTable(sQLCategory, VarCategory_DT)
                 Call XCLS.MyCodes_Fill_DataTable(sQLBrandCompany, VarBrandCompany_DT)
                 Call XCLS.MyCodes_Fill_DataTable(sQLGroupItem, VarGroupItems_DT)
+                Call XCLS.MyCodes_Fill_DataTable(sQLWarehouse, Var_Warehouse_DT)
+
                 VarBGW_Status = True
             End If
 
@@ -80,7 +85,9 @@
                 Call XCLS.MyCodes_CmbFill(Me.cmbCategory, VarCategory_DT, "CategoryName", "CategoryID")
                 Call XCLS.MyCodes_CmbFill(Me.cmbCompanyMother, VarBrandCompany_DT, "BranCompName", "BranCompID")
                 Call XCLS.MyCodes_CmbFill(Me.cmbGroups, VarGroupItems_DT, "GroupItemName", "GroupItemID")
+                Call XCLS.MyCodes_CmbFill(Me.cmbWarehouse, Var_Warehouse_DT, "WarehouseName", "WarehouseID")
 
+                Me.cmbWarehouse.SelectedIndex = -1
                 Me.cmbCategory.SelectedIndex = -1
                 Me.cmbCompanyMother.SelectedIndex = -1
                 Me.cmbGroups.SelectedIndex = -1

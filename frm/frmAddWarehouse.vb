@@ -10,7 +10,7 @@ Public Class frmAddWarehouse
     Private VarWarehouseStatus As Integer = 1
 
 
-    Private sQLCity As String = "SELECT [CityID],[CityName] FROM [tbCities]"
+    Private sQLCity As String = "SELECT * FROM [tbCities]"
 
     Private sQLInsert As String = "Insert Into Warehouses (WarehouseName,WarehouseLatin,CityID,WarehouseAddress,WarehouseStatus,InsertTime,UserID_Insert)values(@WarehouseName,@WarehouseLatin,@CityID,@WarehouseAddress,@WarehouseStatus,@InsertTime,@UserID_Insert)"
     Private sQLUpdate As String
@@ -44,9 +44,10 @@ Public Class frmAddWarehouse
     Private Sub BGW_Load_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGW_Load.DoWork
         Try
             If CheckConn() = False Then
-                Call XCLS.MyCodes_Fill_DataTable(sQLCity, Var_City_DT)
                 VarBGW_Status = False
             Else
+                Call XCLS.MyCodes_Fill_DataTable(sQLCity, Var_City_DT)
+
                 VarBGW_Status = True
             End If
         Catch ex As Exception

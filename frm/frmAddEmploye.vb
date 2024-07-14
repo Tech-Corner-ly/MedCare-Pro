@@ -112,6 +112,10 @@
         'End Select
     End Sub
 
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+
+    End Sub
+
     Private Sub MYSP_Show()
         Me.Timer1.Start()
         Me.PB.Visible = True

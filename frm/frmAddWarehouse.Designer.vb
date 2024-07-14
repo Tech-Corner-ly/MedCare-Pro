@@ -51,10 +51,10 @@ Partial Class frmAddWarehouse
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.cmbCityID = New System.Windows.Forms.ComboBox()
         Me.txtWarehouseAddress = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.cmbCityID = New System.Windows.Forms.ComboBox()
         Me.GroupBox2.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -210,9 +210,9 @@ Partial Class frmAddWarehouse
         Me.Label1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(347, 52)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(63, 15)
+        Me.Label1.Size = New System.Drawing.Size(73, 15)
         Me.Label1.TabIndex = 12
-        Me.Label1.Text = "اسم الشركة :"
+        Me.Label1.Text = "اسم المستودع :"
         '
         'txtWarehouseID
         '
@@ -278,24 +278,6 @@ Partial Class frmAddWarehouse
         Me.GroupBox1.TabIndex = 35
         Me.GroupBox1.TabStop = False
         '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(347, 107)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(55, 15)
-        Me.Label11.TabIndex = 61
-        Me.Label11.Text = "المجموعة :"
-        '
-        'cmbCityID
-        '
-        Me.cmbCityID.FormattingEnabled = True
-        Me.cmbCityID.Location = New System.Drawing.Point(217, 105)
-        Me.cmbCityID.Name = "cmbCityID"
-        Me.cmbCityID.Size = New System.Drawing.Size(124, 23)
-        Me.cmbCityID.TabIndex = 60
-        '
         'txtWarehouseAddress
         '
         Me.txtWarehouseAddress.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
@@ -313,6 +295,24 @@ Partial Class frmAddWarehouse
         Me.Label4.Size = New System.Drawing.Size(84, 15)
         Me.Label4.TabIndex = 62
         Me.Label4.Text = "عنوان المستودع :"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(347, 107)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(42, 15)
+        Me.Label11.TabIndex = 61
+        Me.Label11.Text = "المدينة :"
+        '
+        'cmbCityID
+        '
+        Me.cmbCityID.FormattingEnabled = True
+        Me.cmbCityID.Location = New System.Drawing.Point(217, 105)
+        Me.cmbCityID.Name = "cmbCityID"
+        Me.cmbCityID.Size = New System.Drawing.Size(124, 23)
+        Me.cmbCityID.TabIndex = 60
         '
         'frmAddWarehouse
         '
