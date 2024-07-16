@@ -80,7 +80,6 @@ E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmAddDo
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmAddEmploye.resources
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmAddItemsServices.resources
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmAdministrative.resources
-E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmAdministrativeStructure.resources
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmBookingInquiries.resources
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmCategory.resources
 E:\UserData\مجلد جديد (4)\GitHub\MedCare-Pro\obj\Debug\MediCare.frmDoctorsAppointmentSchedule.resources
