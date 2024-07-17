@@ -42,4 +42,56 @@ Public Class ClsMain
         cbox.ValueMember = "Key"
         cbox.DisplayMember = "Value"
     End Sub
+
+    Public Function MyCodes_TextNotNull(ByVal xTxt As TextBox, ByVal xTitle As String) As Boolean
+        If xTxt.Text = String.Empty Or xTxt.Text = "" Then
+            MsgBox("حقل '" & xTitle & "' " & "مطلوب", Me_MsgInfoStyle, Me_MsgCaptionStr)
+            xTxt.Text = String.Empty
+            xTxt.Focus()
+            Return True
+        Else
+            xTxt.Text = Trim(xTxt.Text)
+            Return False
+        End If
+    End Function
+
+    Public Function MyCodes_CboNotNull_Index(ByVal Cbo As ComboBox, ByVal CboCaption As String) As Boolean
+        If Cbo.SelectedIndex = -1 Or Cbo.Text = String.Empty Then
+            MsgBox("يرجى اختيار " & Space(1) & " " & CboCaption & " " & Space(1) & " من القائمة", Me_MsgInfoStyle, Me_MsgCaptionStr)
+            Cbo.Focus()
+            Return True
+        Else
+            Return False
+        End If
+
+    End Function
+    Public Function MyCodes_TextNotNullAndNum(ByVal TXT As TextBox, ByVal Caption As String) As Boolean
+        If TXT.Text = String.Empty Or TXT.Text = "" Then
+            MsgBox("حقل '" & Caption & "' " & "مطلوب", Me_MsgInfoStyle, Me_MsgCaptionStr)
+            TXT.Text = String.Empty
+            TXT.Focus()
+            Return True
+        ElseIf Not IsNumeric(TXT.Text) Then
+            MsgBox("حقل'" & Caption & "' " & "يجب أن يكون أرقام فقط", Me_MsgInfoStyle, Me_MsgCaptionStr)
+            TXT.Text = CType(0, String)
+            TXT.Focus()
+            Return True
+        Else
+            TXT.Text = Trim(TXT.Text)
+            Return False
+        End If
+    End Function
+    Public Function MyCodes_OnlyNumeric(ByVal TXT As TextBox, ByVal Caption As String) As Boolean
+
+        If Not IsNumeric(TXT.Text) Then
+            MsgBox("حقل'" & Caption & "' " & "يجب أن يكون أرقام فقط", Me_MsgInfoStyle, Me_MsgCaptionStr)
+            TXT.Text = CType(0, String)
+            TXT.Focus()
+            Return True
+        Else
+            TXT.Text = Trim(TXT.Text)
+            Return False
+        End If
+    End Function
+
 End Class

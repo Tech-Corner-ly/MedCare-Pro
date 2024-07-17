@@ -12,6 +12,10 @@
 
     Public MyPubVar_adminID As Integer
     Public MyPubVar_CateLevel As String
+    Public Me_MsgCaptionStr As String = VarCompanyName
+
+
+    Public Me_MsgInfoStyle As MsgBoxStyle = CType(MsgBoxStyle.Information + MsgBoxStyle.OkOnly + vbMsgBoxRight + vbMsgBoxRtlReading + vbSystemModal, MsgBoxStyle)
 
 
 

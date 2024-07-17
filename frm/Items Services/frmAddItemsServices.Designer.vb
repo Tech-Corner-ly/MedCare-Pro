@@ -60,6 +60,7 @@ Partial Class frmAddItemsServices
         Me.cmbIsActive = New System.Windows.Forms.CheckBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabGeneral = New System.Windows.Forms.TabPage()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Label45 = New System.Windows.Forms.Label()
         Me.Label44 = New System.Windows.Forms.Label()
         Me.cmbCalcuMethod = New System.Windows.Forms.ComboBox()
@@ -169,7 +170,6 @@ Partial Class frmAddItemsServices
         Me.btnFirst = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -448,6 +448,8 @@ Partial Class frmAddItemsServices
         'cmbIsActive
         '
         Me.cmbIsActive.AutoSize = True
+        Me.cmbIsActive.Checked = True
+        Me.cmbIsActive.CheckState = System.Windows.Forms.CheckState.Checked
         Me.cmbIsActive.Location = New System.Drawing.Point(553, 40)
         Me.cmbIsActive.Name = "cmbIsActive"
         Me.cmbIsActive.Size = New System.Drawing.Size(52, 17)
@@ -566,6 +568,17 @@ Partial Class frmAddItemsServices
         Me.TabGeneral.Size = New System.Drawing.Size(902, 469)
         Me.TabGeneral.TabIndex = 0
         Me.TabGeneral.Text = "عام"
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LinkLabel1.Location = New System.Drawing.Point(793, 74)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(61, 15)
+        Me.LinkLabel1.TabIndex = 137
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "الشركة الام :"
         '
         'Label45
         '
@@ -817,6 +830,7 @@ Partial Class frmAddItemsServices
         Me.txtLastCostPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtLastCostPrice.Location = New System.Drawing.Point(25, 213)
         Me.txtLastCostPrice.Name = "txtLastCostPrice"
+        Me.txtLastCostPrice.ReadOnly = True
         Me.txtLastCostPrice.Size = New System.Drawing.Size(82, 22)
         Me.txtLastCostPrice.TabIndex = 109
         '
@@ -835,6 +849,7 @@ Partial Class frmAddItemsServices
         Me.txtLastPurchPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtLastPurchPrice.Location = New System.Drawing.Point(25, 185)
         Me.txtLastPurchPrice.Name = "txtLastPurchPrice"
+        Me.txtLastPurchPrice.ReadOnly = True
         Me.txtLastPurchPrice.Size = New System.Drawing.Size(82, 22)
         Me.txtLastPurchPrice.TabIndex = 107
         '
@@ -861,6 +876,7 @@ Partial Class frmAddItemsServices
         Me.txtUnitEqu.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtUnitEqu.Location = New System.Drawing.Point(25, 157)
         Me.txtUnitEqu.Name = "txtUnitEqu"
+        Me.txtUnitEqu.ReadOnly = True
         Me.txtUnitEqu.Size = New System.Drawing.Size(82, 22)
         Me.txtUnitEqu.TabIndex = 104
         '
@@ -961,6 +977,7 @@ Partial Class frmAddItemsServices
         Me.txtCostPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtCostPrice.Location = New System.Drawing.Point(197, 214)
         Me.txtCostPrice.Name = "txtCostPrice"
+        Me.txtCostPrice.ReadOnly = True
         Me.txtCostPrice.Size = New System.Drawing.Size(94, 22)
         Me.txtCostPrice.TabIndex = 92
         '
@@ -979,6 +996,7 @@ Partial Class frmAddItemsServices
         Me.txtPurchPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtPurchPrice.Location = New System.Drawing.Point(197, 186)
         Me.txtPurchPrice.Name = "txtPurchPrice"
+        Me.txtPurchPrice.ReadOnly = True
         Me.txtPurchPrice.Size = New System.Drawing.Size(94, 22)
         Me.txtPurchPrice.TabIndex = 90
         '
@@ -1313,6 +1331,7 @@ Partial Class frmAddItemsServices
         Me.cmbLastSupplier.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.cmbLastSupplier.Location = New System.Drawing.Point(663, 126)
         Me.cmbLastSupplier.Name = "cmbLastSupplier"
+        Me.cmbLastSupplier.ReadOnly = True
         Me.cmbLastSupplier.Size = New System.Drawing.Size(124, 22)
         Me.cmbLastSupplier.TabIndex = 56
         '
@@ -1559,17 +1578,6 @@ Partial Class frmAddItemsServices
         Me.btnSearch.TabIndex = 135
         Me.btnSearch.Text = "--"
         Me.btnSearch.UseVisualStyleBackColor = True
-        '
-        'LinkLabel1
-        '
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.LinkLabel1.Location = New System.Drawing.Point(793, 74)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(61, 15)
-        Me.LinkLabel1.TabIndex = 137
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "الشركة الام :"
         '
         'frmAddItemsServices
         '

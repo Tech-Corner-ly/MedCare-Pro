@@ -72,7 +72,7 @@ Partial Class frmAddGroupItems
         '
         'btnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(307, 19)
+        Me.btnDelete.Location = New System.Drawing.Point(288, 19)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(63, 37)
         Me.btnDelete.TabIndex = 4
