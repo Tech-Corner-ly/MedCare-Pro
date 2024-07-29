@@ -7,8 +7,8 @@ Public Class frmAddItemsServices
     Private VarClinicID As Integer
     Private VarItemsStatus As Integer = 1
 
-    Private ItemNote, CalcuMethod, ColorUnit, CostCalcType, ItemCode, ItemName, ItemLatin, Specifications, ItemSource, ItemBarcode As String
-    Private CompanyMother, IsActive, CategoryID, SupplierID, LastSupplierID, GroupsID, WarehouseID, CostCenterID, CheckExpiryDate, PreventingNegativeWithdrawals, StopSelling, StopEditPrice, ItemType, UnitTypeID As Integer
+    Private ItemNote, CalcuMethod, ColorUnit, CostCalcType, ItemCode, ItemName, ItemLatin, Specifications, ItemSource, ItemBarcode, ItemType As String
+    Private CompanyMother, IsActive, CategoryID, SupplierID, LastSupplierID, GroupsID, WarehouseID, CostCenterID, CheckExpiryDate, PreventingNegativeWithdrawals, StopSelling, StopEditPrice, UnitTypeID As Integer
     Private PercPrice1, PercPrice2, PercPrice3, PercPrice4, PercPrice5, PercPrice6, Price1, Price2, Price3, Price4, Price5, Price6, LastCostPrice, CostPrice, LastPurchPrice, PurchPrice, UnitEqu, AmountDoctor, PercDoctor, HighUnit, WidthUnit, HeightUnit, SizeUnit, WeightUnit, MeasurementUnit As Decimal
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
@@ -49,18 +49,31 @@ Public Class frmAddItemsServices
         Specifications = CStr(Trim(Me.txtSpecifications.Text))
         ItemSource = CStr(Trim(Me.txtSource.Text))
         ItemBarcode = CStr(Trim(Me.txtBarcode.Text))
+        If Me.cmbCategory.SelectedIndex = -1 Then
+            MsgBox("يرجي تحديد فئة المنتج !")
+            Exit Sub
+        Else
+            CategoryID = CInt(Me.cmbCategory.SelectedValue)
+        End If
+        If Me.cmbItemType.SelectedIndex = -1 Then
+            MsgBox("يرجي تحديد نوع المنتج !")
+            Exit Sub
+        Else
+            ItemType = CStr(Me.cmbItemType.SelectedItem)
+        End If
 
-        CategoryID = CInt(Me.cmbCategory.SelectedValue)
         'SupplierID = CInt(Me.cmbSupplier.SelectedValue)
         'LastSupplierID = CStr(Me.cmbLastSupplier.Text)
         GroupsID = CInt(Me.cmbGroups.SelectedValue)
         WarehouseID = CInt(Me.cmbWarehouse.SelectedValue)
         'CostCenterID = CInt(Me.cmbCostCenter.SelectedValue)
-        ItemType = CInt(Me.cmbItemType.SelectedValue)
+
         'UnitTypeID = CInt(Me.cmbUnitType.SelectedValue)
         CompanyMother = CInt(Me.cmbCompanyMother.SelectedValue)
 
         IsActive = 1
+
+        Call XCLS.MyCodes_OnlyNumeric(Me.txtFirstPrice, "يجب ان يكون رقم ")
         PercPrice1 = Convert.ToDecimal(Me.txtFirstProfitPerc.Text)
         PercPrice2 = Convert.ToDecimal(Me.txtSecondProfitPerc.Text)
         PercPrice3 = Convert.ToDecimal(Me.txtThirdProfitPerce.Text)
@@ -77,15 +90,15 @@ Public Class frmAddItemsServices
         CostPrice = Convert.ToDecimal(Me.txtCostPrice.Text)
         LastPurchPrice = Convert.ToDecimal(Me.txtLastPurchPrice.Text)
         PurchPrice = Convert.ToDecimal(Me.txtPurchPrice.Text)
-        UnitEqu = Convert.ToDecimal(Me.txtUnitEqu.Text)
-        AmountDoctor = Convert.ToDecimal(Me.txtAmount.Text)
-        PercDoctor = Convert.ToDecimal(Me.txtPerc.Text)
-        HighUnit = Convert.ToDecimal(Me.txtHigh.Text)
-        WidthUnit = Convert.ToDecimal(Me.txtWidth.Text)
-        HeightUnit = Convert.ToDecimal(Me.txtHeight.Text)
-        SizeUnit = Convert.ToDecimal(Me.txtSizeUnit.Text)
-        WeightUnit = Convert.ToDecimal(Me.txtWeight.Text)
-        MeasurementUnit = Convert.ToDecimal(Me.txtMeasurement.Text)
+        'UnitEqu = Convert.ToDecimal(Me.txtUnitEqu.Text)
+        'AmountDoctor = Convert.ToDecimal(Me.txtAmount.Text)
+        'PercDoctor = Convert.ToDecimal(Me.txtPerc.Text)
+        'HighUnit = Convert.ToDecimal(Me.txtHigh.Text)
+        'WidthUnit = Convert.ToDecimal(Me.txtWidth.Text)
+        'HeightUnit = Convert.ToDecimal(Me.txtHeight.Text)
+        'SizeUnit = Convert.ToDecimal(Me.txtSizeUnit.Text)
+        'WeightUnit = Convert.ToDecimal(Me.txtWeight.Text)
+        'MeasurementUnit = Convert.ToDecimal(Me.txtMeasurement.Text)
         BGW_Save.RunWorkerAsync()
 
     End Sub
@@ -105,7 +118,7 @@ Public Class frmAddItemsServices
     Private VarGroupItems_DT As DataTable = New DataTable
     Private Var_Warehouse_DT As DataTable = New DataTable
 
-    Private sQLInsert As String = ""
+    Private sQLInsert As String = "Insert Into ItemsServices (IsActive,ItemCode,CategoryID,ItemName,ItemLatin,Specifications,ItemSource,CompanyMother,SupplierID,LastSupplierID,GroupsID,WarehouseID,CostCalcType,CostCenterID,CheckExpiryDate,PreventingNegativeWithdrawals,StopSelling,StopEditPrice,MeasurementUnit,ColorUnit,WeightUnit,SizeUnit,HeightUnit,WidthUnit,HighUnit,ItemType,CalcuMethod,PercDoctor,AmountDoctor,UnitTypeID,UnitEqu,PurchPrice,LastPurchPrice,CostPrice,LastCostPrice,Price1,Price2,Price3,Price4,Price5,Price6,PercPrice1,PercPrice2,PercPrice3,PercPrice4,PercPrice5,PercPrice6,ItemBarcode,ItemNote,InsertTime,UserID_Insert)values(@IsActive,@ItemCode,@CategoryID,@ItemName,@ItemLatin,@Specifications,@ItemSource,@CompanyMother,@SupplierID,@LastSupplierID,@GroupsID,@WarehouseID,@CostCalcType,@CostCenterID,@CheckExpiryDate,@PreventingNegativeWithdrawals,@StopSelling,@StopEditPrice,@MeasurementUnit,@ColorUnit,@WeightUnit,@SizeUnit,@HeightUnit,@WidthUnit,@HighUnit,@ItemType,@CalcuMethod,@PercDoctor,@AmountDoctor,@UnitTypeID,@UnitEqu,@PurchPrice,@LastPurchPrice,@CostPrice,@LastCostPrice,@Price1,@Price2,@Price3,@Price4,@Price5,@Price6,@PercPrice1,@PercPrice2,@PercPrice3,@PercPrice4,@PercPrice5,@PercPrice6,@ItemBarcode,@ItemNote,@InsertTime,@UserID_Insert)"
 
 
 
@@ -184,13 +197,16 @@ Public Class frmAddItemsServices
                 Call XCLS.MyCodes_CmbFill(Me.cmbGroups, VarGroupItems_DT, "GroupItemName", "GroupItemID")
                 Call XCLS.MyCodes_CmbFill(Me.cmbWarehouse, Var_Warehouse_DT, "WarehouseName", "WarehouseID")
 
+                Me.cmbItemType.DataSource = VarItemType
                 Me.cmbWarehouse.SelectedIndex = -1
                 Me.cmbCategory.SelectedIndex = -1
                 Me.cmbCompanyMother.SelectedIndex = -1
                 Me.cmbGroups.SelectedIndex = -1
-            End If
-            Call MYSP_Hide()
+                Me.cmbItemType.SelectedIndex = -1
 
+                Call XCLS.MyCode_Decmeil(Me.txtSecondProfitPerc)
+                Call MYSP_Hide()
+            End If
         Catch ex As Exception
             VarBGW_Status = False
             Exit Sub
@@ -210,8 +226,8 @@ Public Class frmAddItemsServices
                 .Parameters.AddWithValue("@IsActive", SqlDbType.Int).Value = IsActive
                 .Parameters.AddWithValue("@ItemCode", SqlDbType.VarChar).Value = ItemCode
                 .Parameters.AddWithValue("@CategoryID", SqlDbType.Int).Value = CategoryID
-                .Parameters.AddWithValue("@ItemName", SqlDbType.VarChar).Value = ItemName
-                .Parameters.AddWithValue("@ItemLatin", SqlDbType.VarChar).Value = ItemLatin
+                .Parameters.AddWithValue("@ItemName", SqlDbType.NVarChar).Value = ItemName
+                .Parameters.AddWithValue("@ItemLatin", SqlDbType.NVarChar).Value = ItemLatin
                 .Parameters.AddWithValue("@Specifications", SqlDbType.VarChar).Value = Specifications
                 .Parameters.AddWithValue("@ItemSource", SqlDbType.VarChar).Value = ItemSource
                 .Parameters.AddWithValue("@CompanyMother", SqlDbType.Int).Value = CompanyMother
@@ -232,7 +248,7 @@ Public Class frmAddItemsServices
                 .Parameters.AddWithValue("@HeightUnit", SqlDbType.Decimal).Value = HeightUnit
                 .Parameters.AddWithValue("@WidthUnit", SqlDbType.Decimal).Value = WidthUnit
                 .Parameters.AddWithValue("@HighUnit", SqlDbType.Decimal).Value = HighUnit
-                .Parameters.AddWithValue("@ItemType", SqlDbType.Int).Value = ItemType
+                .Parameters.AddWithValue("@ItemType", SqlDbType.NVarChar).Value = ItemType
                 .Parameters.AddWithValue("@CalcuMethod", SqlDbType.VarChar).Value = CalcuMethod
                 .Parameters.AddWithValue("@PercDoctor", SqlDbType.Decimal).Value = PercDoctor
                 .Parameters.AddWithValue("@AmountDoctor", SqlDbType.Decimal).Value = AmountDoctor

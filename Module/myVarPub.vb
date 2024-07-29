@@ -13,6 +13,7 @@
     Public MyPubVar_adminID As Integer
     Public MyPubVar_CateLevel As String
     Public Me_MsgCaptionStr As String = VarCompanyName
+    Public Me_MsgErrorStr As String = "حصل خطاء غير معروف يرجي المحاولة لاحقا"
 
 
     Public Me_MsgInfoStyle As MsgBoxStyle = CType(MsgBoxStyle.Information + MsgBoxStyle.OkOnly + vbMsgBoxRight + vbMsgBoxRtlReading + vbSystemModal, MsgBoxStyle)
@@ -23,6 +24,7 @@
     Public VarAdjective As New List(Of String)({" ", "طبي", "مدني"})
     Public VarLevel As New List(Of String)({" ", "طبي", "مدني"})
     Public VarGenderList As New List(Of String)({" ", "ذكر", "انثي"})
+    Public VarItemType As New List(Of String)({"خدمة", "مادة", "مادة مركبة"})
     Public VarMaritalStatus As New List(Of String)({" ", "اعزب", "متزوج", "متزوجة", "مطلقة", "ارملة"})
     Public VarSQLCountries As String = "SELECT CountriesID,arName FROM tbCountries"
 End Module

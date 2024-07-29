@@ -91,4 +91,8 @@ Public Class frm_main
     Private Sub المستودعاتToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles المستودعاتToolStripMenuItem.Click
         frmWarehouses.Show()
     End Sub
+
+    Private Sub بحثالموادToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles بحثالموادToolStripMenuItem.Click
+        frmItemsServices.Show()
+    End Sub
 End Class

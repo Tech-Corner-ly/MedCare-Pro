@@ -92,6 +92,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\ClsMain.vb" />
+    <Compile Include="Class\ClsNumTextBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="frm\Administrative\frmAddAdministrative.Designer.vb">
       <DependentUpon>frmAddAdministrative.vb</DependentUpon>
     </Compile>
@@ -305,6 +308,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Class\ClsNumTextBox.resx">
+      <DependentUpon>ClsNumTextBox.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm\Administrative\frmAddAdministrative.resx">
       <DependentUpon>frmAddAdministrative.vb</DependentUpon>
     </EmbeddedResource>

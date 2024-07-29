@@ -27,6 +27,16 @@ Public Class ClsMain
         xCbo.ValueMember = xVm
         xLevel = xDt.Rows.Item(0).Item("Level")
     End Sub
+    Public Sub MyCode_Fill_DS(ByVal xTxt As TextBox, ByVal xDT As DataTable, ByVal xColum As String, ByVal xDS As AutoCompleteStringCollection)
+
+        For i As Integer = 0 To xDT.Rows.Count - 1
+            xDS.Add(xDT.Rows(i)(xColum))
+        Next
+        xTxt.AutoCompleteCustomSource = xDS
+        xTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend
+        xTxt.AutoCompleteSource = AutoCompleteSource.CustomSource
+
+    End Sub
 
 
     Public Sub MyCodes_CboFill_CatgeroyFather(ByVal xCbo As ComboBox, ByVal xDt As DataTable, ByVal xDm As String, ByVal xVm As String)
@@ -94,4 +104,14 @@ Public Class ClsMain
         End If
     End Function
 
+    Public Function MyCode_Decmeil(ByVal xtxt As TextBox)
+        Dim number As Decimal
+        If Decimal.TryParse(xtxt.Text, number) Then
+            xtxt.Text = Format(number, "0.00")
+        Else
+            'You can put your own logic here
+            xtxt.Text = "0.00"
+        End If
+
+    End Function
 End Class

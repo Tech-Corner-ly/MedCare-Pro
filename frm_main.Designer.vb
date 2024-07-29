@@ -35,6 +35,7 @@ Partial Class frm_main
         Me.التصنيفاتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.الفئاتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.مجموعاتالموادالخدماتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.المستودعاتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.المواردالبشريةToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.تعاريفToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msEmployees = New System.Windows.Forms.ToolStripMenuItem()
@@ -68,7 +69,8 @@ Partial Class frm_main
         Me.lblCompanyPhone2 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
-        Me.المستودعاتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ClsNumTextBox1 = New MediCare.ClsNumTextBox()
+        Me.بحثالموادToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -129,7 +131,7 @@ Partial Class frm_main
         '
         'الاصنافوالخدماتToolStripMenuItem
         '
-        Me.الاصنافوالخدماتToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.التصنيفاتToolStripMenuItem, Me.الفئاتToolStripMenuItem, Me.مجموعاتالموادالخدماتToolStripMenuItem, Me.المستودعاتToolStripMenuItem})
+        Me.الاصنافوالخدماتToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.التصنيفاتToolStripMenuItem, Me.الفئاتToolStripMenuItem, Me.مجموعاتالموادالخدماتToolStripMenuItem, Me.المستودعاتToolStripMenuItem, Me.بحثالموادToolStripMenuItem})
         Me.الاصنافوالخدماتToolStripMenuItem.Name = "الاصنافوالخدماتToolStripMenuItem"
         Me.الاصنافوالخدماتToolStripMenuItem.Size = New System.Drawing.Size(113, 20)
         Me.الاصنافوالخدماتToolStripMenuItem.Text = "الاصناف و الخدمات"
@@ -151,6 +153,12 @@ Partial Class frm_main
         Me.مجموعاتالموادالخدماتToolStripMenuItem.Name = "مجموعاتالموادالخدماتToolStripMenuItem"
         Me.مجموعاتالموادالخدماتToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
         Me.مجموعاتالموادالخدماتToolStripMenuItem.Text = "مجموعات المواد / الخدمات"
+        '
+        'المستودعاتToolStripMenuItem
+        '
+        Me.المستودعاتToolStripMenuItem.Name = "المستودعاتToolStripMenuItem"
+        Me.المستودعاتToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.المستودعاتToolStripMenuItem.Text = "المستودعات"
         '
         'المواردالبشريةToolStripMenuItem
         '
@@ -410,17 +418,27 @@ Partial Class frm_main
         Me.btnExit.Text = "خروج"
         Me.btnExit.UseVisualStyleBackColor = True
         '
-        'المستودعاتToolStripMenuItem
+        'ClsNumTextBox1
         '
-        Me.المستودعاتToolStripMenuItem.Name = "المستودعاتToolStripMenuItem"
-        Me.المستودعاتToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
-        Me.المستودعاتToolStripMenuItem.Text = "المستودعات"
+        Me.ClsNumTextBox1.Location = New System.Drawing.Point(464, 127)
+        Me.ClsNumTextBox1.Name = "ClsNumTextBox1"
+        Me.ClsNumTextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.ClsNumTextBox1.TabIndex = 19
+        Me.ClsNumTextBox1.Text = "0"
+        Me.ClsNumTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'بحثالموادToolStripMenuItem
+        '
+        Me.بحثالموادToolStripMenuItem.Name = "بحثالموادToolStripMenuItem"
+        Me.بحثالموادToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.بحثالموادToolStripMenuItem.Text = "بحث المواد"
         '
         'frm_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(947, 571)
+        Me.Controls.Add(Me.ClsNumTextBox1)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.lblCompanyPhone2)
         Me.Controls.Add(Me.Label7)
@@ -495,4 +513,6 @@ Partial Class frm_main
     Friend WithEvents الشركاتToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents مجموعاتالموادالخدماتToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents المستودعاتToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ClsNumTextBox1 As ClsNumTextBox
+    Friend WithEvents بحثالموادToolStripMenuItem As ToolStripMenuItem
 End Class
