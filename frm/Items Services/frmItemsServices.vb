@@ -1,14 +1,19 @@
 ﻿Public Class frmItemsServices
     'Var
     Private XCLS As New ClsMain
-    'Private MyVar_Dt_AllAccounts As DataTable = New DataTable
-    'Private MyVarDT_Countries As DataTable = New DataTable
     Private MyVarDT_ItemsServices As DataTable = New DataTable
     Private MyVarDV_ItemsServices As DataView = New DataView
     Private VarCategory_DT As DataTable = New DataTable
     Private VarBrandCompany_DT As DataTable = New DataTable
     Private VarGroupItems_DT As DataTable = New DataTable
     Private Var_Warehouse_DT As DataTable = New DataTable
+    Private Var_ItemNamw_DT As DataTable = New DataTable
+
+    Private VarCategory_DS As New AutoCompleteStringCollection
+    Private Var_Warehouse_DS As New AutoCompleteStringCollection
+    Private VarGroupItems_DS As New AutoCompleteStringCollection
+    Private VarBrandCompany_DS As New AutoCompleteStringCollection
+    Private VarItemName_DS As New AutoCompleteStringCollection
 
 
     Private VarSelAdjective As String
@@ -38,6 +43,9 @@
                                           FROM [GroupItems]
                                           Where [GroupItemStatus]=1"
 
+    Private sQLItemsName As String = "SELECT [ItemID]
+                                                  ,[ItemName]
+                                              FROM [vItemsServices]"
     Private sQLItemsServices As String = "SELECT [ItemID]
                                                   ,[ItemCode]
                                                   ,[CategoryName]
@@ -59,6 +67,9 @@
     Private Sub MYSP_Show()
         Me.Timer1.Start()
         Me.PB.Visible = True
+        Me.GroupBox1.Enabled = False
+        Me.GroupBox2.Enabled = False
+        Me.txtSearch.Enabled = False
     End Sub
 
     Private Sub MYSP_Hide()
@@ -67,6 +78,9 @@
         System.Threading.Thread.Sleep(200)
         Me.PB.Visible = False
         Me.PB.Value = 1
+        Me.GroupBox1.Enabled = True
+        Me.GroupBox2.Enabled = True
+        Me.txtSearch.Enabled = True
     End Sub
     Private Sub btnAddEmploye_Click(sender As Object, e As EventArgs) Handles btnAddEmploye.Click
         cmsAdd.Show(btnAddEmploye, 1, btnAddEmploye.Height)
@@ -83,6 +97,7 @@
                 Call XCLS.MyCodes_Fill_DataTable(sQLBrandCompany, VarBrandCompany_DT)
                 Call XCLS.MyCodes_Fill_DataTable(sQLGroupItem, VarGroupItems_DT)
                 Call XCLS.MyCodes_Fill_DataTable(sQLWarehouse, Var_Warehouse_DT)
+                Call XCLS.MyCodes_Fill_DataTable(sQLItemsName, Var_ItemNamw_DT)
 
                 VarBGW_Status = True
             End If
@@ -97,22 +112,13 @@
     Private Sub BGW_Load_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BGW_Load.RunWorkerCompleted
         If VarBGW_Status = True Then
             Call XCLS.MyCodes_Fill_Dgv(Me.DGV, lblCount, MyVarDT_ItemsServices, MyVarDV_ItemsServices)
-            Call XCLS.MyCodes_CmbFill(Me.cmbCategory, VarCategory_DT, "CategoryName", "CategoryID")
-            Call XCLS.MyCodes_CmbFill(Me.cmbCompanyMother, VarBrandCompany_DT, "BranCompName", "BranCompID")
-            Call XCLS.MyCodes_CmbFill(Me.cmbGroups, VarGroupItems_DT, "GroupItemName", "GroupItemID")
-            Call XCLS.MyCodes_CmbFill(Me.cmbWarehouse, Var_Warehouse_DT, "WarehouseName", "WarehouseID")
-
-            Dim VarCategory_DS As New AutoCompleteStringCollection
-            Dim Var_Warehouse_DS As New AutoCompleteStringCollection
-
-            Call XCLS.MyCode_Fill_DS(Me.TextBox1, VarCategory_DT, "CategoryName", VarCategory_DS)
-            Call XCLS.MyCode_Fill_DS(Me.TextBox2, Var_Warehouse_DT, "WarehouseName", Var_Warehouse_DS)
+            Call XCLS.MyCode_Fill_DS(Me.txtCategory, VarCategory_DT, "CategoryName", VarCategory_DS)
+            Call XCLS.MyCode_Fill_DS(Me.txtWarehouse, Var_Warehouse_DT, "WarehouseName", Var_Warehouse_DS)
+            Call XCLS.MyCode_Fill_DS(Me.txtGroups, VarGroupItems_DT, "GroupItemName", VarGroupItems_DS)
+            Call XCLS.MyCode_Fill_DS(Me.txtCompanyMother, VarBrandCompany_DT, "BranCompName", VarBrandCompany_DS)
+            Call XCLS.MyCode_Fill_DS(Me.txtName, Var_ItemNamw_DT, "ItemName", VarItemName_DS)
 
             Me.cmbItemType.DataSource = VarItemType
-            Me.cmbWarehouse.SelectedIndex = -1
-            Me.cmbCategory.SelectedIndex = -1
-            Me.cmbCompanyMother.SelectedIndex = -1
-            Me.cmbGroups.SelectedIndex = -1
             Me.cmbItemType.SelectedIndex = -1
 
 
@@ -152,26 +158,9 @@
         xForm.ShowDialog()
     End Sub
 
-    Private Sub btnRun_Click(sender As Object, e As EventArgs) Handles btnRun.Click
-        Try
-            MyPubVar_Filter = ""
-            MyPubVar_Filter = "CategoryName like '%" & Me.TextBox1.Text & "%' Or WarehouseName Like '%" & Me.TextBox2.Text & "%' "
-            'MyPubVar_Filter = "CategoryName like '%" & xCate & "%' "
-            'Or
-            '            GroupItemName Like '%" & Trim(Me.cmbGroups.Text) & "%'OR 
-            '            ItemType Like '%" & Trim(Me.cmbItemType.Text) & "%'OR 
-            '            WarehouseName Like '%" & Trim(Me.cmbWarehouse.Text) & "%'OR 
-            '            BranCompName Like '%" & Trim(Me.cmbCompanyMother.Text) & "%'"
-            Call XCLS.MyCodes_Fill_Dgv(Me.DGV, Me.lblCount, MyVarDT_ItemsServices, MyVarDV_ItemsServices)
-            MyPubVar_Filter = ""
-        Catch ex As Exception
-            MsgBox(Me_MsgErrorStr + vbNewLine + vbNewLine + ex.Message, Me_MsgInfoStyle, Me_MsgCaptionStr)
-        End Try
-    End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
         Try
-            Dim xCate As String = Me.cmbCategory.Text
             MyPubVar_Filter = ""
             MyPubVar_Filter = "ItemCode+ItemName+ItemLatin like '%" & Me.txtSearch.Text & "%'"
             Call XCLS.MyCodes_Fill_Dgv(Me.DGV, Me.lblCount, MyVarDT_ItemsServices, MyVarDV_ItemsServices)
@@ -181,16 +170,61 @@
         End Try
     End Sub
 
-    Private Sub cmbCategory_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCategory.SelectedIndexChanged
+
+    Private Sub txtCategory_TextChanged(sender As Object, e As EventArgs) Handles txtCategory.TextChanged
+        Try
+            MyPubVar_Filter = ""
+            MyPubVar_Filter = "CategoryName like '%" & Me.txtCategory.Text & "%'"
+            Call XCLS.MyCodes_Fill_Dgv(Me.DGV, Me.lblCount, MyVarDT_ItemsServices, MyVarDV_ItemsServices)
+            MyPubVar_Filter = ""
+        Catch ex As Exception
+            MsgBox(Me_MsgErrorStr + vbNewLine + vbNewLine + ex.Message, Me_MsgInfoStyle, Me_MsgCaptionStr)
+        End Try
+    End Sub
+
+    Private Sub txtGroups_TextChanged(sender As Object, e As EventArgs) Handles txtGroups.TextChanged
+        Try
+            MyPubVar_Filter = ""
+            MyPubVar_Filter = "GroupItemName like '%" & Me.txtGroups.Text & "%'"
+            Call XCLS.MyCodes_Fill_Dgv(Me.DGV, Me.lblCount, MyVarDT_ItemsServices, MyVarDV_ItemsServices)
+            MyPubVar_Filter = ""
+        Catch ex As Exception
+            MsgBox(Me_MsgErrorStr + vbNewLine + vbNewLine + ex.Message, Me_MsgInfoStyle, Me_MsgCaptionStr)
+        End Try
+
+    End Sub
+
+    Private Sub txtWarehouse_TextChanged(sender As Object, e As EventArgs) Handles txtWarehouse.TextChanged
+        Try
+            MyPubVar_Filter = ""
+            MyPubVar_Filter = "WarehouseName like '%" & Me.txtWarehouse.Text & "%'"
+            Call XCLS.MyCodes_Fill_Dgv(Me.DGV, Me.lblCount, MyVarDT_ItemsServices, MyVarDV_ItemsServices)
+            MyPubVar_Filter = ""
+        Catch ex As Exception
+            MsgBox(Me_MsgErrorStr + vbNewLine + vbNewLine + ex.Message, Me_MsgInfoStyle, Me_MsgCaptionStr)
+        End Try
+
+    End Sub
+
+    Private Sub txtCompanyMother_TextChanged(sender As Object, e As EventArgs) Handles txtCompanyMother.TextChanged
+        Try
+            MyPubVar_Filter = ""
+            MyPubVar_Filter = "BranCompName like '%" & Me.txtCompanyMother.Text & "%'"
+            Call XCLS.MyCodes_Fill_Dgv(Me.DGV, Me.lblCount, MyVarDT_ItemsServices, MyVarDV_ItemsServices)
+            MyPubVar_Filter = ""
+        Catch ex As Exception
+            MsgBox(Me_MsgErrorStr + vbNewLine + vbNewLine + ex.Message, Me_MsgInfoStyle, Me_MsgCaptionStr)
+        End Try
+    End Sub
+
+    Private Sub cmbItemType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbItemType.SelectedIndexChanged
         'Try
-        '    Dim xCate As String = Me.cmbCategory.Text
         '    MyPubVar_Filter = ""
-        '    MyPubVar_Filter = "CategoryName like '%" & xCate & "%'"
+        '    MyPubVar_Filter = "CategoryName like '%" & Me.txtCategory.Text & "%'"
         '    Call XCLS.MyCodes_Fill_Dgv(Me.DGV, Me.lblCount, MyVarDT_ItemsServices, MyVarDV_ItemsServices)
         '    MyPubVar_Filter = ""
         'Catch ex As Exception
         '    MsgBox(Me_MsgErrorStr + vbNewLine + vbNewLine + ex.Message, Me_MsgInfoStyle, Me_MsgCaptionStr)
         'End Try
-
     End Sub
 End Class

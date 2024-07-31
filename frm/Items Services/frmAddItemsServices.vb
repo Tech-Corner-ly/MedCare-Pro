@@ -12,7 +12,6 @@ Public Class frmAddItemsServices
     Private PercPrice1, PercPrice2, PercPrice3, PercPrice4, PercPrice5, PercPrice6, Price1, Price2, Price3, Price4, Price5, Price6, LastCostPrice, CostPrice, LastPurchPrice, PurchPrice, UnitEqu, AmountDoctor, PercDoctor, HighUnit, WidthUnit, HeightUnit, SizeUnit, WeightUnit, MeasurementUnit As Decimal
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Call MYSP_Show()
 
         If cmbIsActive.Checked Then
             IsActive = 1
@@ -43,33 +42,68 @@ Public Class frmAddItemsServices
         CalcuMethod = CStr(Trim(Me.cmbCalcuMethod.Text))
         ColorUnit = CStr(Trim(Me.txtColor.Text))
         CostCalcType = CStr(Trim(Me.cmbCostCalc.Text))
-        ItemCode = CStr(Trim(Me.txtItemCode.Text))
-        ItemName = CStr(Trim(Me.txtItemName.Text))
+
+        If Me.cmbCategory.Text = Nothing Then
+            ErrorProvider1.SetError(Me.cmbCategory, "يرجي تحديد الفئة")
+            Call XCLS.MyCodes_CboNotNull_Index(Me.cmbCategory, "يرجي تحديد فئة المادة او الخدمة")
+            Exit Sub
+        Else
+            ErrorProvider1.SetError(Me.cmbCategory, String.Empty)
+            CategoryID = CInt(Me.cmbCategory.SelectedValue)
+        End If
+
+        If Me.txtItemCode.Text = Nothing Then
+            ErrorProvider1.SetError(Me.txtItemCode, "يرجي ادخال كود المادة")
+            Call XCLS.MyCodes_TextNotNull(Me.txtItemCode, "كود المادة")
+            Exit Sub
+        Else
+            ErrorProvider1.SetError(Me.txtItemCode, String.Empty)
+            ItemCode = CStr(Trim(Me.txtItemCode.Text))
+        End If
+
+        'Name
+        If Me.txtItemName.Text = Nothing Then
+            ErrorProvider1.SetError(Me.txtItemName, "يرجي ادخال اسم المادة")
+            Call XCLS.MyCodes_TextNotNull(Me.txtItemName, "اسم المادة")
+            Exit Sub
+        Else
+            ErrorProvider1.SetError(Me.txtItemName, String.Empty)
+            ItemName = CStr(Trim(Me.txtItemName.Text))
+        End If
+
         ItemLatin = CStr(Trim(Me.txtItemLatin.Text))
         Specifications = CStr(Trim(Me.txtSpecifications.Text))
         ItemSource = CStr(Trim(Me.txtSource.Text))
         ItemBarcode = CStr(Trim(Me.txtBarcode.Text))
-        If Me.cmbCategory.SelectedIndex = -1 Then
-            MsgBox("يرجي تحديد فئة المنتج !")
+
+        If Me.cmbItemType.Text = Nothing Then
+            ErrorProvider1.SetError(Me.cmbItemType, "يرجي ادخال نوع المادة")
+            Call XCLS.MyCodes_CboNotNull_Index(Me.cmbItemType, "يرجي تحديد نوع المادة")
             Exit Sub
         Else
-            CategoryID = CInt(Me.cmbCategory.SelectedValue)
-        End If
-        If Me.cmbItemType.SelectedIndex = -1 Then
-            MsgBox("يرجي تحديد نوع المنتج !")
-            Exit Sub
-        Else
+            ErrorProvider1.SetError(Me.cmbItemType, String.Empty)
             ItemType = CStr(Me.cmbItemType.SelectedItem)
         End If
 
+        If Me.cmbGroups.Text = Nothing Then
+            ErrorProvider1.SetError(Me.cmbGroups, "يرجي ادخال مجموعة المادة")
+            Call XCLS.MyCodes_CboNotNull_Index(Me.cmbGroups, "يرجي تحديد مجموعة المادة")
+            Exit Sub
+        Else
+            ErrorProvider1.SetError(Me.cmbGroups, String.Empty)
+            GroupsID = CInt(Me.cmbGroups.SelectedValue)
+        End If
+
+        WarehouseID = CInt(Me.cmbWarehouse.SelectedValue)
+        CompanyMother = CInt(Me.cmbCompanyMother.SelectedValue)
+
+
+
         'SupplierID = CInt(Me.cmbSupplier.SelectedValue)
         'LastSupplierID = CStr(Me.cmbLastSupplier.Text)
-        GroupsID = CInt(Me.cmbGroups.SelectedValue)
-        WarehouseID = CInt(Me.cmbWarehouse.SelectedValue)
         'CostCenterID = CInt(Me.cmbCostCenter.SelectedValue)
 
         'UnitTypeID = CInt(Me.cmbUnitType.SelectedValue)
-        CompanyMother = CInt(Me.cmbCompanyMother.SelectedValue)
 
         IsActive = 1
 
@@ -99,6 +133,8 @@ Public Class frmAddItemsServices
         'SizeUnit = Convert.ToDecimal(Me.txtSizeUnit.Text)
         'WeightUnit = Convert.ToDecimal(Me.txtWeight.Text)
         'MeasurementUnit = Convert.ToDecimal(Me.txtMeasurement.Text)
+        Call MYSP_Show()
+
         BGW_Save.RunWorkerAsync()
 
     End Sub
@@ -134,7 +170,7 @@ Public Class frmAddItemsServices
                                                   ,[BranCompName]
                                               FROM [BrandCompany]
                                               Where [BranCompStatus]=1"
-    Private sQLGroupItem As String = "SELECT [GroupItemID]
+    Private ReadOnly sQLGroupItem As String = "SELECT [GroupItemID]
                                               ,[GroupItemName]
                                           FROM [GroupItems]
                                           Where [GroupItemStatus]=1"
@@ -198,13 +234,13 @@ Public Class frmAddItemsServices
                 Call XCLS.MyCodes_CmbFill(Me.cmbWarehouse, Var_Warehouse_DT, "WarehouseName", "WarehouseID")
 
                 Me.cmbItemType.DataSource = VarItemType
-                Me.cmbWarehouse.SelectedIndex = -1
+
+                Me.cmbWarehouse.SelectedIndex = 0
                 Me.cmbCategory.SelectedIndex = -1
-                Me.cmbCompanyMother.SelectedIndex = -1
-                Me.cmbGroups.SelectedIndex = -1
+                Me.cmbCompanyMother.SelectedIndex = 0
+                Me.cmbGroups.SelectedIndex = 0
                 Me.cmbItemType.SelectedIndex = -1
 
-                Call XCLS.MyCode_Decmeil(Me.txtSecondProfitPerc)
                 Call MYSP_Hide()
             End If
         Catch ex As Exception

@@ -152,6 +152,9 @@ Partial Class frmAddItemsServices
         Me.btnFirst = New System.Windows.Forms.Button()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.txtAmount = New MediCare.ClsNumTextBox()
+        Me.txtPerc = New MediCare.ClsNumTextBox()
         Me.txtLastCostPrice = New MediCare.ClsNumTextBox()
         Me.txtLastPurchPrice = New MediCare.ClsNumTextBox()
         Me.txtSixthProfitPerc = New MediCare.ClsNumTextBox()
@@ -168,8 +171,6 @@ Partial Class frmAddItemsServices
         Me.txtFirstPrice = New MediCare.ClsNumTextBox()
         Me.txtCostPrice = New MediCare.ClsNumTextBox()
         Me.txtPurchPrice = New MediCare.ClsNumTextBox()
-        Me.txtAmount = New MediCare.ClsNumTextBox()
-        Me.txtPerc = New MediCare.ClsNumTextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -181,6 +182,7 @@ Partial Class frmAddItemsServices
         CType(Me.dgvUnit, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabCompositeMaterial.SuspendLayout()
         CType(Me.dgvCompositeMaterial, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BGW_Save
@@ -289,7 +291,7 @@ Partial Class frmAddItemsServices
         Me.txtItemName.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtItemName.Location = New System.Drawing.Point(131, 64)
         Me.txtItemName.Name = "txtItemName"
-        Me.txtItemName.Size = New System.Drawing.Size(474, 22)
+        Me.txtItemName.Size = New System.Drawing.Size(488, 22)
         Me.txtItemName.TabIndex = 34
         '
         'Label9
@@ -422,7 +424,7 @@ Partial Class frmAddItemsServices
         Me.txtItemLatin.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtItemLatin.Location = New System.Drawing.Point(131, 92)
         Me.txtItemLatin.Name = "txtItemLatin"
-        Me.txtItemLatin.Size = New System.Drawing.Size(474, 22)
+        Me.txtItemLatin.Size = New System.Drawing.Size(488, 22)
         Me.txtItemLatin.TabIndex = 39
         '
         'Label2
@@ -450,7 +452,7 @@ Partial Class frmAddItemsServices
         Me.cmbIsActive.AutoSize = True
         Me.cmbIsActive.Checked = True
         Me.cmbIsActive.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cmbIsActive.Location = New System.Drawing.Point(553, 40)
+        Me.cmbIsActive.Location = New System.Drawing.Point(567, 40)
         Me.cmbIsActive.Name = "cmbIsActive"
         Me.cmbIsActive.Size = New System.Drawing.Size(52, 17)
         Me.cmbIsActive.TabIndex = 42
@@ -1027,6 +1029,7 @@ Partial Class frmAddItemsServices
         '
         'cmbItemType
         '
+        Me.cmbItemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItemType.FormattingEnabled = True
         Me.cmbItemType.Location = New System.Drawing.Point(442, 241)
         Me.cmbItemType.Name = "cmbItemType"
@@ -1431,6 +1434,30 @@ Partial Class frmAddItemsServices
         Me.btnSearch.Text = "--"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
+        'txtAmount
+        '
+        Me.txtAmount.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtAmount.Location = New System.Drawing.Point(442, 350)
+        Me.txtAmount.Name = "txtAmount"
+        Me.txtAmount.Size = New System.Drawing.Size(124, 22)
+        Me.txtAmount.TabIndex = 155
+        Me.txtAmount.Text = "0"
+        Me.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtPerc
+        '
+        Me.txtPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtPerc.Location = New System.Drawing.Point(442, 322)
+        Me.txtPerc.Name = "txtPerc"
+        Me.txtPerc.Size = New System.Drawing.Size(124, 22)
+        Me.txtPerc.TabIndex = 154
+        Me.txtPerc.Text = "0"
+        Me.txtPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'txtLastCostPrice
         '
         Me.txtLastCostPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
@@ -1595,26 +1622,6 @@ Partial Class frmAddItemsServices
         Me.txtPurchPrice.Text = "0"
         Me.txtPurchPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'txtAmount
-        '
-        Me.txtAmount.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtAmount.Location = New System.Drawing.Point(442, 350)
-        Me.txtAmount.Name = "txtAmount"
-        Me.txtAmount.Size = New System.Drawing.Size(124, 22)
-        Me.txtAmount.TabIndex = 155
-        Me.txtAmount.Text = "0"
-        Me.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtPerc
-        '
-        Me.txtPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtPerc.Location = New System.Drawing.Point(442, 322)
-        Me.txtPerc.Name = "txtPerc"
-        Me.txtPerc.Size = New System.Drawing.Size(124, 22)
-        Me.txtPerc.TabIndex = 154
-        Me.txtPerc.Text = "0"
-        Me.txtPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'frmAddItemsServices
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1659,6 +1666,7 @@ Partial Class frmAddItemsServices
         Me.TabCompositeMaterial.ResumeLayout(False)
         Me.TabCompositeMaterial.PerformLayout()
         CType(Me.dgvCompositeMaterial, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1810,4 +1818,5 @@ Partial Class frmAddItemsServices
     Friend WithEvents txtCostPrice As ClsNumTextBox
     Friend WithEvents txtAmount As ClsNumTextBox
     Friend WithEvents txtPerc As ClsNumTextBox
+    Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class

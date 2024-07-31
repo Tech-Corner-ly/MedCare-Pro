@@ -50,8 +50,9 @@ Partial Class frmEmployees
         '
         'DGV
         '
-        Me.DGV.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.DGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGV.Location = New System.Drawing.Point(12, 72)
         Me.DGV.Name = "DGV"
@@ -60,6 +61,8 @@ Partial Class frmEmployees
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.btnAddEmploye)
         Me.GroupBox1.Controls.Add(Me.btnClose)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 548)
@@ -70,6 +73,8 @@ Partial Class frmEmployees
         '
         'btnAddEmploye
         '
+        Me.btnAddEmploye.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAddEmploye.Location = New System.Drawing.Point(871, 19)
         Me.btnAddEmploye.Name = "btnAddEmploye"
         Me.btnAddEmploye.Size = New System.Drawing.Size(94, 37)
@@ -79,6 +84,8 @@ Partial Class frmEmployees
         '
         'btnClose
         '
+        Me.btnClose.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnClose.Location = New System.Drawing.Point(6, 19)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(94, 37)
@@ -88,6 +95,8 @@ Partial Class frmEmployees
         '
         'txtSearch
         '
+        Me.txtSearch.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtSearch.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSearch.Location = New System.Drawing.Point(12, 37)
         Me.txtSearch.Name = "txtSearch"
@@ -188,6 +197,7 @@ Partial Class frmEmployees
         Me.Name = "frmEmployees"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.RightToLeftLayout = True
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "الموظفين "
         CType(Me.DGV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

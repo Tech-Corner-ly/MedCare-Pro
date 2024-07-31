@@ -67,7 +67,7 @@ Public Class ClsMain
 
     Public Function MyCodes_CboNotNull_Index(ByVal Cbo As ComboBox, ByVal CboCaption As String) As Boolean
         If Cbo.SelectedIndex = -1 Or Cbo.Text = String.Empty Then
-            MsgBox("يرجى اختيار " & Space(1) & " " & CboCaption & " " & Space(1) & " من القائمة", Me_MsgInfoStyle, Me_MsgCaptionStr)
+            MsgBox("يرجى اختيار " & Space(1) & " " & CboCaption & " " & Space(1) & "من القائمة", Me_MsgInfoStyle, Me_MsgCaptionStr)
             Cbo.Focus()
             Return True
         Else

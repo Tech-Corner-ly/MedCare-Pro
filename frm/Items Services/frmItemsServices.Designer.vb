@@ -33,8 +33,6 @@ Partial Class frmItemsServices
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblCount = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.خروجToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.مساعدةToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.خياراتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ملفToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.txtSearch = New System.Windows.Forms.TextBox()
@@ -42,7 +40,6 @@ Partial Class frmItemsServices
         Me.btnAddEmploye = New System.Windows.Forms.Button()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btnRun = New System.Windows.Forms.Button()
         Me.BGW_Load = New System.ComponentModel.BackgroundWorker()
         Me.DGV = New System.Windows.Forms.DataGridView()
         Me.ItemID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -67,19 +64,18 @@ Partial Class frmItemsServices
         Me.tmsAddCate = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmsAddItems = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.cmbCompanyMother = New System.Windows.Forms.ComboBox()
+        Me.txtName = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtCompanyMother = New System.Windows.Forms.TextBox()
+        Me.txtGroups = New System.Windows.Forms.TextBox()
+        Me.txtWarehouse = New System.Windows.Forms.TextBox()
+        Me.txtCategory = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.cmbWarehouse = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbItemType = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.cmbGroups = New System.Windows.Forms.ComboBox()
-        Me.cmbCategory = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -144,19 +140,6 @@ Partial Class frmItemsServices
         Me.lblCount.Size = New System.Drawing.Size(25, 17)
         Me.lblCount.Text = "000"
         '
-        'خروجToolStripMenuItem
-        '
-        Me.خروجToolStripMenuItem.Name = "خروجToolStripMenuItem"
-        Me.خروجToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.خروجToolStripMenuItem.Text = "خروج"
-        '
-        'مساعدةToolStripMenuItem
-        '
-        Me.مساعدةToolStripMenuItem.Margin = New System.Windows.Forms.Padding(0, 0, 790, 0)
-        Me.مساعدةToolStripMenuItem.Name = "مساعدةToolStripMenuItem"
-        Me.مساعدةToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
-        Me.مساعدةToolStripMenuItem.Text = "مساعدة"
-        '
         'خياراتToolStripMenuItem
         '
         Me.خياراتToolStripMenuItem.Name = "خياراتToolStripMenuItem"
@@ -182,7 +165,7 @@ Partial Class frmItemsServices
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ملفToolStripMenuItem, Me.خياراتToolStripMenuItem, Me.مساعدةToolStripMenuItem, Me.خروجToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ملفToolStripMenuItem, Me.خياراتToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(996, 24)
@@ -192,7 +175,7 @@ Partial Class frmItemsServices
         'btnAddEmploye
         '
         Me.btnAddEmploye.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.btnAddEmploye.Location = New System.Drawing.Point(757, 19)
+        Me.btnAddEmploye.Location = New System.Drawing.Point(650, 19)
         Me.btnAddEmploye.Name = "btnAddEmploye"
         Me.btnAddEmploye.Size = New System.Drawing.Size(94, 37)
         Me.btnAddEmploye.TabIndex = 2
@@ -212,24 +195,13 @@ Partial Class frmItemsServices
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.btnRun)
         Me.GroupBox1.Controls.Add(Me.btnAddEmploye)
         Me.GroupBox1.Controls.Add(Me.btnClose)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 555)
+        Me.GroupBox1.Location = New System.Drawing.Point(233, 555)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(971, 70)
+        Me.GroupBox1.Size = New System.Drawing.Size(750, 70)
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
-        '
-        'btnRun
-        '
-        Me.btnRun.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.btnRun.Location = New System.Drawing.Point(862, 19)
-        Me.btnRun.Name = "btnRun"
-        Me.btnRun.Size = New System.Drawing.Size(94, 37)
-        Me.btnRun.TabIndex = 3
-        Me.btnRun.Text = "اضافة "
-        Me.btnRun.UseVisualStyleBackColor = True
         '
         'BGW_Load
         '
@@ -238,13 +210,17 @@ Partial Class frmItemsServices
         '
         'DGV
         '
+        Me.DGV.AllowUserToAddRows = False
         Me.DGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemID, Me.ItemCode, Me.ItemName, Me.ItemLatin, Me.WarehouseName, Me.BranCompName, Me.CategoryName, Me.ItemType, Me.PercDoctor, Me.AmountDoctor, Me.GroupItemName, Me.Price1, Me.Price2, Me.Price3, Me.Price4, Me.Price5, Me.Price6})
         Me.DGV.Location = New System.Drawing.Point(233, 72)
+        Me.DGV.MultiSelect = False
         Me.DGV.Name = "DGV"
+        Me.DGV.ReadOnly = True
+        Me.DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DGV.Size = New System.Drawing.Size(750, 470)
         Me.DGV.TabIndex = 6
         '
@@ -260,96 +236,112 @@ Partial Class frmItemsServices
         Me.ItemCode.DataPropertyName = "ItemCode"
         Me.ItemCode.HeaderText = "كود المادة"
         Me.ItemCode.Name = "ItemCode"
+        Me.ItemCode.ReadOnly = True
         '
         'ItemName
         '
         Me.ItemName.DataPropertyName = "ItemName"
         Me.ItemName.HeaderText = "اسم المادة"
         Me.ItemName.Name = "ItemName"
+        Me.ItemName.ReadOnly = True
         '
         'ItemLatin
         '
         Me.ItemLatin.DataPropertyName = "ItemLatin"
         Me.ItemLatin.HeaderText = "الاسم لاتيني"
         Me.ItemLatin.Name = "ItemLatin"
+        Me.ItemLatin.ReadOnly = True
         '
         'WarehouseName
         '
         Me.WarehouseName.DataPropertyName = "WarehouseName"
         Me.WarehouseName.HeaderText = "المستودع"
         Me.WarehouseName.Name = "WarehouseName"
+        Me.WarehouseName.ReadOnly = True
         '
         'BranCompName
         '
         Me.BranCompName.DataPropertyName = "BranCompName"
         Me.BranCompName.HeaderText = "الشركة"
         Me.BranCompName.Name = "BranCompName"
+        Me.BranCompName.ReadOnly = True
         '
         'CategoryName
         '
         Me.CategoryName.DataPropertyName = "CategoryName"
         Me.CategoryName.HeaderText = "الفئة"
         Me.CategoryName.Name = "CategoryName"
+        Me.CategoryName.ReadOnly = True
         '
         'ItemType
         '
         Me.ItemType.DataPropertyName = "ItemType"
         Me.ItemType.HeaderText = "نوع المادة"
         Me.ItemType.Name = "ItemType"
+        Me.ItemType.ReadOnly = True
         '
         'PercDoctor
         '
         Me.PercDoctor.DataPropertyName = "PercDoctor"
         Me.PercDoctor.HeaderText = "نسبة الطبيب"
         Me.PercDoctor.Name = "PercDoctor"
+        Me.PercDoctor.ReadOnly = True
         '
         'AmountDoctor
         '
         Me.AmountDoctor.DataPropertyName = "AmountDoctor"
         Me.AmountDoctor.HeaderText = "حصة الطبيب"
         Me.AmountDoctor.Name = "AmountDoctor"
+        Me.AmountDoctor.ReadOnly = True
         '
         'GroupItemName
         '
         Me.GroupItemName.DataPropertyName = "GroupItemName"
         Me.GroupItemName.HeaderText = "مجموعات المواد"
         Me.GroupItemName.Name = "GroupItemName"
+        Me.GroupItemName.ReadOnly = True
         '
         'Price1
         '
         Me.Price1.DataPropertyName = "Price1"
         Me.Price1.HeaderText = "السعر الاول"
         Me.Price1.Name = "Price1"
+        Me.Price1.ReadOnly = True
         '
         'Price2
         '
         Me.Price2.DataPropertyName = "Price2"
         Me.Price2.HeaderText = "السعر الثاني"
         Me.Price2.Name = "Price2"
+        Me.Price2.ReadOnly = True
         '
         'Price3
         '
         Me.Price3.DataPropertyName = "Price3"
         Me.Price3.HeaderText = "السعر الثالث"
         Me.Price3.Name = "Price3"
+        Me.Price3.ReadOnly = True
         '
         'Price4
         '
         Me.Price4.DataPropertyName = "Price4"
         Me.Price4.HeaderText = "السعر الرابع"
         Me.Price4.Name = "Price4"
+        Me.Price4.ReadOnly = True
         '
         'Price5
         '
         Me.Price5.DataPropertyName = "Price5"
         Me.Price5.HeaderText = "السعر الخامس"
         Me.Price5.Name = "Price5"
+        Me.Price5.ReadOnly = True
         '
         'Price6
         '
         Me.Price6.DataPropertyName = "Price6"
         Me.Price6.HeaderText = "السعر السادس"
         Me.Price6.Name = "Price6"
+        Me.Price6.ReadOnly = True
         '
         'cmsAdd
         '
@@ -377,68 +369,89 @@ Partial Class frmItemsServices
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.TextBox2)
-        Me.GroupBox2.Controls.Add(Me.TextBox1)
-        Me.GroupBox2.Controls.Add(Me.Label6)
-        Me.GroupBox2.Controls.Add(Me.cmbCompanyMother)
+        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.txtName)
+        Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.txtCompanyMother)
+        Me.GroupBox2.Controls.Add(Me.txtGroups)
+        Me.GroupBox2.Controls.Add(Me.txtWarehouse)
+        Me.GroupBox2.Controls.Add(Me.txtCategory)
         Me.GroupBox2.Controls.Add(Me.Label5)
-        Me.GroupBox2.Controls.Add(Me.cmbWarehouse)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.cmbItemType)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.cmbGroups)
-        Me.GroupBox2.Controls.Add(Me.cmbCategory)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 30)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(214, 512)
+        Me.GroupBox2.Size = New System.Drawing.Size(214, 595)
         Me.GroupBox2.TabIndex = 11
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "بحث و فرز"
         '
-        'Label6
+        'txtName
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(83, 250)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(48, 13)
-        Me.Label6.TabIndex = 13
-        Me.Label6.Text = "الشركة :"
+        Me.txtName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtName.Location = New System.Drawing.Point(6, 44)
+        Me.txtName.Name = "txtName"
+        Me.txtName.Size = New System.Drawing.Size(131, 20)
+        Me.txtName.TabIndex = 19
         '
-        'cmbCompanyMother
+        'Label7
         '
-        Me.cmbCompanyMother.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cmbCompanyMother.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbCompanyMother.FormattingEnabled = True
-        Me.cmbCompanyMother.Location = New System.Drawing.Point(6, 141)
-        Me.cmbCompanyMother.Name = "cmbCompanyMother"
-        Me.cmbCompanyMother.Size = New System.Drawing.Size(132, 21)
-        Me.cmbCompanyMother.TabIndex = 12
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(144, 47)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(43, 13)
+        Me.Label7.TabIndex = 18
+        Me.Label7.Text = "الاسم :"
+        '
+        'txtCompanyMother
+        '
+        Me.txtCompanyMother.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtCompanyMother.Location = New System.Drawing.Point(6, 175)
+        Me.txtCompanyMother.Name = "txtCompanyMother"
+        Me.txtCompanyMother.Size = New System.Drawing.Size(131, 20)
+        Me.txtCompanyMother.TabIndex = 17
+        '
+        'txtGroups
+        '
+        Me.txtGroups.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtGroups.Location = New System.Drawing.Point(6, 96)
+        Me.txtGroups.Name = "txtGroups"
+        Me.txtGroups.Size = New System.Drawing.Size(131, 20)
+        Me.txtGroups.TabIndex = 16
+        '
+        'txtWarehouse
+        '
+        Me.txtWarehouse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtWarehouse.Location = New System.Drawing.Point(7, 149)
+        Me.txtWarehouse.Name = "txtWarehouse"
+        Me.txtWarehouse.Size = New System.Drawing.Size(131, 20)
+        Me.txtWarehouse.TabIndex = 15
+        '
+        'txtCategory
+        '
+        Me.txtCategory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.txtCategory.Location = New System.Drawing.Point(6, 70)
+        Me.txtCategory.Name = "txtCategory"
+        Me.txtCategory.Size = New System.Drawing.Size(131, 20)
+        Me.txtCategory.TabIndex = 14
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(144, 144)
+        Me.Label5.Location = New System.Drawing.Point(144, 179)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(48, 13)
         Me.Label5.TabIndex = 11
         Me.Label5.Text = "الشركة :"
         '
-        'cmbWarehouse
-        '
-        Me.cmbWarehouse.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cmbWarehouse.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbWarehouse.FormattingEnabled = True
-        Me.cmbWarehouse.Location = New System.Drawing.Point(6, 114)
-        Me.cmbWarehouse.Name = "cmbWarehouse"
-        Me.cmbWarehouse.Size = New System.Drawing.Size(132, 21)
-        Me.cmbWarehouse.TabIndex = 10
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(144, 117)
+        Me.Label4.Location = New System.Drawing.Point(144, 152)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(60, 13)
         Me.Label4.TabIndex = 9
@@ -448,7 +461,7 @@ Partial Class frmItemsServices
         '
         Me.cmbItemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbItemType.FormattingEnabled = True
-        Me.cmbItemType.Location = New System.Drawing.Point(6, 87)
+        Me.cmbItemType.Location = New System.Drawing.Point(6, 122)
         Me.cmbItemType.Name = "cmbItemType"
         Me.cmbItemType.Size = New System.Drawing.Size(132, 21)
         Me.cmbItemType.TabIndex = 8
@@ -456,7 +469,7 @@ Partial Class frmItemsServices
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(144, 90)
+        Me.Label3.Location = New System.Drawing.Point(144, 125)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(58, 13)
         Me.Label3.TabIndex = 7
@@ -465,7 +478,7 @@ Partial Class frmItemsServices
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(144, 64)
+        Me.Label2.Location = New System.Drawing.Point(144, 99)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(58, 13)
         Me.Label2.TabIndex = 6
@@ -474,47 +487,11 @@ Partial Class frmItemsServices
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(144, 38)
+        Me.Label1.Location = New System.Drawing.Point(144, 73)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(36, 13)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "الفئة :"
-        '
-        'cmbGroups
-        '
-        Me.cmbGroups.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cmbGroups.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbGroups.FormattingEnabled = True
-        Me.cmbGroups.Location = New System.Drawing.Point(6, 61)
-        Me.cmbGroups.Name = "cmbGroups"
-        Me.cmbGroups.Size = New System.Drawing.Size(132, 21)
-        Me.cmbGroups.TabIndex = 4
-        '
-        'cmbCategory
-        '
-        Me.cmbCategory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cmbCategory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbCategory.FormattingEnabled = True
-        Me.cmbCategory.Location = New System.Drawing.Point(6, 35)
-        Me.cmbCategory.Name = "cmbCategory"
-        Me.cmbCategory.Size = New System.Drawing.Size(132, 21)
-        Me.cmbCategory.TabIndex = 3
-        '
-        'TextBox1
-        '
-        Me.TextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.TextBox1.Location = New System.Drawing.Point(7, 169)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(131, 20)
-        Me.TextBox1.TabIndex = 14
-        '
-        'TextBox2
-        '
-        Me.TextBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.TextBox2.Location = New System.Drawing.Point(7, 195)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(131, 20)
-        Me.TextBox2.TabIndex = 15
         '
         'frmItemsServices
         '
@@ -554,8 +531,6 @@ Partial Class frmItemsServices
     Friend WithEvents lblUsername As ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
     Friend WithEvents StatusStrip1 As StatusStrip
-    Friend WithEvents خروجToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents مساعدةToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents خياراتToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ملفToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents txtSearch As TextBox
@@ -572,17 +547,12 @@ Partial Class frmItemsServices
     Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
     Friend WithEvents lblCount As ToolStripStatusLabel
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents cmbWarehouse As ComboBox
     Friend WithEvents Label4 As Label
     Friend WithEvents cmbItemType As ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents cmbGroups As ComboBox
-    Friend WithEvents cmbCategory As ComboBox
-    Friend WithEvents cmbCompanyMother As ComboBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents btnRun As Button
     Friend WithEvents ItemID As DataGridViewTextBoxColumn
     Friend WithEvents ItemCode As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn
@@ -600,7 +570,10 @@ Partial Class frmItemsServices
     Friend WithEvents Price4 As DataGridViewTextBoxColumn
     Friend WithEvents Price5 As DataGridViewTextBoxColumn
     Friend WithEvents Price6 As DataGridViewTextBoxColumn
-    Friend WithEvents Label6 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtCategory As TextBox
+    Friend WithEvents txtWarehouse As TextBox
+    Friend WithEvents txtName As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents txtCompanyMother As TextBox
+    Friend WithEvents txtGroups As TextBox
 End Class

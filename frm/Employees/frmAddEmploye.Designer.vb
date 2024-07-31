@@ -90,14 +90,14 @@ Partial Class frmAddEmploye
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TabClinicsServices = New System.Windows.Forms.TabPage()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
+        Me.cmbService3 = New System.Windows.Forms.ComboBox()
         Me.Label41 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.cmbService2 = New System.Windows.Forms.ComboBox()
         Me.Label40 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.cmbService1 = New System.Windows.Forms.ComboBox()
         Me.Label39 = New System.Windows.Forms.Label()
         Me.cmbClinic = New System.Windows.Forms.ComboBox()
         Me.Label38 = New System.Windows.Forms.Label()
@@ -834,14 +834,14 @@ Partial Class frmAddEmploye
         '
         Me.TabClinicsServices.BackColor = System.Drawing.SystemColors.Control
         Me.TabClinicsServices.Controls.Add(Me.TextBox4)
-        Me.TabClinicsServices.Controls.Add(Me.ComboBox4)
+        Me.TabClinicsServices.Controls.Add(Me.cmbService3)
         Me.TabClinicsServices.Controls.Add(Me.Label41)
         Me.TabClinicsServices.Controls.Add(Me.TextBox3)
-        Me.TabClinicsServices.Controls.Add(Me.ComboBox3)
+        Me.TabClinicsServices.Controls.Add(Me.cmbService2)
         Me.TabClinicsServices.Controls.Add(Me.Label40)
         Me.TabClinicsServices.Controls.Add(Me.TextBox2)
         Me.TabClinicsServices.Controls.Add(Me.TextBox1)
-        Me.TabClinicsServices.Controls.Add(Me.ComboBox2)
+        Me.TabClinicsServices.Controls.Add(Me.cmbService1)
         Me.TabClinicsServices.Controls.Add(Me.Label39)
         Me.TabClinicsServices.Controls.Add(Me.cmbClinic)
         Me.TabClinicsServices.Controls.Add(Me.Label38)
@@ -860,13 +860,13 @@ Partial Class frmAddEmploye
         Me.TextBox4.Size = New System.Drawing.Size(78, 22)
         Me.TextBox4.TabIndex = 38
         '
-        'ComboBox4
+        'cmbService3
         '
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(15, 100)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(235, 21)
-        Me.ComboBox4.TabIndex = 37
+        Me.cmbService3.FormattingEnabled = True
+        Me.cmbService3.Location = New System.Drawing.Point(15, 100)
+        Me.cmbService3.Name = "cmbService3"
+        Me.cmbService3.Size = New System.Drawing.Size(235, 21)
+        Me.cmbService3.TabIndex = 37
         '
         'Label41
         '
@@ -886,13 +886,13 @@ Partial Class frmAddEmploye
         Me.TextBox3.Size = New System.Drawing.Size(78, 22)
         Me.TextBox3.TabIndex = 35
         '
-        'ComboBox3
+        'cmbService2
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(15, 73)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(235, 21)
-        Me.ComboBox3.TabIndex = 34
+        Me.cmbService2.FormattingEnabled = True
+        Me.cmbService2.Location = New System.Drawing.Point(15, 73)
+        Me.cmbService2.Name = "cmbService2"
+        Me.cmbService2.Size = New System.Drawing.Size(235, 21)
+        Me.cmbService2.TabIndex = 34
         '
         'Label40
         '
@@ -920,13 +920,13 @@ Partial Class frmAddEmploye
         Me.TextBox1.Size = New System.Drawing.Size(78, 22)
         Me.TextBox1.TabIndex = 31
         '
-        'ComboBox2
+        'cmbService1
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(15, 46)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(235, 21)
-        Me.ComboBox2.TabIndex = 26
+        Me.cmbService1.FormattingEnabled = True
+        Me.cmbService1.Location = New System.Drawing.Point(15, 46)
+        Me.cmbService1.Name = "cmbService1"
+        Me.cmbService1.Size = New System.Drawing.Size(235, 21)
+        Me.cmbService1.TabIndex = 26
         '
         'Label39
         '
@@ -1188,6 +1188,8 @@ Partial Class frmAddEmploye
         '
         'cmbSpecialization
         '
+        Me.cmbSpecialization.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbSpecialization.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbSpecialization.FormattingEnabled = True
         Me.cmbSpecialization.Location = New System.Drawing.Point(6, 201)
         Me.cmbSpecialization.Name = "cmbSpecialization"
@@ -1206,6 +1208,8 @@ Partial Class frmAddEmploye
         '
         'cmbUser
         '
+        Me.cmbUser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbUser.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbUser.FormattingEnabled = True
         Me.cmbUser.Location = New System.Drawing.Point(6, 317)
         Me.cmbUser.Name = "cmbUser"
@@ -1225,6 +1229,8 @@ Partial Class frmAddEmploye
         'cbIsActive
         '
         Me.cbIsActive.AutoSize = True
+        Me.cbIsActive.Checked = True
+        Me.cbIsActive.CheckState = System.Windows.Forms.CheckState.Checked
         Me.cbIsActive.Location = New System.Drawing.Point(26, 34)
         Me.cbIsActive.Name = "cbIsActive"
         Me.cbIsActive.Size = New System.Drawing.Size(45, 19)
@@ -1252,6 +1258,8 @@ Partial Class frmAddEmploye
         '
         'cmbNationality
         '
+        Me.cmbNationality.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbNationality.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbNationality.FormattingEnabled = True
         Me.cmbNationality.Location = New System.Drawing.Point(6, 288)
         Me.cmbNationality.Name = "cmbNationality"
@@ -1270,6 +1278,7 @@ Partial Class frmAddEmploye
         '
         'cmbGender
         '
+        Me.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbGender.FormattingEnabled = True
         Me.cmbGender.Location = New System.Drawing.Point(154, 288)
         Me.cmbGender.Name = "cmbGender"
@@ -1288,6 +1297,8 @@ Partial Class frmAddEmploye
         '
         'cmbAdministrative
         '
+        Me.cmbAdministrative.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbAdministrative.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbAdministrative.FormattingEnabled = True
         Me.cmbAdministrative.Location = New System.Drawing.Point(6, 259)
         Me.cmbAdministrative.Name = "cmbAdministrative"
@@ -1306,6 +1317,8 @@ Partial Class frmAddEmploye
         '
         'cmbJobTitle
         '
+        Me.cmbJobTitle.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbJobTitle.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbJobTitle.FormattingEnabled = True
         Me.cmbJobTitle.Location = New System.Drawing.Point(6, 230)
         Me.cmbJobTitle.Name = "cmbJobTitle"
@@ -1324,6 +1337,7 @@ Partial Class frmAddEmploye
         '
         'cmbAdjective
         '
+        Me.cmbAdjective.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbAdjective.FormattingEnabled = True
         Me.cmbAdjective.Location = New System.Drawing.Point(6, 172)
         Me.cmbAdjective.Name = "cmbAdjective"
@@ -1399,6 +1413,7 @@ Partial Class frmAddEmploye
         Me.Name = "frmAddEmploye"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.RightToLeftLayout = True
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "الموظف"
         Me.TabIdentity.ResumeLayout(False)
         Me.TabAddress.ResumeLayout(False)
@@ -1537,14 +1552,14 @@ Partial Class frmAddEmploye
     Friend WithEvents Label37 As Label
     Friend WithEvents TabClinicsServices As TabPage
     Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents ComboBox4 As ComboBox
+    Friend WithEvents cmbService3 As ComboBox
     Friend WithEvents Label41 As Label
     Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents ComboBox3 As ComboBox
+    Friend WithEvents cmbService2 As ComboBox
     Friend WithEvents Label40 As Label
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents cmbService1 As ComboBox
     Friend WithEvents Label39 As Label
     Friend WithEvents cmbClinic As ComboBox
     Friend WithEvents Label38 As Label
