@@ -31,6 +31,8 @@ Partial Class frmDoctorsAppointmentSchedule
         Me.lblUsername = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblCount = New System.Windows.Forms.ToolStripStatusLabel()
         Me.خروجToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.مساعدةToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.خياراتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -42,16 +44,14 @@ Partial Class frmDoctorsAppointmentSchedule
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BGW_Load = New System.ComponentModel.BackgroundWorker()
         Me.DGV = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AppoinScheID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClinicName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmpName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.lblCount = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.AppoinScheFromTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AppoinScheToTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AllowNumCases = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ReviewAllowedNum = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -98,6 +98,19 @@ Partial Class frmDoctorsAppointmentSchedule
         Me.StatusStrip1.TabIndex = 10
         Me.StatusStrip1.Text = "StatusStrip1"
         '
+        'ToolStripStatusLabel3
+        '
+        Me.ToolStripStatusLabel3.Margin = New System.Windows.Forms.Padding(100, 3, 0, 2)
+        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(77, 17)
+        Me.ToolStripStatusLabel3.Text = "عدد السجلات :"
+        '
+        'lblCount
+        '
+        Me.lblCount.Name = "lblCount"
+        Me.lblCount.Size = New System.Drawing.Size(37, 17)
+        Me.lblCount.Text = "00000"
+        '
         'خروجToolStripMenuItem
         '
         Me.خروجToolStripMenuItem.Name = "خروجToolStripMenuItem"
@@ -125,6 +138,8 @@ Partial Class frmDoctorsAppointmentSchedule
         '
         'txtSearch
         '
+        Me.txtSearch.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtSearch.Font = New System.Drawing.Font("Times New Roman", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSearch.Location = New System.Drawing.Point(12, 37)
         Me.txtSearch.Name = "txtSearch"
@@ -142,6 +157,7 @@ Partial Class frmDoctorsAppointmentSchedule
         '
         'btnAddAppointment
         '
+        Me.btnAddAppointment.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.btnAddAppointment.Location = New System.Drawing.Point(871, 19)
         Me.btnAddAppointment.Name = "btnAddAppointment"
         Me.btnAddAppointment.Size = New System.Drawing.Size(94, 37)
@@ -151,6 +167,7 @@ Partial Class frmDoctorsAppointmentSchedule
         '
         'btnClose
         '
+        Me.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.btnClose.Location = New System.Drawing.Point(6, 19)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(94, 37)
@@ -160,6 +177,8 @@ Partial Class frmDoctorsAppointmentSchedule
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.btnAddAppointment)
         Me.GroupBox1.Controls.Add(Me.btnClose)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 548)
@@ -177,77 +196,73 @@ Partial Class frmDoctorsAppointmentSchedule
         '
         Me.DGV.AllowUserToAddRows = False
         Me.DGV.AllowUserToDeleteRows = False
-        Me.DGV.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.DGV.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column7, Me.Column5, Me.Column6, Me.Column8})
+        Me.DGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AppoinScheID, Me.ClinicName, Me.EmpName, Me.Column7, Me.AppoinScheFromTime, Me.AppoinScheToTime, Me.AllowNumCases, Me.ReviewAllowedNum})
         Me.DGV.Location = New System.Drawing.Point(12, 72)
         Me.DGV.Name = "DGV"
         Me.DGV.ReadOnly = True
         Me.DGV.Size = New System.Drawing.Size(971, 470)
         Me.DGV.TabIndex = 6
         '
-        'Column1
+        'AppoinScheID
         '
-        Me.Column1.HeaderText = "#"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
+        Me.AppoinScheID.DataPropertyName = "AppoinScheID"
+        Me.AppoinScheID.HeaderText = "#"
+        Me.AppoinScheID.Name = "AppoinScheID"
+        Me.AppoinScheID.ReadOnly = True
         '
-        'Column2
+        'ClinicName
         '
-        Me.Column2.HeaderText = "اسم العيادة"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
+        Me.ClinicName.DataPropertyName = "ClinicName"
+        Me.ClinicName.HeaderText = "اسم العيادة"
+        Me.ClinicName.Name = "ClinicName"
+        Me.ClinicName.ReadOnly = True
         '
-        'Column3
+        'EmpName
         '
-        Me.Column3.HeaderText = "اسم الطبيب"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "التاريخ "
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
+        Me.EmpName.DataPropertyName = "EmpName"
+        Me.EmpName.HeaderText = "اسم الطبيب"
+        Me.EmpName.Name = "EmpName"
+        Me.EmpName.ReadOnly = True
         '
         'Column7
         '
+        Me.Column7.DataPropertyName = "Day"
         Me.Column7.HeaderText = "البوم"
         Me.Column7.Name = "Column7"
         Me.Column7.ReadOnly = True
         '
-        'Column5
+        'AppoinScheFromTime
         '
-        Me.Column5.HeaderText = "بداية العمل"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
+        Me.AppoinScheFromTime.DataPropertyName = "AppoinScheFromTime"
+        Me.AppoinScheFromTime.HeaderText = "بداية العمل"
+        Me.AppoinScheFromTime.Name = "AppoinScheFromTime"
+        Me.AppoinScheFromTime.ReadOnly = True
         '
-        'Column6
+        'AppoinScheToTime
         '
-        Me.Column6.HeaderText = "نهاية العمل"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
+        Me.AppoinScheToTime.DataPropertyName = "AppoinScheToTime"
+        Me.AppoinScheToTime.HeaderText = "نهاية العمل"
+        Me.AppoinScheToTime.Name = "AppoinScheToTime"
+        Me.AppoinScheToTime.ReadOnly = True
         '
-        'Column8
+        'AllowNumCases
         '
-        Me.Column8.HeaderText = "عدد الحالات المسموح به"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
+        Me.AllowNumCases.DataPropertyName = "AllowNumCases"
+        Me.AllowNumCases.HeaderText = "عدد الحالات المسموح به"
+        Me.AllowNumCases.Name = "AllowNumCases"
+        Me.AllowNumCases.ReadOnly = True
         '
-        'ToolStripStatusLabel3
+        'ReviewAllowedNum
         '
-        Me.ToolStripStatusLabel3.Margin = New System.Windows.Forms.Padding(100, 3, 0, 2)
-        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(77, 17)
-        Me.ToolStripStatusLabel3.Text = "عدد السجلات :"
-        '
-        'lblCount
-        '
-        Me.lblCount.Name = "lblCount"
-        Me.lblCount.Size = New System.Drawing.Size(37, 17)
-        Me.lblCount.Text = "00000"
+        Me.ReviewAllowedNum.DataPropertyName = "ReviewAllowedNum"
+        Me.ReviewAllowedNum.HeaderText = "سماحية المراجعة خلال"
+        Me.ReviewAllowedNum.Name = "ReviewAllowedNum"
+        Me.ReviewAllowedNum.ReadOnly = True
         '
         'frmDoctorsAppointmentSchedule
         '
@@ -263,6 +278,7 @@ Partial Class frmDoctorsAppointmentSchedule
         Me.Name = "frmDoctorsAppointmentSchedule"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.RightToLeftLayout = True
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "جدول مواعيد الاطباء "
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
@@ -295,12 +311,12 @@ Partial Class frmDoctorsAppointmentSchedule
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents BGW_Load As System.ComponentModel.BackgroundWorker
     Friend WithEvents DGV As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents AppoinScheID As DataGridViewTextBoxColumn
+    Friend WithEvents ClinicName As DataGridViewTextBoxColumn
+    Friend WithEvents EmpName As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
+    Friend WithEvents AppoinScheFromTime As DataGridViewTextBoxColumn
+    Friend WithEvents AppoinScheToTime As DataGridViewTextBoxColumn
+    Friend WithEvents AllowNumCases As DataGridViewTextBoxColumn
+    Friend WithEvents ReviewAllowedNum As DataGridViewTextBoxColumn
 End Class

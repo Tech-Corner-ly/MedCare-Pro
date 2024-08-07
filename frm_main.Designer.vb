@@ -36,6 +36,7 @@ Partial Class frm_main
         Me.الفئاتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.مجموعاتالموادالخدماتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.المستودعاتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.بحثالموادToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.المواردالبشريةToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.تعاريفToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msEmployees = New System.Windows.Forms.ToolStripMenuItem()
@@ -52,6 +53,8 @@ Partial Class frm_main
         Me.المستخدمينToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ادارةالمستخدمينToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.سجلالمراقبةToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.العياداتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.مواعيدالاطباءToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -70,7 +73,8 @@ Partial Class frm_main
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.ClsNumTextBox1 = New MediCare.ClsNumTextBox()
-        Me.بحثالموادToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.الاجراءاتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.حجزموعدالعياداتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -78,7 +82,7 @@ Partial Class frm_main
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ملفToolStripMenuItem, Me.تعاريفToolStripMenuItem1, Me.الاصنافوالخدماتToolStripMenuItem, Me.المواردالبشريةToolStripMenuItem, Me.الدكاتيرةToolStripMenuItem, Me.المرضيToolStripMenuItem, Me.العملياتToolStripMenuItem, Me.ادواتToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ملفToolStripMenuItem, Me.تعاريفToolStripMenuItem1, Me.الاصنافوالخدماتToolStripMenuItem, Me.المواردالبشريةToolStripMenuItem, Me.الدكاتيرةToolStripMenuItem, Me.المرضيToolStripMenuItem, Me.العملياتToolStripMenuItem, Me.ادواتToolStripMenuItem, Me.العياداتToolStripMenuItem, Me.الاجراءاتToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(947, 24)
@@ -159,6 +163,12 @@ Partial Class frm_main
         Me.المستودعاتToolStripMenuItem.Name = "المستودعاتToolStripMenuItem"
         Me.المستودعاتToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
         Me.المستودعاتToolStripMenuItem.Text = "المستودعات"
+        '
+        'بحثالموادToolStripMenuItem
+        '
+        Me.بحثالموادToolStripMenuItem.Name = "بحثالموادToolStripMenuItem"
+        Me.بحثالموادToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
+        Me.بحثالموادToolStripMenuItem.Text = "بحث المواد"
         '
         'المواردالبشريةToolStripMenuItem
         '
@@ -261,6 +271,19 @@ Partial Class frm_main
         Me.سجلالمراقبةToolStripMenuItem.Name = "سجلالمراقبةToolStripMenuItem"
         Me.سجلالمراقبةToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.سجلالمراقبةToolStripMenuItem.Text = "سجل المراقبة "
+        '
+        'العياداتToolStripMenuItem
+        '
+        Me.العياداتToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.مواعيدالاطباءToolStripMenuItem})
+        Me.العياداتToolStripMenuItem.Name = "العياداتToolStripMenuItem"
+        Me.العياداتToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
+        Me.العياداتToolStripMenuItem.Text = "العيادات"
+        '
+        'مواعيدالاطباءToolStripMenuItem
+        '
+        Me.مواعيدالاطباءToolStripMenuItem.Name = "مواعيدالاطباءToolStripMenuItem"
+        Me.مواعيدالاطباءToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.مواعيدالاطباءToolStripMenuItem.Text = "مواعيد الاطباء"
         '
         'PictureBox1
         '
@@ -427,11 +450,18 @@ Partial Class frm_main
         Me.ClsNumTextBox1.Text = "0"
         Me.ClsNumTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'بحثالموادToolStripMenuItem
+        'الاجراءاتToolStripMenuItem
         '
-        Me.بحثالموادToolStripMenuItem.Name = "بحثالموادToolStripMenuItem"
-        Me.بحثالموادToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
-        Me.بحثالموادToolStripMenuItem.Text = "بحث المواد"
+        Me.الاجراءاتToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.حجزموعدالعياداتToolStripMenuItem})
+        Me.الاجراءاتToolStripMenuItem.Name = "الاجراءاتToolStripMenuItem"
+        Me.الاجراءاتToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.الاجراءاتToolStripMenuItem.Text = "الاجراءات"
+        '
+        'حجزموعدالعياداتToolStripMenuItem
+        '
+        Me.حجزموعدالعياداتToolStripMenuItem.Name = "حجزموعدالعياداتToolStripMenuItem"
+        Me.حجزموعدالعياداتToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.حجزموعدالعياداتToolStripMenuItem.Text = "حجز موعد العيادات"
         '
         'frm_main
         '
@@ -515,4 +545,8 @@ Partial Class frm_main
     Friend WithEvents المستودعاتToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ClsNumTextBox1 As ClsNumTextBox
     Friend WithEvents بحثالموادToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents العياداتToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents مواعيدالاطباءToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents الاجراءاتToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents حجزموعدالعياداتToolStripMenuItem As ToolStripMenuItem
 End Class

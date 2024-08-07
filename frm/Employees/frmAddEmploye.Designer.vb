@@ -42,7 +42,6 @@ Partial Class frmAddEmploye
         Me.Label11 = New System.Windows.Forms.Label()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.dtpObtainingDate = New System.Windows.Forms.DateTimePicker()
-        Me.dtpDateBirth = New System.Windows.Forms.DateTimePicker()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.txtObtainingPlace = New System.Windows.Forms.TextBox()
         Me.Label23 = New System.Windows.Forms.Label()
@@ -132,7 +131,7 @@ Partial Class frmAddEmploye
         Me.Label37 = New System.Windows.Forms.Label()
         Me.cmbUser = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.cbIsActive = New System.Windows.Forms.CheckBox()
+        Me.cmbIsActive = New System.Windows.Forms.CheckBox()
         Me.txtEmployeID = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cmbNationality = New System.Windows.Forms.ComboBox()
@@ -150,6 +149,8 @@ Partial Class frmAddEmploye
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtFather = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.dtpDateBirth = New System.Windows.Forms.DateTimePicker()
         Me.TabIdentity.SuspendLayout()
         Me.TabAddress.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -162,6 +163,7 @@ Partial Class frmAddEmploye
         Me.GroupBox2.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabIdentity
@@ -336,8 +338,8 @@ Partial Class frmAddEmploye
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.SystemColors.Control
-        Me.TabPage1.Controls.Add(Me.dtpObtainingDate)
         Me.TabPage1.Controls.Add(Me.dtpDateBirth)
+        Me.TabPage1.Controls.Add(Me.dtpObtainingDate)
         Me.TabPage1.Controls.Add(Me.Label24)
         Me.TabPage1.Controls.Add(Me.txtObtainingPlace)
         Me.TabPage1.Controls.Add(Me.Label23)
@@ -359,25 +361,15 @@ Partial Class frmAddEmploye
         '
         'dtpObtainingDate
         '
+        Me.dtpObtainingDate.CustomFormat = "dd-MM-yyyy"
         Me.dtpObtainingDate.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right
         Me.dtpObtainingDate.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.dtpObtainingDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpObtainingDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpObtainingDate.Location = New System.Drawing.Point(204, 159)
         Me.dtpObtainingDate.Name = "dtpObtainingDate"
         Me.dtpObtainingDate.RightToLeftLayout = True
         Me.dtpObtainingDate.Size = New System.Drawing.Size(116, 22)
         Me.dtpObtainingDate.TabIndex = 46
-        '
-        'dtpDateBirth
-        '
-        Me.dtpDateBirth.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right
-        Me.dtpDateBirth.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.dtpDateBirth.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDateBirth.Location = New System.Drawing.Point(204, 75)
-        Me.dtpDateBirth.Name = "dtpDateBirth"
-        Me.dtpDateBirth.RightToLeftLayout = True
-        Me.dtpDateBirth.Size = New System.Drawing.Size(116, 22)
-        Me.dtpDateBirth.TabIndex = 45
         '
         'Label24
         '
@@ -519,9 +511,10 @@ Partial Class frmAddEmploye
         '
         'dtpResidencyExpiry
         '
+        Me.dtpResidencyExpiry.CustomFormat = "dd-MM-yyyy"
         Me.dtpResidencyExpiry.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right
         Me.dtpResidencyExpiry.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.dtpResidencyExpiry.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpResidencyExpiry.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpResidencyExpiry.Location = New System.Drawing.Point(178, 243)
         Me.dtpResidencyExpiry.Name = "dtpResidencyExpiry"
         Me.dtpResidencyExpiry.RightToLeftLayout = True
@@ -576,9 +569,10 @@ Partial Class frmAddEmploye
         '
         'dtpEntryDate
         '
+        Me.dtpEntryDate.CustomFormat = "dd-MM-yyyy"
         Me.dtpEntryDate.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right
         Me.dtpEntryDate.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.dtpEntryDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpEntryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpEntryDate.Location = New System.Drawing.Point(178, 159)
         Me.dtpEntryDate.Name = "dtpEntryDate"
         Me.dtpEntryDate.RightToLeftLayout = True
@@ -615,9 +609,10 @@ Partial Class frmAddEmploye
         '
         'dtpExpiryPassportDate
         '
+        Me.dtpExpiryPassportDate.CustomFormat = "dd-MM-yyyy"
         Me.dtpExpiryPassportDate.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right
         Me.dtpExpiryPassportDate.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.dtpExpiryPassportDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpExpiryPassportDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpExpiryPassportDate.Location = New System.Drawing.Point(178, 103)
         Me.dtpExpiryPassportDate.Name = "dtpExpiryPassportDate"
         Me.dtpExpiryPassportDate.RightToLeftLayout = True
@@ -636,9 +631,10 @@ Partial Class frmAddEmploye
         '
         'dtpObtainingPassportDate
         '
+        Me.dtpObtainingPassportDate.CustomFormat = "dd-MM-yyyy"
         Me.dtpObtainingPassportDate.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right
         Me.dtpObtainingPassportDate.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.dtpObtainingPassportDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpObtainingPassportDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpObtainingPassportDate.Location = New System.Drawing.Point(178, 75)
         Me.dtpObtainingPassportDate.Name = "dtpObtainingPassportDate"
         Me.dtpObtainingPassportDate.RightToLeftLayout = True
@@ -1158,7 +1154,7 @@ Partial Class frmAddEmploye
         Me.GroupBox1.Controls.Add(Me.Label37)
         Me.GroupBox1.Controls.Add(Me.cmbUser)
         Me.GroupBox1.Controls.Add(Me.Label10)
-        Me.GroupBox1.Controls.Add(Me.cbIsActive)
+        Me.GroupBox1.Controls.Add(Me.cmbIsActive)
         Me.GroupBox1.Controls.Add(Me.txtEmployeID)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.cmbNationality)
@@ -1226,17 +1222,17 @@ Partial Class frmAddEmploye
         Me.Label10.TabIndex = 32
         Me.Label10.Text = "المستخدم :"
         '
-        'cbIsActive
+        'cmbIsActive
         '
-        Me.cbIsActive.AutoSize = True
-        Me.cbIsActive.Checked = True
-        Me.cbIsActive.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cbIsActive.Location = New System.Drawing.Point(26, 34)
-        Me.cbIsActive.Name = "cbIsActive"
-        Me.cbIsActive.Size = New System.Drawing.Size(45, 19)
-        Me.cbIsActive.TabIndex = 31
-        Me.cbIsActive.Text = "نشط"
-        Me.cbIsActive.UseVisualStyleBackColor = True
+        Me.cmbIsActive.AutoSize = True
+        Me.cmbIsActive.Checked = True
+        Me.cmbIsActive.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.cmbIsActive.Location = New System.Drawing.Point(26, 34)
+        Me.cmbIsActive.Name = "cmbIsActive"
+        Me.cmbIsActive.Size = New System.Drawing.Size(45, 19)
+        Me.cmbIsActive.TabIndex = 31
+        Me.cmbIsActive.Text = "نشط"
+        Me.cmbIsActive.UseVisualStyleBackColor = True
         '
         'txtEmployeID
         '
@@ -1398,6 +1394,17 @@ Partial Class frmAddEmploye
         Me.Label2.TabIndex = 14
         Me.Label2.Text = "اسم الاب :"
         '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
+        'dtpDateBirth
+        '
+        Me.dtpDateBirth.Location = New System.Drawing.Point(120, 78)
+        Me.dtpDateBirth.Name = "dtpDateBirth"
+        Me.dtpDateBirth.Size = New System.Drawing.Size(200, 20)
+        Me.dtpDateBirth.TabIndex = 47
+        '
         'frmAddEmploye
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1435,6 +1442,7 @@ Partial Class frmAddEmploye
         Me.MenuStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1499,7 +1507,7 @@ Partial Class frmAddEmploye
     Friend WithEvents TabFamily As TabPage
     Friend WithEvents cmbUser As ComboBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents cbIsActive As CheckBox
+    Friend WithEvents cmbIsActive As CheckBox
     Friend WithEvents txtEmployeID As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents cmbNationality As ComboBox
@@ -1507,7 +1515,6 @@ Partial Class frmAddEmploye
     Friend WithEvents cmbGender As ComboBox
     Friend WithEvents Label7 As Label
     Friend WithEvents dtpObtainingDate As DateTimePicker
-    Friend WithEvents dtpDateBirth As DateTimePicker
     Friend WithEvents Label24 As Label
     Friend WithEvents txtObtainingPlace As TextBox
     Friend WithEvents Label23 As Label
@@ -1566,4 +1573,6 @@ Partial Class frmAddEmploye
     Friend WithEvents TabOnline As TabPage
     Friend WithEvents cmbMaritalStatus As ComboBox
     Friend WithEvents Label42 As Label
+    Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents dtpDateBirth As DateTimePicker
 End Class

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAddDoctorsAppointmentSchedule
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmAddDoctorsAppointmentSchedule
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAddDoctorsAppointmentSchedule))
@@ -58,10 +58,12 @@ Partial Class frmAddDoctorsAppointmentSchedule
         Me.cmbDoctor = New System.Windows.Forms.ComboBox()
         Me.lblAdministrative = New System.Windows.Forms.Label()
         Me.cmbClinc = New System.Windows.Forms.ComboBox()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GroupBox2.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -297,7 +299,7 @@ Partial Class frmAddDoctorsAppointmentSchedule
         '
         'dtpFromTime
         '
-        Me.dtpFromTime.CustomFormat = "hh:mm t"
+        Me.dtpFromTime.CustomFormat = "HH:mm t"
         Me.dtpFromTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpFromTime.Location = New System.Drawing.Point(196, 114)
         Me.dtpFromTime.Name = "dtpFromTime"
@@ -354,6 +356,10 @@ Partial Class frmAddDoctorsAppointmentSchedule
         Me.cmbClinc.Size = New System.Drawing.Size(276, 23)
         Me.cmbClinc.TabIndex = 14
         '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
         'frmAddDoctorsAppointmentSchedule
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -368,6 +374,7 @@ Partial Class frmAddDoctorsAppointmentSchedule
         Me.Name = "frmAddDoctorsAppointmentSchedule"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.RightToLeftLayout = True
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "إضافة موعد طبيب"
         Me.GroupBox2.ResumeLayout(False)
         Me.MenuStrip1.ResumeLayout(False)
@@ -376,6 +383,7 @@ Partial Class frmAddDoctorsAppointmentSchedule
         Me.StatusStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -414,4 +422,5 @@ Partial Class frmAddDoctorsAppointmentSchedule
     Friend WithEvents dtpFromTime As DateTimePicker
     Friend WithEvents Label3 As Label
     Friend WithEvents cmbDay As ComboBox
+    Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class

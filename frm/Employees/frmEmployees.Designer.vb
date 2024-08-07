@@ -39,9 +39,22 @@ Partial Class frmEmployees
         Me.lblUsername = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblDateTime = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblCount = New System.Windows.Forms.ToolStripStatusLabel()
         Me.PB = New System.Windows.Forms.ToolStripProgressBar()
         Me.BGW_Load = New System.ComponentModel.BackgroundWorker()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.EmployeID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmployeCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmpFirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmpSurName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AdjectiveID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.JobTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AdministrativeName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmpGender = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.arName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmpPhone1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmpPhone2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -54,6 +67,7 @@ Partial Class frmEmployees
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGV.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EmployeID, Me.EmployeCode, Me.EmpFirstName, Me.EmpSurName, Me.AdjectiveID, Me.JobTitle, Me.AdministrativeName, Me.EmpGender, Me.arName, Me.EmpPhone1, Me.EmpPhone2})
         Me.DGV.Location = New System.Drawing.Point(12, 72)
         Me.DGV.Name = "DGV"
         Me.DGV.Size = New System.Drawing.Size(971, 470)
@@ -139,7 +153,7 @@ Partial Class frmEmployees
         '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblUsername, Me.ToolStripStatusLabel2, Me.lblDateTime, Me.PB})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblUsername, Me.ToolStripStatusLabel2, Me.lblDateTime, Me.ToolStripStatusLabel3, Me.lblCount, Me.PB})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 628)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(996, 22)
@@ -160,7 +174,7 @@ Partial Class frmEmployees
         '
         'ToolStripStatusLabel2
         '
-        Me.ToolStripStatusLabel2.Margin = New System.Windows.Forms.Padding(250, 3, 0, 2)
+        Me.ToolStripStatusLabel2.Margin = New System.Windows.Forms.Padding(150, 3, 0, 2)
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
         Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(44, 17)
         Me.ToolStripStatusLabel2.Text = "التاريخ :"
@@ -171,9 +185,22 @@ Partial Class frmEmployees
         Me.lblDateTime.Size = New System.Drawing.Size(119, 17)
         Me.lblDateTime.Text = "ToolStripStatusLabel3"
         '
+        'ToolStripStatusLabel3
+        '
+        Me.ToolStripStatusLabel3.Margin = New System.Windows.Forms.Padding(150, 3, 0, 2)
+        Me.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
+        Me.ToolStripStatusLabel3.Size = New System.Drawing.Size(39, 17)
+        Me.ToolStripStatusLabel3.Text = "العدد :"
+        '
+        'lblCount
+        '
+        Me.lblCount.Name = "lblCount"
+        Me.lblCount.Size = New System.Drawing.Size(119, 17)
+        Me.lblCount.Text = "ToolStripStatusLabel4"
+        '
         'PB
         '
-        Me.PB.Margin = New System.Windows.Forms.Padding(300, 3, 1, 3)
+        Me.PB.Margin = New System.Windows.Forms.Padding(70, 3, 1, 3)
         Me.PB.Name = "PB"
         Me.PB.Size = New System.Drawing.Size(100, 16)
         '
@@ -181,6 +208,83 @@ Partial Class frmEmployees
         '
         Me.BGW_Load.WorkerReportsProgress = True
         Me.BGW_Load.WorkerSupportsCancellation = True
+        '
+        'EmployeID
+        '
+        Me.EmployeID.DataPropertyName = "EmployeID"
+        Me.EmployeID.HeaderText = "الكود"
+        Me.EmployeID.Name = "EmployeID"
+        Me.EmployeID.ReadOnly = True
+        '
+        'EmployeCode
+        '
+        Me.EmployeCode.DataPropertyName = "EmployeCode"
+        Me.EmployeCode.HeaderText = "كود الموظف"
+        Me.EmployeCode.Name = "EmployeCode"
+        Me.EmployeCode.ReadOnly = True
+        '
+        'EmpFirstName
+        '
+        Me.EmpFirstName.DataPropertyName = "EmpFirstName"
+        Me.EmpFirstName.HeaderText = "الاسم الاول"
+        Me.EmpFirstName.Name = "EmpFirstName"
+        Me.EmpFirstName.ReadOnly = True
+        '
+        'EmpSurName
+        '
+        Me.EmpSurName.DataPropertyName = "EmpSurName"
+        Me.EmpSurName.HeaderText = "اللقب"
+        Me.EmpSurName.Name = "EmpSurName"
+        Me.EmpSurName.ReadOnly = True
+        '
+        'AdjectiveID
+        '
+        Me.AdjectiveID.DataPropertyName = "AdjectiveID"
+        Me.AdjectiveID.HeaderText = "الصفة"
+        Me.AdjectiveID.Name = "AdjectiveID"
+        Me.AdjectiveID.ReadOnly = True
+        '
+        'JobTitle
+        '
+        Me.JobTitle.DataPropertyName = "JobTitle"
+        Me.JobTitle.HeaderText = "المسمي الوظيفي"
+        Me.JobTitle.Name = "JobTitle"
+        Me.JobTitle.ReadOnly = True
+        '
+        'AdministrativeName
+        '
+        Me.AdministrativeName.DataPropertyName = "AdministrativeName"
+        Me.AdministrativeName.HeaderText = "الادارة"
+        Me.AdministrativeName.Name = "AdministrativeName"
+        Me.AdministrativeName.ReadOnly = True
+        '
+        'EmpGender
+        '
+        Me.EmpGender.DataPropertyName = "EmpGender"
+        Me.EmpGender.HeaderText = "الجنس"
+        Me.EmpGender.Name = "EmpGender"
+        Me.EmpGender.ReadOnly = True
+        '
+        'arName
+        '
+        Me.arName.DataPropertyName = "arName"
+        Me.arName.HeaderText = "الجنسية"
+        Me.arName.Name = "arName"
+        Me.arName.ReadOnly = True
+        '
+        'EmpPhone1
+        '
+        Me.EmpPhone1.DataPropertyName = "EmpPhone1"
+        Me.EmpPhone1.HeaderText = "الجوال"
+        Me.EmpPhone1.Name = "EmpPhone1"
+        Me.EmpPhone1.ReadOnly = True
+        '
+        'EmpPhone2
+        '
+        Me.EmpPhone2.DataPropertyName = "EmpPhone2"
+        Me.EmpPhone2.HeaderText = "الجوال"
+        Me.EmpPhone2.Name = "EmpPhone2"
+        Me.EmpPhone2.ReadOnly = True
         '
         'frmEmployees
         '
@@ -227,4 +331,17 @@ Partial Class frmEmployees
     Friend WithEvents btnAddEmploye As Button
     Friend WithEvents BGW_Load As System.ComponentModel.BackgroundWorker
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
+    Friend WithEvents lblCount As ToolStripStatusLabel
+    Friend WithEvents EmployeID As DataGridViewTextBoxColumn
+    Friend WithEvents EmployeCode As DataGridViewTextBoxColumn
+    Friend WithEvents EmpFirstName As DataGridViewTextBoxColumn
+    Friend WithEvents EmpSurName As DataGridViewTextBoxColumn
+    Friend WithEvents AdjectiveID As DataGridViewTextBoxColumn
+    Friend WithEvents JobTitle As DataGridViewTextBoxColumn
+    Friend WithEvents AdministrativeName As DataGridViewTextBoxColumn
+    Friend WithEvents EmpGender As DataGridViewTextBoxColumn
+    Friend WithEvents arName As DataGridViewTextBoxColumn
+    Friend WithEvents EmpPhone1 As DataGridViewTextBoxColumn
+    Friend WithEvents EmpPhone2 As DataGridViewTextBoxColumn
 End Class

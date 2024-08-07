@@ -25,6 +25,7 @@
     Public VarLevel As New List(Of String)({" ", "طبي", "مدني"})
     Public VarGenderList As New List(Of String)({" ", "ذكر", "انثي"})
     Public VarItemType As New List(Of String)({"خدمة", "مادة", "مادة مركبة"})
+    Public VarDaysOfWeek As New List(Of String)({"السبت", "الاحد", "الاثنين", "الثلاثاء", "الاربعاء", "الخميس", "الجمعة"})
     Public VarMaritalStatus As New List(Of String)({" ", "اعزب", "متزوج", "متزوجة", "مطلقة", "ارملة"})
     Public VarSQLCountries As String = "SELECT CountriesID,arName FROM tbCountries"
 End Module

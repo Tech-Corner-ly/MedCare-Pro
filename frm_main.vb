@@ -95,4 +95,12 @@ Public Class frm_main
     Private Sub بحثالموادToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles بحثالموادToolStripMenuItem.Click
         frmItemsServices.Show()
     End Sub
+
+    Private Sub مواعيدالاطباءToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles مواعيدالاطباءToolStripMenuItem.Click
+        frmDoctorsAppointmentSchedule.Show()
+    End Sub
+
+    Private Sub حجزموعدالعياداتToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles حجزموعدالعياداتToolStripMenuItem.Click
+        frmBookingInquiries.Show()
+    End Sub
 End Class

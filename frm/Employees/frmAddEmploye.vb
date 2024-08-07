@@ -18,8 +18,13 @@ Public Class frmAddEmploye
 
     Private EmployeCode, EmpFirstName, EmpFathName, EmpGranFathName, EmpSurName, AdjectiveID, EmpGender, EmpZone, EmpAddress, EmpPhone1, EmpPhone2, EmpEmail, EmpNote, EmpPlaceNumRegist, EmpPlaceBirth As String
     Private EmpCardObtaiPlace, EmpPassportID, EmpPassportGetPlace, EmpEntryPlace, EmpResidencyPlace, EmpFatherName, EmpMotherName, EmpMaritalStatus As String
-    Private EmpDateBirth, EmpCardObtaiDate, EmpObtaiPassportDate, EmpExpiryPassportDate, EmpEntryDate, EmpResidencyExpiry As Date
-    Private SpecializationID, JobTitleID, AdministrativeID, NationalityID, UserID, CityID, EmpCardNum, EmpIDNum, EmpResidencyNumAs, EmpResidencyNum, EmpFamilyNum, ClinicID, ItemExaminID1, ItemExaminID2, ItemExaminID3, EmpIsActive,, EmployeStatus As Integer
+    Private EmpDateBirth As DateTime = DateTime.Now.ToString("yyyy/MM/dd")
+    Private EmpCardObtaiDate As DateTime = DateTime.Now.ToString("yyyy/MM/dd")
+    Private EmpObtaiPassportDate As DateTime = DateTime.Now.ToString("yyyy/MM/dd")
+    Private EmpExpiryPassportDate As DateTime = DateTime.Now.ToString("yyyy/MM/dd")
+    Private EmpEntryDate As DateTime = DateTime.Now.ToString("yyyy/MM/dd")
+    Private EmpResidencyExpiry As DateTime = DateTime.Now.ToString("yyyy/MM/dd")
+    Private IsActive, SpecializationID, JobTitleID, AdministrativeID, NationalityID, UserID, CityID, EmpCardNum, EmpIDNum, EmpResidencyNum, EmpFamilyNum, ClinicID, ItemExaminID1, ItemExaminID2, ItemExaminID3, EmpIsActive, EmployeStatus As Integer
 #End Region
 #Region "SQL"
     Private sQLClincic As String = "SELECT ClinicID,ClinicName FROM Clinics Where ClinicStatus=1"
@@ -83,43 +88,43 @@ Public Class frmAddEmploye
             With Cmd
                 .Parameters.Clear()
                 .Parameters.AddWithValue("@EmployeCode", SqlDbType.Int).Value = EmployeCode
-                .Parameters.AddWithValue("@EmpFirstName", SqlDbType.VarChar).Value = EmpFirstName
-                .Parameters.AddWithValue("@EmpFathName", SqlDbType.VarChar).Value = EmpFathName
-                .Parameters.AddWithValue("@EmpGranFathName", SqlDbType.VarChar).Value = EmpGranFathName
-                .Parameters.AddWithValue("@EmpSurName", SqlDbType.VarChar).Value = EmpSurName
-                .Parameters.AddWithValue("@AdjectiveID", SqlDbType.VarChar).Value = AdjectiveID
+                .Parameters.AddWithValue("@EmpFirstName", SqlDbType.NVarChar).Value = EmpFirstName
+                .Parameters.AddWithValue("@EmpFathName", SqlDbType.NVarChar).Value = EmpFathName
+                .Parameters.AddWithValue("@EmpGranFathName", SqlDbType.NVarChar).Value = EmpGranFathName
+                .Parameters.AddWithValue("@EmpSurName", SqlDbType.NVarChar).Value = EmpSurName
+                .Parameters.AddWithValue("@AdjectiveID", SqlDbType.NVarChar).Value = AdjectiveID
                 .Parameters.AddWithValue("@SpecializationID", SqlDbType.Int).Value = SpecializationID
                 .Parameters.AddWithValue("@JobTitleID", SqlDbType.Int).Value = JobTitleID
                 .Parameters.AddWithValue("@AdministrativeID", SqlDbType.Int).Value = AdministrativeID
-                .Parameters.AddWithValue("@EmpGender", SqlDbType.VarChar).Value = EmpGender
+                .Parameters.AddWithValue("@EmpGender", SqlDbType.NVarChar).Value = EmpGender
                 .Parameters.AddWithValue("@NationalityID", SqlDbType.Int).Value = NationalityID
                 .Parameters.AddWithValue("@UserID", SqlDbType.Int).Value = UserID
                 .Parameters.AddWithValue("@CityID", SqlDbType.Int).Value = CityID
-                .Parameters.AddWithValue("@EmpZone", SqlDbType.VarChar).Value = EmpZone
-                .Parameters.AddWithValue("@EmpAddress", SqlDbType.VarChar).Value = EmpAddress
-                .Parameters.AddWithValue("@EmpPhone1", SqlDbType.VarChar).Value = EmpPhone1
-                .Parameters.AddWithValue("@EmpPhone2", SqlDbType.VarChar).Value = EmpPhone2
-                .Parameters.AddWithValue("@EmpEmail", SqlDbType.VarChar).Value = EmpEmail
-                .Parameters.AddWithValue("@EmpNote", SqlDbType.VarChar).Value = EmpNote
-                .Parameters.AddWithValue("@EmpPlaceNumRegist", SqlDbType.VarChar).Value = EmpPlaceNumRegist
-                .Parameters.AddWithValue("@EmpPlaceBirth", SqlDbType.VarChar).Value = EmpPlaceBirth
+                .Parameters.AddWithValue("@EmpZone", SqlDbType.NVarChar).Value = EmpZone
+                .Parameters.AddWithValue("@EmpAddress", SqlDbType.NVarChar).Value = EmpAddress
+                .Parameters.AddWithValue("@EmpPhone1", SqlDbType.NVarChar).Value = EmpPhone1
+                .Parameters.AddWithValue("@EmpPhone2", SqlDbType.NVarChar).Value = EmpPhone2
+                .Parameters.AddWithValue("@EmpEmail", SqlDbType.NVarChar).Value = EmpEmail
+                .Parameters.AddWithValue("@EmpNote", SqlDbType.NVarChar).Value = EmpNote
+                .Parameters.AddWithValue("@EmpPlaceNumRegist", SqlDbType.NVarChar).Value = EmpPlaceNumRegist
+                .Parameters.AddWithValue("@EmpPlaceBirth", SqlDbType.NVarChar).Value = EmpPlaceBirth
                 .Parameters.AddWithValue("@EmpDateBirth", SqlDbType.Date).Value = EmpDateBirth
                 .Parameters.AddWithValue("@EmpCardNum", SqlDbType.Int).Value = EmpCardNum
                 .Parameters.AddWithValue("@EmpIDNum", SqlDbType.Int).Value = EmpIDNum
-                .Parameters.AddWithValue("@EmpCardObtaiDate", SqlDbType.Date).Value = EmpCardObtaiDate
-                .Parameters.AddWithValue("@EmpCardObtaiPlace", SqlDbType.VarChar).Value = EmpCardObtaiPlace
-                .Parameters.AddWithValue("@EmpPassportID", SqlDbType.VarChar).Value = EmpPassportID
-                .Parameters.AddWithValue("@EmpPassportGetPlace", SqlDbType.VarChar).Value = EmpPassportGetPlace
-                .Parameters.AddWithValue("@EmpObtaiPassportDate", SqlDbType.Date).Value = EmpObtaiPassportDate
-                .Parameters.AddWithValue("@EmpExpiryPassportDate", SqlDbType.Date).Value = EmpExpiryPassportDate
-                .Parameters.AddWithValue("@EmpEntryPlace", SqlDbType.VarChar).Value = EmpEntryPlace
-                .Parameters.AddWithValue("@EmpEntryDate", SqlDbType.Date).Value = EmpEntryDate
+                .Parameters.AddWithValue("@EmpCardObtaiDate", SqlDbType.DateTime).Value = EmpCardObtaiDate
+                .Parameters.AddWithValue("@EmpCardObtaiPlace", SqlDbType.NVarChar).Value = EmpCardObtaiPlace
+                .Parameters.AddWithValue("@EmpPassportID", SqlDbType.NVarChar).Value = EmpPassportID
+                .Parameters.AddWithValue("@EmpPassportGetPlace", SqlDbType.NVarChar).Value = EmpPassportGetPlace
+                .Parameters.AddWithValue("@EmpObtaiPassportDate", SqlDbType.DateTime).Value = EmpObtaiPassportDate
+                .Parameters.AddWithValue("@EmpExpiryPassportDate", SqlDbType.DateTime).Value = EmpExpiryPassportDate
+                .Parameters.AddWithValue("@EmpEntryPlace", SqlDbType.NVarChar).Value = EmpEntryPlace
+                .Parameters.AddWithValue("@EmpEntryDate", SqlDbType.DateTime).Value = EmpEntryDate
                 .Parameters.AddWithValue("@EmpResidencyNum", SqlDbType.Int).Value = EmpResidencyNum
-                .Parameters.AddWithValue("@EmpResidencyPlace", SqlDbType.VarChar).Value = EmpResidencyPlace
-                .Parameters.AddWithValue("@EmpResidencyExpiry", SqlDbType.Date).Value = EmpResidencyExpiry
-                .Parameters.AddWithValue("@EmpFatherName", SqlDbType.VarChar).Value = EmpFatherName
-                .Parameters.AddWithValue("@EmpMotherName", SqlDbType.VarChar).Value = EmpMotherName
-                .Parameters.AddWithValue("@EmpMaritalStatus", SqlDbType.VarChar).Value = EmpMaritalStatus
+                .Parameters.AddWithValue("@EmpResidencyPlace", SqlDbType.NVarChar).Value = EmpResidencyPlace
+                .Parameters.AddWithValue("@EmpResidencyExpiry", SqlDbType.DateTime).Value = EmpResidencyExpiry
+                .Parameters.AddWithValue("@EmpFatherName", SqlDbType.NVarChar).Value = EmpFatherName
+                .Parameters.AddWithValue("@EmpMotherName", SqlDbType.NVarChar).Value = EmpMotherName
+                .Parameters.AddWithValue("@EmpMaritalStatus", SqlDbType.NVarChar).Value = EmpMaritalStatus
                 .Parameters.AddWithValue("@EmpFamilyNum", SqlDbType.Int).Value = EmpFamilyNum
                 .Parameters.AddWithValue("@ClinicID", SqlDbType.Int).Value = ClinicID
                 .Parameters.AddWithValue("@ItemExaminID1", SqlDbType.Int).Value = ItemExaminID1
@@ -127,7 +132,7 @@ Public Class frmAddEmploye
                 .Parameters.AddWithValue("@ItemExaminID3", SqlDbType.Int).Value = ItemExaminID3
                 .Parameters.AddWithValue("@EmpIsActive", SqlDbType.Int).Value = EmpIsActive
                 .Parameters.AddWithValue("@EmployeStatus", SqlDbType.Int).Value = EmployeStatus
-                .Parameters.AddWithValue("@InsertTime", SqlDbType.Date).Value = VarInsertTime
+                .Parameters.AddWithValue("@InsertTime", SqlDbType.DateTime).Value = VarInsertTime
                 .Parameters.AddWithValue("@UserID_Insert", SqlDbType.Int).Value = VarUserID
             End With
             If sQlConnection.State = 1 Then sQlConnection.Close()
@@ -149,7 +154,147 @@ Public Class frmAddEmploye
         Call MYSP_Hide()
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        Try
+            'IsActive
+            If cmbIsActive.Checked Then
+                IsActive = 1
+            Else
+                IsActive = 0
+            End If
+            'txtEmployeID
+            If Me.txtEmployeID.Text = Nothing Then
+                ErrorProvider1.SetError(Me.txtEmployeID, "يرجي ادخال اسم المادة")
+                Call XCLS.MyCodes_TextNotNull(Me.txtEmployeID, "اسم المادة")
+                Exit Sub
+            Else
+                ErrorProvider1.SetError(Me.txtEmployeID, String.Empty)
+                EmployeCode = CStr(Trim(Me.txtEmployeID.Text))
+            End If
+            'EmpFirstName
+            If Me.txtName.Text = Nothing Then
+                ErrorProvider1.SetError(Me.txtName, "يرجي ادخال اسم المادة")
+                Call XCLS.MyCodes_TextNotNull(Me.txtName, "اسم المادة")
+                Exit Sub
+            Else
+                ErrorProvider1.SetError(Me.txtName, String.Empty)
+                EmpFirstName = CStr(Trim(Me.txtName.Text))
+            End If
 
+            EmpFathName = CStr(Trim(Me.txtFather.Text))
+            EmpGranFathName = CStr(Trim(Me.txtGrandFather.Text))
+            EmpSurName = CStr(Trim(Me.txtSurname.Text))
+
+            'AdjectiveID
+            If Me.cmbAdjective.Text = Nothing Then
+                ErrorProvider1.SetError(Me.cmbAdjective, "يرجي تحديد الصفة")
+                Call XCLS.MyCodes_CboNotNull_Index(Me.cmbAdjective, "يرجي تحديد صفة الموظف")
+                Exit Sub
+            Else
+                ErrorProvider1.SetError(Me.cmbAdjective, String.Empty)
+                AdjectiveID = CStr(Me.cmbAdjective.Text).Trim
+            End If
+            'SpecializationID
+            If Me.cmbSpecialization.Text = Nothing Then
+                ErrorProvider1.SetError(Me.cmbSpecialization, "يرجي تحديد التخصص")
+                Call XCLS.MyCodes_CboNotNull_Index(Me.cmbSpecialization, "يرجي تحديد تخصص الموظف")
+                Exit Sub
+            Else
+                ErrorProvider1.SetError(Me.cmbSpecialization, String.Empty)
+                If Me.cmbAdjective.SelectedIndex = 1 Then
+                    ErrorProvider1.SetError(Me.cmbSpecialization, String.Empty)
+
+                    SpecializationID = CInt(Me.cmbSpecialization.SelectedValue)
+                ElseIf Me.cmbAdjective.SelectedIndex = 2 Then
+                    ErrorProvider1.SetError(Me.cmbSpecialization, String.Empty)
+
+                    SpecializationID = CInt(Me.cmbSpecialization.SelectedValue)
+                Else
+                    ErrorProvider1.SetError(Me.cmbSpecialization, String.Empty)
+                    SpecializationID = CInt(Me.cmbSpecialization.SelectedValue)
+
+                End If
+            End If
+            'JobTitleID
+            If Me.cmbJobTitle.Text = Nothing Then
+                ErrorProvider1.SetError(Me.cmbJobTitle, "يرجي تحديد التخصص")
+                Call XCLS.MyCodes_CboNotNull_Index(Me.cmbJobTitle, "يرجي تحديد تخصص الموظف")
+                Exit Sub
+            Else
+                ErrorProvider1.SetError(Me.cmbJobTitle, String.Empty)
+                If Me.cmbAdjective.SelectedIndex = 1 Then
+                    ErrorProvider1.SetError(Me.cmbJobTitle, String.Empty)
+                    Me.cmbJobTitle.SelectedIndex = 1
+                    JobTitleID = CInt(Me.cmbJobTitle.SelectedValue)
+                ElseIf Me.cmbAdjective.SelectedIndex = 2 Then
+                    ErrorProvider1.SetError(Me.cmbJobTitle, String.Empty)
+                    Me.cmbJobTitle.SelectedIndex = 1
+                    JobTitleID = CInt(Me.cmbJobTitle.SelectedValue)
+                Else
+                    ErrorProvider1.SetError(Me.cmbJobTitle, String.Empty)
+                    JobTitleID = CInt(Me.cmbJobTitle.SelectedValue)
+                End If
+            End If
+            'AdministrativeID
+            If Me.cmbAdministrative.Text = Nothing Then
+                ErrorProvider1.SetError(Me.cmbAdministrative, "يرجي تحديد الادارة")
+                Call XCLS.MyCodes_CboNotNull_Index(Me.cmbAdministrative, "يرجي تحديد ادارة الموظف")
+                Exit Sub
+            Else
+                ErrorProvider1.SetError(Me.cmbAdministrative, String.Empty)
+                AdministrativeID = CInt(Me.cmbAdministrative.SelectedValue)
+            End If
+
+            EmpGender = CStr(Me.cmbGender.SelectedItem).Trim
+            NationalityID = CInt(Me.cmbNationality.SelectedValue)
+            UserID = CInt(Me.cmbUser.SelectedValue)
+            CityID = CInt(Me.cmbCity.SelectedValue)
+            EmpZone = CStr(Trim(Me.txtZone.Text))
+            EmpAddress = CStr(Trim(Me.txtAddress.Text))
+            EmpPhone1 = CStr(Trim(Me.txtPhone1.Text))
+            EmpPhone2 = CStr(Trim(Me.txtPhone2.Text))
+            EmpEmail = CStr(Trim(Me.txtPhone2.Text))
+            EmpNote = CStr(Trim(Me.txtNote.Text))
+
+            EmpPlaceNumRegist = CStr(Trim(Me.txtPlaceAndNumberRegistration.Text))
+            EmpPlaceBirth = CStr(Trim(Me.txtPlaceBirth.Text))
+
+
+            EmpDateBirth = Me.dtpDateBirth.Value
+            'EmpCardNum = CInt(Me.txtCardNumber.Text)
+            'EmpIDNum = CInt(Me.txtIDNumber.Text)
+            'EmpCardObtaiDate = Me.dtpObtainingDate.Value
+            EmpCardObtaiPlace = CStr(Trim(Me.txtObtainingPlace.Text))
+            EmpPassportID = CStr(Trim(Me.txtPassportID.Text))
+            EmpPassportGetPlace = CStr(Trim(Me.txtPassportGetPlace.Text))
+            'EmpObtaiPassportDate = Me.dtpObtainingPassportDate.Value
+            'EmpExpiryPassportDate = Me.dtpExpiryPassportDate.Value
+            EmpEntryPlace = CStr(Trim(Me.txtEntryPlace.Text))
+            'EmpEntryDate = Me.dtpEntryDate.Value
+            'EmpResidencyNum = CInt(Trim(Me.txtResidencyNum.Text))
+            EmpResidencyPlace = CStr(Trim(Me.txtResidencyPlace.Text))
+            EmpFatherName = CStr(Trim(Me.txtFatherName.Text))
+            EmpMotherName = CStr(Trim(Me.txtMotherName.Text))
+            EmpMaritalStatus = CStr(Trim(Me.cmbMaritalStatus.SelectedItem))
+            'EmpFamilyNum = CInt(Trim(Me.txtFamilyNum.Text))
+
+            EmployeStatus = 1
+            'ClinicID And ItemExaminID1,ItemExaminID2,ItemExaminID3
+            If Me.cmbAdjective.SelectedIndex = 1 Then
+                ClinicID = CInt(Me.cmbClinic.SelectedValue)
+                ItemExaminID1 = CInt(Me.cmbService1.SelectedValue)
+                ItemExaminID2 = CInt(Me.cmbService2.SelectedValue)
+                ItemExaminID3 = CInt(Me.cmbService3.SelectedValue)
+            Else
+                Exit Sub
+            End If
+
+            Call MYSP_Show()
+            BGW_Save.RunWorkerAsync()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
     End Sub
 
 #End Region
@@ -199,7 +344,7 @@ Public Class frmAddEmploye
             Call XCLS.MyCodes_CmbFill(Me.cmbService3, VarItemsServicesDT3, "ItemName", "ItemID")
             lblUsername.Text = VarUserName
             lblDateTime.Text = VarDateTimeNow
-            Me.cmbNationality.SelectedIndex = -1
+            Me.cmbNationality.SelectedIndex = 0
             Me.cmbSpecialization.SelectedIndex = -1
             Me.cmbAdministrative.SelectedIndex = -1
             Me.cmbService1.SelectedIndex = -1
@@ -211,6 +356,13 @@ Public Class frmAddEmploye
             Me.cmbClinic.SelectedIndex = -1
             Me.cmbSpecialization.Enabled = False
             Me.TabClinicsServices.Enabled = False
+
+            'Me.dtpDateBirth.Value = DateTime.Now.ToString("yyyy/MM/dd")
+            'Me.dtpEntryDate.Value = Today
+            'Me.dtpExpiryPassportDate.Value = Today
+            'Me.dtpObtainingDate.Value = Today
+            'Me.dtpObtainingPassportDate.Value = Today
+            'Me.dtpResidencyExpiry.Value = Today
 
         End If
         Call MYSP_Hide()
@@ -228,6 +380,5 @@ Public Class frmAddEmploye
         Me.PB.Visible = False
         Me.PB.Value = 1
     End Sub
-
 #End Region
 End Class
