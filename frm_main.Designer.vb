@@ -55,6 +55,8 @@ Partial Class frm_main
         Me.سجلالمراقبةToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.العياداتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.مواعيدالاطباءToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.الاجراءاتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.حجزموعدالعياداتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -73,8 +75,7 @@ Partial Class frm_main
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.ClsNumTextBox1 = New MediCare.ClsNumTextBox()
-        Me.الاجراءاتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.حجزموعدالعياداتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.العياداتToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -274,7 +275,7 @@ Partial Class frm_main
         '
         'العياداتToolStripMenuItem
         '
-        Me.العياداتToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.مواعيدالاطباءToolStripMenuItem})
+        Me.العياداتToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.مواعيدالاطباءToolStripMenuItem, Me.العياداتToolStripMenuItem1})
         Me.العياداتToolStripMenuItem.Name = "العياداتToolStripMenuItem"
         Me.العياداتToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
         Me.العياداتToolStripMenuItem.Text = "العيادات"
@@ -282,8 +283,21 @@ Partial Class frm_main
         'مواعيدالاطباءToolStripMenuItem
         '
         Me.مواعيدالاطباءToolStripMenuItem.Name = "مواعيدالاطباءToolStripMenuItem"
-        Me.مواعيدالاطباءToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
+        Me.مواعيدالاطباءToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.مواعيدالاطباءToolStripMenuItem.Text = "مواعيد الاطباء"
+        '
+        'الاجراءاتToolStripMenuItem
+        '
+        Me.الاجراءاتToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.حجزموعدالعياداتToolStripMenuItem})
+        Me.الاجراءاتToolStripMenuItem.Name = "الاجراءاتToolStripMenuItem"
+        Me.الاجراءاتToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.الاجراءاتToolStripMenuItem.Text = "الاجراءات"
+        '
+        'حجزموعدالعياداتToolStripMenuItem
+        '
+        Me.حجزموعدالعياداتToolStripMenuItem.Name = "حجزموعدالعياداتToolStripMenuItem"
+        Me.حجزموعدالعياداتToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.حجزموعدالعياداتToolStripMenuItem.Text = "حجز موعد العيادات"
         '
         'PictureBox1
         '
@@ -450,18 +464,11 @@ Partial Class frm_main
         Me.ClsNumTextBox1.Text = "0"
         Me.ClsNumTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'الاجراءاتToolStripMenuItem
+        'العياداتToolStripMenuItem1
         '
-        Me.الاجراءاتToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.حجزموعدالعياداتToolStripMenuItem})
-        Me.الاجراءاتToolStripMenuItem.Name = "الاجراءاتToolStripMenuItem"
-        Me.الاجراءاتToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
-        Me.الاجراءاتToolStripMenuItem.Text = "الاجراءات"
-        '
-        'حجزموعدالعياداتToolStripMenuItem
-        '
-        Me.حجزموعدالعياداتToolStripMenuItem.Name = "حجزموعدالعياداتToolStripMenuItem"
-        Me.حجزموعدالعياداتToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.حجزموعدالعياداتToolStripMenuItem.Text = "حجز موعد العيادات"
+        Me.العياداتToolStripMenuItem1.Name = "العياداتToolStripMenuItem1"
+        Me.العياداتToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.العياداتToolStripMenuItem1.Text = "العيادات"
         '
         'frm_main
         '
@@ -549,4 +556,5 @@ Partial Class frm_main
     Friend WithEvents مواعيدالاطباءToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents الاجراءاتToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents حجزموعدالعياداتToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents العياداتToolStripMenuItem1 As ToolStripMenuItem
 End Class

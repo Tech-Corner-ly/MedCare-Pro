@@ -103,4 +103,9 @@ Public Class frm_main
     Private Sub حجزموعدالعياداتToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles حجزموعدالعياداتToolStripMenuItem.Click
         frmBookingInquiries.Show()
     End Sub
+
+    Private Sub العياداتToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles العياداتToolStripMenuItem1.Click
+        Dim xForm As New frm_Clinic
+        xForm.ShowDialog()
+    End Sub
 End Class

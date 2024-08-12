@@ -5,8 +5,9 @@ Public Class frmBookingInquiries
     Private XCLS As New ClsMain
     Private MyVarDT_Employe As DataTable = New DataTable
     Private MyVarDV_Employe As DataView = New DataView
+    Private MyVarDV_AppoinSche As DataView = New DataView
     Private VarClinc_DT As DataTable = New DataTable
-    Private VarBrandCompany_DT As DataTable = New DataTable
+    Private VarAppoinSche_DT As DataTable = New DataTable
     Private VarGroupItems_DT As DataTable = New DataTable
     Private Var_Warehouse_DT As DataTable = New DataTable
     Private Var_ItemNamw_DT As DataTable = New DataTable
@@ -39,10 +40,16 @@ Public Class frmBookingInquiries
                                           ,[ClinicName]
                                       FROM [Clinics]
                                       Where [ClinicStatus]=1"
-    Private sQLBrandCompany As String = "SELECT [BranCompID]
-                                                  ,[BranCompName]
-                                              FROM [BrandCompany]
-                                              Where [BranCompStatus]=1"
+    Private sQLAppoinSche As String = "SELECT TOP (1000) [AppoinScheID]
+                                      ,CONCAT([EmpFirstName],' ',[EmpFathName],' ',[EmpGranFathName],' ',[EmpSurName]) AS FullName
+                                      ,[ClinicName]
+                                      ,[Day]
+                                      ,[AppoinScheFromTime]
+                                      ,[AppoinScheToTime]
+                                      ,[AllowNumCases]
+                                      ,[ReviewAllowedNum]
+                                  FROM [clinic].[dbo].[vAppointmentSchedule]
+                                  Where [AppoinScheStatus]=1"
     Private sQLGroupItem As String = "SELECT [GroupItemID]
                                               ,[GroupItemName]
                                           FROM [GroupItems]
@@ -86,6 +93,7 @@ Public Class frmBookingInquiries
                 MyVarDT_Employe.Clear()
                 Call XCLS.MyCodes_Fill_DataTable(sQLEmploye, MyVarDT_Employe)
                 Call XCLS.MyCodes_Fill_DataTable(sQLClinc, VarClinc_DT)
+                Call XCLS.MyCodes_Fill_DataTable(sQLAppoinSche, VarAppoinSche_DT)
                 VarBGW_Status = True
             End If
         Catch ex As Exception
@@ -101,7 +109,7 @@ Public Class frmBookingInquiries
         If VarBGW_Status = True Then
             Call XCLS.MyCodes_CmbFill(cmbDoctor, MyVarDT_Employe, "EmpName", "EmployeID")
             Call XCLS.MyCodes_CmbFill(cmbClinc, VarClinc_DT, "ClinicName", "ClinicID")
-
+            Call XCLS.MyCodes_Fill_Dgv(dgvDoctorsAppointmentSchedule, lblCountAppoin, VarAppoinSche_DT, MyVarDV_AppoinSche)
 
             VarToDate = dtpFromDate.Value.AddMonths(VarMounth)
             dtpToDate.Value = VarToDate.ToString("yyyy/MM/dd")
