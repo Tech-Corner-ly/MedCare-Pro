@@ -40,8 +40,10 @@ Public Class frmBookingInquiries
                                           ,[ClinicName]
                                       FROM [Clinics]
                                       Where [ClinicStatus]=1"
-    Private sQLAppoinSche As String = "SELECT TOP (1000) [AppoinScheID]
+    Private sQLAppoinSche As String = "SELECT [AppoinScheID]
+                                      ,[DoctorID]
                                       ,CONCAT([EmpFirstName],' ',[EmpFathName],' ',[EmpGranFathName],' ',[EmpSurName]) AS FullName
+                                      ,[ClincID]
                                       ,[ClinicName]
                                       ,[Day]
                                       ,[AppoinScheFromTime]
@@ -114,6 +116,9 @@ Public Class frmBookingInquiries
             VarToDate = dtpFromDate.Value.AddMonths(VarMounth)
             dtpToDate.Value = VarToDate.ToString("yyyy/MM/dd")
 
+            For i As Integer = 0 To 6
+                cmbDay.Items.Add(DateTime.Now.AddDays(i).ToString("dddd"))
+            Next
 
             Me.cmbDoctor.SelectedIndex = -1
             Me.cmbDay.SelectedIndex = -1
@@ -129,6 +134,41 @@ Public Class frmBookingInquiries
     Private Sub frmBookingInquiries_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call MYSP_Show()
         BGW_Load.RunWorkerAsync()
+    End Sub
+
+    Private Sub cmbClinc_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbClinc.SelectionChangeCommitted
+        Try
+            Dim xClinc As Integer = Me.cmbClinc.SelectedValue
+            MyPubVar_Filter = ""
+            MyPubVar_Filter = "ClincID =" & xClinc
+            Call XCLS.MyCodes_Fill_Dgv(Me.dgvDoctorsAppointmentSchedule, Me.lblBookingCount, VarAppoinSche_DT, MyVarDV_AppoinSche)
+            MyPubVar_Filter = ""
+        Catch ex As Exception
+            MsgBox(Me_MsgErrorStr + vbNewLine + vbNewLine + ex.Message, Me_MsgInfoStyle, Me_MsgCaptionStr)
+        End Try
+    End Sub
+    Private Sub cmbDoctor_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbDoctor.SelectionChangeCommitted
+        Try
+            Dim xDoctorID As Integer = Me.cmbDoctor.SelectedValue
+            MyPubVar_Filter = ""
+            MyPubVar_Filter = "DoctorID =" & xDoctorID
+            Call XCLS.MyCodes_Fill_Dgv(Me.dgvDoctorsAppointmentSchedule, Me.lblBookingCount, VarAppoinSche_DT, MyVarDV_AppoinSche)
+            MyPubVar_Filter = ""
+        Catch ex As Exception
+            MsgBox(Me_MsgErrorStr + vbNewLine + vbNewLine + ex.Message, Me_MsgInfoStyle, Me_MsgCaptionStr)
+        End Try
+    End Sub
+
+    Private Sub cmbDay_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbDay.SelectionChangeCommitted
+        Try
+            Dim xDoctorID As String = Me.cmbDay.SelectedItem
+            MyPubVar_Filter = ""
+            MyPubVar_Filter = "Day Like'%" & xDoctorID & "%'"
+            Call XCLS.MyCodes_Fill_Dgv(Me.dgvDoctorsAppointmentSchedule, Me.lblBookingCount, VarAppoinSche_DT, MyVarDV_AppoinSche)
+            MyPubVar_Filter = ""
+        Catch ex As Exception
+            MsgBox(Me_MsgErrorStr + vbNewLine + vbNewLine + ex.Message, Me_MsgInfoStyle, Me_MsgCaptionStr)
+        End Try
     End Sub
 #End Region
 

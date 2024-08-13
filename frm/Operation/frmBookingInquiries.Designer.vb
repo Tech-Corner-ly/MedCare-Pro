@@ -34,6 +34,8 @@ Partial Class frmBookingInquiries
         Me.PB = New System.Windows.Forms.ToolStripProgressBar()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblBookingCount = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblCountAppoin = New System.Windows.Forms.ToolStripStatusLabel()
         Me.BGW_Load = New System.ComponentModel.BackgroundWorker()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ملفToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -71,10 +73,6 @@ Partial Class frmBookingInquiries
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.btnBooking = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.dtpToDate = New System.Windows.Forms.DateTimePicker()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.dtpFromDate = New System.Windows.Forms.DateTimePicker()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.dgvDoctorsAppointmentSchedule = New System.Windows.Forms.DataGridView()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -89,9 +87,13 @@ Partial Class frmBookingInquiries
         Me.txtFatherName = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtFirstName = New System.Windows.Forms.TextBox()
-        Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.lblCountAppoin = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.dtpToDate = New System.Windows.Forms.DateTimePicker()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.dtpFromDate = New System.Windows.Forms.DateTimePicker()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.AppoinScheID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClincI = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DoctorI = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Day = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ClinicName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FullName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -173,6 +175,18 @@ Partial Class frmBookingInquiries
         Me.lblBookingCount.Name = "lblBookingCount"
         Me.lblBookingCount.Size = New System.Drawing.Size(37, 17)
         Me.lblBookingCount.Text = "00000"
+        '
+        'ToolStripStatusLabel4
+        '
+        Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
+        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(70, 17)
+        Me.ToolStripStatusLabel4.Text = "عدد الاطباء : "
+        '
+        'lblCountAppoin
+        '
+        Me.lblCountAppoin.Name = "lblCountAppoin"
+        Me.lblCountAppoin.Size = New System.Drawing.Size(119, 17)
+        Me.lblCountAppoin.Text = "ToolStripStatusLabel5"
         '
         'BGW_Load
         '
@@ -436,6 +450,10 @@ Partial Class frmBookingInquiries
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.dtpToDate)
+        Me.GroupBox2.Controls.Add(Me.Label12)
+        Me.GroupBox2.Controls.Add(Me.dtpFromDate)
+        Me.GroupBox2.Controls.Add(Me.Label11)
         Me.GroupBox2.Controls.Add(Me.btnClose)
         Me.GroupBox2.Controls.Add(Me.btnPrint)
         Me.GroupBox2.Controls.Add(Me.btnBooking)
@@ -474,10 +492,6 @@ Partial Class frmBookingInquiries
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.dtpToDate)
-        Me.GroupBox3.Controls.Add(Me.Label12)
-        Me.GroupBox3.Controls.Add(Me.dtpFromDate)
-        Me.GroupBox3.Controls.Add(Me.Label11)
         Me.GroupBox3.Controls.Add(Me.dgvDoctorsAppointmentSchedule)
         Me.GroupBox3.Location = New System.Drawing.Point(473, 28)
         Me.GroupBox3.Name = "GroupBox3"
@@ -485,46 +499,6 @@ Partial Class frmBookingInquiries
         Me.GroupBox3.TabIndex = 47
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "مواعيد الاطباء :"
-        '
-        'dtpToDate
-        '
-        Me.dtpToDate.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpToDate.Location = New System.Drawing.Point(194, 19)
-        Me.dtpToDate.Name = "dtpToDate"
-        Me.dtpToDate.RightToLeftLayout = True
-        Me.dtpToDate.Size = New System.Drawing.Size(142, 23)
-        Me.dtpToDate.TabIndex = 55
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(341, 23)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(55, 15)
-        Me.Label12.TabIndex = 54
-        Me.Label12.Text = "الي تاريخ :"
-        '
-        'dtpFromDate
-        '
-        Me.dtpFromDate.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFromDate.Location = New System.Drawing.Point(408, 20)
-        Me.dtpFromDate.Name = "dtpFromDate"
-        Me.dtpFromDate.RightToLeftLayout = True
-        Me.dtpFromDate.Size = New System.Drawing.Size(126, 23)
-        Me.dtpFromDate.TabIndex = 53
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(539, 24)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(53, 15)
-        Me.Label11.TabIndex = 52
-        Me.Label11.Text = "من تاريخ :"
         '
         'dgvDoctorsAppointmentSchedule
         '
@@ -535,11 +509,11 @@ Partial Class frmBookingInquiries
         Me.dgvDoctorsAppointmentSchedule.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvDoctorsAppointmentSchedule.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
         Me.dgvDoctorsAppointmentSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvDoctorsAppointmentSchedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AppoinScheID, Me.Day, Me.ClinicName, Me.FullName, Me.AppoinScheFromTim, Me.AppoinScheToTim, Me.AllowNumCase, Me.ReviewAllowedNu})
-        Me.dgvDoctorsAppointmentSchedule.Location = New System.Drawing.Point(6, 48)
+        Me.dgvDoctorsAppointmentSchedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.AppoinScheID, Me.ClincI, Me.DoctorI, Me.Day, Me.ClinicName, Me.FullName, Me.AppoinScheFromTim, Me.AppoinScheToTim, Me.AllowNumCase, Me.ReviewAllowedNu})
+        Me.dgvDoctorsAppointmentSchedule.Location = New System.Drawing.Point(6, 19)
         Me.dgvDoctorsAppointmentSchedule.Name = "dgvDoctorsAppointmentSchedule"
         Me.dgvDoctorsAppointmentSchedule.ReadOnly = True
-        Me.dgvDoctorsAppointmentSchedule.Size = New System.Drawing.Size(737, 216)
+        Me.dgvDoctorsAppointmentSchedule.Size = New System.Drawing.Size(737, 245)
         Me.dgvDoctorsAppointmentSchedule.TabIndex = 34
         '
         'GroupBox4
@@ -671,17 +645,45 @@ Partial Class frmBookingInquiries
         Me.txtFirstName.Size = New System.Drawing.Size(150, 22)
         Me.txtFirstName.TabIndex = 66
         '
-        'ToolStripStatusLabel4
+        'dtpToDate
         '
-        Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(70, 17)
-        Me.ToolStripStatusLabel4.Text = "عدد الاطباء : "
+        Me.dtpToDate.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpToDate.Location = New System.Drawing.Point(279, 21)
+        Me.dtpToDate.Name = "dtpToDate"
+        Me.dtpToDate.RightToLeftLayout = True
+        Me.dtpToDate.Size = New System.Drawing.Size(142, 23)
+        Me.dtpToDate.TabIndex = 59
         '
-        'lblCountAppoin
+        'Label12
         '
-        Me.lblCountAppoin.Name = "lblCountAppoin"
-        Me.lblCountAppoin.Size = New System.Drawing.Size(119, 17)
-        Me.lblCountAppoin.Text = "ToolStripStatusLabel5"
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(426, 25)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(55, 15)
+        Me.Label12.TabIndex = 58
+        Me.Label12.Text = "الي تاريخ :"
+        '
+        'dtpFromDate
+        '
+        Me.dtpFromDate.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFromDate.Location = New System.Drawing.Point(493, 22)
+        Me.dtpFromDate.Name = "dtpFromDate"
+        Me.dtpFromDate.RightToLeftLayout = True
+        Me.dtpFromDate.Size = New System.Drawing.Size(126, 23)
+        Me.dtpFromDate.TabIndex = 57
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(624, 26)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(53, 15)
+        Me.Label11.TabIndex = 56
+        Me.Label11.Text = "من تاريخ :"
         '
         'AppoinScheID
         '
@@ -690,6 +692,22 @@ Partial Class frmBookingInquiries
         Me.AppoinScheID.Name = "AppoinScheID"
         Me.AppoinScheID.ReadOnly = True
         Me.AppoinScheID.Visible = False
+        '
+        'ClincI
+        '
+        Me.ClincI.DataPropertyName = "ClincID"
+        Me.ClincI.HeaderText = "ClincID"
+        Me.ClincI.Name = "ClincI"
+        Me.ClincI.ReadOnly = True
+        Me.ClincI.Visible = False
+        '
+        'DoctorI
+        '
+        Me.DoctorI.DataPropertyName = "DoctorID"
+        Me.DoctorI.HeaderText = "DoctorID"
+        Me.DoctorI.Name = "DoctorI"
+        Me.DoctorI.ReadOnly = True
+        Me.DoctorI.Visible = False
         '
         'Day
         '
@@ -768,8 +786,8 @@ Partial Class frmBookingInquiries
         CType(Me.dgvBookingInquiries, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
         CType(Me.dgvDoctorsAppointmentSchedule, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
@@ -825,10 +843,6 @@ Partial Class frmBookingInquiries
     Friend WithEvents csConfirmAttend As ToolStripMenuItem
     Friend WithEvents csCancelAttend As ToolStripMenuItem
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents dtpToDate As DateTimePicker
-    Friend WithEvents Label12 As Label
-    Friend WithEvents dtpFromDate As DateTimePicker
-    Friend WithEvents Label11 As Label
     Friend WithEvents dgvDoctorsAppointmentSchedule As DataGridView
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents Label10 As Label
@@ -845,7 +859,13 @@ Partial Class frmBookingInquiries
     Friend WithEvents txtFirstName As TextBox
     Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
     Friend WithEvents lblCountAppoin As ToolStripStatusLabel
+    Friend WithEvents dtpToDate As DateTimePicker
+    Friend WithEvents Label12 As Label
+    Friend WithEvents dtpFromDate As DateTimePicker
+    Friend WithEvents Label11 As Label
     Friend WithEvents AppoinScheID As DataGridViewTextBoxColumn
+    Friend WithEvents ClincI As DataGridViewTextBoxColumn
+    Friend WithEvents DoctorI As DataGridViewTextBoxColumn
     Friend WithEvents Day As DataGridViewTextBoxColumn
     Friend WithEvents ClinicName As DataGridViewTextBoxColumn
     Friend WithEvents FullName As DataGridViewTextBoxColumn

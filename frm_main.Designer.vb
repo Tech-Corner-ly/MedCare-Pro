@@ -55,6 +55,7 @@ Partial Class frm_main
         Me.سجلالمراقبةToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.العياداتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.مواعيدالاطباءToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.العياداتToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.الاجراءاتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.حجزموعدالعياداتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -74,8 +75,6 @@ Partial Class frm_main
         Me.lblCompanyPhone2 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
-        Me.ClsNumTextBox1 = New MediCare.ClsNumTextBox()
-        Me.العياداتToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -283,8 +282,14 @@ Partial Class frm_main
         'مواعيدالاطباءToolStripMenuItem
         '
         Me.مواعيدالاطباءToolStripMenuItem.Name = "مواعيدالاطباءToolStripMenuItem"
-        Me.مواعيدالاطباءToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.مواعيدالاطباءToolStripMenuItem.Size = New System.Drawing.Size(142, 22)
         Me.مواعيدالاطباءToolStripMenuItem.Text = "مواعيد الاطباء"
+        '
+        'العياداتToolStripMenuItem1
+        '
+        Me.العياداتToolStripMenuItem1.Name = "العياداتToolStripMenuItem1"
+        Me.العياداتToolStripMenuItem1.Size = New System.Drawing.Size(142, 22)
+        Me.العياداتToolStripMenuItem1.Text = "العيادات"
         '
         'الاجراءاتToolStripMenuItem
         '
@@ -296,12 +301,13 @@ Partial Class frm_main
         'حجزموعدالعياداتToolStripMenuItem
         '
         Me.حجزموعدالعياداتToolStripMenuItem.Name = "حجزموعدالعياداتToolStripMenuItem"
-        Me.حجزموعدالعياداتToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.حجزموعدالعياداتToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.حجزموعدالعياداتToolStripMenuItem.Text = "حجز موعد العيادات"
         '
         'PictureBox1
         '
         Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox1.Location = New System.Drawing.Point(12, 336)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(176, 197)
@@ -448,6 +454,7 @@ Partial Class frm_main
         '
         'btnExit
         '
+        Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnExit.Location = New System.Drawing.Point(801, 462)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(134, 71)
@@ -455,27 +462,11 @@ Partial Class frm_main
         Me.btnExit.Text = "خروج"
         Me.btnExit.UseVisualStyleBackColor = True
         '
-        'ClsNumTextBox1
-        '
-        Me.ClsNumTextBox1.Location = New System.Drawing.Point(464, 127)
-        Me.ClsNumTextBox1.Name = "ClsNumTextBox1"
-        Me.ClsNumTextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.ClsNumTextBox1.TabIndex = 19
-        Me.ClsNumTextBox1.Text = "0"
-        Me.ClsNumTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'العياداتToolStripMenuItem1
-        '
-        Me.العياداتToolStripMenuItem1.Name = "العياداتToolStripMenuItem1"
-        Me.العياداتToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
-        Me.العياداتToolStripMenuItem1.Text = "العيادات"
-        '
         'frm_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(947, 571)
-        Me.Controls.Add(Me.ClsNumTextBox1)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.lblCompanyPhone2)
         Me.Controls.Add(Me.Label7)
@@ -550,7 +541,6 @@ Partial Class frm_main
     Friend WithEvents الشركاتToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents مجموعاتالموادالخدماتToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents المستودعاتToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ClsNumTextBox1 As ClsNumTextBox
     Friend WithEvents بحثالموادToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents العياداتToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents مواعيدالاطباءToolStripMenuItem As ToolStripMenuItem
