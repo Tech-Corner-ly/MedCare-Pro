@@ -102,7 +102,7 @@ Public Class frmBookingInquiries
 #End Region
 #Region "SQL"
 
-    Private sQLMAX_BookingOrderID As String = "Select Case MAX([BookingOrderID]) From [Booking] Where [BookingDate] =@BookingDate AND [ClinicID]=@ClinicID AND [EmpoleeID]=@EmpoleeID AND [Status]=1"
+    Private sQLMAX_BookingOrderID As String = "Select Case MAX([BookingOrderID]) as xMAxOrderID From [Booking] Where [BookingDate] =@BookingDate AND [ClinicID]=@ClinicID AND [EmpoleeID]=@EmpoleeID AND [Status]=1"
     Private sQLMAX_PatientID As String = "SELECT MAX([PatientID]) as xMAxID FROM [Patient] Where [Status]=1"
     Private sQL_BookingInsert As String = "Insert Into Booking (BookingOrderID,BookingDate,BookingHour,BookingDay,PatientType,FileNo,PatientID,BookingType,BookingATT
                                                        ,PaymentStatus,ClinicID,EmpoleeID,Status,InsertTime,UserID_Insert)
