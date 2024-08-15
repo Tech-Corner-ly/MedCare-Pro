@@ -23,6 +23,8 @@ Partial Class frmBookingInquiries
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmBookingInquiries))
         Me.BGW_Edit = New System.ComponentModel.BackgroundWorker()
         Me.BGW_Delete = New System.ComponentModel.BackgroundWorker()
@@ -56,41 +58,20 @@ Partial Class frmBookingInquiries
         Me.cmbClinc = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvBookingInquiries = New System.Windows.Forms.DataGridView()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.csOpenFile = New System.Windows.Forms.ToolStripMenuItem()
         Me.csConfirmAttend = New System.Windows.Forms.ToolStripMenuItem()
         Me.csCancelAttend = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.dtpToDate = New System.Windows.Forms.DateTimePicker()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.dtpFromDate = New System.Windows.Forms.DateTimePicker()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.btnBooking = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.dgvDoctorsAppointmentSchedule = New System.Windows.Forms.DataGridView()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.txtFileNo = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtPhone = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtSurename = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtGrandFatherName = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtFatherName = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtFirstName = New System.Windows.Forms.TextBox()
-        Me.dtpToDate = New System.Windows.Forms.DateTimePicker()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.dtpFromDate = New System.Windows.Forms.DateTimePicker()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.AppoinScheID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ClincI = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DoctorI = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -101,6 +82,42 @@ Partial Class frmBookingInquiries
         Me.AppoinScheToTim = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AllowNumCase = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ReviewAllowedNu = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.rbOPD = New System.Windows.Forms.RadioButton()
+        Me.rbShelterCase = New System.Windows.Forms.RadioButton()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.txtFileNo = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtPhone = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtSurename = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtGrandFatherName = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtFatherName = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
+        Me.BookingID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingDay = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PatientType = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FileNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PatientName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingType = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingATT = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PaymentStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BooClincName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BooClincID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BooEmpoleeID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -360,69 +377,14 @@ Partial Class frmBookingInquiries
         Me.dgvBookingInquiries.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvBookingInquiries.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
         Me.dgvBookingInquiries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvBookingInquiries.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column5, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn1, Me.Column6, Me.DataGridViewTextBoxColumn2, Me.Column7, Me.Column8, Me.Column9})
+        Me.dgvBookingInquiries.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookingID, Me.BookingDate, Me.BookingTime, Me.BookingDay, Me.PatientType, Me.FileNo, Me.PatientName, Me.BookingType, Me.BookingATT, Me.PaymentStatus, Me.BooClincName, Me.BooClincID, Me.BooEmpoleeID})
         Me.dgvBookingInquiries.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.dgvBookingInquiries.Location = New System.Drawing.Point(12, 373)
+        Me.dgvBookingInquiries.Location = New System.Drawing.Point(12, 403)
         Me.dgvBookingInquiries.Name = "dgvBookingInquiries"
         Me.dgvBookingInquiries.ReadOnly = True
-        Me.dgvBookingInquiries.Size = New System.Drawing.Size(1210, 400)
+        Me.dgvBookingInquiries.RowHeadersVisible = False
+        Me.dgvBookingInquiries.Size = New System.Drawing.Size(1210, 370)
         Me.dgvBookingInquiries.TabIndex = 45
-        '
-        'Column5
-        '
-        Me.Column5.FillWeight = 80.0!
-        Me.Column5.HeaderText = "رفم الحجز"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.FillWeight = 60.0!
-        Me.DataGridViewTextBoxColumn4.HeaderText = "الساعة"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.FillWeight = 60.0!
-        Me.DataGridViewTextBoxColumn1.HeaderText = "اليوم"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.FillWeight = 80.0!
-        Me.Column6.HeaderText = "رقم الملف"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.FillWeight = 250.0!
-        Me.DataGridViewTextBoxColumn2.HeaderText = "اسم الحالة"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        '
-        'Column7
-        '
-        Me.Column7.FillWeight = 80.0!
-        Me.Column7.HeaderText = "نوع الحجز"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        '
-        'Column8
-        '
-        Me.Column8.FillWeight = 70.0!
-        Me.Column8.HeaderText = "الحضور"
-        Me.Column8.Name = "Column8"
-        Me.Column8.ReadOnly = True
-        '
-        'Column9
-        '
-        Me.Column9.FillWeight = 50.0!
-        Me.Column9.HeaderText = "السداد"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
         '
         'ContextMenuStrip1
         '
@@ -450,7 +412,13 @@ Partial Class frmBookingInquiries
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.ComboBox1)
+        Me.GroupBox2.Controls.Add(Me.Label15)
+        Me.GroupBox2.Controls.Add(Me.ComboBox2)
+        Me.GroupBox2.Controls.Add(Me.Label16)
+        Me.GroupBox2.Controls.Add(Me.Label14)
         Me.GroupBox2.Controls.Add(Me.dtpToDate)
+        Me.GroupBox2.Controls.Add(Me.TextBox2)
         Me.GroupBox2.Controls.Add(Me.Label12)
         Me.GroupBox2.Controls.Add(Me.dtpFromDate)
         Me.GroupBox2.Controls.Add(Me.Label11)
@@ -459,33 +427,73 @@ Partial Class frmBookingInquiries
         Me.GroupBox2.Controls.Add(Me.btnBooking)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 304)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1210, 63)
+        Me.GroupBox2.Size = New System.Drawing.Size(1210, 93)
         Me.GroupBox2.TabIndex = 46
         Me.GroupBox2.TabStop = False
+        '
+        'dtpToDate
+        '
+        Me.dtpToDate.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpToDate.Location = New System.Drawing.Point(127, 53)
+        Me.dtpToDate.Name = "dtpToDate"
+        Me.dtpToDate.RightToLeftLayout = True
+        Me.dtpToDate.Size = New System.Drawing.Size(142, 23)
+        Me.dtpToDate.TabIndex = 59
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(275, 57)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(55, 15)
+        Me.Label12.TabIndex = 58
+        Me.Label12.Text = "الي تاريخ :"
+        '
+        'dtpFromDate
+        '
+        Me.dtpFromDate.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFromDate.Location = New System.Drawing.Point(127, 24)
+        Me.dtpFromDate.Name = "dtpFromDate"
+        Me.dtpFromDate.RightToLeftLayout = True
+        Me.dtpFromDate.Size = New System.Drawing.Size(142, 23)
+        Me.dtpFromDate.TabIndex = 57
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(275, 28)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(53, 15)
+        Me.Label11.TabIndex = 56
+        Me.Label11.Text = "من تاريخ :"
         '
         'btnClose
         '
         Me.btnClose.Location = New System.Drawing.Point(6, 15)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(63, 38)
+        Me.btnClose.Size = New System.Drawing.Size(89, 72)
         Me.btnClose.TabIndex = 4
         Me.btnClose.Text = "خروج"
         Me.btnClose.UseVisualStyleBackColor = True
         '
         'btnPrint
         '
-        Me.btnPrint.Location = New System.Drawing.Point(1072, 15)
+        Me.btnPrint.Location = New System.Drawing.Point(1030, 15)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(63, 38)
+        Me.btnPrint.Size = New System.Drawing.Size(84, 72)
         Me.btnPrint.TabIndex = 3
         Me.btnPrint.Text = "طباعة"
         Me.btnPrint.UseVisualStyleBackColor = True
         '
         'btnBooking
         '
-        Me.btnBooking.Location = New System.Drawing.Point(1141, 15)
+        Me.btnBooking.Location = New System.Drawing.Point(1120, 15)
         Me.btnBooking.Name = "btnBooking"
-        Me.btnBooking.Size = New System.Drawing.Size(63, 38)
+        Me.btnBooking.Size = New System.Drawing.Size(84, 72)
         Me.btnBooking.TabIndex = 2
         Me.btnBooking.Text = "حجز"
         Me.btnBooking.UseVisualStyleBackColor = True
@@ -513,177 +521,9 @@ Partial Class frmBookingInquiries
         Me.dgvDoctorsAppointmentSchedule.Location = New System.Drawing.Point(6, 19)
         Me.dgvDoctorsAppointmentSchedule.Name = "dgvDoctorsAppointmentSchedule"
         Me.dgvDoctorsAppointmentSchedule.ReadOnly = True
+        Me.dgvDoctorsAppointmentSchedule.RowHeadersVisible = False
         Me.dgvDoctorsAppointmentSchedule.Size = New System.Drawing.Size(737, 245)
         Me.dgvDoctorsAppointmentSchedule.TabIndex = 34
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.Label10)
-        Me.GroupBox4.Controls.Add(Me.txtFileNo)
-        Me.GroupBox4.Controls.Add(Me.Label9)
-        Me.GroupBox4.Controls.Add(Me.txtPhone)
-        Me.GroupBox4.Controls.Add(Me.Label8)
-        Me.GroupBox4.Controls.Add(Me.txtSurename)
-        Me.GroupBox4.Controls.Add(Me.Label7)
-        Me.GroupBox4.Controls.Add(Me.txtGrandFatherName)
-        Me.GroupBox4.Controls.Add(Me.Label6)
-        Me.GroupBox4.Controls.Add(Me.txtFatherName)
-        Me.GroupBox4.Controls.Add(Me.Label4)
-        Me.GroupBox4.Controls.Add(Me.txtFirstName)
-        Me.GroupBox4.Location = New System.Drawing.Point(12, 153)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(455, 145)
-        Me.GroupBox4.TabIndex = 48
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "بيانات المريض :"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(162, 92)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(56, 15)
-        Me.Label10.TabIndex = 77
-        Me.Label10.Text = "رقم الملف :"
-        '
-        'txtFileNo
-        '
-        Me.txtFileNo.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtFileNo.Location = New System.Drawing.Point(7, 89)
-        Me.txtFileNo.Name = "txtFileNo"
-        Me.txtFileNo.Size = New System.Drawing.Size(149, 22)
-        Me.txtFileNo.TabIndex = 76
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(387, 92)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(61, 15)
-        Me.Label9.TabIndex = 75
-        Me.Label9.Text = "رقم الهاتف :"
-        '
-        'txtPhone
-        '
-        Me.txtPhone.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtPhone.Location = New System.Drawing.Point(231, 89)
-        Me.txtPhone.Name = "txtPhone"
-        Me.txtPhone.Size = New System.Drawing.Size(150, 22)
-        Me.txtPhone.TabIndex = 74
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(162, 64)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(35, 15)
-        Me.Label8.TabIndex = 73
-        Me.Label8.Text = "اللقب :"
-        '
-        'txtSurename
-        '
-        Me.txtSurename.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtSurename.Location = New System.Drawing.Point(7, 61)
-        Me.txtSurename.Name = "txtSurename"
-        Me.txtSurename.Size = New System.Drawing.Size(149, 22)
-        Me.txtSurename.TabIndex = 72
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(387, 64)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(50, 15)
-        Me.Label7.TabIndex = 71
-        Me.Label7.Text = "اسم الجد :"
-        '
-        'txtGrandFatherName
-        '
-        Me.txtGrandFatherName.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtGrandFatherName.Location = New System.Drawing.Point(231, 61)
-        Me.txtGrandFatherName.Name = "txtGrandFatherName"
-        Me.txtGrandFatherName.Size = New System.Drawing.Size(150, 22)
-        Me.txtGrandFatherName.TabIndex = 70
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(162, 36)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(50, 15)
-        Me.Label6.TabIndex = 69
-        Me.Label6.Text = "اسم الاب :"
-        '
-        'txtFatherName
-        '
-        Me.txtFatherName.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtFatherName.Location = New System.Drawing.Point(7, 33)
-        Me.txtFatherName.Name = "txtFatherName"
-        Me.txtFatherName.Size = New System.Drawing.Size(149, 22)
-        Me.txtFatherName.TabIndex = 68
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(387, 36)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(36, 15)
-        Me.Label4.TabIndex = 67
-        Me.Label4.Text = "الاسم :"
-        '
-        'txtFirstName
-        '
-        Me.txtFirstName.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtFirstName.Location = New System.Drawing.Point(231, 33)
-        Me.txtFirstName.Name = "txtFirstName"
-        Me.txtFirstName.Size = New System.Drawing.Size(150, 22)
-        Me.txtFirstName.TabIndex = 66
-        '
-        'dtpToDate
-        '
-        Me.dtpToDate.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpToDate.Location = New System.Drawing.Point(279, 21)
-        Me.dtpToDate.Name = "dtpToDate"
-        Me.dtpToDate.RightToLeftLayout = True
-        Me.dtpToDate.Size = New System.Drawing.Size(142, 23)
-        Me.dtpToDate.TabIndex = 59
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(426, 25)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(55, 15)
-        Me.Label12.TabIndex = 58
-        Me.Label12.Text = "الي تاريخ :"
-        '
-        'dtpFromDate
-        '
-        Me.dtpFromDate.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFromDate.Location = New System.Drawing.Point(493, 22)
-        Me.dtpFromDate.Name = "dtpFromDate"
-        Me.dtpFromDate.RightToLeftLayout = True
-        Me.dtpFromDate.Size = New System.Drawing.Size(126, 23)
-        Me.dtpFromDate.TabIndex = 57
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(624, 26)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(53, 15)
-        Me.Label11.TabIndex = 56
-        Me.Label11.Text = "من تاريخ :"
         '
         'AppoinScheID
         '
@@ -758,6 +598,344 @@ Partial Class frmBookingInquiries
         Me.ReviewAllowedNu.Name = "ReviewAllowedNu"
         Me.ReviewAllowedNu.ReadOnly = True
         '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.rbOPD)
+        Me.GroupBox4.Controls.Add(Me.rbShelterCase)
+        Me.GroupBox4.Controls.Add(Me.Label10)
+        Me.GroupBox4.Controls.Add(Me.txtFileNo)
+        Me.GroupBox4.Controls.Add(Me.Label13)
+        Me.GroupBox4.Controls.Add(Me.TextBox1)
+        Me.GroupBox4.Controls.Add(Me.Label9)
+        Me.GroupBox4.Controls.Add(Me.txtPhone)
+        Me.GroupBox4.Controls.Add(Me.Label8)
+        Me.GroupBox4.Controls.Add(Me.txtSurename)
+        Me.GroupBox4.Controls.Add(Me.Label7)
+        Me.GroupBox4.Controls.Add(Me.txtGrandFatherName)
+        Me.GroupBox4.Controls.Add(Me.Label6)
+        Me.GroupBox4.Controls.Add(Me.txtFatherName)
+        Me.GroupBox4.Controls.Add(Me.Label4)
+        Me.GroupBox4.Controls.Add(Me.txtFirstName)
+        Me.GroupBox4.Location = New System.Drawing.Point(12, 153)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(455, 145)
+        Me.GroupBox4.TabIndex = 48
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "بيانات المريض :"
+        '
+        'rbOPD
+        '
+        Me.rbOPD.AutoSize = True
+        Me.rbOPD.Checked = True
+        Me.rbOPD.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.rbOPD.Location = New System.Drawing.Point(317, 21)
+        Me.rbOPD.Name = "rbOPD"
+        Me.rbOPD.Size = New System.Drawing.Size(79, 19)
+        Me.rbOPD.TabIndex = 81
+        Me.rbOPD.TabStop = True
+        Me.rbOPD.Text = "الحالة OPD"
+        Me.rbOPD.UseVisualStyleBackColor = True
+        '
+        'rbShelterCase
+        '
+        Me.rbShelterCase.AutoSize = True
+        Me.rbShelterCase.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.rbShelterCase.Location = New System.Drawing.Point(230, 21)
+        Me.rbShelterCase.Name = "rbShelterCase"
+        Me.rbShelterCase.Size = New System.Drawing.Size(72, 19)
+        Me.rbShelterCase.TabIndex = 80
+        Me.rbShelterCase.Text = "ايواء تحت "
+        Me.rbShelterCase.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(163, 22)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(56, 15)
+        Me.Label10.TabIndex = 79
+        Me.Label10.Text = "رقم الملف :"
+        '
+        'txtFileNo
+        '
+        Me.txtFileNo.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtFileNo.Location = New System.Drawing.Point(12, 19)
+        Me.txtFileNo.Name = "txtFileNo"
+        Me.txtFileNo.Size = New System.Drawing.Size(150, 22)
+        Me.txtFileNo.TabIndex = 78
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(163, 109)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(61, 15)
+        Me.Label13.TabIndex = 77
+        Me.Label13.Text = "رقم الهاتف :"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.TextBox1.Location = New System.Drawing.Point(12, 106)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(150, 22)
+        Me.TextBox1.TabIndex = 76
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(383, 109)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(61, 15)
+        Me.Label9.TabIndex = 75
+        Me.Label9.Text = "رقم الهاتف :"
+        '
+        'txtPhone
+        '
+        Me.txtPhone.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtPhone.Location = New System.Drawing.Point(230, 106)
+        Me.txtPhone.Name = "txtPhone"
+        Me.txtPhone.Size = New System.Drawing.Size(150, 22)
+        Me.txtPhone.TabIndex = 74
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(163, 83)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(35, 15)
+        Me.Label8.TabIndex = 73
+        Me.Label8.Text = "اللقب :"
+        '
+        'txtSurename
+        '
+        Me.txtSurename.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtSurename.Location = New System.Drawing.Point(12, 77)
+        Me.txtSurename.Name = "txtSurename"
+        Me.txtSurename.Size = New System.Drawing.Size(150, 22)
+        Me.txtSurename.TabIndex = 72
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(386, 83)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(50, 15)
+        Me.Label7.TabIndex = 71
+        Me.Label7.Text = "اسم الجد :"
+        '
+        'txtGrandFatherName
+        '
+        Me.txtGrandFatherName.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtGrandFatherName.Location = New System.Drawing.Point(230, 77)
+        Me.txtGrandFatherName.Name = "txtGrandFatherName"
+        Me.txtGrandFatherName.Size = New System.Drawing.Size(150, 22)
+        Me.txtGrandFatherName.TabIndex = 70
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(163, 51)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(50, 15)
+        Me.Label6.TabIndex = 69
+        Me.Label6.Text = "اسم الاب :"
+        '
+        'txtFatherName
+        '
+        Me.txtFatherName.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtFatherName.Location = New System.Drawing.Point(12, 48)
+        Me.txtFatherName.Name = "txtFatherName"
+        Me.txtFatherName.Size = New System.Drawing.Size(150, 22)
+        Me.txtFatherName.TabIndex = 68
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(386, 51)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(36, 15)
+        Me.Label4.TabIndex = 67
+        Me.Label4.Text = "الاسم :"
+        '
+        'txtFirstName
+        '
+        Me.txtFirstName.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtFirstName.Location = New System.Drawing.Point(230, 48)
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(150, 22)
+        Me.txtFirstName.TabIndex = 66
+        '
+        'BookingID
+        '
+        Me.BookingID.DataPropertyName = "BookingID"
+        Me.BookingID.FillWeight = 80.0!
+        Me.BookingID.HeaderText = "رفم الحجز"
+        Me.BookingID.Name = "BookingID"
+        Me.BookingID.ReadOnly = True
+        '
+        'BookingDate
+        '
+        Me.BookingDate.DataPropertyName = "BookingDate"
+        DataGridViewCellStyle3.Format = "yyyy/MM/dd"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.BookingDate.DefaultCellStyle = DataGridViewCellStyle3
+        Me.BookingDate.HeaderText = "التاريخ"
+        Me.BookingDate.Name = "BookingDate"
+        Me.BookingDate.ReadOnly = True
+        '
+        'BookingTime
+        '
+        Me.BookingTime.DataPropertyName = "BookingTime"
+        DataGridViewCellStyle4.Format = "t"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.BookingTime.DefaultCellStyle = DataGridViewCellStyle4
+        Me.BookingTime.FillWeight = 60.0!
+        Me.BookingTime.HeaderText = "الساعة"
+        Me.BookingTime.Name = "BookingTime"
+        Me.BookingTime.ReadOnly = True
+        '
+        'BookingDay
+        '
+        Me.BookingDay.DataPropertyName = "BookingDay"
+        Me.BookingDay.FillWeight = 60.0!
+        Me.BookingDay.HeaderText = "اليوم"
+        Me.BookingDay.Name = "BookingDay"
+        Me.BookingDay.ReadOnly = True
+        '
+        'PatientType
+        '
+        Me.PatientType.DataPropertyName = "PatientType"
+        Me.PatientType.HeaderText = "نوع الحالة "
+        Me.PatientType.Name = "PatientType"
+        Me.PatientType.ReadOnly = True
+        '
+        'FileNo
+        '
+        Me.FileNo.DataPropertyName = "FileNo"
+        Me.FileNo.FillWeight = 80.0!
+        Me.FileNo.HeaderText = "رقم الملف"
+        Me.FileNo.Name = "FileNo"
+        Me.FileNo.ReadOnly = True
+        '
+        'PatientName
+        '
+        Me.PatientName.DataPropertyName = "PatientName"
+        Me.PatientName.FillWeight = 250.0!
+        Me.PatientName.HeaderText = "اسم الحالة"
+        Me.PatientName.Name = "PatientName"
+        Me.PatientName.ReadOnly = True
+        '
+        'BookingType
+        '
+        Me.BookingType.DataPropertyName = "BookingType"
+        Me.BookingType.FillWeight = 80.0!
+        Me.BookingType.HeaderText = "نوع الحجز"
+        Me.BookingType.Name = "BookingType"
+        Me.BookingType.ReadOnly = True
+        '
+        'BookingATT
+        '
+        Me.BookingATT.DataPropertyName = "BookingATT"
+        Me.BookingATT.FillWeight = 70.0!
+        Me.BookingATT.HeaderText = "الحضور"
+        Me.BookingATT.Name = "BookingATT"
+        Me.BookingATT.ReadOnly = True
+        '
+        'PaymentStatus
+        '
+        Me.PaymentStatus.DataPropertyName = "PaymentStatus"
+        Me.PaymentStatus.FillWeight = 50.0!
+        Me.PaymentStatus.HeaderText = "السداد"
+        Me.PaymentStatus.Name = "PaymentStatus"
+        Me.PaymentStatus.ReadOnly = True
+        '
+        'BooClincName
+        '
+        Me.BooClincName.DataPropertyName = "BooClincName"
+        Me.BooClincName.HeaderText = "العيادة"
+        Me.BooClincName.Name = "BooClincName"
+        Me.BooClincName.ReadOnly = True
+        '
+        'BooClincID
+        '
+        Me.BooClincID.DataPropertyName = "BooClincID"
+        Me.BooClincID.HeaderText = "BooClincID"
+        Me.BooClincID.Name = "BooClincID"
+        Me.BooClincID.ReadOnly = True
+        Me.BooClincID.Visible = False
+        '
+        'BooEmpoleeID
+        '
+        Me.BooEmpoleeID.DataPropertyName = "BooEmpoleeID"
+        Me.BooEmpoleeID.HeaderText = "BooEmpoleeID"
+        Me.BooEmpoleeID.Name = "BooEmpoleeID"
+        Me.BooEmpoleeID.ReadOnly = True
+        Me.BooEmpoleeID.Visible = False
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(749, 27)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(36, 15)
+        Me.Label14.TabIndex = 83
+        Me.Label14.Text = "الاسم :"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.TextBox2.Location = New System.Drawing.Point(351, 24)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(392, 22)
+        Me.TextBox2.TabIndex = 82
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(351, 52)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(164, 24)
+        Me.ComboBox1.TabIndex = 87
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(521, 57)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(43, 15)
+        Me.Label15.TabIndex = 86
+        Me.Label15.Text = "الطبيب :"
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(569, 52)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(174, 24)
+        Me.ComboBox2.TabIndex = 85
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(749, 57)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(40, 15)
+        Me.Label16.TabIndex = 84
+        Me.Label16.Text = "العيادة :"
+        '
         'frmBookingInquiries
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -830,14 +1008,6 @@ Partial Class frmBookingInquiries
     Friend WithEvents btnClose As Button
     Friend WithEvents btnPrint As Button
     Friend WithEvents btnBooking As Button
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents Column8 As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents csOpenFile As ToolStripMenuItem
     Friend WithEvents csConfirmAttend As ToolStripMenuItem
@@ -845,8 +1015,6 @@ Partial Class frmBookingInquiries
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents dgvDoctorsAppointmentSchedule As DataGridView
     Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents Label10 As Label
-    Friend WithEvents txtFileNo As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents txtPhone As TextBox
     Friend WithEvents Label8 As Label
@@ -873,4 +1041,29 @@ Partial Class frmBookingInquiries
     Friend WithEvents AppoinScheToTim As DataGridViewTextBoxColumn
     Friend WithEvents AllowNumCase As DataGridViewTextBoxColumn
     Friend WithEvents ReviewAllowedNu As DataGridViewTextBoxColumn
+    Friend WithEvents rbOPD As RadioButton
+    Friend WithEvents rbShelterCase As RadioButton
+    Friend WithEvents Label10 As Label
+    Friend WithEvents txtFileNo As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents BookingID As DataGridViewTextBoxColumn
+    Friend WithEvents BookingDate As DataGridViewTextBoxColumn
+    Friend WithEvents BookingTime As DataGridViewTextBoxColumn
+    Friend WithEvents BookingDay As DataGridViewTextBoxColumn
+    Friend WithEvents PatientType As DataGridViewTextBoxColumn
+    Friend WithEvents FileNo As DataGridViewTextBoxColumn
+    Friend WithEvents PatientName As DataGridViewTextBoxColumn
+    Friend WithEvents BookingType As DataGridViewTextBoxColumn
+    Friend WithEvents BookingATT As DataGridViewTextBoxColumn
+    Friend WithEvents PaymentStatus As DataGridViewTextBoxColumn
+    Friend WithEvents BooClincName As DataGridViewTextBoxColumn
+    Friend WithEvents BooClincID As DataGridViewTextBoxColumn
+    Friend WithEvents BooEmpoleeID As DataGridViewTextBoxColumn
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents TextBox2 As TextBox
 End Class

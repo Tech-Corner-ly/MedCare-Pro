@@ -8,6 +8,7 @@ Public Class frmBookingInquiries
     Private MyVarDV_AppoinSche As DataView = New DataView
     Private VarClinc_DT As DataTable = New DataTable
     Private VarAppoinSche_DT As DataTable = New DataTable
+    Private VarBooking_DT As DataTable = New DataTable
     Private VarGroupItems_DT As DataTable = New DataTable
     Private Var_Warehouse_DT As DataTable = New DataTable
     Private Var_ItemNamw_DT As DataTable = New DataTable
@@ -18,12 +19,10 @@ Public Class frmBookingInquiries
     Private VarBrandCompany_DS As New AutoCompleteStringCollection
     Private VarItemName_DS As New AutoCompleteStringCollection
 
-    Private ClincID As Integer
-    Private DoctorID As Integer
-    Private VarDay As String
-    Private AllowNumCases As Integer
-    Private ReviewAllowedNum As Integer
-    Private AppoinScheStatus As Integer
+    Private VarClinicID, VarEmpoleeID, VarBookingID, VarAppoinScheID, VarPatientType, VarBookingATT, VarPaymentStatus, VarPatientID, VarStatus, VarCityID, VarBookingOrderID As Integer
+    Private VarDay, VarDayCulome, VarP_Fname, VarP_Fathname, VarP_Gname, VarP_Sname, VarP_phone, VarP_Phone2, VarPatientAddress, VarFileNo, VarClincName, VarEmpoleeName, VarP_FullName, VarPatientTypeValue, VarBookingType As String
+    Private VarBookingDate As Date = DateTime.Now.ToString("yyyy/MM/dd")
+    Private VarBookingTimeAppo As DateTime = DateTime.Now.ToString("hh:mm t")
     Private AppoinScheFromTime As DateTime = DateTime.Now.ToString("hh:mm t")
     Private AppoinScheToTime As DateTime = DateTime.Now.ToString("hh:mm t")
 
@@ -31,11 +30,89 @@ Public Class frmBookingInquiries
     Private VarMounth As Integer = 1
     Private VarToDate As DateTime = DateTime.Now.ToString("yyyy/MM/dd")
 
+    Private Sub SetDataSRC()
+
+        VarBooking_DT.Columns.Add("BooClincName")
+        VarBooking_DT.Columns.Add("PatientName")
+        VarBooking_DT.Columns.Add("BookingDay")
+        VarBooking_DT.Columns.Add("BookingDate")
+        VarBooking_DT.Columns.Add("BookingTime")
+        VarBooking_DT.Columns.Add("PatientType")
+
+
+
+        dgvBookingInquiries.DataSource = VarBooking_DT
+    End Sub
+
+    Private Sub BGW_Save_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGW_Save.DoWork
+        Try
+
+
+            Dim xCmdPatientInfo As New SqlCommand(sQL_PatientInsert, sQlConnection)
+            With xCmdPatientInfo
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@FirstName", SqlDbType.NVarChar).Value = VarP_Fname
+                .Parameters.AddWithValue("@FatherName", SqlDbType.NVarChar).Value = VarP_Fathname
+                .Parameters.AddWithValue("@GrandName", SqlDbType.NVarChar).Value = VarP_Gname
+                .Parameters.AddWithValue("@LastName", SqlDbType.NVarChar).Value = VarP_phone
+                .Parameters.AddWithValue("@Phone", SqlDbType.NVarChar).Value = VarP_phone
+                .Parameters.AddWithValue("@Phone2", SqlDbType.NVarChar).Value = VarP_Phone2
+                .Parameters.AddWithValue("@PatientAddress", SqlDbType.NVarChar).Value = VarPatientAddress
+                .Parameters.AddWithValue("@CityID", SqlDbType.Int).Value = VarCityID
+                .Parameters.AddWithValue("@Status", SqlDbType.Int).Value = VarStatus
+                .Parameters.AddWithValue("@InsertTime", SqlDbType.DateTime).Value = VarInsertTime
+                .Parameters.AddWithValue("@UserID_Insert", SqlDbType.Int).Value = VarUserID
+            End With
+            If sQlConnection.State = 1 Then sQlConnection.Close()
+            sQlConnection.Open()
+            xCmdPatientInfo.ExecuteNonQuery()
+            sQlConnection.Close()
+            xCmdPatientInfo = Nothing
+
+
+
+            Dim Cmd As New SqlCommand(sQL_BookingInsert, sQlConnection)
+            With Cmd
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@BookingOrderID", SqlDbType.Int).Value = VarBookingOrderID
+                .Parameters.AddWithValue("@BookingDate", SqlDbType.Date).Value = VarBookingDate
+                .Parameters.AddWithValue("@BookingDay", SqlDbType.NVarChar).Value = VarDay
+                .Parameters.AddWithValue("@PatientType", SqlDbType.NVarChar).Value = VarPatientType
+                .Parameters.AddWithValue("@FileNo", SqlDbType.NVarChar).Value = VarFileNo
+                .Parameters.AddWithValue("@PatientID", SqlDbType.Int).Value = VarPatientID
+                .Parameters.AddWithValue("@BookingType", SqlDbType.NVarChar).Value = VarBookingType
+                .Parameters.AddWithValue("@BookingATT", SqlDbType.Int).Value = VarBookingATT
+                .Parameters.AddWithValue("@PaymentStatus", SqlDbType.Int).Value = VarPaymentStatus
+                .Parameters.AddWithValue("@ClinicID", SqlDbType.Int).Value = VarClinicID
+                .Parameters.AddWithValue("@EmpoleeID", SqlDbType.Int).Value = VarEmpoleeID
+                .Parameters.AddWithValue("@Status", SqlDbType.Int).Value = VarStatus
+                .Parameters.AddWithValue("@InsertTime", SqlDbType.DateTime).Value = VarInsertTime
+                .Parameters.AddWithValue("@UserID_Insert", SqlDbType.Int).Value = VarUserID
+            End With
+            If sQlConnection.State = 1 Then sQlConnection.Close()
+            sQlConnection.Open()
+            Cmd.ExecuteNonQuery()
+            sQlConnection.Close()
+            MsgBox("تم إضافة السجل بنجاح", MsgBoxStyle.Information, "حفظ")
+            Cmd = Nothing
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 #End Region
 #Region "SQL"
-    Private sQLInsert As String = "Insert Into tbAppointmentSchedule (ClincID,DoctorID,Day,AppoinScheFromTime,AppoinScheToTime,AllowNumCases,ReviewAllowedNum
-                                                                     ,AppoinScheStatus,InsertTime,UserID_Insert)values(@ClincID,@DoctorID,@Day,@AppoinScheFromTime
-                                                                     ,@AppoinScheToTime,@AllowNumCases,@ReviewAllowedNum,@AppoinScheStatus,@InsertTime,@UserID_Insert)"
+
+    Private sQLMAX_BookingOrderID As String = "Select Case MAX([BookingOrderID]) From [Booking] Where [BookingDate] =@BookingDate AND [ClinicID]=@ClinicID AND [EmpoleeID]=@EmpoleeID AND [Status]=1"
+    Private sQLMAX_PatientID As String = "SELECT MAX([PatientID]) as xMAxID FROM [Patient] Where [Status]=1"
+    Private sQL_BookingInsert As String = "Insert Into Booking (BookingOrderID,BookingDate,BookingHour,BookingDay,PatientType,FileNo,PatientID,BookingType,BookingATT
+                                                       ,PaymentStatus,ClinicID,EmpoleeID,Status,InsertTime,UserID_Insert)
+                                                       values(@BookingOrderID,@BookingDate,@BookingHour,@BookingDay,@PatientType,@FileNo,@PatientID,@BookingType
+                                                       ,@BookingATT,@PaymentStatus,@ClinicID,@EmpoleeID,@Status,@InsertTime,@UserID_Insert)"
+
+    Private sQL_PatientInsert As String = "Insert Into Patient (FirstName,FatherName,GrandName,LastName,Phone,Phone2,PatientAddress,CityID,Status,InsertTime,UserID_Insert)
+                                                       values(@FirstName,@FatherName,@GrandName,@LastName,@Phone,@Phone2,@PatientAddress,@CityID,@Status,@InsertTime,@UserID_Insert)"
+
+
     Private sQLClinc As String = "SELECT [ClinicID]
                                           ,[ClinicName]
                                       FROM [Clinics]
@@ -123,7 +200,7 @@ Public Class frmBookingInquiries
             Me.cmbDoctor.SelectedIndex = -1
             Me.cmbDay.SelectedIndex = -1
             Me.cmbClinc.SelectedIndex = -1
-
+            'Me.dtpBookingDate.MinDate = DateTime.Now
 
             lblUsername.Text = VarUserName
             lblDateTime.Text = VarDateTimeNow
@@ -132,6 +209,7 @@ Public Class frmBookingInquiries
 
     End Sub
     Private Sub frmBookingInquiries_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        SetDataSRC()
         Call MYSP_Show()
         BGW_Load.RunWorkerAsync()
     End Sub
@@ -169,6 +247,56 @@ Public Class frmBookingInquiries
         Catch ex As Exception
             MsgBox(Me_MsgErrorStr + vbNewLine + vbNewLine + ex.Message, Me_MsgInfoStyle, Me_MsgCaptionStr)
         End Try
+    End Sub
+
+    Private Sub btnBooking_Click(sender As Object, e As EventArgs) Handles btnBooking.Click
+        Dim NowDate As Date = DateTime.Now.ToString("yyyy/MM/dd")
+        VarAppoinScheID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(0).Value
+        VarClinicID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(1).Value
+        VarEmpoleeID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item("DoctorI").Value
+        VarClincName = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(4).Value
+        VarEmpoleeName = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(5).Value
+        VarDayCulome = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item("Day").Value
+        VarDay = Me.dtpBookingDate.Value.ToString("dddd")
+        VarBookingDate = Me.dtpBookingDate.Value
+        VarP_Fname = Me.txtFirstName.Text
+        VarP_Fathname = Me.txtFatherName.Text
+        VarP_Gname = Me.txtGrandFatherName.Text
+        VarP_Sname = Me.txtSurename.Text
+        VarP_phone = Me.txtPhone.Text
+        VarFileNo = Me.txtFileNo.Text
+        VarBookingTimeAppo = Me.dtpBookingHours.Value
+        VarP_FullName = VarP_Fname & " " & VarP_Fathname & " " & VarP_Gname & " " & VarP_Sname
+
+        Select Case VarPatientType
+            Case Me.rbShelterCase.Checked
+                VarPatientType = 1
+                VarPatientTypeValue = "OPD"
+            Case Me.rbOPD.Checked
+                VarPatientType = 0
+                VarPatientTypeValue = "ايواء"
+        End Select
+
+        If VarDay = VarDayCulome Then
+            If NowDate < VarBookingDate Then
+                Dim row As DataRow = VarBooking_DT.NewRow
+                row("BooClincName") = VarClincName
+                row("PatientName") = VarP_FullName
+                row("BookingDay") = VarDay
+                row("BookingDate") = VarBookingDate
+                row("BookingTime") = VarBookingTimeAppo
+                row("PatientType") = VarPatientTypeValue
+                VarBooking_DT.Rows.Add(row)
+            Else
+                MsgBox("التاريخ المحدد اقدم من التاريخ الحالي ")
+            End If
+
+        Else
+            MsgBox("يرجي تحديد اليوم ")
+            Exit Sub
+        End If
+
+
     End Sub
 #End Region
 
