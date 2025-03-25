@@ -23,8 +23,8 @@ Partial Class frmBookingInquiries
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmBookingInquiries))
         Me.BGW_Edit = New System.ComponentModel.BackgroundWorker()
         Me.BGW_Delete = New System.ComponentModel.BackgroundWorker()
@@ -63,7 +63,13 @@ Partial Class frmBookingInquiries
         Me.csConfirmAttend = New System.Windows.Forms.ToolStripMenuItem()
         Me.csCancelAttend = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.dtpToDate = New System.Windows.Forms.DateTimePicker()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.dtpFromDate = New System.Windows.Forms.DateTimePicker()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -112,12 +118,6 @@ Partial Class frmBookingInquiries
         Me.BooClincName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BooClincID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BooEmpoleeID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -271,8 +271,9 @@ Partial Class frmBookingInquiries
         'dtpBookingHours
         '
         Me.dtpBookingHours.CustomFormat = "hh:mm:t"
+        Me.dtpBookingHours.Enabled = False
         Me.dtpBookingHours.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpBookingHours.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpBookingHours.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.dtpBookingHours.Location = New System.Drawing.Point(6, 48)
         Me.dtpBookingHours.Name = "dtpBookingHours"
         Me.dtpBookingHours.RightToLeftLayout = True
@@ -431,6 +432,54 @@ Partial Class frmBookingInquiries
         Me.GroupBox2.TabIndex = 46
         Me.GroupBox2.TabStop = False
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(351, 52)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(164, 24)
+        Me.ComboBox1.TabIndex = 87
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Location = New System.Drawing.Point(521, 57)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(43, 15)
+        Me.Label15.TabIndex = 86
+        Me.Label15.Text = "الطبيب :"
+        '
+        'ComboBox2
+        '
+        Me.ComboBox2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(569, 52)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(174, 24)
+        Me.ComboBox2.TabIndex = 85
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(749, 57)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(40, 15)
+        Me.Label16.TabIndex = 84
+        Me.Label16.Text = "العيادة :"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(749, 27)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(36, 15)
+        Me.Label14.TabIndex = 83
+        Me.Label14.Text = "الاسم :"
+        '
         'dtpToDate
         '
         Me.dtpToDate.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -440,6 +489,14 @@ Partial Class frmBookingInquiries
         Me.dtpToDate.RightToLeftLayout = True
         Me.dtpToDate.Size = New System.Drawing.Size(142, 23)
         Me.dtpToDate.TabIndex = 59
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.TextBox2.Location = New System.Drawing.Point(351, 24)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(392, 22)
+        Me.TextBox2.TabIndex = 82
         '
         'Label12
         '
@@ -784,9 +841,9 @@ Partial Class frmBookingInquiries
         'BookingDate
         '
         Me.BookingDate.DataPropertyName = "BookingDate"
-        DataGridViewCellStyle3.Format = "yyyy/MM/dd"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.BookingDate.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Format = "yyyy/MM/dd"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.BookingDate.DefaultCellStyle = DataGridViewCellStyle1
         Me.BookingDate.HeaderText = "التاريخ"
         Me.BookingDate.Name = "BookingDate"
         Me.BookingDate.ReadOnly = True
@@ -794,9 +851,9 @@ Partial Class frmBookingInquiries
         'BookingTime
         '
         Me.BookingTime.DataPropertyName = "BookingTime"
-        DataGridViewCellStyle4.Format = "t"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.BookingTime.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Format = "hh:mm:ss tt"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.BookingTime.DefaultCellStyle = DataGridViewCellStyle2
         Me.BookingTime.FillWeight = 60.0!
         Me.BookingTime.HeaderText = "الساعة"
         Me.BookingTime.Name = "BookingTime"
@@ -879,62 +936,6 @@ Partial Class frmBookingInquiries
         Me.BooEmpoleeID.Name = "BooEmpoleeID"
         Me.BooEmpoleeID.ReadOnly = True
         Me.BooEmpoleeID.Visible = False
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(749, 27)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(36, 15)
-        Me.Label14.TabIndex = 83
-        Me.Label14.Text = "الاسم :"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.TextBox2.Location = New System.Drawing.Point(351, 24)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(392, 22)
-        Me.TextBox2.TabIndex = 82
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(351, 52)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(164, 24)
-        Me.ComboBox1.TabIndex = 87
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(521, 57)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(43, 15)
-        Me.Label15.TabIndex = 86
-        Me.Label15.Text = "الطبيب :"
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(569, 52)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(174, 24)
-        Me.ComboBox2.TabIndex = 85
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(749, 57)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(40, 15)
-        Me.Label16.TabIndex = 84
-        Me.Label16.Text = "العيادة :"
         '
         'frmBookingInquiries
         '
@@ -1047,6 +1048,12 @@ Partial Class frmBookingInquiries
     Friend WithEvents txtFileNo As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents BookingID As DataGridViewTextBoxColumn
     Friend WithEvents BookingDate As DataGridViewTextBoxColumn
     Friend WithEvents BookingTime As DataGridViewTextBoxColumn
@@ -1060,10 +1067,4 @@ Partial Class frmBookingInquiries
     Friend WithEvents BooClincName As DataGridViewTextBoxColumn
     Friend WithEvents BooClincID As DataGridViewTextBoxColumn
     Friend WithEvents BooEmpoleeID As DataGridViewTextBoxColumn
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Label15 As Label
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents TextBox2 As TextBox
 End Class

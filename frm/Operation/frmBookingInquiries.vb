@@ -31,7 +31,7 @@ Public Class frmBookingInquiries
     Private VarToDate As DateTime = DateTime.Now.ToString("yyyy/MM/dd")
 
     Private Sub SetDataSRC()
-
+        VarBooking_DT.Columns.Add("BookingID")
         VarBooking_DT.Columns.Add("BooClincName")
         VarBooking_DT.Columns.Add("PatientName")
         VarBooking_DT.Columns.Add("BookingDay")
@@ -258,6 +258,7 @@ Public Class frmBookingInquiries
         VarEmpoleeName = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(5).Value
         VarDayCulome = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item("Day").Value
         VarDay = Me.dtpBookingDate.Value.ToString("dddd")
+        VarBookingTimeAppo = Me.dtpBookingHours.Value.ToString("t")
         VarBookingDate = Me.dtpBookingDate.Value
         VarP_Fname = Me.txtFirstName.Text
         VarP_Fathname = Me.txtFatherName.Text
@@ -265,7 +266,7 @@ Public Class frmBookingInquiries
         VarP_Sname = Me.txtSurename.Text
         VarP_phone = Me.txtPhone.Text
         VarFileNo = Me.txtFileNo.Text
-        VarBookingTimeAppo = Me.dtpBookingHours.Value
+        'VarBookingTimeAppo = Me.dtpBookingHours.Value
         VarP_FullName = VarP_Fname & " " & VarP_Fathname & " " & VarP_Gname & " " & VarP_Sname
 
         Select Case VarPatientType
@@ -276,11 +277,16 @@ Public Class frmBookingInquiries
                 VarPatientType = 0
                 VarPatientTypeValue = "ايواء"
         End Select
+        'Me.dgvBookingInquiries.Columns("BookingTime").DefaultCellStyle.Format = "t"
+        Dim nextRowNumber As Integer = VarBooking_DT.Rows.Count + 1
 
-        If VarDay = VarDayCulome Then
-            If NowDate < VarBookingDate Then
-                Dim row As DataRow = VarBooking_DT.NewRow
-                row("BooClincName") = VarClincName
+        'If VarDay = VarDayCulome Then
+        If NowDate < VarBookingDate Then
+
+            Dim row As DataRow = VarBooking_DT.NewRow
+
+            row("BookingID") = nextRowNumber
+            row("BooClincName") = VarClincName
                 row("PatientName") = VarP_FullName
                 row("BookingDay") = VarDay
                 row("BookingDate") = VarBookingDate
@@ -290,11 +296,10 @@ Public Class frmBookingInquiries
             Else
                 MsgBox("التاريخ المحدد اقدم من التاريخ الحالي ")
             End If
-
-        Else
-            MsgBox("يرجي تحديد اليوم ")
-            Exit Sub
-        End If
+        'Else
+        '    MsgBox("يرجي تحديد اليوم ")
+        '    Exit Sub
+        'End If
 
 
     End Sub

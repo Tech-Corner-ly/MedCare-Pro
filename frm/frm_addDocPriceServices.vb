@@ -9,7 +9,7 @@ Public Class frm_addDocPriceServices
     Private VarDocterName As Decimal
     Private VarDocServices As Decimal
 
-    Private sqlDocPriceServices As String = "SELECT DocPriceServicesID,tbDocServicesName,PatientPrice,DoctorsRate,DocterName FROM vDocPriceServices Where DocPriceServicesStatus=1"
+    Private sqlDocPriceServices As String = "SELECT DocPriceServicesID FROM tbDocPriceServices Where DocPriceServicesStatus=1"
     Private sQLDoctor As String = "SELECT DocterID ,DocterName FROM tbDoctors Where DocterStatus=1"
     Private sQLDocServices As String = "SELECT tbDocServicesID,tbDocServicesName FROM tbDocServices Where tbDocServicesStatus=1"
 
@@ -54,10 +54,10 @@ Public Class frm_addDocPriceServices
         ad.Fill(dt)
         DataGridView1.DataSource = dt
         Me.DataGridView1.Columns(0).HeaderText = "كود الخدمة"
-        Me.DataGridView1.Columns(1).HeaderText = "اسم الخدمة"
-        Me.DataGridView1.Columns(2).HeaderText = "سعر المريض"
-        Me.DataGridView1.Columns(3).HeaderText = "نسبة الدكتور"
-        Me.DataGridView1.Columns(4).HeaderText = "اسم الدكتور"
+        'Me.DataGridView1.Columns(1).HeaderText = "اسم الخدمة"
+        'Me.DataGridView1.Columns(2).HeaderText = "سعر المريض"
+        'Me.DataGridView1.Columns(3).HeaderText = "نسبة الدكتور"
+        'Me.DataGridView1.Columns(4).HeaderText = "اسم الدكتور"
     End Sub
     Private Sub frm_addDocPriceServices_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call MYSP_Show()

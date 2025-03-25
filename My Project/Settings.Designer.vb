@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("192.168.11.254")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("192.168.85.252")>  _
         Public Property dbServer() As String
             Get
                 Return CType(Me("dbServer"),String)
