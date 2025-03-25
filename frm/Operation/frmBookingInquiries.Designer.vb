@@ -106,6 +106,7 @@ Partial Class frmBookingInquiries
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtFirstName = New System.Windows.Forms.TextBox()
         Me.BookingID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ExamID01 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookingDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookingTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookingDay = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -378,7 +379,7 @@ Partial Class frmBookingInquiries
         Me.dgvBookingInquiries.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvBookingInquiries.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
         Me.dgvBookingInquiries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvBookingInquiries.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookingID, Me.BookingDate, Me.BookingTime, Me.BookingDay, Me.PatientType, Me.FileNo, Me.PatientName, Me.BookingType, Me.BookingATT, Me.PaymentStatus, Me.BooClincName, Me.BooClincID, Me.BooEmpoleeID})
+        Me.dgvBookingInquiries.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookingID, Me.ExamID01, Me.BookingDate, Me.BookingTime, Me.BookingDay, Me.PatientType, Me.FileNo, Me.PatientName, Me.BookingType, Me.BookingATT, Me.PaymentStatus, Me.BooClincName, Me.BooClincID, Me.BooEmpoleeID})
         Me.dgvBookingInquiries.ContextMenuStrip = Me.ContextMenuStrip1
         Me.dgvBookingInquiries.Location = New System.Drawing.Point(12, 403)
         Me.dgvBookingInquiries.Name = "dgvBookingInquiries"
@@ -838,6 +839,14 @@ Partial Class frmBookingInquiries
         Me.BookingID.Name = "BookingID"
         Me.BookingID.ReadOnly = True
         '
+        'ExamID01
+        '
+        Me.ExamID01.DataPropertyName = "ExamID01"
+        Me.ExamID01.HeaderText = "ExamID01"
+        Me.ExamID01.Name = "ExamID01"
+        Me.ExamID01.ReadOnly = True
+        Me.ExamID01.Visible = False
+        '
         'BookingDate
         '
         Me.BookingDate.DataPropertyName = "BookingDate"
@@ -1055,6 +1064,7 @@ Partial Class frmBookingInquiries
     Friend WithEvents Label14 As Label
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents BookingID As DataGridViewTextBoxColumn
+    Friend WithEvents ExamID01 As DataGridViewTextBoxColumn
     Friend WithEvents BookingDate As DataGridViewTextBoxColumn
     Friend WithEvents BookingTime As DataGridViewTextBoxColumn
     Friend WithEvents BookingDay As DataGridViewTextBoxColumn

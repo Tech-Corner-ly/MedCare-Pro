@@ -60,6 +60,24 @@ Partial Class frmAddItemsServices
         Me.cmbIsActive = New System.Windows.Forms.CheckBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabGeneral = New System.Windows.Forms.TabPage()
+        Me.txtAmount = New MediCare.ClsNumTextBox()
+        Me.txtPerc = New MediCare.ClsNumTextBox()
+        Me.txtLastCostPrice = New MediCare.ClsNumTextBox()
+        Me.txtLastPurchPrice = New MediCare.ClsNumTextBox()
+        Me.txtSixthProfitPerc = New MediCare.ClsNumTextBox()
+        Me.txtFifthProfitPerc = New MediCare.ClsNumTextBox()
+        Me.txtFourthProfitPerc = New MediCare.ClsNumTextBox()
+        Me.txtThirdProfitPerce = New MediCare.ClsNumTextBox()
+        Me.txtSecondProfitPerc = New MediCare.ClsNumTextBox()
+        Me.txtFirstProfitPerc = New MediCare.ClsNumTextBox()
+        Me.txtSixthPrice = New MediCare.ClsNumTextBox()
+        Me.txtFifthPrice = New MediCare.ClsNumTextBox()
+        Me.txtFourthPrice = New MediCare.ClsNumTextBox()
+        Me.txtThirdPrice = New MediCare.ClsNumTextBox()
+        Me.txtSecondPrice = New MediCare.ClsNumTextBox()
+        Me.txtFirstPrice = New MediCare.ClsNumTextBox()
+        Me.txtCostPrice = New MediCare.ClsNumTextBox()
+        Me.txtPurchPrice = New MediCare.ClsNumTextBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Label45 = New System.Windows.Forms.Label()
         Me.Label44 = New System.Windows.Forms.Label()
@@ -153,24 +171,8 @@ Partial Class frmAddItemsServices
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.txtAmount = New MediCare.ClsNumTextBox()
-        Me.txtPerc = New MediCare.ClsNumTextBox()
-        Me.txtLastCostPrice = New MediCare.ClsNumTextBox()
-        Me.txtLastPurchPrice = New MediCare.ClsNumTextBox()
-        Me.txtSixthProfitPerc = New MediCare.ClsNumTextBox()
-        Me.txtFifthProfitPerc = New MediCare.ClsNumTextBox()
-        Me.txtFourthProfitPerc = New MediCare.ClsNumTextBox()
-        Me.txtThirdProfitPerce = New MediCare.ClsNumTextBox()
-        Me.txtSecondProfitPerc = New MediCare.ClsNumTextBox()
-        Me.txtFirstProfitPerc = New MediCare.ClsNumTextBox()
-        Me.txtSixthPrice = New MediCare.ClsNumTextBox()
-        Me.txtFifthPrice = New MediCare.ClsNumTextBox()
-        Me.txtFourthPrice = New MediCare.ClsNumTextBox()
-        Me.txtThirdPrice = New MediCare.ClsNumTextBox()
-        Me.txtSecondPrice = New MediCare.ClsNumTextBox()
-        Me.txtFirstPrice = New MediCare.ClsNumTextBox()
-        Me.txtCostPrice = New MediCare.ClsNumTextBox()
-        Me.txtPurchPrice = New MediCare.ClsNumTextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.cmbDoctor = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -474,6 +476,8 @@ Partial Class frmAddItemsServices
         'TabGeneral
         '
         Me.TabGeneral.BackColor = System.Drawing.SystemColors.Control
+        Me.TabGeneral.Controls.Add(Me.Label6)
+        Me.TabGeneral.Controls.Add(Me.cmbDoctor)
         Me.TabGeneral.Controls.Add(Me.txtAmount)
         Me.TabGeneral.Controls.Add(Me.txtPerc)
         Me.TabGeneral.Controls.Add(Me.txtLastCostPrice)
@@ -571,6 +575,190 @@ Partial Class frmAddItemsServices
         Me.TabGeneral.TabIndex = 0
         Me.TabGeneral.Text = "عام"
         '
+        'txtAmount
+        '
+        Me.txtAmount.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtAmount.Location = New System.Drawing.Point(442, 377)
+        Me.txtAmount.Name = "txtAmount"
+        Me.txtAmount.Size = New System.Drawing.Size(124, 22)
+        Me.txtAmount.TabIndex = 155
+        Me.txtAmount.Text = "0"
+        Me.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtPerc
+        '
+        Me.txtPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtPerc.Location = New System.Drawing.Point(442, 349)
+        Me.txtPerc.Name = "txtPerc"
+        Me.txtPerc.Size = New System.Drawing.Size(124, 22)
+        Me.txtPerc.TabIndex = 154
+        Me.txtPerc.Text = "0"
+        Me.txtPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtLastCostPrice
+        '
+        Me.txtLastCostPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtLastCostPrice.Location = New System.Drawing.Point(25, 213)
+        Me.txtLastCostPrice.Name = "txtLastCostPrice"
+        Me.txtLastCostPrice.ReadOnly = True
+        Me.txtLastCostPrice.Size = New System.Drawing.Size(82, 22)
+        Me.txtLastCostPrice.TabIndex = 153
+        Me.txtLastCostPrice.Text = "0"
+        Me.txtLastCostPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtLastPurchPrice
+        '
+        Me.txtLastPurchPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtLastPurchPrice.Location = New System.Drawing.Point(25, 185)
+        Me.txtLastPurchPrice.Name = "txtLastPurchPrice"
+        Me.txtLastPurchPrice.ReadOnly = True
+        Me.txtLastPurchPrice.Size = New System.Drawing.Size(82, 22)
+        Me.txtLastPurchPrice.TabIndex = 152
+        Me.txtLastPurchPrice.Text = "0"
+        Me.txtLastPurchPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtSixthProfitPerc
+        '
+        Me.txtSixthProfitPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtSixthProfitPerc.Location = New System.Drawing.Point(25, 381)
+        Me.txtSixthProfitPerc.Name = "txtSixthProfitPerc"
+        Me.txtSixthProfitPerc.Size = New System.Drawing.Size(82, 22)
+        Me.txtSixthProfitPerc.TabIndex = 151
+        Me.txtSixthProfitPerc.Text = "0"
+        Me.txtSixthProfitPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtFifthProfitPerc
+        '
+        Me.txtFifthProfitPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtFifthProfitPerc.Location = New System.Drawing.Point(25, 352)
+        Me.txtFifthProfitPerc.Name = "txtFifthProfitPerc"
+        Me.txtFifthProfitPerc.Size = New System.Drawing.Size(82, 22)
+        Me.txtFifthProfitPerc.TabIndex = 150
+        Me.txtFifthProfitPerc.Text = "0"
+        Me.txtFifthProfitPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtFourthProfitPerc
+        '
+        Me.txtFourthProfitPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtFourthProfitPerc.Location = New System.Drawing.Point(25, 324)
+        Me.txtFourthProfitPerc.Name = "txtFourthProfitPerc"
+        Me.txtFourthProfitPerc.Size = New System.Drawing.Size(82, 22)
+        Me.txtFourthProfitPerc.TabIndex = 149
+        Me.txtFourthProfitPerc.Text = "0"
+        Me.txtFourthProfitPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtThirdProfitPerce
+        '
+        Me.txtThirdProfitPerce.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtThirdProfitPerce.Location = New System.Drawing.Point(25, 297)
+        Me.txtThirdProfitPerce.Name = "txtThirdProfitPerce"
+        Me.txtThirdProfitPerce.Size = New System.Drawing.Size(82, 22)
+        Me.txtThirdProfitPerce.TabIndex = 148
+        Me.txtThirdProfitPerce.Text = "0"
+        Me.txtThirdProfitPerce.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtSecondProfitPerc
+        '
+        Me.txtSecondProfitPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtSecondProfitPerc.Location = New System.Drawing.Point(25, 269)
+        Me.txtSecondProfitPerc.Name = "txtSecondProfitPerc"
+        Me.txtSecondProfitPerc.Size = New System.Drawing.Size(82, 22)
+        Me.txtSecondProfitPerc.TabIndex = 147
+        Me.txtSecondProfitPerc.Text = "0"
+        Me.txtSecondProfitPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtFirstProfitPerc
+        '
+        Me.txtFirstProfitPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtFirstProfitPerc.Location = New System.Drawing.Point(25, 241)
+        Me.txtFirstProfitPerc.Name = "txtFirstProfitPerc"
+        Me.txtFirstProfitPerc.Size = New System.Drawing.Size(82, 22)
+        Me.txtFirstProfitPerc.TabIndex = 146
+        Me.txtFirstProfitPerc.Text = "0"
+        Me.txtFirstProfitPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtSixthPrice
+        '
+        Me.txtSixthPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtSixthPrice.Location = New System.Drawing.Point(197, 383)
+        Me.txtSixthPrice.Name = "txtSixthPrice"
+        Me.txtSixthPrice.Size = New System.Drawing.Size(94, 22)
+        Me.txtSixthPrice.TabIndex = 145
+        Me.txtSixthPrice.Text = "0"
+        Me.txtSixthPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtFifthPrice
+        '
+        Me.txtFifthPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtFifthPrice.Location = New System.Drawing.Point(197, 354)
+        Me.txtFifthPrice.Name = "txtFifthPrice"
+        Me.txtFifthPrice.Size = New System.Drawing.Size(94, 22)
+        Me.txtFifthPrice.TabIndex = 144
+        Me.txtFifthPrice.Text = "0"
+        Me.txtFifthPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtFourthPrice
+        '
+        Me.txtFourthPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtFourthPrice.Location = New System.Drawing.Point(197, 326)
+        Me.txtFourthPrice.Name = "txtFourthPrice"
+        Me.txtFourthPrice.Size = New System.Drawing.Size(94, 22)
+        Me.txtFourthPrice.TabIndex = 143
+        Me.txtFourthPrice.Text = "0"
+        Me.txtFourthPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtThirdPrice
+        '
+        Me.txtThirdPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtThirdPrice.Location = New System.Drawing.Point(197, 299)
+        Me.txtThirdPrice.Name = "txtThirdPrice"
+        Me.txtThirdPrice.Size = New System.Drawing.Size(94, 22)
+        Me.txtThirdPrice.TabIndex = 142
+        Me.txtThirdPrice.Text = "0"
+        Me.txtThirdPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtSecondPrice
+        '
+        Me.txtSecondPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtSecondPrice.Location = New System.Drawing.Point(197, 271)
+        Me.txtSecondPrice.Name = "txtSecondPrice"
+        Me.txtSecondPrice.Size = New System.Drawing.Size(94, 22)
+        Me.txtSecondPrice.TabIndex = 141
+        Me.txtSecondPrice.Text = "0"
+        Me.txtSecondPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtFirstPrice
+        '
+        Me.txtFirstPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtFirstPrice.Location = New System.Drawing.Point(197, 243)
+        Me.txtFirstPrice.Name = "txtFirstPrice"
+        Me.txtFirstPrice.Size = New System.Drawing.Size(94, 22)
+        Me.txtFirstPrice.TabIndex = 140
+        Me.txtFirstPrice.Text = "0"
+        Me.txtFirstPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtCostPrice
+        '
+        Me.txtCostPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtCostPrice.Location = New System.Drawing.Point(197, 215)
+        Me.txtCostPrice.Name = "txtCostPrice"
+        Me.txtCostPrice.ReadOnly = True
+        Me.txtCostPrice.Size = New System.Drawing.Size(94, 22)
+        Me.txtCostPrice.TabIndex = 139
+        Me.txtCostPrice.Text = "0"
+        Me.txtCostPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtPurchPrice
+        '
+        Me.txtPurchPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.txtPurchPrice.Location = New System.Drawing.Point(197, 187)
+        Me.txtPurchPrice.Name = "txtPurchPrice"
+        Me.txtPurchPrice.ReadOnly = True
+        Me.txtPurchPrice.Size = New System.Drawing.Size(94, 22)
+        Me.txtPurchPrice.TabIndex = 138
+        Me.txtPurchPrice.Text = "0"
+        Me.txtPurchPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
@@ -596,7 +784,7 @@ Partial Class frmAddItemsServices
         '
         Me.Label44.AutoSize = True
         Me.Label44.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label44.Location = New System.Drawing.Point(572, 297)
+        Me.Label44.Location = New System.Drawing.Point(572, 324)
         Me.Label44.Name = "Label44"
         Me.Label44.Size = New System.Drawing.Size(82, 15)
         Me.Label44.TabIndex = 135
@@ -605,7 +793,7 @@ Partial Class frmAddItemsServices
         'cmbCalcuMethod
         '
         Me.cmbCalcuMethod.FormattingEnabled = True
-        Me.cmbCalcuMethod.Location = New System.Drawing.Point(442, 295)
+        Me.cmbCalcuMethod.Location = New System.Drawing.Point(442, 322)
         Me.cmbCalcuMethod.Name = "cmbCalcuMethod"
         Me.cmbCalcuMethod.Size = New System.Drawing.Size(124, 21)
         Me.cmbCalcuMethod.TabIndex = 134
@@ -614,7 +802,7 @@ Partial Class frmAddItemsServices
         '
         Me.Label43.AutoSize = True
         Me.Label43.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label43.Location = New System.Drawing.Point(572, 353)
+        Me.Label43.Location = New System.Drawing.Point(572, 380)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(32, 15)
         Me.Label43.TabIndex = 133
@@ -624,7 +812,7 @@ Partial Class frmAddItemsServices
         '
         Me.Label42.AutoSize = True
         Me.Label42.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label42.Location = New System.Drawing.Point(572, 325)
+        Me.Label42.Location = New System.Drawing.Point(572, 352)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(53, 15)
         Me.Label42.TabIndex = 131
@@ -1438,189 +1626,23 @@ Partial Class frmAddItemsServices
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
-        'txtAmount
+        'Label6
         '
-        Me.txtAmount.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtAmount.Location = New System.Drawing.Point(442, 350)
-        Me.txtAmount.Name = "txtAmount"
-        Me.txtAmount.Size = New System.Drawing.Size(124, 22)
-        Me.txtAmount.TabIndex = 155
-        Me.txtAmount.Text = "0"
-        Me.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(572, 297)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(53, 15)
+        Me.Label6.TabIndex = 157
+        Me.Label6.Text = "الدكتور/ة :"
         '
-        'txtPerc
+        'cmbDoctor
         '
-        Me.txtPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtPerc.Location = New System.Drawing.Point(442, 322)
-        Me.txtPerc.Name = "txtPerc"
-        Me.txtPerc.Size = New System.Drawing.Size(124, 22)
-        Me.txtPerc.TabIndex = 154
-        Me.txtPerc.Text = "0"
-        Me.txtPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtLastCostPrice
-        '
-        Me.txtLastCostPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtLastCostPrice.Location = New System.Drawing.Point(25, 213)
-        Me.txtLastCostPrice.Name = "txtLastCostPrice"
-        Me.txtLastCostPrice.ReadOnly = True
-        Me.txtLastCostPrice.Size = New System.Drawing.Size(82, 22)
-        Me.txtLastCostPrice.TabIndex = 153
-        Me.txtLastCostPrice.Text = "0"
-        Me.txtLastCostPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtLastPurchPrice
-        '
-        Me.txtLastPurchPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtLastPurchPrice.Location = New System.Drawing.Point(25, 185)
-        Me.txtLastPurchPrice.Name = "txtLastPurchPrice"
-        Me.txtLastPurchPrice.ReadOnly = True
-        Me.txtLastPurchPrice.Size = New System.Drawing.Size(82, 22)
-        Me.txtLastPurchPrice.TabIndex = 152
-        Me.txtLastPurchPrice.Text = "0"
-        Me.txtLastPurchPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtSixthProfitPerc
-        '
-        Me.txtSixthProfitPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtSixthProfitPerc.Location = New System.Drawing.Point(25, 381)
-        Me.txtSixthProfitPerc.Name = "txtSixthProfitPerc"
-        Me.txtSixthProfitPerc.Size = New System.Drawing.Size(82, 22)
-        Me.txtSixthProfitPerc.TabIndex = 151
-        Me.txtSixthProfitPerc.Text = "0"
-        Me.txtSixthProfitPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtFifthProfitPerc
-        '
-        Me.txtFifthProfitPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtFifthProfitPerc.Location = New System.Drawing.Point(25, 352)
-        Me.txtFifthProfitPerc.Name = "txtFifthProfitPerc"
-        Me.txtFifthProfitPerc.Size = New System.Drawing.Size(82, 22)
-        Me.txtFifthProfitPerc.TabIndex = 150
-        Me.txtFifthProfitPerc.Text = "0"
-        Me.txtFifthProfitPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtFourthProfitPerc
-        '
-        Me.txtFourthProfitPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtFourthProfitPerc.Location = New System.Drawing.Point(25, 324)
-        Me.txtFourthProfitPerc.Name = "txtFourthProfitPerc"
-        Me.txtFourthProfitPerc.Size = New System.Drawing.Size(82, 22)
-        Me.txtFourthProfitPerc.TabIndex = 149
-        Me.txtFourthProfitPerc.Text = "0"
-        Me.txtFourthProfitPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtThirdProfitPerce
-        '
-        Me.txtThirdProfitPerce.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtThirdProfitPerce.Location = New System.Drawing.Point(25, 297)
-        Me.txtThirdProfitPerce.Name = "txtThirdProfitPerce"
-        Me.txtThirdProfitPerce.Size = New System.Drawing.Size(82, 22)
-        Me.txtThirdProfitPerce.TabIndex = 148
-        Me.txtThirdProfitPerce.Text = "0"
-        Me.txtThirdProfitPerce.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtSecondProfitPerc
-        '
-        Me.txtSecondProfitPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtSecondProfitPerc.Location = New System.Drawing.Point(25, 269)
-        Me.txtSecondProfitPerc.Name = "txtSecondProfitPerc"
-        Me.txtSecondProfitPerc.Size = New System.Drawing.Size(82, 22)
-        Me.txtSecondProfitPerc.TabIndex = 147
-        Me.txtSecondProfitPerc.Text = "0"
-        Me.txtSecondProfitPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtFirstProfitPerc
-        '
-        Me.txtFirstProfitPerc.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtFirstProfitPerc.Location = New System.Drawing.Point(25, 241)
-        Me.txtFirstProfitPerc.Name = "txtFirstProfitPerc"
-        Me.txtFirstProfitPerc.Size = New System.Drawing.Size(82, 22)
-        Me.txtFirstProfitPerc.TabIndex = 146
-        Me.txtFirstProfitPerc.Text = "0"
-        Me.txtFirstProfitPerc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtSixthPrice
-        '
-        Me.txtSixthPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtSixthPrice.Location = New System.Drawing.Point(197, 383)
-        Me.txtSixthPrice.Name = "txtSixthPrice"
-        Me.txtSixthPrice.Size = New System.Drawing.Size(94, 22)
-        Me.txtSixthPrice.TabIndex = 145
-        Me.txtSixthPrice.Text = "0"
-        Me.txtSixthPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtFifthPrice
-        '
-        Me.txtFifthPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtFifthPrice.Location = New System.Drawing.Point(197, 354)
-        Me.txtFifthPrice.Name = "txtFifthPrice"
-        Me.txtFifthPrice.Size = New System.Drawing.Size(94, 22)
-        Me.txtFifthPrice.TabIndex = 144
-        Me.txtFifthPrice.Text = "0"
-        Me.txtFifthPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtFourthPrice
-        '
-        Me.txtFourthPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtFourthPrice.Location = New System.Drawing.Point(197, 326)
-        Me.txtFourthPrice.Name = "txtFourthPrice"
-        Me.txtFourthPrice.Size = New System.Drawing.Size(94, 22)
-        Me.txtFourthPrice.TabIndex = 143
-        Me.txtFourthPrice.Text = "0"
-        Me.txtFourthPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtThirdPrice
-        '
-        Me.txtThirdPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtThirdPrice.Location = New System.Drawing.Point(197, 299)
-        Me.txtThirdPrice.Name = "txtThirdPrice"
-        Me.txtThirdPrice.Size = New System.Drawing.Size(94, 22)
-        Me.txtThirdPrice.TabIndex = 142
-        Me.txtThirdPrice.Text = "0"
-        Me.txtThirdPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtSecondPrice
-        '
-        Me.txtSecondPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtSecondPrice.Location = New System.Drawing.Point(197, 271)
-        Me.txtSecondPrice.Name = "txtSecondPrice"
-        Me.txtSecondPrice.Size = New System.Drawing.Size(94, 22)
-        Me.txtSecondPrice.TabIndex = 141
-        Me.txtSecondPrice.Text = "0"
-        Me.txtSecondPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtFirstPrice
-        '
-        Me.txtFirstPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtFirstPrice.Location = New System.Drawing.Point(197, 243)
-        Me.txtFirstPrice.Name = "txtFirstPrice"
-        Me.txtFirstPrice.Size = New System.Drawing.Size(94, 22)
-        Me.txtFirstPrice.TabIndex = 140
-        Me.txtFirstPrice.Text = "0"
-        Me.txtFirstPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtCostPrice
-        '
-        Me.txtCostPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtCostPrice.Location = New System.Drawing.Point(197, 215)
-        Me.txtCostPrice.Name = "txtCostPrice"
-        Me.txtCostPrice.ReadOnly = True
-        Me.txtCostPrice.Size = New System.Drawing.Size(94, 22)
-        Me.txtCostPrice.TabIndex = 139
-        Me.txtCostPrice.Text = "0"
-        Me.txtCostPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtPurchPrice
-        '
-        Me.txtPurchPrice.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.txtPurchPrice.Location = New System.Drawing.Point(197, 187)
-        Me.txtPurchPrice.Name = "txtPurchPrice"
-        Me.txtPurchPrice.ReadOnly = True
-        Me.txtPurchPrice.Size = New System.Drawing.Size(94, 22)
-        Me.txtPurchPrice.TabIndex = 138
-        Me.txtPurchPrice.Text = "0"
-        Me.txtPurchPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.cmbDoctor.FormattingEnabled = True
+        Me.cmbDoctor.Location = New System.Drawing.Point(442, 295)
+        Me.cmbDoctor.Name = "cmbDoctor"
+        Me.cmbDoctor.Size = New System.Drawing.Size(124, 21)
+        Me.cmbDoctor.TabIndex = 156
         '
         'frmAddItemsServices
         '
@@ -1819,4 +1841,6 @@ Partial Class frmAddItemsServices
     Friend WithEvents txtAmount As ClsNumTextBox
     Friend WithEvents txtPerc As ClsNumTextBox
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents Label6 As Label
+    Friend WithEvents cmbDoctor As ComboBox
 End Class

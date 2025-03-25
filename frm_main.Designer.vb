@@ -75,6 +75,7 @@ Partial Class frm_main
         Me.lblCompanyPhone2 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnExit = New System.Windows.Forms.Button()
+        Me.تسعيرالخدماتToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
@@ -191,7 +192,7 @@ Partial Class frm_main
         '
         'الدكاتيرةToolStripMenuItem
         '
-        Me.الدكاتيرةToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msAddDocPriceServices})
+        Me.الدكاتيرةToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msAddDocPriceServices, Me.تسعيرالخدماتToolStripMenuItem})
         Me.الدكاتيرةToolStripMenuItem.Name = "الدكاتيرةToolStripMenuItem"
         Me.الدكاتيرةToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.الدكاتيرةToolStripMenuItem.Text = "الدكاتيرة "
@@ -199,7 +200,7 @@ Partial Class frm_main
         'msAddDocPriceServices
         '
         Me.msAddDocPriceServices.Name = "msAddDocPriceServices"
-        Me.msAddDocPriceServices.Size = New System.Drawing.Size(149, 22)
+        Me.msAddDocPriceServices.Size = New System.Drawing.Size(180, 22)
         Me.msAddDocPriceServices.Text = "اسعار الخدمات "
         '
         'المرضيToolStripMenuItem
@@ -462,6 +463,12 @@ Partial Class frm_main
         Me.btnExit.Text = "خروج"
         Me.btnExit.UseVisualStyleBackColor = True
         '
+        'تسعيرالخدماتToolStripMenuItem
+        '
+        Me.تسعيرالخدماتToolStripMenuItem.Name = "تسعيرالخدماتToolStripMenuItem"
+        Me.تسعيرالخدماتToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.تسعيرالخدماتToolStripMenuItem.Text = "تسعير الخدمات"
+        '
         'frm_main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -547,4 +554,5 @@ Partial Class frm_main
     Friend WithEvents الاجراءاتToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents حجزموعدالعياداتToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents العياداتToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents تسعيرالخدماتToolStripMenuItem As ToolStripMenuItem
 End Class

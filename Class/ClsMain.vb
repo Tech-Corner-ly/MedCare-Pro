@@ -114,4 +114,29 @@ Public Class ClsMain
         End If
 
     End Function
+
+
+
+    Public Function GetItemExaminID(employeID As Integer) As Integer?
+        Dim itemExaminID As Integer? = Nothing
+        Dim sQLExam As String = "SELECT [ItemExaminID1] FROM [clinic].[dbo].[tbEmploye] WHERE [EmployeStatus] = 1 AND [EmployeID] = @EmployeID"
+
+
+        Using command As New SqlCommand(sQLExam, sQlConnection)
+            command.Parameters.AddWithValue("@EmployeID", employeID)
+
+            Try
+                sQlConnection.Open()
+                Dim result = command.ExecuteScalar()
+                If result IsNot Nothing Then
+                    itemExaminID = Convert.ToInt64(result)
+                End If
+            Catch ex As Exception
+                ' Handle exceptions (e.g., log the error)
+            End Try
+        End Using
+
+
+        Return itemExaminID
+    End Function
 End Class

@@ -1,11 +1,16 @@
 ﻿Imports System.Data.SqlClient
-
+Imports System.Globalization
+Imports System.Threading
 Public Class frm_main
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblUsername.Text = VarUserName
         lblDateTime.Text = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
         Me.Text = "MedCare Pro"
         lblCompany.Text = VarCompanyName
+
+        Thread.CurrentThread.CurrentCulture = New CultureInfo("ar-LY")
+        Thread.CurrentThread.CurrentUICulture = New CultureInfo("ar-LY")
+
     End Sub
     Private Sub Button4_Click(sender As Object, e As EventArgs)
         frm_EntrySheet.Show()
@@ -107,5 +112,11 @@ Public Class frm_main
     Private Sub العياداتToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles العياداتToolStripMenuItem1.Click
         Dim xForm As New frm_Clinic
         xForm.ShowDialog()
+    End Sub
+
+    Private Sub تسعيرالخدماتToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles تسعيرالخدماتToolStripMenuItem.Click
+        Dim xForm As New frm_DocPriceServices
+        xForm.ShowDialog()
+
     End Sub
 End Class

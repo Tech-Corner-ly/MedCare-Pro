@@ -3,6 +3,7 @@
 Public Class frmAddItemsServices
 
     Private XCLS As New ClsMain
+    Private MyVarDT_Employe As DataTable = New DataTable
 
     Private VarClinicID As Integer
     Private VarItemsStatus As Integer = 1
@@ -174,6 +175,10 @@ Public Class frmAddItemsServices
                                               ,[GroupItemName]
                                           FROM [GroupItems]
                                           Where [GroupItemStatus]=1"
+    Private sQLEmploye As String = "SELECT [EmployeID]
+                                              ,CONCAT([EmpFirstName],' ',[EmpFathName],' ',[EmpGranFathName],' ',[EmpSurName]) as EmpName
+                                          FROM [tbEmploye]
+                                          Where [EmployeStatus]=1"
 
     Private Sub MYSP_Show()
         Me.Timer1.Start()
@@ -210,6 +215,8 @@ Public Class frmAddItemsServices
             If CheckConn() = False Then
                 VarBGW_Status = False
             Else
+                MyVarDT_Employe.Clear()
+                Call XCLS.MyCodes_Fill_DataTable(sQLEmploye, MyVarDT_Employe)
                 Call XCLS.MyCodes_Fill_DataTable(sQLCategory, VarCategory_DT)
                 Call XCLS.MyCodes_Fill_DataTable(sQLBrandCompany, VarBrandCompany_DT)
                 Call XCLS.MyCodes_Fill_DataTable(sQLGroupItem, VarGroupItems_DT)
@@ -228,6 +235,7 @@ Public Class frmAddItemsServices
     Private Sub BGW_Load_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BGW_Load.RunWorkerCompleted
         Try
             If VarBGW_Status = True Then
+                Call XCLS.MyCodes_CmbFill(cmbDoctor, MyVarDT_Employe, "EmpName", "EmployeID")
                 Call XCLS.MyCodes_CmbFill(Me.cmbCategory, VarCategory_DT, "CategoryName", "CategoryID")
                 Call XCLS.MyCodes_CmbFill(Me.cmbCompanyMother, VarBrandCompany_DT, "BranCompName", "BranCompID")
                 Call XCLS.MyCodes_CmbFill(Me.cmbGroups, VarGroupItems_DT, "GroupItemName", "GroupItemID")

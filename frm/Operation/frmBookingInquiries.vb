@@ -19,16 +19,17 @@ Public Class frmBookingInquiries
     Private VarBrandCompany_DS As New AutoCompleteStringCollection
     Private VarItemName_DS As New AutoCompleteStringCollection
 
-    Private VarClinicID, VarEmpoleeID, VarBookingID, VarAppoinScheID, VarPatientType, VarBookingATT, VarPaymentStatus, VarPatientID, VarStatus, VarCityID, VarBookingOrderID As Integer
+    Private VarClinicID, VarEmpoleeID, VarBookingID, VarAppoinScheID, VarPatientType, VarBookingATT, VarPaymentStatus, VarPatientID, VarStatus, VarCityID, VarBookingOrderID, ExamID As Integer
     Private VarDay, VarDayCulome, VarP_Fname, VarP_Fathname, VarP_Gname, VarP_Sname, VarP_phone, VarP_Phone2, VarPatientAddress, VarFileNo, VarClincName, VarEmpoleeName, VarP_FullName, VarPatientTypeValue, VarBookingType As String
-    Private VarBookingDate As Date = DateTime.Now.ToString("yyyy/MM/dd")
-    Private VarBookingTimeAppo As DateTime = DateTime.Now.ToString("hh:mm t")
-    Private AppoinScheFromTime As DateTime = DateTime.Now.ToString("hh:mm t")
-    Private AppoinScheToTime As DateTime = DateTime.Now.ToString("hh:mm t")
+    Private VarBookingDate As String = DateTime.Now.ToString("yyyy/MM/dd")
+    Private VarBookingTimeAppo As String = DateTime.Now.ToString("hh:mm tt")
 
-    Private VarFromDate As DateTime = DateTime.Now.ToString("yyyy/MM/dd")
+    Private AppoinScheFromTime As String = DateTime.Now.ToString("hh:mm t")
+    Private AppoinScheToTime As String = DateTime.Now.ToString("hh:mm t")
+
+    Private VarFromDate As String = DateTime.Now.ToString("yyyy/MM/dd")
     Private VarMounth As Integer = 1
-    Private VarToDate As DateTime = DateTime.Now.ToString("yyyy/MM/dd")
+    Private VarToDate As String = DateTime.Now.ToString("yyyy/MM/dd")
 
     Private Sub SetDataSRC()
         VarBooking_DT.Columns.Add("BookingID")
@@ -38,6 +39,7 @@ Public Class frmBookingInquiries
         VarBooking_DT.Columns.Add("BookingDate")
         VarBooking_DT.Columns.Add("BookingTime")
         VarBooking_DT.Columns.Add("PatientType")
+        VarBooking_DT.Columns.Add("ExamID01")
 
 
 
@@ -141,6 +143,9 @@ Public Class frmBookingInquiries
                                               ,CONCAT([EmpFirstName],' ',[EmpFathName],' ',[EmpGranFathName],' ',[EmpSurName]) as EmpName
                                           FROM [tbEmploye]
                                           Where [EmployeStatus]=1"
+    Private sQLExam As String = "SELECT [ItemExaminID1]
+                                  FROM [clinic].[dbo].[tbEmploye]
+                                  Where [EmployeStatus]=1 AND [EmployeID]=@EmployeID"
 #End Region
 #Region "Function"
     Private Sub MYSP_Show()
@@ -162,6 +167,7 @@ Public Class frmBookingInquiries
         Me.GroupBox3.Enabled = True
         Me.GroupBox4.Enabled = True
     End Sub
+
 #End Region
 #Region "Load"
     Private Sub BGW_Load_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGW_Load.DoWork
@@ -170,6 +176,8 @@ Public Class frmBookingInquiries
                 VarBGW_Status = False
             Else
                 MyVarDT_Employe.Clear()
+                VarAppoinSche_DT.Clear()
+
                 Call XCLS.MyCodes_Fill_DataTable(sQLEmploye, MyVarDT_Employe)
                 Call XCLS.MyCodes_Fill_DataTable(sQLClinc, VarClinc_DT)
                 Call XCLS.MyCodes_Fill_DataTable(sQLAppoinSche, VarAppoinSche_DT)
@@ -186,12 +194,13 @@ Public Class frmBookingInquiries
 
     Private Sub BGW_Load_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BGW_Load.RunWorkerCompleted
         If VarBGW_Status = True Then
+
             Call XCLS.MyCodes_CmbFill(cmbDoctor, MyVarDT_Employe, "EmpName", "EmployeID")
             Call XCLS.MyCodes_CmbFill(cmbClinc, VarClinc_DT, "ClinicName", "ClinicID")
             Call XCLS.MyCodes_Fill_Dgv(dgvDoctorsAppointmentSchedule, lblCountAppoin, VarAppoinSche_DT, MyVarDV_AppoinSche)
 
             VarToDate = dtpFromDate.Value.AddMonths(VarMounth)
-            dtpToDate.Value = VarToDate.ToString("yyyy/MM/dd")
+            dtpToDate.Value = VarToDate.ToString
 
             For i As Integer = 0 To 6
                 cmbDay.Items.Add(DateTime.Now.AddDays(i).ToString("dddd"))
@@ -206,7 +215,7 @@ Public Class frmBookingInquiries
             lblDateTime.Text = VarDateTimeNow
         End If
         Call MYSP_Hide()
-
+        'SetDataSRC()
     End Sub
     Private Sub frmBookingInquiries_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SetDataSRC()
@@ -250,7 +259,7 @@ Public Class frmBookingInquiries
     End Sub
 
     Private Sub btnBooking_Click(sender As Object, e As EventArgs) Handles btnBooking.Click
-        Dim NowDate As Date = DateTime.Now.ToString("yyyy/MM/dd")
+        Dim NowDate As String = DateTime.Now.ToString("yyyy/MM/dd")
         VarAppoinScheID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(0).Value
         VarClinicID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(1).Value
         VarEmpoleeID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item("DoctorI").Value
@@ -259,7 +268,7 @@ Public Class frmBookingInquiries
         VarDayCulome = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item("Day").Value
         VarDay = Me.dtpBookingDate.Value.ToString("dddd")
         VarBookingTimeAppo = Me.dtpBookingHours.Value.ToString("t")
-        VarBookingDate = Me.dtpBookingDate.Value
+        VarBookingDate = Me.dtpBookingDate.Value.ToString("yyyy/MM/dd")
         VarP_Fname = Me.txtFirstName.Text
         VarP_Fathname = Me.txtFatherName.Text
         VarP_Gname = Me.txtGrandFatherName.Text
@@ -268,6 +277,9 @@ Public Class frmBookingInquiries
         VarFileNo = Me.txtFileNo.Text
         'VarBookingTimeAppo = Me.dtpBookingHours.Value
         VarP_FullName = VarP_Fname & " " & VarP_Fathname & " " & VarP_Gname & " " & VarP_Sname
+
+
+        ExamID = XCLS.GetItemExaminID(VarEmpoleeID)
 
         Select Case VarPatientType
             Case Me.rbShelterCase.Checked
@@ -281,26 +293,28 @@ Public Class frmBookingInquiries
         Dim nextRowNumber As Integer = VarBooking_DT.Rows.Count + 1
 
         'If VarDay = VarDayCulome Then
-        If NowDate < VarBookingDate Then
+        If NowDate >= VarBookingDate Then
 
             Dim row As DataRow = VarBooking_DT.NewRow
 
             row("BookingID") = nextRowNumber
             row("BooClincName") = VarClincName
-                row("PatientName") = VarP_FullName
-                row("BookingDay") = VarDay
-                row("BookingDate") = VarBookingDate
-                row("BookingTime") = VarBookingTimeAppo
-                row("PatientType") = VarPatientTypeValue
-                VarBooking_DT.Rows.Add(row)
-            Else
-                MsgBox("التاريخ المحدد اقدم من التاريخ الحالي ")
+            row("PatientName") = VarP_FullName
+            row("BookingDay") = VarDay
+            row("BookingDate") = VarBookingDate
+            row("BookingTime") = VarBookingTimeAppo
+            row("PatientType") = VarPatientTypeValue
+            row("ExamID01") = ExamID
+
+            VarBooking_DT.Rows.Add(row)
+        Else
+            MsgBox("التاريخ المحدد اقدم من التاريخ الحالي ")
             End If
         'Else
         '    MsgBox("يرجي تحديد اليوم ")
         '    Exit Sub
         'End If
-
+        BGW_Load.RunWorkerAsync()
 
     End Sub
 #End Region

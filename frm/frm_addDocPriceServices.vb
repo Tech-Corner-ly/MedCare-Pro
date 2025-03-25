@@ -3,6 +3,7 @@ Public Class frm_addDocPriceServices
     Dim ad As New SqlDataAdapter
     Dim cmd As New SqlCommand
     Dim dt As New DataTable
+    Private MyVarDT_Employe As DataTable = New DataTable
 
     Private VarDocPriceServicesStatus As Integer
     Private VarDocPriceServicesID As Integer
@@ -12,6 +13,11 @@ Public Class frm_addDocPriceServices
     Private sqlDocPriceServices As String = "SELECT DocPriceServicesID FROM tbDocPriceServices Where DocPriceServicesStatus=1"
     Private sQLDoctor As String = "SELECT DocterID ,DocterName FROM tbDoctors Where DocterStatus=1"
     Private sQLDocServices As String = "SELECT tbDocServicesID,tbDocServicesName FROM tbDocServices Where tbDocServicesStatus=1"
+
+    Private sQLEmploye As String = "SELECT [EmployeID],CONCAT([EmpFirstName],' ',[EmpFathName],' ',[EmpGranFathName],' ',[EmpSurName]) as EmpName
+                                     FROM [tbEmploye]
+                                     Where [EmployeStatus]=1
+                                     AND [AdjectiveID]='طبي'"
 
     Private Sub MYSP_Show()
         Me.Timer1.Start()
