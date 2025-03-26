@@ -167,62 +167,21 @@ Public Class frmBookingInquiries
         Me.GroupBox3.Enabled = True
         Me.GroupBox4.Enabled = True
     End Sub
+    Private Sub Clear()
+        Me.cmbClinc.ResetText()
+        Me.cmbDay.ResetText()
+        Me.cmbDoctor.ResetText()
+        Me.txtFatherName.Clear()
+        Me.txtFileNo.Clear()
+        Me.txtFirstName.Clear()
+        Me.txtGrandFatherName.Clear()
+        Me.txtPhone.Clear()
+        Me.txtSurename.Clear()
 
+
+    End Sub
 #End Region
-#Region "Load"
-    Private Sub BGW_Load_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGW_Load.DoWork
-        Try
-            If CheckConn() = False Then
-                VarBGW_Status = False
-            Else
-                MyVarDT_Employe.Clear()
-                VarAppoinSche_DT.Clear()
-
-                Call XCLS.MyCodes_Fill_DataTable(sQLEmploye, MyVarDT_Employe)
-                Call XCLS.MyCodes_Fill_DataTable(sQLClinc, VarClinc_DT)
-                Call XCLS.MyCodes_Fill_DataTable(sQLAppoinSche, VarAppoinSche_DT)
-                VarBGW_Status = True
-            End If
-        Catch ex As Exception
-            VarBGW_Status = False
-            MsgBox(ex.Message)
-        Finally
-            sQlConnection.Close()
-        End Try
-
-    End Sub
-
-    Private Sub BGW_Load_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BGW_Load.RunWorkerCompleted
-        If VarBGW_Status = True Then
-
-            Call XCLS.MyCodes_CmbFill(cmbDoctor, MyVarDT_Employe, "EmpName", "EmployeID")
-            Call XCLS.MyCodes_CmbFill(cmbClinc, VarClinc_DT, "ClinicName", "ClinicID")
-            Call XCLS.MyCodes_Fill_Dgv(dgvDoctorsAppointmentSchedule, lblCountAppoin, VarAppoinSche_DT, MyVarDV_AppoinSche)
-
-            VarToDate = dtpFromDate.Value.AddMonths(VarMounth)
-            dtpToDate.Value = VarToDate.ToString
-
-            For i As Integer = 0 To 6
-                cmbDay.Items.Add(DateTime.Now.AddDays(i).ToString("dddd"))
-            Next
-
-            Me.cmbDoctor.SelectedIndex = -1
-            Me.cmbDay.SelectedIndex = -1
-            Me.cmbClinc.SelectedIndex = -1
-            'Me.dtpBookingDate.MinDate = DateTime.Now
-
-            lblUsername.Text = VarUserName
-            lblDateTime.Text = VarDateTimeNow
-        End If
-        Call MYSP_Hide()
-        'SetDataSRC()
-    End Sub
-    Private Sub frmBookingInquiries_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        SetDataSRC()
-        Call MYSP_Show()
-        BGW_Load.RunWorkerAsync()
-    End Sub
-
+#Region "ComboBox"
     Private Sub cmbClinc_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbClinc.SelectionChangeCommitted
         Try
             Dim xClinc As Integer = Me.cmbClinc.SelectedValue
@@ -245,7 +204,6 @@ Public Class frmBookingInquiries
             MsgBox(Me_MsgErrorStr + vbNewLine + vbNewLine + ex.Message, Me_MsgInfoStyle, Me_MsgCaptionStr)
         End Try
     End Sub
-
     Private Sub cmbDay_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cmbDay.SelectionChangeCommitted
         Try
             Dim xDoctorID As String = Me.cmbDay.SelectedItem
@@ -257,12 +215,13 @@ Public Class frmBookingInquiries
             MsgBox(Me_MsgErrorStr + vbNewLine + vbNewLine + ex.Message, Me_MsgInfoStyle, Me_MsgCaptionStr)
         End Try
     End Sub
-
+#End Region
+#Region "btnBooking"
     Private Sub btnBooking_Click(sender As Object, e As EventArgs) Handles btnBooking.Click
         Dim NowDate As String = DateTime.Now.ToString("yyyy/MM/dd")
         VarAppoinScheID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(0).Value
         VarClinicID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(1).Value
-        VarEmpoleeID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item("DoctorI").Value
+        VarEmpoleeID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(2).Value
         VarClincName = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(4).Value
         VarEmpoleeName = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(5).Value
         VarDayCulome = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item("Day").Value
@@ -309,14 +268,69 @@ Public Class frmBookingInquiries
             VarBooking_DT.Rows.Add(row)
         Else
             MsgBox("التاريخ المحدد اقدم من التاريخ الحالي ")
-            End If
+        End If
         'Else
         '    MsgBox("يرجي تحديد اليوم ")
         '    Exit Sub
         'End If
-        BGW_Load.RunWorkerAsync()
+        'BGW_Load.RunWorkerAsync()
+        Clear()
 
     End Sub
-#End Region
 
+#End Region
+#Region "Load"
+    Private Sub BGW_Load_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BGW_Load.DoWork
+        Try
+            If CheckConn() = False Then
+                VarBGW_Status = False
+            Else
+                MyVarDT_Employe.Clear()
+                VarAppoinSche_DT.Clear()
+
+                Call XCLS.MyCodes_Fill_DataTable(sQLEmploye, MyVarDT_Employe)
+                Call XCLS.MyCodes_Fill_DataTable(sQLClinc, VarClinc_DT)
+                Call XCLS.MyCodes_Fill_DataTable(sQLAppoinSche, VarAppoinSche_DT)
+                VarBGW_Status = True
+            End If
+        Catch ex As Exception
+            VarBGW_Status = False
+            MsgBox(ex.Message)
+        Finally
+            sQlConnection.Close()
+        End Try
+
+    End Sub
+    Private Sub BGW_Load_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BGW_Load.RunWorkerCompleted
+        If VarBGW_Status = True Then
+
+            Call XCLS.MyCodes_CmbFill(cmbDoctor, MyVarDT_Employe, "EmpName", "EmployeID")
+            Call XCLS.MyCodes_CmbFill(cmbClinc, VarClinc_DT, "ClinicName", "ClinicID")
+            Call XCLS.MyCodes_Fill_Dgv(dgvDoctorsAppointmentSchedule, lblCountAppoin, VarAppoinSche_DT, MyVarDV_AppoinSche)
+
+            VarToDate = dtpFromDate.Value.AddMonths(VarMounth)
+            dtpToDate.Value = VarToDate.ToString
+
+            For i As Integer = 0 To 6
+                cmbDay.Items.Add(DateTime.Now.AddDays(i).ToString("dddd"))
+            Next
+
+            Me.cmbDoctor.SelectedIndex = -1
+            Me.cmbDay.SelectedIndex = -1
+            Me.cmbClinc.SelectedIndex = -1
+            'Me.dtpBookingDate.MinDate = DateTime.Now
+
+            lblUsername.Text = VarUserName
+            lblDateTime.Text = VarDateTimeNow
+        End If
+        Call MYSP_Hide()
+        'SetDataSRC()
+    End Sub
+    Private Sub frmBookingInquiries_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        SetDataSRC()
+        Call MYSP_Show()
+        BGW_Load.RunWorkerAsync()
+    End Sub
+
+#End Region
 End Class
