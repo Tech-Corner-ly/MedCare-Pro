@@ -218,10 +218,11 @@ Public Class frmBookingInquiries
 #End Region
 #Region "btnBooking"
     Private Sub btnBooking_Click(sender As Object, e As EventArgs) Handles btnBooking.Click
+
         Dim NowDate As String = DateTime.Now.ToString("yyyy/MM/dd")
         VarAppoinScheID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(0).Value
         VarClinicID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(1).Value
-        VarEmpoleeID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(2).Value
+        VarEmpoleeID = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item("DoctorI").Value
         VarClincName = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(4).Value
         VarEmpoleeName = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item(5).Value
         VarDayCulome = Me.dgvDoctorsAppointmentSchedule.CurrentRow.Cells.Item("Day").Value
@@ -238,7 +239,7 @@ Public Class frmBookingInquiries
         VarP_FullName = VarP_Fname & " " & VarP_Fathname & " " & VarP_Gname & " " & VarP_Sname
 
 
-        ExamID = XCLS.GetItemExaminID(VarEmpoleeID)
+        'ExamID = XCLS.GetItemExaminID(VarEmpoleeID)
 
         Select Case VarPatientType
             Case Me.rbShelterCase.Checked
