@@ -9,7 +9,6 @@ Public Class ClsMain
     End Sub
 
     Public Sub MyCodes_Fill_Dgv(ByVal xDgv As DataGridView, ByVal xLbl As ToolStripStatusLabel, ByVal xDt As DataTable, ByVal xDv As DataView)
-
         xDv = xDt.DefaultView
         xDv.RowFilter = MyPubVar_Filter
         xDgv.DataSource = xDv
@@ -28,17 +27,13 @@ Public Class ClsMain
         xLevel = xDt.Rows.Item(0).Item("Level")
     End Sub
     Public Sub MyCode_Fill_DS(ByVal xTxt As TextBox, ByVal xDT As DataTable, ByVal xColum As String, ByVal xDS As AutoCompleteStringCollection)
-
         For i As Integer = 0 To xDT.Rows.Count - 1
             xDS.Add(xDT.Rows(i)(xColum))
         Next
         xTxt.AutoCompleteCustomSource = xDS
         xTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend
         xTxt.AutoCompleteSource = AutoCompleteSource.CustomSource
-
     End Sub
-
-
     Public Sub MyCodes_CboFill_CatgeroyFather(ByVal xCbo As ComboBox, ByVal xDt As DataTable, ByVal xDm As String, ByVal xVm As String)
         xCbo.DataSource = xDt
         xCbo.DisplayMember = xDm
