@@ -209,6 +209,7 @@
     <Compile Include="frm\Warehouses\frmWarehouses.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Module\md_function.vb" />
     <Compile Include="Module\myVarPub.vb" />
     <Compile Include="frm\frm_addDocPriceServices.Designer.vb">
       <DependentUpon>frm_addDocPriceServices.vb</DependentUpon>

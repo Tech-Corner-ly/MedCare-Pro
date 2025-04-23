@@ -43,6 +43,7 @@ Public Class frmBookingInquiries
 
 
 
+
         dgvBookingInquiries.DataSource = VarBooking_DT
     End Sub
 
@@ -266,10 +267,31 @@ Public Class frmBookingInquiries
             row("PatientType") = VarPatientTypeValue
             row("ExamID01") = ExamID
 
+
             VarBooking_DT.Rows.Add(row)
         Else
             MsgBox("التاريخ المحدد اقدم من التاريخ الحالي ")
         End If
+
+        Try
+            Dim Cmd As New SqlCommand(sQLExam, sQlConnection)
+            With Cmd
+                .Parameters.Clear()
+                .Parameters.AddWithValue("@EmployeID", SqlDbType.Int).Value = VarEmpoleeID
+            End With
+            If sQlConnection.State = 1 Then sQlConnection.Close()
+            sQlConnection.Open()
+
+            Dim ExamID = Cmd.ExecuteScalar()
+            If ExamID IsNot Nothing Then
+                ExamID = Convert.ToInt32(ExamID)
+            End If
+            sQlConnection.Close()
+            Cmd = Nothing
+            Label14.Text = ExamID
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
         'Else
         '    MsgBox("يرجي تحديد اليوم ")
         '    Exit Sub

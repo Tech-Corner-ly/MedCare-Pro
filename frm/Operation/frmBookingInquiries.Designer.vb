@@ -58,6 +58,20 @@ Partial Class frmBookingInquiries
         Me.cmbClinc = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvBookingInquiries = New System.Windows.Forms.DataGridView()
+        Me.BookingID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ExamID01 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingDay = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PatientType = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FileNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PatientName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingType = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookingATT = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PaymentStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BooClincName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BooClincID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BooEmpoleeID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.csOpenFile = New System.Windows.Forms.ToolStripMenuItem()
         Me.csConfirmAttend = New System.Windows.Forms.ToolStripMenuItem()
@@ -105,20 +119,6 @@ Partial Class frmBookingInquiries
         Me.txtFatherName = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtFirstName = New System.Windows.Forms.TextBox()
-        Me.BookingID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ExamID01 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookingDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookingTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookingDay = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PatientType = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FileNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PatientName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookingType = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookingATT = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PaymentStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BooClincName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BooClincID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BooEmpoleeID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StatusStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -143,7 +143,7 @@ Partial Class frmBookingInquiries
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.lblUsername, Me.ToolStripStatusLabel3, Me.lblDateTime, Me.PB, Me.ToolStripStatusLabel2, Me.lblBookingCount, Me.ToolStripStatusLabel4, Me.lblCountAppoin})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 776)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 641)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(1234, 22)
         Me.StatusStrip1.TabIndex = 32
@@ -385,8 +385,123 @@ Partial Class frmBookingInquiries
         Me.dgvBookingInquiries.Name = "dgvBookingInquiries"
         Me.dgvBookingInquiries.ReadOnly = True
         Me.dgvBookingInquiries.RowHeadersVisible = False
-        Me.dgvBookingInquiries.Size = New System.Drawing.Size(1210, 370)
+        Me.dgvBookingInquiries.Size = New System.Drawing.Size(1210, 230)
         Me.dgvBookingInquiries.TabIndex = 45
+        '
+        'BookingID
+        '
+        Me.BookingID.DataPropertyName = "BookingID"
+        Me.BookingID.FillWeight = 80.0!
+        Me.BookingID.HeaderText = "رفم الحجز"
+        Me.BookingID.Name = "BookingID"
+        Me.BookingID.ReadOnly = True
+        '
+        'ExamID01
+        '
+        Me.ExamID01.DataPropertyName = "ExamID01"
+        Me.ExamID01.HeaderText = "ExamID01"
+        Me.ExamID01.Name = "ExamID01"
+        Me.ExamID01.ReadOnly = True
+        Me.ExamID01.Visible = False
+        '
+        'BookingDate
+        '
+        Me.BookingDate.DataPropertyName = "BookingDate"
+        DataGridViewCellStyle1.Format = "yyyy/MM/dd"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.BookingDate.DefaultCellStyle = DataGridViewCellStyle1
+        Me.BookingDate.HeaderText = "التاريخ"
+        Me.BookingDate.Name = "BookingDate"
+        Me.BookingDate.ReadOnly = True
+        '
+        'BookingTime
+        '
+        Me.BookingTime.DataPropertyName = "BookingTime"
+        DataGridViewCellStyle2.Format = "hh:mm:ss tt"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.BookingTime.DefaultCellStyle = DataGridViewCellStyle2
+        Me.BookingTime.FillWeight = 60.0!
+        Me.BookingTime.HeaderText = "الساعة"
+        Me.BookingTime.Name = "BookingTime"
+        Me.BookingTime.ReadOnly = True
+        '
+        'BookingDay
+        '
+        Me.BookingDay.DataPropertyName = "BookingDay"
+        Me.BookingDay.FillWeight = 60.0!
+        Me.BookingDay.HeaderText = "اليوم"
+        Me.BookingDay.Name = "BookingDay"
+        Me.BookingDay.ReadOnly = True
+        '
+        'PatientType
+        '
+        Me.PatientType.DataPropertyName = "PatientType"
+        Me.PatientType.HeaderText = "نوع الحالة "
+        Me.PatientType.Name = "PatientType"
+        Me.PatientType.ReadOnly = True
+        '
+        'FileNo
+        '
+        Me.FileNo.DataPropertyName = "FileNo"
+        Me.FileNo.FillWeight = 80.0!
+        Me.FileNo.HeaderText = "رقم الملف"
+        Me.FileNo.Name = "FileNo"
+        Me.FileNo.ReadOnly = True
+        '
+        'PatientName
+        '
+        Me.PatientName.DataPropertyName = "PatientName"
+        Me.PatientName.FillWeight = 250.0!
+        Me.PatientName.HeaderText = "اسم الحالة"
+        Me.PatientName.Name = "PatientName"
+        Me.PatientName.ReadOnly = True
+        '
+        'BookingType
+        '
+        Me.BookingType.DataPropertyName = "BookingType"
+        Me.BookingType.FillWeight = 80.0!
+        Me.BookingType.HeaderText = "نوع الحجز"
+        Me.BookingType.Name = "BookingType"
+        Me.BookingType.ReadOnly = True
+        '
+        'BookingATT
+        '
+        Me.BookingATT.DataPropertyName = "BookingATT"
+        Me.BookingATT.FillWeight = 70.0!
+        Me.BookingATT.HeaderText = "الحضور"
+        Me.BookingATT.Name = "BookingATT"
+        Me.BookingATT.ReadOnly = True
+        '
+        'PaymentStatus
+        '
+        Me.PaymentStatus.DataPropertyName = "PaymentStatus"
+        Me.PaymentStatus.FillWeight = 50.0!
+        Me.PaymentStatus.HeaderText = "السداد"
+        Me.PaymentStatus.Name = "PaymentStatus"
+        Me.PaymentStatus.ReadOnly = True
+        '
+        'BooClincName
+        '
+        Me.BooClincName.DataPropertyName = "BooClincName"
+        Me.BooClincName.HeaderText = "العيادة"
+        Me.BooClincName.Name = "BooClincName"
+        Me.BooClincName.ReadOnly = True
+        '
+        'BooClincID
+        '
+        Me.BooClincID.DataPropertyName = "BooClincID"
+        Me.BooClincID.HeaderText = "BooClincID"
+        Me.BooClincID.Name = "BooClincID"
+        Me.BooClincID.ReadOnly = True
+        Me.BooClincID.Visible = False
+        '
+        'BooEmpoleeID
+        '
+        Me.BooEmpoleeID.DataPropertyName = "BooEmpoleeID"
+        Me.BooEmpoleeID.HeaderText = "BooEmpoleeID"
+        Me.BooEmpoleeID.Name = "BooEmpoleeID"
+        Me.BooEmpoleeID.ReadOnly = True
+        Me.BooEmpoleeID.Visible = False
         '
         'ContextMenuStrip1
         '
@@ -831,126 +946,11 @@ Partial Class frmBookingInquiries
         Me.txtFirstName.Size = New System.Drawing.Size(150, 22)
         Me.txtFirstName.TabIndex = 66
         '
-        'BookingID
-        '
-        Me.BookingID.DataPropertyName = "BookingID"
-        Me.BookingID.FillWeight = 80.0!
-        Me.BookingID.HeaderText = "رفم الحجز"
-        Me.BookingID.Name = "BookingID"
-        Me.BookingID.ReadOnly = True
-        '
-        'ExamID01
-        '
-        Me.ExamID01.DataPropertyName = "ExamID01"
-        Me.ExamID01.HeaderText = "ExamID01"
-        Me.ExamID01.Name = "ExamID01"
-        Me.ExamID01.ReadOnly = True
-        Me.ExamID01.Visible = False
-        '
-        'BookingDate
-        '
-        Me.BookingDate.DataPropertyName = "BookingDate"
-        DataGridViewCellStyle1.Format = "yyyy/MM/dd"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.BookingDate.DefaultCellStyle = DataGridViewCellStyle1
-        Me.BookingDate.HeaderText = "التاريخ"
-        Me.BookingDate.Name = "BookingDate"
-        Me.BookingDate.ReadOnly = True
-        '
-        'BookingTime
-        '
-        Me.BookingTime.DataPropertyName = "BookingTime"
-        DataGridViewCellStyle2.Format = "hh:mm:ss tt"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.BookingTime.DefaultCellStyle = DataGridViewCellStyle2
-        Me.BookingTime.FillWeight = 60.0!
-        Me.BookingTime.HeaderText = "الساعة"
-        Me.BookingTime.Name = "BookingTime"
-        Me.BookingTime.ReadOnly = True
-        '
-        'BookingDay
-        '
-        Me.BookingDay.DataPropertyName = "BookingDay"
-        Me.BookingDay.FillWeight = 60.0!
-        Me.BookingDay.HeaderText = "اليوم"
-        Me.BookingDay.Name = "BookingDay"
-        Me.BookingDay.ReadOnly = True
-        '
-        'PatientType
-        '
-        Me.PatientType.DataPropertyName = "PatientType"
-        Me.PatientType.HeaderText = "نوع الحالة "
-        Me.PatientType.Name = "PatientType"
-        Me.PatientType.ReadOnly = True
-        '
-        'FileNo
-        '
-        Me.FileNo.DataPropertyName = "FileNo"
-        Me.FileNo.FillWeight = 80.0!
-        Me.FileNo.HeaderText = "رقم الملف"
-        Me.FileNo.Name = "FileNo"
-        Me.FileNo.ReadOnly = True
-        '
-        'PatientName
-        '
-        Me.PatientName.DataPropertyName = "PatientName"
-        Me.PatientName.FillWeight = 250.0!
-        Me.PatientName.HeaderText = "اسم الحالة"
-        Me.PatientName.Name = "PatientName"
-        Me.PatientName.ReadOnly = True
-        '
-        'BookingType
-        '
-        Me.BookingType.DataPropertyName = "BookingType"
-        Me.BookingType.FillWeight = 80.0!
-        Me.BookingType.HeaderText = "نوع الحجز"
-        Me.BookingType.Name = "BookingType"
-        Me.BookingType.ReadOnly = True
-        '
-        'BookingATT
-        '
-        Me.BookingATT.DataPropertyName = "BookingATT"
-        Me.BookingATT.FillWeight = 70.0!
-        Me.BookingATT.HeaderText = "الحضور"
-        Me.BookingATT.Name = "BookingATT"
-        Me.BookingATT.ReadOnly = True
-        '
-        'PaymentStatus
-        '
-        Me.PaymentStatus.DataPropertyName = "PaymentStatus"
-        Me.PaymentStatus.FillWeight = 50.0!
-        Me.PaymentStatus.HeaderText = "السداد"
-        Me.PaymentStatus.Name = "PaymentStatus"
-        Me.PaymentStatus.ReadOnly = True
-        '
-        'BooClincName
-        '
-        Me.BooClincName.DataPropertyName = "BooClincName"
-        Me.BooClincName.HeaderText = "العيادة"
-        Me.BooClincName.Name = "BooClincName"
-        Me.BooClincName.ReadOnly = True
-        '
-        'BooClincID
-        '
-        Me.BooClincID.DataPropertyName = "BooClincID"
-        Me.BooClincID.HeaderText = "BooClincID"
-        Me.BooClincID.Name = "BooClincID"
-        Me.BooClincID.ReadOnly = True
-        Me.BooClincID.Visible = False
-        '
-        'BooEmpoleeID
-        '
-        Me.BooEmpoleeID.DataPropertyName = "BooEmpoleeID"
-        Me.BooEmpoleeID.HeaderText = "BooEmpoleeID"
-        Me.BooEmpoleeID.Name = "BooEmpoleeID"
-        Me.BooEmpoleeID.ReadOnly = True
-        Me.BooEmpoleeID.Visible = False
-        '
         'frmBookingInquiries
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1234, 798)
+        Me.ClientSize = New System.Drawing.Size(1234, 663)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
