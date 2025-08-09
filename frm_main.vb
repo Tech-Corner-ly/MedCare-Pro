@@ -39,7 +39,7 @@ Public Class frm_main
     End Sub
 
     Private Sub msReceipt_Click(sender As Object, e As EventArgs) Handles msReceipt.Click
-        frm_Clinic.Show()
+
     End Sub
 
     Private Sub msBillStatment_Click(sender As Object, e As EventArgs) Handles msBillStatment.Click
